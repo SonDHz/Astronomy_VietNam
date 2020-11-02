@@ -8,6 +8,16 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String index() {
-		return "admin/index";
+		return "admin/dashboard";
+	}
+	
+	@RequestMapping("/account")
+	public String Account() {
+		return "admin/account_manager";
+	}
+	
+	@RequestMapping("/manufacturer")
+	public String Manufacturer() {
+		return "admin/manufacturer_manager";
 	}
 }
