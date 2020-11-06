@@ -44,4 +44,22 @@ public class UserMapper {
 				.modifyBy(user.getModifyBy())
 				.build();
 	}
+	
+	public UserEntity toSensor(UserCreateModifyDTO dto, final UserEntity user) {
+		return UserEntity.builder()
+				.username(dto.getUsername())
+				.password(dto.getPassword())
+				.fullName(dto.getFullName())
+				.email(dto.getEmail())
+				.phoneNumber(dto.getPhoneNumber())
+				.address(dto.getAddress())
+				.gender(dto.getGender())
+				.birthday(dto.getBirthday())
+				.avatar(dto.getAvatar())
+				.status(dto.getStatus())
+				.createBy(dto.getCreateBy())
+				.modifyBy(dto.getModifyBy())
+				.build();
+		
+	}
 }
