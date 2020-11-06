@@ -17,5 +17,4 @@ public class UserEntityService implements IUserService{
 	public UserEntity create(UserEntity userEntity) {
 		return userRepository.save(userEntity); // 1. id == null create / 2. update 
 	}
-	
 }
