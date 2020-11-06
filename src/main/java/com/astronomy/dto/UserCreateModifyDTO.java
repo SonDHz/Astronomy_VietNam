@@ -2,7 +2,6 @@ package com.astronomy.dto;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,9 +16,7 @@ import lombok.ToString;
 @Builder
 @ToString
 public class UserCreateModifyDTO implements Serializable{
-	
 	private static final long serialVersionUID = 1L;
-	
 	private Long id;
 	private String username;
 	private String password;

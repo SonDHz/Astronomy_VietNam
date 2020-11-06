@@ -18,8 +18,7 @@ import com.astronomy.entity.UserEntity;
 import com.astronomy.mapper.UserMapper;
 
 @RestController
-public class UserAPI { 
-	 
+public class UserAPI {
 	@Autowired
 	private UserMapper userMapper;
 	

@@ -50,7 +50,7 @@ public class ProductEntity {
 	@Column(name = "quantity")
 	private String quantity;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY) // ,cascade = {CascadeType.PERSIST}
 	@JoinColumn(name = "productcategory_id")
 	private ProductCategory productCategory;
 	
