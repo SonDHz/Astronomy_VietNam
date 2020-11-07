@@ -46,7 +46,7 @@ public class OrderDetailEntity {
 	private Integer quantity;
 	
 	@OneToMany(mappedBy = "orderDetail")
-	List<ProductEntity> products = new ArrayList<>();
+	private List<ProductEntity> products = new ArrayList<>();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "order_id")

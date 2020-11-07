@@ -84,4 +84,6 @@ public class UserEntity implements Serializable{
 																				// userid
 			inverseJoinColumns = @JoinColumn(name = "roleid"))
 	private List<RoleEntity> roles = new ArrayList<RoleEntity>();
+
+	
 }
