@@ -16,9 +16,7 @@ import lombok.ToString;
 @Builder
 @ToString
 public class UserCreateModifyDTO implements Serializable{
-	
 	private static final long serialVersionUID = 1L;
-	
 	private Long id;
 	private String username;
 	private String password;
