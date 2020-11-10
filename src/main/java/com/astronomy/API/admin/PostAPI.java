@@ -24,7 +24,7 @@ public class PostAPI {
 	private PostMapper postMapper;
 
 	@Autowired
-	private PostService postService;
+	private PostService postService;																							
 
 	@GetMapping("api/post")
 	public List<PostEntity> getAll() {

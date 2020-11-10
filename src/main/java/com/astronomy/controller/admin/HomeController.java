@@ -11,13 +11,54 @@ public class HomeController {
 		return "admin/dashboard";
 	}
 	
-	@RequestMapping("/account")
+	@RequestMapping("/employee")
 	public String Account() {
-		return "admin/account_manager";
+		return "admin/employee_manager";
+	}
+	
+	@RequestMapping("/customer")
+	public String Customer() {
+		return "admin/customer_manager";
+	}
+	
+	@RequestMapping("/category")
+	public String Category() {
+		return "admin/category_manager";
+	}
+	
+	@RequestMapping("/post")
+	public String Post() {
+		return "admin/post_manager";
+	}
+	
+	@RequestMapping("/product")
+	public String Product() {
+		return "admin/product_manager";
+	}
+	
+	@RequestMapping("/productCategory")
+	public String ProductCategory() {
+		return "admin/product_category_manager";
 	}
 	
 	@RequestMapping("/manufacturer")
 	public String Manufacturer() {
 		return "admin/manufacturer_manager";
 	}
+	
+	@RequestMapping("/postCategory")
+	public String PostCategory() {
+		return "admin/post_category_manager";
+	}
+	
+	@RequestMapping("/order")
+	public String Order() {
+		return "admin/order_manager";
+	}
+	
+	@RequestMapping("/oderDetail")
+	public String OderDetail() {
+		return "admin/order_detail_manager";
+	}
+	
 }
