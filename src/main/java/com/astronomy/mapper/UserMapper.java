@@ -29,7 +29,7 @@ public class UserMapper {
 	
 	public UserCreateModifyDTO toUserResponserDTO(UserEntity user) {
 		return UserCreateModifyDTO.builder()
-				.id(user.getId() != null ? user.getId() : null)
+				.id(user.getId())
 				.username(user.getUsername())
 				.password(user.getPassword())
 				.fullName(user.getFullName())

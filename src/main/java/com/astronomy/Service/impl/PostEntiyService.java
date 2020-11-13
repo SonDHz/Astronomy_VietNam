@@ -14,17 +14,17 @@ public class PostEntiyService implements PostService{
 
 	@Autowired
 	private PostRepository postRepository;
-	
-	@Override
-	public PostEntity create(PostEntity postEntity) {	
-		return postRepository.save(postEntity);
-	}
 
 	@Override
 	public List<PostEntity> getAll() {
 		return postRepository.getAll();
 	}
-
+	
+	@Override
+	public PostEntity createModify(PostEntity postEntity) {
+		return postRepository.save(postEntity);
+	}
+	
 	@Override
 	public void delete(long[] ids) {
 		for(long item: ids) {

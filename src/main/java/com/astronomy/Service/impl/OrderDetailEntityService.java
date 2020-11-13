@@ -22,19 +22,14 @@ public class OrderDetailEntityService implements IOrderDetailService {
 	}
 	
 	@Override
-	public OrderDetailEntity create(OrderDetailEntity orderdetailEntity) {
-		return orderdetailRepository.save(orderdetailEntity); // 1. id == null create / 2. update 
-	}
-
-	@Override
-	public OrderDetailEntity update(OrderDetailEntity orderdetailEntity) {
+	public OrderDetailEntity createModify(OrderDetailEntity orderdetailEntity) {
 		return orderdetailRepository.save(orderdetailEntity);
 	}
 
 	@Override
 	public String delete(Long id) {
-		// TODO Auto-generated method stub
 		orderdetailRepository.deleteById(id);
 		return "Successful";
 	}
+
 }

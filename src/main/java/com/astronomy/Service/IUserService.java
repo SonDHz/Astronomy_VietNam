@@ -8,9 +8,8 @@ public interface IUserService {
 
 	List<UserEntity> getAllUser();
 
-	UserEntity create(UserEntity userEntity);
-
-	UserEntity Update(UserEntity userEntity);
+	UserEntity createModify(UserEntity userEntity);
 	
 	String delete(Long id);
+	
 }

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -50,7 +51,7 @@ public class ProductEntity {
 	@Column(name = "quantity")
 	private String quantity;
 
-	@ManyToOne(fetch = FetchType.LAZY) // ,cascade = {CascadeType.PERSIST}
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "productcategory_id")
 	private ProductCategory productCategory;
 	
@@ -61,4 +62,5 @@ public class ProductEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "orderdetail_id")
 	private OrderDetailEntity orderDetail;
+	
 }

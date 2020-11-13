@@ -18,36 +18,37 @@ import com.astronomy.mapper.OrderDetailMapper;
 
 @RestController
 public class OrderDetailAPI {
+
 	@Autowired
 	private OrderDetailMapper orderdetailMapper;
-	
+
 	@Autowired
 	private IOrderDetailService orderdetailService;
-	
-	@GetMapping(value ="/api/OrderDetail")
-	public List<OrderDetailEntity>getAll() {
+
+	@GetMapping(value = "/api/OrderDetail")
+	public List<OrderDetailEntity> getAll() {
 		return orderdetailService.getAll();
 	}
-	
-	
-	@PostMapping(value ="/api/OrderDetail")
-	public ResponseEntity<OrderDetailCreateModifyDTO> createOrderDetail(@RequestBody OrderDetailCreateModifyDTO dto){
+
+	@PostMapping(value = "/api/OrderDetail")
+	public ResponseEntity<OrderDetailCreateModifyDTO> createOrderDetail(@RequestBody OrderDetailCreateModifyDTO dto) {
 		OrderDetailEntity orderdetail = orderdetailMapper.toOrderDetail(dto);
-		System.out.println("=======> Oder: " + orderdetail);
-		return ResponseEntity.ok(orderdetailMapper.toOrderDetailResponserDTO(orderdetailService.create(orderdetail)));
+		return ResponseEntity
+				.ok(orderdetailMapper.toOrderDetailResponserDTO(orderdetailService.createModify(orderdetail)));
 	}
-	
-	@PutMapping(value ="/api/OrderDetail/{id}")
-	public ResponseEntity<OrderDetailCreateModifyDTO> updateOrderDetail(@RequestBody OrderDetailCreateModifyDTO dto, @PathVariable("id") long id){
+
+	@PutMapping(value = "/api/OrderDetail/{id}")
+	public ResponseEntity<OrderDetailCreateModifyDTO> updateOrderDetail(@RequestBody OrderDetailCreateModifyDTO dto,
+			@PathVariable("id") long id) {
 		dto.setId(id);
 		OrderDetailEntity orderdetail = orderdetailMapper.toOrderDetail(dto);
-		return ResponseEntity.ok(orderdetailMapper.toOrderDetailResponserDTO(orderdetailService.create(orderdetail)));
+		return ResponseEntity
+				.ok(orderdetailMapper.toOrderDetailResponserDTO(orderdetailService.createModify(orderdetail)));
 	}
-	
+
 	@DeleteMapping("/api/OrderDetail/{id}")
 	public String deleteOrderDetail(@PathVariable("id") long ids) {
 		return orderdetailService.delete(ids);
 	}
-	
-	
+
 }

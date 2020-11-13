@@ -18,7 +18,7 @@ public class ProductCategoryMapper {
 	}
 	public ProductCategoryCreateModifyDTO toProductCategoryResponserDTO(ProductCategory productCategory) {
 		return ProductCategoryCreateModifyDTO.builder()
-				.id(productCategory.getId() != null ? productCategory.getId() : null)
+				.id(productCategory.getId())
 				.name(productCategory.getName())
 				.code(productCategory.getCode())
 				.createBy(productCategory.getCreateBy())

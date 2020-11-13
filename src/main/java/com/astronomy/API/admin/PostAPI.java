@@ -24,7 +24,7 @@ public class PostAPI {
 	private PostMapper postMapper;
 
 	@Autowired
-	private PostService postService;																							
+	private PostService postService;
 
 	@GetMapping("api/post")
 	public List<PostEntity> getAll() {
@@ -34,18 +34,19 @@ public class PostAPI {
 	@PostMapping("api/post")
 	public ResponseEntity<PostCreateModifyDTO> createPost(@RequestBody PostCreateModifyDTO dto) {
 		PostEntity post = postMapper.toPost(dto);
-		return ResponseEntity.ok(postMapper.toPostCreateModifyDTO(postService.create(post)));
+		return ResponseEntity.ok(postMapper.toPostCreateModifyDTO(postService.createModify(post)));
 	}
 
 	@PutMapping("api/post/{id}")
 	public ResponseEntity<PostCreateModifyDTO> updatePost(@RequestBody PostCreateModifyDTO dto,
 			@PathVariable("id") long id) {
+
 		dto.setId(id);
 		PostEntity post = postMapper.toPost(dto);
-		return ResponseEntity.ok(postMapper.toPostCreateModifyDTO(postService.create(post)));
+		return ResponseEntity.ok(postMapper.toPostCreateModifyDTO(postService.createModify(post)));
 	}
-	
-	@DeleteMapping(value ="api/post")
+
+	@DeleteMapping(value = "api/post")
 	public void deletepost(@RequestBody long[] ids) {
 		postService.delete(ids);
 	}

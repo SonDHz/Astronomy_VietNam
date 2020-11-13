@@ -6,8 +6,11 @@ import com.astronomy.entity.OrderDetailEntity;
 
 
 public interface IOrderDetailService {
+	
 	List <OrderDetailEntity> getAll();
-	OrderDetailEntity create(OrderDetailEntity orderdetailEntity);
-	OrderDetailEntity update(OrderDetailEntity orderdetailEntity);
+	
+	OrderDetailEntity createModify(OrderDetailEntity orderdetailEntity);
+	
 	String delete (Long id);
+	
 }

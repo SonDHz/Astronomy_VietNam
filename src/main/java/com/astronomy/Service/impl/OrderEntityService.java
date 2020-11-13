@@ -21,19 +21,14 @@ public class OrderEntityService implements IOrderService {
 	}
 	
 	@Override
-	public OrderEntity create(OrderEntity orderEntity) {
-		return orderRepository.save(orderEntity); // 1. id == null create / 2. update 
-	}
-	
-	@Override
-	public OrderEntity update(OrderEntity orderEntity) {
+	public OrderEntity createModify(OrderEntity orderEntity) {
 		return orderRepository.save(orderEntity);
 	}
 	
 	@Override
 	public String delete(Long id) {
-		// TODO Auto-generated method stub
 		orderRepository.deleteById(id);
 		return "Successful";
 	}
+	
 }

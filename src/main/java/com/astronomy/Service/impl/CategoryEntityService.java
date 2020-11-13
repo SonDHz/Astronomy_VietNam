@@ -16,19 +16,20 @@ public class CategoryEntityService implements CategoryService{
 	private CategoryRepository categoryRepository;
 	
 	@Override
-	public CategoryEntity create(CategoryEntity categoryEntity) {	
-		return categoryRepository.save(categoryEntity);
-	}
-
-	@Override
 	public List<CategoryEntity> getAll() {
 		return categoryRepository.getAll();
 	}
-
+	
+	@Override
+	public CategoryEntity createModify(CategoryEntity categoryEntity) {
+		return categoryRepository.save(categoryEntity);
+	}
+	
 	@Override
 	public void delete(long[] ids) {
 		for(long item: ids) {
 			categoryRepository.deleteById(item);
 		}
 	}
+
 }

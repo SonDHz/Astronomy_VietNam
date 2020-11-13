@@ -19,14 +19,9 @@ public class UserEntityService implements IUserService {
 	public List<UserEntity> getAllUser() {
 		return userRepository.findAll();
 	}
-
+	
 	@Override
-	public UserEntity create(UserEntity userEntity) {
-		return userRepository.save(userEntity);
-	}
-
-	@Override
-	public UserEntity Update(UserEntity userEntity) {
+	public UserEntity createModify(UserEntity userEntity) {
 		return userRepository.save(userEntity);
 	}
 

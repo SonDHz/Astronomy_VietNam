@@ -19,7 +19,7 @@ public class CategoryMapper {
 	}
 	public CategoryCreateModifyDTO toCategoryCreateModifyDTO(CategoryEntity category) {
 		return CategoryCreateModifyDTO.builder()
-				.id(category.getId() != null ? category.getId() : null)
+				.id(category.getId())
 				.code(category.getCode())
 				.name(category.getName())
 				.createBy(category.getCreateBy())

@@ -21,12 +21,7 @@ public class RoleEntityService implements IRoleService{
 	}
 
 	@Override
-	public RoleEntity create(RoleEntity roleEntity) {
-		return roleRepository.save(roleEntity);
-	}
-
-	@Override
-	public RoleEntity Update(RoleEntity roleEntity) {
+	public RoleEntity createModify(RoleEntity roleEntity) {
 		return roleRepository.save(roleEntity);
 	}
 
@@ -35,5 +30,6 @@ public class RoleEntityService implements IRoleService{
 		roleRepository.deleteById(id);
 		return "Successful";
 	}
+
 
 }

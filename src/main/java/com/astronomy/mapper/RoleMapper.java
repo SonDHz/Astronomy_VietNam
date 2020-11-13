@@ -3,9 +3,7 @@ package com.astronomy.mapper;
 import org.springframework.stereotype.Component;
 
 import com.astronomy.dto.RoleCreateModifyDTO;
-import com.astronomy.dto.UserCreateModifyDTO;
 import com.astronomy.entity.RoleEntity;
-import com.astronomy.entity.UserEntity;
 
 @Component
 public class RoleMapper {
@@ -22,7 +20,7 @@ public class RoleMapper {
 	
 	public RoleCreateModifyDTO toRoleResponserDTO(RoleEntity role) {
 		return RoleCreateModifyDTO.builder()
-				.id(role.getId() != null ? role.getId() : null)
+				.id(role.getId())
 				.roleName(role.getRoleName())
 				.code(role.getCode())
 				.createBy(role.getCreateBy())

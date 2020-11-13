@@ -10,10 +10,10 @@ import com.astronomy.entity.OrderEntity;
 @Component
 public class OrderDetailMapper {
 	public OrderDetailEntity toOrderDetail(OrderDetailCreateModifyDTO dto) {
-		System.out.println("1");
 		OrderEntity order = OrderEntity.builder()
 				.id(dto.getOrder())
 				.build();
+		
 		return OrderDetailEntity.builder()
 				.id(dto.getId())
 				.total(dto.getTotal())
@@ -24,9 +24,8 @@ public class OrderDetailMapper {
 	}
 	
 	public OrderDetailCreateModifyDTO toOrderDetailResponserDTO(OrderDetailEntity orderdetail) {
-		System.out.println("2");
 		return OrderDetailCreateModifyDTO.builder()
-				.id(orderdetail.getId() != null ? orderdetail.getId() : null)
+				.id(orderdetail.getId())
 				.total(orderdetail.getTotal())
 				.price(orderdetail.getPrice())
 				.quantity(orderdetail.getQuantity())

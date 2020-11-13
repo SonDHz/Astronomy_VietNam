@@ -19,7 +19,7 @@ public class OrderMapper {
 	
 	public OrderCreateModifyDTO toOrderResponserDTO(OrderEntity order) {
 		return OrderCreateModifyDTO.builder()
-				.id(order.getId() != null ? order.getId() : null)
+				.id(order.getId())
 				.createBy(order.getCreateBy())
 				.modifyBy(order.getModifyBy())
 				.build();
