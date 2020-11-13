@@ -21,32 +21,32 @@ import com.astronomy.mapper.OrderMapper;
 public class OrderAPI {
 	@Autowired
 	private OrderMapper orderMapper;
-	
+
 	@Autowired
 	private IOrderService orderService;
-	
-	@GetMapping(value ="/api/Order")
+
+	@GetMapping(value = "/api/Order")
 	public List<OrderEntity> getAll() {
 		return orderService.getAll();
 	}
-	
-	@PostMapping(value ="/api/Order")
-	public ResponseEntity<OrderCreateModifyDTO> createOrder(@RequestBody OrderCreateModifyDTO dto){
+
+	@PostMapping(value = "/api/Order")
+	public ResponseEntity<OrderCreateModifyDTO> createOrder(@RequestBody OrderCreateModifyDTO dto) {
 		OrderEntity order = orderMapper.toOrder(dto);
-		return ResponseEntity.ok(orderMapper.toOrderResponserDTO(orderService.create(order)));
+		return ResponseEntity.ok(orderMapper.toOrderResponserDTO(orderService.createModify(order)));
 	}
-	
-	@PutMapping(value ="/api/Order/{id}")
-	public ResponseEntity<OrderCreateModifyDTO> updateOrder(@RequestBody OrderCreateModifyDTO dto, @PathVariable("id") long id){
+
+	@PutMapping(value = "/api/Order/{id}")
+	public ResponseEntity<OrderCreateModifyDTO> updateOrder(@RequestBody OrderCreateModifyDTO dto,
+			@PathVariable("id") long id) {
 		dto.setId(id);
 		OrderEntity order = orderMapper.toOrder(dto);
-		return ResponseEntity.ok(orderMapper.toOrderResponserDTO(orderService.create(order)));
+		return ResponseEntity.ok(orderMapper.toOrderResponserDTO(orderService.createModify(order)));
 	}
-	
+
 	@DeleteMapping("/api/Order/{id}")
 	public String deleteOrder(@PathVariable("id") long ids) {
 		return orderService.delete(ids);
 	}
-	
-	
+
 }

@@ -17,12 +17,12 @@ public class ManufacturerEntityService implements IManufacturerService {
 	private ManufacturerRepository manufacturerRepository;
 	
 	@Override
-	public ManufacturerEntity create(ManufacturerEntity manufacturerEntity) {
-		return manufacturerRepository.save(manufacturerEntity);
+	public List<ManufacturerEntity> getAll() {
+		return manufacturerRepository.findAll();
 	}
-
+	
 	@Override
-	public ManufacturerEntity update(ManufacturerEntity manufacturerEntity) {
+	public ManufacturerEntity createModify(ManufacturerEntity manufacturerEntity) {
 		return manufacturerRepository.save(manufacturerEntity);
 	}
 
@@ -32,9 +32,5 @@ public class ManufacturerEntityService implements IManufacturerService {
 			manufacturerRepository.deleteById(item);
 		}	
 	}
-
-	@Override
-	public List<ManufacturerEntity> getAll() {
-		return manufacturerRepository.findAll();
-	}	
+	
 }

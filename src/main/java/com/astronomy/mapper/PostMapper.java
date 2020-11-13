@@ -22,13 +22,13 @@ public class PostMapper {
 				.content(dto.getContent())
 				.thumbnail(dto.getThumbnail())
 				.createBy(dto.getCreateBy())
-				.modifyBy(dto.getModifyBy()
-						).build();
+				.modifyBy(dto.getModifyBy())
+				.build();
 	}
 
 	public PostCreateModifyDTO toPostCreateModifyDTO(PostEntity post) {
 		return PostCreateModifyDTO.builder()
-				.id(post.getId() != null ? post.getId() : null)
+				.id(post.getId())
 				.title(post.getTitle())
 				.shortDescription(post.getShortDescription())
 				.content(post.getContent())

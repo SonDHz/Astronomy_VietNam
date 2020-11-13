@@ -21,28 +21,28 @@ import com.astronomy.mapper.UserMapper;
 public class UserAPI {
 	@Autowired
 	private UserMapper userMapper;
-	
+
 	@Autowired
 	private IUserService userService;
-	 
+
 	@GetMapping(value = "/api/User")
-	public List<UserEntity> getAllUser(){
+	public List<UserEntity> getAllUser() {
 		return userService.getAllUser();
 	}
-	
+
 	@PostMapping(value = "/api/User")
-	public ResponseEntity<UserCreateModifyDTO> createUser(@RequestBody UserCreateModifyDTO dto){
+	public ResponseEntity<UserCreateModifyDTO> createUser(@RequestBody UserCreateModifyDTO dto) {
 		UserEntity user = userMapper.toUser(dto);
-		return ResponseEntity.ok(userMapper.toUserResponserDTO(userService.create(user)));
+		return ResponseEntity.ok(userMapper.toUserResponserDTO(userService.createModify(user)));
 	}
-	
+
 	@PutMapping(value = "/api/User/{id}")
-	public ResponseEntity<UserCreateModifyDTO> updateUser(@RequestBody UserCreateModifyDTO dto, @PathVariable long id){
+	public ResponseEntity<UserCreateModifyDTO> updateUser(@RequestBody UserCreateModifyDTO dto, @PathVariable long id) {
 		dto.setId(id);
 		UserEntity user = userMapper.toUser(dto);
-		return ResponseEntity.ok(userMapper.toUserResponserDTO(userService.Update(user)));
+		return ResponseEntity.ok(userMapper.toUserResponserDTO(userService.createModify(user)));
 	}
-	
+
 	@DeleteMapping("/api/User/{id}")
 	public String deleteUser(@PathVariable("id") long ids) {
 		return userService.delete(ids);

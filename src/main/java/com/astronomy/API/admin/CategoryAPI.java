@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.astronomy.Service.CategoryService;
@@ -18,6 +19,7 @@ import com.astronomy.entity.CategoryEntity;
 import com.astronomy.mapper.CategoryMapper;
 
 @RestController
+@RequestMapping(value = "api")
 public class CategoryAPI {
 
 	@Autowired
@@ -26,27 +28,27 @@ public class CategoryAPI {
 	@Autowired
 	private CategoryService categoryService;
 
-	@GetMapping("api/category")
+	@GetMapping("category")
 	public List<CategoryEntity> getAll() {
 		return categoryService.getAll();
 	}
 
-	@PostMapping("api/category")
+	@PostMapping("category")
 	public ResponseEntity<CategoryCreateModifyDTO> createCategory(@RequestBody CategoryCreateModifyDTO dto) {
 		CategoryEntity category = categoryMapper.toCategory(dto);
 		System.out.println("catefory: " + category);
-		return ResponseEntity.ok(categoryMapper.toCategoryCreateModifyDTO(categoryService.create(category)));
+		return ResponseEntity.ok(categoryMapper.toCategoryCreateModifyDTO(categoryService.createModify(category)));
 	}
 
-	@PutMapping("api/category/{id}")
+	@PutMapping("category/{id}")
 	public ResponseEntity<CategoryCreateModifyDTO> updateCategory(@RequestBody CategoryCreateModifyDTO dto,
 			@PathVariable("id") long id) {
 		dto.setId(id);
 		CategoryEntity category = categoryMapper.toCategory(dto);
-		return ResponseEntity.ok(categoryMapper.toCategoryCreateModifyDTO(categoryService.create(category)));
+		return ResponseEntity.ok(categoryMapper.toCategoryCreateModifyDTO(categoryService.createModify(category)));
 	}
 
-	@DeleteMapping(value = "api/category")
+	@DeleteMapping(value = "category")
 	public void deleteCategory(@RequestBody long[] ids) {
 		categoryService.delete(ids);
 	}

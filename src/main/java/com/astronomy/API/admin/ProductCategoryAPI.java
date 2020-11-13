@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.dto.ProductCategoryCreateModifyDTO;
 import com.astronomy.entity.ProductCategory;
@@ -22,27 +21,34 @@ import com.astronomy.mapper.ProductCategoryMapper;
 public class ProductCategoryAPI {
 	@Autowired
 	private ProductCategoryMapper productCategoryMapper;
-	
+
 	@Autowired
 	private IProductCategoryService productCategoryService;
-	
+
 	@PostMapping("/api/ProductCategory")
-	public ResponseEntity<ProductCategoryCreateModifyDTO> createProductCategory(@RequestBody ProductCategoryCreateModifyDTO dto){
+	public ResponseEntity<ProductCategoryCreateModifyDTO> createProductCategory(
+			@RequestBody ProductCategoryCreateModifyDTO dto) {
 		ProductCategory productCategory = productCategoryMapper.toProductCategory(dto);
-		return ResponseEntity.ok(productCategoryMapper.toProductCategoryResponserDTO(productCategoryService.create(productCategory)));
+		return ResponseEntity.ok(productCategoryMapper
+				.toProductCategoryResponserDTO(productCategoryService.createModify(productCategory)));
 	}
+
 	@PutMapping("/api/ProductCategory/{id}")
-	public ResponseEntity<ProductCategoryCreateModifyDTO> createProductCategory(@RequestBody ProductCategoryCreateModifyDTO dto, @PathVariable("id") long id){
+	public ResponseEntity<ProductCategoryCreateModifyDTO> createProductCategory(
+			@RequestBody ProductCategoryCreateModifyDTO dto, @PathVariable("id") long id) {
 		dto.setId(id);
 		ProductCategory productCategory = productCategoryMapper.toProductCategory(dto);
-		return ResponseEntity.ok(productCategoryMapper.toProductCategoryResponserDTO(productCategoryService.create(productCategory)));
+		return ResponseEntity.ok(productCategoryMapper
+				.toProductCategoryResponserDTO(productCategoryService.createModify(productCategory)));
 	}
+
 	@DeleteMapping("/api/ProductCategory")
-	public void delete(@RequestBody long [] ids) {
+	public void delete(@RequestBody long[] ids) {
 		productCategoryService.delete(ids);
 	}
-	@GetMapping ("/api/ProductCategory")
-	public List <ProductCategory> getAll() {
+
+	@GetMapping("/api/ProductCategory")
+	public List<ProductCategory> getAll() {
 		return productCategoryService.getAll();
 	}
 }

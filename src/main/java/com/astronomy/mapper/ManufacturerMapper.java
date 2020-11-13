@@ -8,6 +8,7 @@ import com.astronomy.entity.ManufacturerEntity;
 
 @Component
 public class ManufacturerMapper {
+	
 	public ManufacturerEntity toManufacturer(ManufacturerCreateModifyDTO dto) {
 		return ManufacturerEntity.builder()
 				.id(dto.getId())
@@ -16,9 +17,10 @@ public class ManufacturerMapper {
 				.modifyBy(dto.getModifyBy())
 				.build();
 	}
+	
 	public ManufacturerCreateModifyDTO toManufacturerResponserDTO(ManufacturerEntity manufacturer) {
 		return ManufacturerCreateModifyDTO.builder()
-				.id(manufacturer.getId() != null ? manufacturer.getId() : null)
+				.id(manufacturer.getId())
 				.name(manufacturer.getName())
 				.createBy(manufacturer.getCreateBy())
 				.modifyBy(manufacturer.getModifyBy())

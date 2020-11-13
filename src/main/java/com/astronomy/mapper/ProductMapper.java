@@ -40,7 +40,7 @@ public class ProductMapper {
 	
 	public ProductCreateModifyDTO toProductResponserDTO(ProductEntity product) {
 		return ProductCreateModifyDTO .builder()
-				.id(product.getId() != null ? product.getId() : null)
+				.id(product.getId())
 				.name(product.getName())
 				.shortDecription(product.getShortDecription())
 				.status(product.getStatus())

@@ -12,35 +12,23 @@ import com.astronomy.repository.ProductRepository;
 @Service
 public class ProductService implements IProductService {
 
-	
 	@Autowired
 	private ProductRepository productRepository;
-
-	@Override
-	public ProductEntity create(ProductEntity productEntity) {
-		return productRepository.save(productEntity);
-	}
-
-	@Override
-	public ProductEntity update(ProductEntity productEntity) {
-		// TODO Auto-generated method stub
-		return productRepository.save(productEntity);
-	}
-
-	@Override
-	public void delete(long[] ids) {
-		// TODO Auto-generated method stub
-		for (long item : ids ) {
-			productRepository.deleteById(item);
-		}	
-		
-	}
-
+	
 	@Override
 	public List<ProductEntity> getAll() {
-		// TODO Auto-generated method stub
 		return productRepository.findAll();
 	}
 	
-
+	@Override
+	public ProductEntity createModify(ProductEntity productEntity) {
+		return productRepository.save(productEntity);
+	}
+	
+	@Override
+	public void delete(long[] ids) {
+		for (long item : ids) {
+			productRepository.deleteById(item);
+		}
+	}
 }

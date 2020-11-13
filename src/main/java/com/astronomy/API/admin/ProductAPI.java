@@ -21,31 +21,32 @@ import com.astronomy.mapper.ProductMapper;
 public class ProductAPI {
 	@Autowired
 	private ProductMapper productMapper;
-	
+
 	@Autowired
 	private IProductService productService;
-	
+
 	@PostMapping("/api/Product")
-	public ResponseEntity<ProductCreateModifyDTO> createProduct(@RequestBody ProductCreateModifyDTO dto){
+	public ResponseEntity<ProductCreateModifyDTO> createProduct(@RequestBody ProductCreateModifyDTO dto) {
 		ProductEntity product = productMapper.toProduct(dto);
 		System.out.println("product: " + product);
-		return ResponseEntity.ok(productMapper.toProductResponserDTO(productService.create(product)));
+		return ResponseEntity.ok(productMapper.toProductResponserDTO(productService.createModify(product)));
 	}
-	
+
 	@PutMapping("/api/Product/{id}")
-	public ResponseEntity<ProductCreateModifyDTO> createProduct(@RequestBody ProductCreateModifyDTO dto, @PathVariable("id") long id){
+	public ResponseEntity<ProductCreateModifyDTO> createProduct(@RequestBody ProductCreateModifyDTO dto,
+			@PathVariable("id") long id) {
 		dto.setId(id);
 		ProductEntity product = productMapper.toProduct(dto);
-		return ResponseEntity.ok(productMapper.toProductResponserDTO(productService.create(product)));
+		return ResponseEntity.ok(productMapper.toProductResponserDTO(productService.createModify(product)));
 	}
-	
+
 	@DeleteMapping("/api/Product")
-	public void delete(@RequestBody long [] ids) {
+	public void delete(@RequestBody long[] ids) {
 		productService.delete(ids);
 	}
-	
-	@GetMapping ("/api/Product")
-	public List <ProductEntity> getAll() {
+
+	@GetMapping("/api/Product")
+	public List<ProductEntity> getAll() {
 		return productService.getAll();
 	}
 }

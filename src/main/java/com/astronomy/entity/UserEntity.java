@@ -33,10 +33,10 @@ import lombok.ToString;
 @Table(name = "user")
 @Builder
 @ToString
-public class UserEntity implements Serializable{
-	
+public class UserEntity implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,8 +62,8 @@ public class UserEntity implements Serializable{
 
 	@Column(name = "gender")
 	private Integer gender;
-	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy@HH:mm:ss.SSSZ") 
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy@HH:mm:ss.SSSZ")
 	@Column(name = "birthday", columnDefinition = "TIMESTAMP")
 	private Date birthday;
 
@@ -74,16 +74,13 @@ public class UserEntity implements Serializable{
 	private Integer status;
 
 	@Column(name = "createby")
-	private String createBy; 
+	private String createBy;
 
 	@Column(name = "modifyby")
 	private String modifyBy;
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), // đứng ở user thì Joincolumn đầu là
-																				// userid
-			inverseJoinColumns = @JoinColumn(name = "roleid"))
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
 	private List<RoleEntity> roles = new ArrayList<RoleEntity>();
 
-	
 }
