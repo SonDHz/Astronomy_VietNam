@@ -13,6 +13,7 @@
 	<artifactId>Astronomy_VN</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Astronomy_VN</name>
+	<packaging>jar</packaging>
 	<description>Du an</description>
 
 	<properties>
