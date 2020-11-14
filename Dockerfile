@@ -18,8 +18,6 @@ USER root
 
 COPY --from=MAVEN_BUILD /build/target/Astronomy_VN-0.0.1-SNAPSHOT.jar .
 
-EXPOSE 8080
-
 ENTRYPOINT ["java", "-jar"]
 
 CMD ["Astronomy_VN-0.0.1-SNAPSHOT.jar"]
