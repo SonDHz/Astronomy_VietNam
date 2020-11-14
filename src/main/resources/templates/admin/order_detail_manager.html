@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8">
@@ -9,14 +9,14 @@
 <meta name="author" content="SmartUniversity">
 <title>Quản lý hóa đơn chi tiết</title>
 <!-- google font -->
-<style th:replace="/admin/share/style"></style>
+<style th:replace="admin/share/style"></style>
 </head>
 <!-- END HEAD -->
 <body
 	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark">
 	<div class="page-wrapper">
 		<!-- start header -->
-		<div th:replace="/admin/share/header"></div>
+		<div th:replace="admin/share/header"></div>
 		<!-- end header -->
 		<!-- start color quick setting -->
 		<div class="quick-setting-main">
@@ -75,7 +75,7 @@
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
-			<div th:replace="/admin/share/sidebar"></div>
+			<div th:replace="admin/share/sidebar"></div>
 			<!-- end sidebar menu -->
 			<!-- start page content -->
 			<div class="page-content-wrapper">
@@ -266,14 +266,6 @@
 			<!-- end chat sidebar -->
 		</div>
 		<!-- end page container -->
-		<!-- start footer -->
-		<div th:replace="/admin/share/footer"></div>
-		<!-- end footer -->
-	</div>
-	<!-- start js include path -->
-	<
-	<style th:replace="/admin/share/js"></style>
-	<!-- end js include path -->
 	<!-- Modal Update-->
 	<div class="modal fade" id="exampleModalUpdate" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalLabelUpdate"
@@ -357,5 +349,14 @@
 			</div>
 		</div>
 	</div>
+	<!-- end page container -->
+		<!-- start footer -->
+		<div th:replace="admin/share/footer"></div>
+		<!-- end footer -->
+	</div>
+	<!-- start js include path -->
+	
+	<script th:replace="admin/share/js"></script>
+	<!-- end js include path -->
 </body>
 </html>

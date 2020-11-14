@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 <!-- Mobile Specific Meta -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Favicon-->
-<link rel="shortcut icon" href="img/fav.png">
+<link rel="shortcut icon" href="../../web/img/fav.png">
 <!-- Author Meta -->
 <meta name="author" content="codepixer">
 <!-- Meta Description -->
@@ -19,12 +20,12 @@
 <title>Ruft Blog</title>
 <!-- css -->
 
-<style th:replace="/web/share/style"></style>
+<style th:replace="web/share/style"></style>
 </head>
 
 <body>
 	<!-- ==========Start header========== -->
-	<div th:replace="/web/share/header"></div>
+	<div th:replace="web/share/header"></div>
 	<!-- ==========Stop header========== -->
 
 	<!-- Top Stories Area -->
@@ -663,11 +664,11 @@
 	<!-- Start main body Area -->
 
 	<!-- start footer Area -->
-	<div th:replace="/web/share/footer"></div>
+	<div th:replace="web/share/footer"></div> 
 	<!-- End footer Area -->
 
 	<!-- Javascript -->
-	<style th:replace="/web/share/js"></style>
+	<script th:replace="web/share/js"></script>
 	<!-- End javascript -->
 </body>
 
