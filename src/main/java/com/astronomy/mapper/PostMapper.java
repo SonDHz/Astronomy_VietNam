@@ -11,10 +11,10 @@ public class PostMapper {
 
 	public PostEntity toPost(PostCreateModifyDTO dto) {
 		
-		CategoryEntity categoryEntiry = CategoryEntity.builder()
-				.id(dto.getId())
+		CategoryEntity categoryEntity = CategoryEntity.builder()
+				.id(dto.getCategory())
 				.build();
-
+//		System.out.println("Message: " + dto + " category===========> " + categoryEntity);
 		return PostEntity.builder()
 				.id(dto.getId())
 				.title(dto.getTitle())
@@ -23,10 +23,12 @@ public class PostMapper {
 				.thumbnail(dto.getThumbnail())
 				.createBy(dto.getCreateBy())
 				.modifyBy(dto.getModifyBy())
+				.category(categoryEntity)
 				.build();
 	}
 
 	public PostCreateModifyDTO toPostCreateModifyDTO(PostEntity post) {
+		System.out.println("Message entity" + post);
 		return PostCreateModifyDTO.builder()
 				.id(post.getId())
 				.title(post.getTitle())
@@ -35,6 +37,7 @@ public class PostMapper {
 				.thumbnail(post.getThumbnail())
 				.createBy(post.getCreateBy())
 				.modifyBy(post.getModifyBy())
+				.category(post.getCategory().getId())
 				.build();
 	}
 
