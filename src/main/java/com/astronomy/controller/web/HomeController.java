@@ -15,4 +15,9 @@ public class HomeController {
 	public String login() {
 		return "login";
 	}
+	
+	@RequestMapping(value = "shoppingTools")
+	public String shopping() {
+		return "web/shopping_tools";
+	}
 }
