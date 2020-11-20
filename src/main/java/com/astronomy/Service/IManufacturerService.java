@@ -10,6 +10,8 @@ public interface IManufacturerService {
 	
 	ManufacturerEntity createModify(ManufacturerEntity manufacturerEntity);
 	
-	void delete( long[] ids);
+	ManufacturerEntity getEntityById(long id);
+	
+	void delete(Long id);
 	
 }

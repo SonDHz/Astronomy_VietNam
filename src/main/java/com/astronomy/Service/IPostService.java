@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.astronomy.entity.PostEntity;
 
-public interface PostService {
+public interface IPostService {
 	
 	List<PostEntity> getAll();
 	

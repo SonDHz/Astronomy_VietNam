@@ -1,11 +1,21 @@
 package com.astronomy.controller.admin;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller(value = "HomeControllerOfAdmin")
+import com.astronomy.Service.IManufacturerService;
+import com.astronomy.mapper.ManufacturerMapper;
+
+@Controller
 @RequestMapping("admin")
-public class HomeController {
+public class DashboardController {
+	
+	@Autowired
+	IManufacturerService service;
+	
+	@Autowired
+	ManufacturerMapper mapper;
 	
 	@RequestMapping("dashboard")
 	public String index() {
@@ -40,11 +50,6 @@ public class HomeController {
 	@RequestMapping("productCategory")
 	public String productCategory() {
 		return "admin/product_category_manager";
-	}
-	
-	@RequestMapping("manufacturer")
-	public String manufacturer() {
-		return "admin/manufacturer_manager";
 	}
 	
 	@RequestMapping("postCategory")
