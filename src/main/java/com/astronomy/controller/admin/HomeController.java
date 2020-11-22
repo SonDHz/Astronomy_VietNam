@@ -1,69 +1,59 @@
 package com.astronomy.controller.admin;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.astronomy.Service.IManufacturerService;
-import com.astronomy.mapper.ManufacturerMapper;
-
-@Controller
-@RequestMapping("admin")
-public class DashboardController {
+@Controller(value = "HomeControllerOfAdmin")
+public class HomeController {
 	
-	@Autowired
-	IManufacturerService service;
-	
-	@Autowired
-	ManufacturerMapper mapper;
-	
-	@RequestMapping("dashboard")
+	@RequestMapping("admin/dashboard")
 	public String index() {
 		return "admin/dashboard";
 	}
 	
-	@RequestMapping("employee")
+	@RequestMapping("admin/employee")
 	public String account() {
 		return "admin/employee_manager";
 	}
 	
-	@RequestMapping("customer")
+	@RequestMapping("admin/customer")
 	public String customer() {
 		return "admin/customer_manager";
 	}
 	
-	@RequestMapping("category")
+	@RequestMapping("admin/category")
 	public String category() {
 		return "admin/category_manager";
 	}
 	
-	@RequestMapping("post")
+	@RequestMapping("admin/post")
 	public String post() {
 		return "admin/post_manager";
 	}
 	
-	@RequestMapping("product")
+	@RequestMapping("admin/product")
 	public String product() {
 		return "admin/product_manager";
 	}
 	
-	@RequestMapping("productCategory")
+	@RequestMapping("admin/productCategory")
 	public String productCategory() {
 		return "admin/product_category_manager";
 	}
 	
-	@RequestMapping("postCategory")
+	@RequestMapping("admin/postCategory")
 	public String postCategory() {
 		return "admin/post_category_manager";
 	}
 	
-	@RequestMapping("order")
+	@RequestMapping("admin/order")
 	public String order() {
 		return "admin/order_manager";
 	}
 	
-	@RequestMapping("oderDetail")
+	@RequestMapping("admin/oderDetail")
 	public String oderDetail() {
 		return "admin/order_detail_manager";
 	}
+	
 }

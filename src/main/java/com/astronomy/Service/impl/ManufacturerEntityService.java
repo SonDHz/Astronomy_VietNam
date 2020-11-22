@@ -2,40 +2,55 @@ package com.astronomy.Service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.astronomy.Service.IManufacturerService;
+import com.astronomy.dto.ManufacturerCreateModifyDTO;
 import com.astronomy.entity.ManufacturerEntity;
+import com.astronomy.mapper.ManufacturerMapper;
 import com.astronomy.repository.ManufacturerRepository;
 
 @Service
+@Transactional
 public class ManufacturerEntityService implements IManufacturerService {
 
 	@Autowired
 	private ManufacturerRepository manufacturerRepository;
+	
+	@Autowired
+	private ManufacturerMapper mapper;
 
 	@Override
 	public List<ManufacturerEntity> getAll() {
 		return manufacturerRepository.findAll();
 	}
 
-	@Override
-	public ManufacturerEntity createModify(ManufacturerEntity manufacturerEntity) {
-		return manufacturerRepository.save(manufacturerEntity);
-	}
+//	@Override
+//	public ManufacturerEntity createModify(ManufacturerEntity manufacturerEntity) {
+//		return manufacturerRepository.save(manufacturerEntity);
+//	}
 	
 	@Override
-	public ManufacturerEntity getEntityById(long id) {
-		ManufacturerEntity entity = manufacturerRepository.findById(id).orElse(null);
-		return entity;
+	public ManufacturerCreateModifyDTO createModify(ManufacturerCreateModifyDTO dto) {
+		ManufacturerEntity entity = new ManufacturerEntity();
+		entity = mapper.toManufacturer(dto);
+		entity = manufacturerRepository.save(entity);
+		return dto;
 	}
 
-	
 	@Override
-	public void delete(Long ids) {
-		manufacturerRepository.deleteById(ids);
+	public void delete(Long id) {
+		manufacturerRepository.deleteById(id);
 		return;
+	}
+
+	@Override
+	public ManufacturerCreateModifyDTO findByIdDTO(long id) {
+		ManufacturerEntity manufacturer = manufacturerRepository.findById(id).orElse(null);
+		return mapper.toManufacturerResponserDTO(manufacturer);
 	}
 
 }
