@@ -84,7 +84,7 @@ public class UserEntity implements Serializable {
 	private List<ProductEntity> products = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "user")
-	private List<CategoryEntity> category = new ArrayList<>();
+	private List<PostEntity> post = new ArrayList<>();
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))

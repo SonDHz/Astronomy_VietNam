@@ -51,7 +51,4 @@ public class CategoryEntity {
 	@OneToMany(mappedBy = "category")
 	private List<PostEntity> posts = new ArrayList<>();
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
-	private UserEntity user;
 }
