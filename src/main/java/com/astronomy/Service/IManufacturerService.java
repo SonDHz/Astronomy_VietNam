@@ -13,6 +13,6 @@ public interface IManufacturerService {
 	
 	ManufacturerCreateModifyDTO findByIdDTO(long id);
 	
-	void delete(Long id);
+	void delete(long[] ids);
 	
 }

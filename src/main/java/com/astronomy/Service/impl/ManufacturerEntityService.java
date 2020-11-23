@@ -42,9 +42,10 @@ public class ManufacturerEntityService implements IManufacturerService {
 	}
 
 	@Override
-	public void delete(Long id) {
-		manufacturerRepository.deleteById(id);
-		return;
+	public void delete(long[] ids) {
+		for (long id: ids) {
+			manufacturerRepository.deleteById(id);
+		}
 	}
 
 	@Override
@@ -52,5 +53,4 @@ public class ManufacturerEntityService implements IManufacturerService {
 		ManufacturerEntity manufacturer = manufacturerRepository.findById(id).orElse(null);
 		return mapper.toManufacturerResponserDTO(manufacturer);
 	}
-
 }

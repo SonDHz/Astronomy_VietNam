@@ -32,6 +32,8 @@
 <script src="<c:url value='../template/admin/assets/plugins/sparkline/jquery.sparkline.min.js' />" rel="stylesheet"></script>
 <script src="<c:url value='../template/admin/assets/js/pages/sparkline/sparkline-data.js' />" rel="stylesheet"></script>
 <!-- end js include path -->
+<!-- end js include path -->
+<script src="<c:url value='../template/admin/sweetalert/sweetalert2.min.js' />" rel="stylesheet"></script>
 
 
 

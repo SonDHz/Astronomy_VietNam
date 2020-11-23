@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -78,8 +77,8 @@ public class ManufacturerAPI {
 //	}
 
 	@DeleteMapping("Manufacturer")
-	public void delete(@RequestBody long id) {
-		manufacturerService.delete(id);
+	public void delete(@RequestBody long[] ids) {
+		manufacturerService.delete(ids);
 	}
 
 	@GetMapping("Manufacturer")
