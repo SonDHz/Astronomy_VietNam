@@ -12,5 +12,6 @@ public interface IOrderDetailService {
 	OrderDetailEntity createModify(OrderDetailEntity orderdetailEntity);
 	
 	String delete (Long id);
+
 	
 }

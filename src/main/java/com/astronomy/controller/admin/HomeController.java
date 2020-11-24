@@ -1,11 +1,31 @@
 package com.astronomy.controller.admin;
 
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.astronomy.Service.IOrderDetailService;
+import com.astronomy.Service.IOrderService;
+import com.astronomy.entity.OrderDetailEntity;
+import com.astronomy.entity.OrderEntity;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+
+
 
 @Controller(value = "HomeControllerOfAdmin")
 @RequestMapping("admin")
 public class HomeController {
+	
+	
+	@Autowired
+	private IOrderService orderService;
+	
+	@Autowired
+	private IOrderDetailService orderdetailService;
+
 	
 	@RequestMapping("dashboard")
 	public String index() {
@@ -53,12 +73,21 @@ public class HomeController {
 	}
 	
 	@RequestMapping("order")
-	public String order() {
+	public String order(Model model) {
+		List<OrderEntity> order = orderService.getAll();
+		model.addAttribute("order", order);
 		return "admin/order_manager";
 	}
 	
 	@RequestMapping("oderDetail")
-	public String oderDetail() {
+	public String oderDetail(Model model) {
+	List<OrderDetailEntity> orderdetail = orderdetailService.getAll();
+		model.addAttribute("orderdetail", orderdetail);
 		return "admin/order_detail_manager";
 	}
+	
+
+
+	
+
 }

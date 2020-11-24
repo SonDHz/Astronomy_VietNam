@@ -125,12 +125,12 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>1</td>
-													<td>1</td>
-													<td>10.000đ</td>
-													<td>1</td>
-													<td>10.000đ</td>
+												<tr th:each="orderDetail: ${orderdetail}">
+													<td th:text="${orderDetail.id}"></td>
+													<td th:text="${orderDetail.order.id}"></td>
+													<td th:text="${orderDetail.price}"></td>
+													<td th:text="${orderDetail.quantity}"></td>
+													<td th:text="${orderDetail.total}"></td>
 													<td>&nbsp;&nbsp<button
 														 class="btn btn-outline-warning"
 														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
@@ -139,63 +139,6 @@
 														data-original-title="Delete"> Delete </button>
 													</td>
 												</tr>
-												<tr>
-													<td>2</td>
-													<td>2</td>
-													<td>20.000đ</td>
-													<td>1</td>
-													<td>20.000đ</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												<tr>
-												<td>3</td>
-													<td>3</td>
-													<td>30.000đ</td>
-													<td>1</td>
-													<td>30.000đ</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												<tr>
-												<td>4</td>
-													<td>4</td>
-													<td>40.000đ</td>
-													<td>1</td>
-													<td>40.000đ</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>5</td>
-													<td>50.000đ</td>
-													<td>1</td>
-													<td>50.000đ</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												
 											</tbody>
 										</table>
                                     </div>
