@@ -7,13 +7,9 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -85,9 +81,12 @@ public class UserEntity implements Serializable {
 	
 	@OneToMany(mappedBy = "user")
 	private List<PostEntity> post = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "user")
+	private List<UserRoleEntity> userRole = new ArrayList<>();
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
-	private List<RoleEntity> roles = new ArrayList<RoleEntity>();
+//	@ManyToMany(fetch = FetchType.LAZY)
+//	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
+//	private List<RoleEntity> roles = new ArrayList<RoleEntity>();
 
 }

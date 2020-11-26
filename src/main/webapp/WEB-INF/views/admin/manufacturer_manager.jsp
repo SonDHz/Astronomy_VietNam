@@ -260,7 +260,7 @@
 			}).then(
 					function(isConfirm) {
 						if (isConfirm) {
-							//call api delte
+							//call api delete
 							var ids = $('tbody input[type=checkbox]:checked').map(function() {
 										return $(this).val();
 									}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check

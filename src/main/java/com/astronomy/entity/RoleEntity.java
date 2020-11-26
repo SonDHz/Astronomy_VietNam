@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -45,6 +45,6 @@ public class RoleEntity {
 	@Column(name = "modifyby")
 	private String modifyBy;
 	
-	@ManyToMany(mappedBy = "roles")
-	private List<UserEntity> users = new ArrayList<>();
+	@OneToMany(mappedBy = "role")
+	private List<UserRoleEntity> userRole = new ArrayList<>();
 }

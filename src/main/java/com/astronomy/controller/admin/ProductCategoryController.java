@@ -9,36 +9,36 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.astronomy.Service.IManufacturerService;
-import com.astronomy.dto.ManufacturerCreateModifyDTO;
-import com.astronomy.entity.ManufacturerEntity;
-import com.astronomy.mapper.ManufacturerMapper;
+import com.astronomy.Service.IProductCategoryService;
+import com.astronomy.dto.ProductCategoryCreateModifyDTO;
+import com.astronomy.entity.ProductCategory;
+import com.astronomy.mapper.ProductMapper;
 
 @RequestMapping(value = "admin")
 @Controller
-public class ManufacturerController {
+public class ProductCategoryController {
 
 	@Autowired
-	IManufacturerService service;
+	IProductCategoryService service;
 
 	@Autowired
-	ManufacturerMapper mapper;
+	ProductMapper mapper;
 
-	@GetMapping("manufacturerView")
-	public String manufacturerView(Model model) {
-		List<ManufacturerEntity> list = service.getAll();
+	@GetMapping("productcategoryView")
+	public String productcategoryView(Model model) {
+		List<ProductCategory> list = service.getAll();
 		model.addAttribute("entity", list);
-		return "admin/manufacturer_manager";
+		return "admin/product_category_manager";
 	}
 
-	@GetMapping("createModify/manufacturer")
+	@GetMapping("createModify/productcategory")
 	public String action(Model model, @RequestParam(value = "id", required = false) Long id) {
-		ManufacturerCreateModifyDTO dto = new ManufacturerCreateModifyDTO();
+		ProductCategoryCreateModifyDTO dto = new ProductCategoryCreateModifyDTO();
 		if (id != null) {
 			dto = service.findByIdDTO(id);
 		}
 		model.addAttribute("model", dto);
-		return "admin/action/actionManufacturer";
+		return "admin/action/actionProductCategory";
 	}
 
 }
