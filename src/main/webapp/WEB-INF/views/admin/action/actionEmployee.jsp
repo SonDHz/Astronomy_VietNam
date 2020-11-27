@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="manufacturerURL" value="/admin/manufacturerView"/>
-<c:url var="manufacturerAPI" value="/api/Manufacturer"/> 
+<c:url var="userURL" value="/admin/userView"/>
+<c:url var="userAPI" value="/api/User"/>
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -12,7 +12,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta name="description" content="Responsive Admin Template">
 <meta name="author" content="SmartUniversity">
-<title>Quản lý nhà cung cấp</title>
+<title>Quản lý nhân viên</title>
 <!-- google font -->
 <%@include file="share/styleAction.jsp"%>
 </head>
@@ -93,7 +93,7 @@
 								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
 									href="#">Home</a>&nbsp;</li>
 								<li><i class="fa fa-angle-right"></i></li>
-								<li class="active">Quản lý nhà cung cấp</li>
+								<li class="active">Quản lý nhân viên</li>
 							</ol>
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 						<div class="col-md-12 col-sm-12">
 							<div class="card card-box">
 								<div class="card-head">
-									<header>Quản lý nhà cung cấp</header>
+									<header>Quản lý nhân viên</header>
 									<button id="panel-button2"
 										class="mdl-button mdl-js-button mdl-button--icon pull-right"
 										data-upgraded=",MaterialButton">
@@ -122,13 +122,106 @@
 										<div class="form-body">
 											<div class="form-group row  margin-top-20">
 											<form:hidden path="id" class="form-control"
-															name="id" id="id" value="${model.id}"/>
-												<label class="control-label col-md-3">Tên nhà cung cấp:
+															name="id" id="id" value="${model.id}"/>															
+												<label class="control-label col-md-3">Tên tài khoản:
 												</label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="name" type="text" class="form-control"
-															name="name" id="name" value="${model.name}"/>
+														<i class="fa"></i> <form:input path="username" type="text" class="form-control"
+															name="username" id="username" value="${model.username}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Password: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="password" type="text" class="form-control"
+															name="password" id="password" value="${model.password}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Họ và tên: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="fullName" type="text" class="form-control"
+															name="fullName" id="fullName" value="${model.fullName}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Email: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="email" type="text" class="form-control"
+															name="email" id="email" value="${model.email}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Số điện thoại: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="phoneNumber" type="text" class="form-control"
+															name="phoneNumber" id="phoneNumber" value="${model.phoneNumber}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Địa chỉ: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="address" type="text" class="form-control"
+															name="address" id="address" value="${model.address}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Giới tính: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> 
+														<label>Nữ   <form:radiobutton path="gender" class="form-control"
+															name="gender" id="gender" value="0"/></label> &nbsp;&nbsp;
+														<label>Nam  <form:radiobutton path="gender" class="form-control"
+															name="gender" id="gender" value="1"/></label>	
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Ngày sinh: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="birthday" type="date" class="form-control"
+															name="birthday" id="birthday" />
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Hình: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="avatar" type="text" class="form-control"
+															name="avatar" id="avatar" value="${model.avatar}"/>
+													</div>
+												</div>
+											</div>
+												<div class="form-group row">
+												<label class="control-label col-md-3">Mô tả: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="status" type="text" class="form-control"
+															name="status" id="status" value="${model.status}"/>
 													</div>
 												</div>
 											</div>
@@ -153,14 +246,14 @@
 												</div>
 											</div>
 										</div>
-										<form:hidden path="id" id="idManufacturer"/>
+										<form:hidden path="id" id="idUser"/>
 										<div class="form-group">
 											<div class="offset-md-3 col-md-9">
 											<c:if test="${not empty model.id}">
-												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Cập nhật nhà cung cấp</button>
+												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Cập nhật nhân viên</button>
 											</c:if>
 											<c:if test="${empty model.id}">
-												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Thêm nhà cung cấp</button>
+												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Thêm nhân viên</button>
 											</c:if>
 											</div>
 										</div>
@@ -259,7 +352,7 @@
 			$.each(formData, function (i, v){
 				data["" + v.name + ""] = v.value;
 			});
-			var id = $('#idManufacturer').val();
+			var id = $('#idUser').val();
 			if(id == ""){
 				add(data);
 			}else{
@@ -269,32 +362,32 @@
 		
 		function add(data){
 			$.ajax({
-				url: '${manufacturerAPI}',
+				url: '${userAPI}',
 				type: 'POST',
 				contentType: 'application/json',
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function(result){
-					 window.location.href = "${manufacturerURL}?id="+result.id+"&message=insert_success";   
+					 window.location.href = "${userURL}?id="+result.id+"&message=insert_success";   
 				},
 				error: function(error){
-					 window.location.href = "${manufacturerURL}?message=error_system";  
+					 window.location.href = "${userURL}?message=error_system";  
 				}
  			});
 		}
 		
 		function update(data){
 			$.ajax({
-				url: '${manufacturerAPI}',
+				url: '${userAPI}',
 				type: 'PUT',
 				contentType: 'application/json',
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function(result){
-					window.location.href = "${manufacturerURL}?"; 
+					window.location.href = "${userURL}?"; 
 				},
 				error: function(error){
-					window.location.href = "${manufacturerURL}?message=error_system"; 
+					window.location.href = "${userURL}?message=error_system"; 
 				}
  			});
 		}

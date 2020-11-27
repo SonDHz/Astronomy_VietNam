@@ -137,8 +137,7 @@
 												</tr>
 											</thead>
 											<tbody>
-												<form:form id="formSubmit" role="form"
-													class="form-horizontal">
+												<form:form id="formSubmit" role="form" class="form-horizontal">
 													<c:forEach var="item" items="${entity}">
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}"
@@ -236,7 +235,6 @@
 			</div>
 			<!-- end chat sidebar -->
 		</div>
-		s
 		<!-- end page container -->
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp"%>
@@ -260,7 +258,7 @@
 			}).then(
 					function(isConfirm) {
 						if (isConfirm) {
-							//call api delte
+							//call api delete
 							var ids = $('tbody input[type=checkbox]:checked').map(function() {
 										return $(this).val();
 									}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check

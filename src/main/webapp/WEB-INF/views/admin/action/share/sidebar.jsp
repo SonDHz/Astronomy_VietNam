@@ -29,7 +29,7 @@
 						<i class="fa fa-home"></i> <span class="title">Trang
 							chủ</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/employee"
+				<li class="nav-item"><a href="/admin/userView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý nhân viên</span>
 				</a></li>
@@ -37,7 +37,7 @@
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý khách hàng</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/category"
+				<li class="nav-item"><a href="/admin/categoryView"
 					class="nav-link nav-toggle"> <i class="fa fa-map" ></i>
 						<span class="title">Quản lý thể loại bài viết</span>
 				</a></li>

@@ -6,30 +6,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.astronomy.Service.IOrderDetailService;
+import com.astronomy.dto.OrderDetailCreateModifyDTO;
 import com.astronomy.entity.OrderDetailEntity;
+import com.astronomy.mapper.OrderDetailMapper;
 import com.astronomy.repository.OrderDetailRepository;
-
+import com.astronomy.repository.OrderRepository;
 
 @Service
 public class OrderDetailEntityService implements IOrderDetailService {
 	
 	@Autowired
-	private OrderDetailRepository orderdetailRepository;
+	private OrderDetailRepository orderDetailRepository;
+
+	@Autowired
+	private OrderDetailMapper orderDetailMapper;
 	
+	@Autowired
+	private OrderRepository repo;
+
 	@Override
 	public List<OrderDetailEntity> getAll() {
-		return orderdetailRepository.findAll();
+		return orderDetailRepository.findAll();
 	}
 	
 	@Override
-	public OrderDetailEntity createModify(OrderDetailEntity orderdetailEntity) {
-		return orderdetailRepository.save(orderdetailEntity);
+	public OrderDetailCreateModifyDTO createModify(OrderDetailCreateModifyDTO orderDetaildto) {
+		/* Order order = repo.findOneById(orderDetaildto.); */
+		OrderDetailEntity orderDetailentity = new OrderDetailEntity();
+		/* orderDetailentity.setOrder(order); */
+		orderDetailentity = orderDetailMapper.toOrderDetail(orderDetaildto);
+		orderDetailentity = orderDetailRepository.save(orderDetailentity);
+		return orderDetaildto;
 	}
 
 	@Override
-	public String delete(Long id) {
-		orderdetailRepository.deleteById(id);
-		return "Successful";
+	public void delete(long[] ids) {
+		for (long id: ids) {
+			orderDetailRepository.deleteById(id);
+		}
+	}
+
+	@Override
+	public OrderDetailCreateModifyDTO findByIdDTO(long id) {
+		OrderDetailEntity orderDetailentity = orderDetailRepository.findById(id).orElse(null);
+		return orderDetailMapper.toOrderDetailResponserDTO(orderDetailentity);
 	}
 
 }

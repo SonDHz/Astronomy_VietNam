@@ -27,23 +27,13 @@ public class ManufacturerAPI {
 
 	@Autowired
 	private IManufacturerService manufacturerService;
-
-//	@PostMapping("Manufacturer")
-//	public ResponseEntity<ManufacturerCreateModifyDTO> createManufacturer(
-//			@RequestBody ManufacturerCreateModifyDTO dto, Model model){
-//		model.addAttribute("manufacturer", dto);
-//		ManufacturerEntity manufacturer = manufacturerMapper.toManufacturer(dto);
-//		return ResponseEntity
-//				.ok(manufacturerMapper.toManufacturerResponserDTO(manufacturerService.createModify(manufacturer)));
-//	}
 	
 	@PostMapping("Manufacturer")
 	public ResponseEntity<ManufacturerEntity> createManufacturer(
 			@RequestBody ManufacturerEntity entity, Model model){
 		ManufacturerCreateModifyDTO dto = manufacturerMapper.toManufacturerResponserDTO(entity);
 		model.addAttribute("model", dto);
-		return ResponseEntity
-				.ok(manufacturerMapper.toManufacturer(manufacturerService.createModify(dto)));
+		return ResponseEntity.ok(manufacturerMapper.toManufacturer(manufacturerService.createModify(dto)));
 	}
 	
 	@PutMapping("Manufacturer")
@@ -54,27 +44,6 @@ public class ManufacturerAPI {
 		return ResponseEntity
 				.ok(manufacturerMapper.toManufacturer(manufacturerService.createModify(dto)));
 	}
-
-//	@PutMapping("Manufacturer/{id}")
-//	public ResponseEntity<ManufacturerCreateModifyDTO> updateManufacturer(@RequestBody ManufacturerCreateModifyDTO dto,
-//			@PathVariable("id") long id) {
-//		System.out.println("Update Ok");
-//		dto.setId(id);
-//		ManufacturerEntity manufacturer = manufacturerMapper.toManufacturer(dto);
-//		return ResponseEntity
-//				.ok(manufacturerMapper.toManufacturerResponserDTO(manufacturerService.createModify(manufacturer)));
-//	}
-	
-//	@PutMapping("Manufacturer/{id}")
-//	public ResponseEntity<ManufacturerEntity> updateManufacturer(@RequestBody ManufacturerEntity entity,
-//			@PathVariable("id") long id, Model model) {
-//		System.out.println("Update Ok");
-//		entity.setId(id);
-//		ManufacturerCreateModifyDTO dto = manufacturerMapper.toManufacturerResponserDTO(entity);
-//		model.addAttribute("model", model);
-//		return ResponseEntity
-//				.ok(manufacturerMapper.toManufacturer(manufacturerService.createModify(dto)));
-//	}
 
 	@DeleteMapping("Manufacturer")
 	public void delete(@RequestBody long[] ids) {

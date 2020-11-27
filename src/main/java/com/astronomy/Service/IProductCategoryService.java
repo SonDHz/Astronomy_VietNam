@@ -2,13 +2,16 @@ package com.astronomy.Service;
 
 import java.util.List;
 
+import com.astronomy.dto.ProductCategoryCreateModifyDTO;
 import com.astronomy.entity.ProductCategory;
 
 public interface IProductCategoryService {
 	
 	List <ProductCategory> getAll();
 	
-	ProductCategory createModify(ProductCategory productCategory);
+	ProductCategoryCreateModifyDTO createModify(ProductCategoryCreateModifyDTO productCategorydto);
 	
-	void delete( long[] ids);
+	ProductCategoryCreateModifyDTO findByIdDTO(long id);
+	
+	void delete(long[] ids);
 }

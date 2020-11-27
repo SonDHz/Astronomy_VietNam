@@ -4,54 +4,55 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller(value = "HomeControllerOfAdmin")
+@RequestMapping(value = "admin")
 public class HomeController {
 	
-	@RequestMapping("admin/dashboard")
+	@RequestMapping("dashboard")
 	public String index() {
 		return "admin/dashboard";
 	}
 	
-	@RequestMapping("admin/employee")
+	@RequestMapping("employee")
 	public String account() {
 		return "admin/employee_manager";
 	}
 	
-	@RequestMapping("admin/customer")
+	@RequestMapping("customer")
 	public String customer() {
 		return "admin/customer_manager";
 	}
 	
-	@RequestMapping("admin/category")
+	@RequestMapping("category")
 	public String category() {
 		return "admin/category_manager";
 	}
 	
-	@RequestMapping("admin/post")
+	@RequestMapping("post")
 	public String post() {
 		return "admin/post_manager";
 	}
 	
-	@RequestMapping("admin/product")
+	@RequestMapping("product")
 	public String product() {
 		return "admin/product_manager";
 	}
 	
-	@RequestMapping("admin/productCategory")
+	@RequestMapping("productCategory")
 	public String productCategory() {
 		return "admin/product_category_manager";
 	}
 	
-	@RequestMapping("admin/postCategory")
+	@RequestMapping("postCategory")
 	public String postCategory() {
 		return "admin/post_category_manager";
 	}
 	
-	@RequestMapping("admin/order")
+	@RequestMapping("order")
 	public String order() {
 		return "admin/order_manager";
 	}
 	
-	@RequestMapping("admin/oderDetail")
+	@RequestMapping("oderDetail")
 	public String oderDetail() {
 		return "admin/order_detail_manager";
 	}

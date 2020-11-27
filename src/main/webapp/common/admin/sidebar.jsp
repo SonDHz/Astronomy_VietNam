@@ -29,15 +29,15 @@
 						<i class="fa fa-home"></i> <span class="title">Trang
 							chủ</span>
 				</a></li>
-				<li class="nav-item"><a href="employee"
+				<li class="nav-item"><a href="userView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý nhân viên</span>
 				</a></li>
-				<li class="nav-item"><a href="customer"
+				<li class="nav-item"><a href="customerView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý khách hàng</span>
 				</a></li>
-				<li class="nav-item"><a href="category"
+				<li class="nav-item"><a href="categoryView"
 					class="nav-link nav-toggle"> <i class="fa fa-map" ></i>
 						<span class="title">Quản lý thể loại bài viết</span>
 				</a></li>
@@ -48,19 +48,19 @@
 					class="nav-link nav-toggle"> <i class="fa fa-users"></i>
 						<span class="title">Quản lý nhà cung cấp</span>
 				</a></li>
-				<li class="nav-item"><a href="productCategory"
+				<li class="nav-item"><a href="productCategoryView"
 					class="nav-link nav-toggle"> <i class="fa fa-tasks"></i>
 						<span class="title">Quản lý loại sản phẩm</span>
 				</a></li>
-				<li class="nav-item"><a href="product"
+				<li class="nav-item"><a href="productView"
 					class="nav-link nav-toggle"> <i class="fa fa-product-hunt"></i>
 						<span class="title">Quản lý sản phẩm</span>
 				</a></li>
-				<li class="nav-item"><a href="order"
+				<li class="nav-item"><a href="orderView"
 					class="nav-link nav-toggle"> <i class="fa fa-credit-card"></i>
 						<span class="title">Quản lý hóa đơn</span>
 				</a></li>
-				<li class="nav-item"><a href="oderDetail"
+				<li class="nav-item"><a href="orderDetailView"
 					class="nav-link nav-toggle"> <i class="fa fa-credit-card"></i>
 						<span class="title">Quản lý hóa đơn chi tiết</span>
 				</a></li>

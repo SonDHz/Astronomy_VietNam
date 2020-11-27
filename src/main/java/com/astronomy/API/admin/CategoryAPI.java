@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,29 +28,27 @@ public class CategoryAPI {
 	@Autowired
 	private CategoryService categoryService;
 
-	@GetMapping("category")
-	public List<CategoryEntity> getAll() {
-		return categoryService.getAll();
+	@PostMapping("Category")
+	public ResponseEntity<CategoryEntity> createCategory(@RequestBody CategoryEntity categoryentity, Model model){
+		CategoryCreateModifyDTO categorydto = categoryMapper.toCategoryCreateModifyDTO(categoryentity);
+		model.addAttribute("model", categorydto);
+		return ResponseEntity.ok(categoryMapper.toCategory(categoryService.createModify(categorydto)));
+	}
+	
+	@PutMapping("Category")
+	public ResponseEntity<CategoryEntity> updateCategory(@RequestBody CategoryEntity categoryentity, Model model){
+		CategoryCreateModifyDTO categorydto = categoryMapper.toCategoryCreateModifyDTO(categoryentity);
+		model.addAttribute("model", categorydto);
+		return ResponseEntity.ok(categoryMapper.toCategory(categoryService.createModify(categorydto)));
 	}
 
-	@PostMapping("category")
-	public ResponseEntity<CategoryCreateModifyDTO> createCategory(@RequestBody CategoryCreateModifyDTO dto) {
-		CategoryEntity category = categoryMapper.toCategory(dto);
-		System.out.println("catefory: " + category);
-		return ResponseEntity.ok(categoryMapper.toCategoryCreateModifyDTO(categoryService.createModify(category)));
-	}
-
-	@PutMapping("category/{id}")
-	public ResponseEntity<CategoryCreateModifyDTO> updateCategory(@RequestBody CategoryCreateModifyDTO dto,
-			@PathVariable("id") long id) {
-		dto.setId(id);
-		CategoryEntity category = categoryMapper.toCategory(dto);
-		return ResponseEntity.ok(categoryMapper.toCategoryCreateModifyDTO(categoryService.createModify(category)));
-	}
-
-	@DeleteMapping(value = "category")
-	public void deleteCategory(@RequestBody long[] ids) {
+	@DeleteMapping("Category")
+	public void delete(@RequestBody long[] ids) {
 		categoryService.delete(ids);
 	}
 
+	@GetMapping("Category")
+	public List<CategoryEntity> getAll() {
+		return categoryService.getAll();
+	}
 }

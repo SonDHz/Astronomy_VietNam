@@ -27,11 +27,6 @@ public class ManufacturerEntityService implements IManufacturerService {
 	public List<ManufacturerEntity> getAll() {
 		return manufacturerRepository.findAll();
 	}
-
-//	@Override
-//	public ManufacturerEntity createModify(ManufacturerEntity manufacturerEntity) {
-//		return manufacturerRepository.save(manufacturerEntity);
-//	}
 	
 	@Override
 	public ManufacturerCreateModifyDTO createModify(ManufacturerCreateModifyDTO dto) {
