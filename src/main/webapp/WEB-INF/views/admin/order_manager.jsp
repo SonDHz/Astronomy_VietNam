@@ -138,13 +138,13 @@
 											</thead>
 											<tbody>
 											<form:form id="formSubmit" role="form" class="form-horizontal">
-											<c:forEach var="order" items="${orderentity}">
+											<c:forEach var="order" items="${entity}">
 												<tr>
 													<td><input type="checkbox" id="checkbox_${order.id}"
 																value="${order.id}" /></td>
 													<td>${order.id}</td>
-													<td>${order.createBy}</td>
-													<td>${order.modifyBy}</td>
+													<td>${order.createdBy}</td>
+													<td>${order.modifiedBy}</td>
 													<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/order">
 																	<c:param name="id" value="${order.id}" />
