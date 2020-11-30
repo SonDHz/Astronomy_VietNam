@@ -1,4 +1,6 @@
+ 
 package com.astronomy.controller.admin;
+
 
 import java.util.List;
 
@@ -12,33 +14,33 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.dto.ProductCategoryCreateModifyDTO;
 import com.astronomy.entity.ProductCategory;
-import com.astronomy.mapper.ProductMapper;
+import com.astronomy.mapper.ProductCategoryMapper;
 
 @RequestMapping(value = "admin")
 @Controller
 public class ProductCategoryController {
 
 	@Autowired
-	IProductCategoryService service;
+	IProductCategoryService productCategoryService;
 
 	@Autowired
-	ProductMapper mapper;
+	ProductCategoryMapper productCategoryMapper;
 
-	@GetMapping("productcategoryView")
-	public String productcategoryView(Model model) {
-		List<ProductCategory> list = service.getAll();
-		model.addAttribute("entity", list);
+	@GetMapping("productCategoryView")
+	public String productCategoryView(Model model) {
+		List<ProductCategory> list = productCategoryService.getAll();
+		model.addAttribute("productCategory", list);
 		return "admin/product_category_manager";
 	}
 
-	@GetMapping("createModify/productcategory")
+	@GetMapping("createModify/productCategory")
 	public String action(Model model, @RequestParam(value = "id", required = false) Long id) {
-		ProductCategoryCreateModifyDTO dto = new ProductCategoryCreateModifyDTO();
+		ProductCategoryCreateModifyDTO productCategorydto = new ProductCategoryCreateModifyDTO();
 		if (id != null) {
-			dto = service.findByIdDTO(id);
+			productCategorydto = productCategoryService.findByIdDTO(id);
 		}
-		model.addAttribute("model", dto);
+		model.addAttribute("model", productCategorydto);
 		return "admin/action/actionProductCategory";
 	}
-
+	
 }

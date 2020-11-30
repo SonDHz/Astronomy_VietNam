@@ -131,6 +131,8 @@
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
 													<th>Tên nhà cung cấp</th>
+													<th>Ngày tạo</th>
+													<th>Ngày sửa</th>
 													<th>Tạo bởi</th>
 													<th>Sửa bởi</th>
 													<th>Action</th>
@@ -144,8 +146,10 @@
 															<td><input type="checkbox" id="checkbox_${item.id}"
 																value="${item.id}" /></td>
 															<td>${item.name}</td>
-															<td>${item.createBy}</td>
-															<td>${item.modifyBy}</td>
+															<td>${item.createdDate}</td>
+															<td>${item.modifiedDate}</td>
+															<td>${item.createdBy}</td>
+															<td>${item.modifiedBy}</td> 
 															<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/manufacturer">
 																	<c:param name="id" value="${item.id}" />
@@ -236,7 +240,6 @@
 			</div>
 			<!-- end chat sidebar -->
 		</div>
-		s
 		<!-- end page container -->
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp"%>
@@ -261,7 +264,8 @@
 					function(isConfirm) {
 						if (isConfirm) {
 							//call api delete
-							var ids = $('tbody input[type=checkbox]:checked').map(function() {
+							var ids = $('tbody input[type=checkbox]:checked')
+									.map(function() {
 										return $(this).val();
 									}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
 							deleteNew(ids);
@@ -269,18 +273,19 @@
 					});
 		}
 		function deleteNew(data) {
-			$.ajax({
-				url : '${manufacturerAPI}',
-				type : 'DELETE',
-				contentType: 'application/json',
-				data: JSON.stringify(data), 
-				success : function(result) {
-					window.location.href = "${manufacturerURL}?message=delete_success"; 
-			    },
-				error : function(error) {
-				    window.location.href = "${manufacturerURL}?message=error_system";
-				}
-			});	
+			$
+					.ajax({
+						url : '${manufacturerAPI}',
+						type : 'DELETE',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						success : function(result) {
+							window.location.href = "${manufacturerURL}?message=delete_success";
+						},
+						error : function(error) {
+							window.location.href = "${manufacturerURL}?message=error_system";
+						}
+					});
 		}
 	</script>
 </body>

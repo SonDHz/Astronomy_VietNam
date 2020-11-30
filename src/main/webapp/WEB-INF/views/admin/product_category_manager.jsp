@@ -1,9 +1,8 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="productcategoryURL" value="/admin/productcategoryView" />
-<c:url var="productcategoryAPI" value="/api/ProductCategory" />
-
+<c:url var="productCategoryURL" value="/admin/productCategoryView" />
+<c:url var="productCategoryAPI" value="/api/ProductCategory" />
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -89,7 +88,7 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<c:url var="createModify" value="createModify/productcategory" />
+								<c:url var="createModify" value="createModify/productCategory" />
 								<a href='${createModify}' type="button" aria-haspopup="true"
 									aria-expanded="false" class="btn-shadow btn btn-info"> <span
 									class="btn-icon-wrapper pr-2 opacity-7"> <i
@@ -130,10 +129,12 @@
 										<table id="example1" class="display" style="width: 100%;">
 											<thead>
 												<tr>
-													<th>#ID</th>
+													<th><input type="checkbox" id="checkAll"></th>
 													<th>Tên loại sản phẩm</th>
 													<th>Code</th>
-													<th>Tạo bởi</th>
+													<th>Ngày tạo</th>
+													<th>Ngày Sửa</th>
+													<th>Tạo bỏi</th>
 													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
@@ -141,20 +142,21 @@
 											<tbody>
 												<form:form id="formSubmit" role="form"
 													class="form-horizontal">
-													<c:forEach var="item" items="${entity}">
+													<c:forEach var="item" items="${productCategory}">
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}"
-																value="${item.id}" />
-															</td>
+																value="${item.id}" /></td>
 															<td>${item.name}</td>
 															<td>${item.code}</td>
-															<td>${item.createBy}</td>
-															<td>${item.modifyBy}</td>
-															<td>&nbsp;&nbsp;
-															 <c:url var="createModify"
-																	value="createModify/productcategory">
-																	<c:param name="id" value="${item.id}" />
-															</c:url> <a href='${createModify}'
+															<td>${item.createdDate}</td>
+															<td>${item.modifiedDate}</td>
+															<td>${item.createdBy}</td>
+															<td>${item.modifiedBy}</td>
+															<td>&nbsp;&nbsp; <%-- <c:url var="createModify"
+																	value="createModify/productCategory">
+																	<c:param name="id" value="${productCategorys.id}" />
+																</c:url>  --%>
+																<a href='${createModify}'
 																class="btn btn-outline-warning"
 																data-original-title="Update">Update</a> &nbsp;&nbsp;
 															</td>
@@ -241,83 +243,6 @@
 			</div>
 			<!-- end chat sidebar -->
 		</div>
-
-		<!-- Modal Update-->
-		<div class="modal fade" id="exampleModalUpdate" tabindex="-1"
-			role="dialog" aria-labelledby="exampleModalLabelUpdate"
-			aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Update</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-
-						<input class="form-control validate" type="hidden" value="1">
-						<br> <label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Tên loại sản phẩm:</label> <input
-							class="form-control validate" type="text" value="Sách"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Code:</label> <input
-							class="form-control validate" type="text" value="123"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Tạo bởi:</label> <input
-							class="form-control validate" type="text" value="tien"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Sửa bởi:</label> <input
-							class="form-control validate" type="text" value="tien1">
-						<br>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Lưu</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">
-							<i class="fa fa-edit"></i>&nbsp;Thêm loại sản phẩm
-						</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="md-form mb-5">
-							<label data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Tên loại sản phẩm</label> <input
-								class="form-control validate"> <label data-error="wrong"
-								data-success="right"> <i class="fa fa-table"></i>&nbsp;
-								Code
-							</label> <input class="form-control validate"> <label
-								data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Tạo bởi</label> <input
-								class="form-control validate"> <label data-error="wrong"
-								data-success="right"><i class="fa fa-table"></i>&nbsp;
-								Sửa bởi</label> <input class="form-control validate">
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary">Lưu</button>
-					</div>
-				</div>
-			</div>
-		</div>
 		<!-- end page container -->
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp"%>
@@ -341,7 +266,8 @@
 					function(isConfirm) {
 						if (isConfirm) {
 							//call api delete
-							var ids = $('tbody input[type=checkbox]:checked').map(function() {
+							var ids = $('tbody input[type=checkbox]:checked')
+									.map(function() {
 										return $(this).val();
 									}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
 							deleteNew(ids);
@@ -349,18 +275,19 @@
 					});
 		}
 		function deleteNew(data) {
-			$.ajax({
-				url : '${productcategoryAPI}',
-				type : 'DELETE',
-				contentType: 'application/json',
-				data: JSON.stringify(data), 
-				success : function(result) {
-					window.location.href = "${productcategoryURL}?message=delete_success"; 
-			    },
-				error : function(error) {
-				    window.location.href = "${productcategoryURL}?message=error_system";
-				}
-			});	
+			$
+					.ajax({
+						url : '${productCategoryAPI}',
+						type : 'DELETE',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						success : function(result) {
+							window.location.href = "${productCategoryURL}?message=delete_success";
+						},
+						error : function(error) {
+							window.location.href = "${productCategoryURL}?message=error_system";
+						}
+					});
 		}
 	</script>
 </body>

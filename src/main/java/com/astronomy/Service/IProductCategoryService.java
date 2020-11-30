@@ -15,6 +15,6 @@ public interface IProductCategoryService {
 	
 	ProductCategoryCreateModifyDTO findByIdDTO(long id);
 
-	
+
 }
 

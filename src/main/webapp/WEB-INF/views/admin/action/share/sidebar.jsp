@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <div class="sidebar-container">
 	<div class="sidemenu-container navbar-collapse collapse fixed-menu">
 		<div id="remove-scroll">
@@ -26,7 +29,7 @@
 						<i class="fa fa-home"></i> <span class="title">Trang
 							chủ</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/employee"
+				<li class="nav-item"><a href="/admin/userView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý nhân viên</span>
 				</a></li>
@@ -34,11 +37,11 @@
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý khách hàng</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/category"
+				<li class="nav-item"><a href="/admin/categoryView"
 					class="nav-link nav-toggle"> <i class="fa fa-map" ></i>
 						<span class="title">Quản lý thể loại bài viết</span>
 				</a></li>
-				<li class="nav-item"><a href="/post" class="nav-link nav-toggle">
+				<li class="nav-item"><a href="/admin/post" class="nav-link nav-toggle">
 						<i class="fa fa-file"></i> <span class="title">Quản lý bài viết</span>
 				</a></li>
 				<li class="nav-item"><a href="/admin/manufacturerView"

@@ -18,36 +18,32 @@ public class ProductCategoryService implements IProductCategoryService {
 	private ProductCategoryRepository productCategoryRepository;
 	
 	@Autowired
-	private ProductCategoryMapper mapper;
+	private ProductCategoryMapper 	productCategoryMapper;
 	
 	@Override
 	public List<ProductCategory> getAll() {
 		return productCategoryRepository.findAll();
 	}
 	
-//	@Override
-//	public ProductCategory createModify(ProductCategory productCategory) {
-//		return productCategoryRepository.save(productCategory);
-//	}
-	
 	@Override
-	public ProductCategoryCreateModifyDTO createModify(ProductCategoryCreateModifyDTO dto) {
-		ProductCategory entity = new ProductCategory();
-		entity = mapper.toProductCategory(dto);
-		entity = productCategoryRepository.save(entity);
-		return dto;
+	public ProductCategoryCreateModifyDTO createModify(ProductCategoryCreateModifyDTO productCategorydto) {
+		ProductCategory productCategory = new ProductCategory();
+		productCategory = productCategoryMapper.toProductCategory(productCategorydto);
+		productCategory = productCategoryRepository.save(productCategory);
+		return productCategorydto;
 	}
 
 	@Override
 	public void delete(long[] ids) {
-		for (long item : ids) {
-			productCategoryRepository.deleteById(item);
+		for (long id: ids) {
+			productCategoryRepository.deleteById(id);
 		}
 	}
-	
+
 	@Override
 	public ProductCategoryCreateModifyDTO findByIdDTO(long id) {
 		ProductCategory productCategory = productCategoryRepository.findById(id).orElse(null);
-		return mapper.toProductCategoryResponserDTO(productCategory);
+		return productCategoryMapper.toProductCategoryResponserDTO(productCategory);
 	}
 }
+

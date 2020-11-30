@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="productcategoryURL" value="/admin/productcategoryView"/>
+<c:url var="productcategoryURL" value="/admin/productCategoryView"/>
 <c:url var="productcategoryAPI" value="/api/ProductCategory"/> 
 <!DOCTYPE html>
 <html>
@@ -101,7 +101,7 @@
 						<div class="col-md-12 col-sm-12">
 							<div class="card card-box">
 								<div class="card-head">
-									<header>Validation with Icons</header>
+									<header>Quản lý loại sản phẩm</header>
 									<button id="panel-button2"
 										class="mdl-button mdl-js-button mdl-button--icon pull-right"
 										data-upgraded=",MaterialButton">
@@ -142,26 +142,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Tạo bởi: 
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="createBy" type="text" class="form-control"
-															name="createBy" id="createBy" value="${model.createBy}"/>
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Sửa bởi:
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="modifyBy" type="text" class="form-control"
-															name="modifyBy" id="modifyBy" value="${model.modifyBy}" />
-													</div>
-												</div>
-											</div>
+											
 										</div>
 										<form:hidden path="id" id="idProductCategory"/>
 										<div class="form-group">
@@ -264,7 +245,6 @@
 		$('#btnAddOrUpdate').click(function (event){
 			event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
 			var data = {};
-			//Lấy gọi ra id (Lưu ý phải đặt name cho các field)
 			var formData = $('#formSubmit').serializeArray();
 			$.each(formData, function (i, v){
 				data["" + v.name + ""] = v.value;
@@ -301,7 +281,7 @@
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function(result){
-					window.location.href = "${productcategoryURL}?";   
+					window.location.href = "${productcategoryURL}?"; 
 				},
 				error: function(error){
 					window.location.href = "${productcategoryURL}?message=error_system"; 
