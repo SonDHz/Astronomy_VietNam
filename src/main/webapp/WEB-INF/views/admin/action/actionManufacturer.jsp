@@ -132,26 +132,6 @@
 													</div>
 												</div>
 											</div>
-											<%-- <div class="form-group row">
-												<label class="control-label col-md-3">Tạo bởi: 
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="createBy" type="text" class="form-control"
-															name="createBy" id="createBy" value="${model.createBy}"/>
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Sửa bởi:
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="modifyBy" type="text" class="form-control"
-															name="modifyBy" id="modifyBy" value="${model.modifyBy}" />
-													</div>
-												</div>
-											</div> --%>
 										</div>
 										<form:hidden path="id" id="idManufacturer"/>
 										<div class="form-group">
