@@ -2,7 +2,6 @@ package com.astronomy.Service;
 
 import java.util.List;
 
-
 import com.astronomy.entity.ProductEntity;
 
 public interface IProductService {

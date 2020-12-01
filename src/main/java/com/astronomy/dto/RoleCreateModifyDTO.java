@@ -1,5 +1,7 @@
 package com.astronomy.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,6 +19,8 @@ public class RoleCreateModifyDTO {
 	private Long id;
 	private String roleName;
 	private String code;
-	private String createBy;
-	private String modifyBy;
+	private Date createdDate;
+	private Date modifiedDate;
+	private String createdBy;
+	private String modifiedBy;
 }

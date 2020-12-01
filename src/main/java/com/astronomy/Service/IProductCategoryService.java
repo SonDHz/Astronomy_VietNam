@@ -9,9 +9,12 @@ public interface IProductCategoryService {
 	
 	List <ProductCategory> getAll();
 	
-	ProductCategoryCreateModifyDTO createModify(ProductCategoryCreateModifyDTO productCategorydto);
+	ProductCategoryCreateModifyDTO createModify(ProductCategoryCreateModifyDTO dto);
+	
+	void delete( long[] ids);
 	
 	ProductCategoryCreateModifyDTO findByIdDTO(long id);
-	
-	void delete(long[] ids);
+
+
 }
+

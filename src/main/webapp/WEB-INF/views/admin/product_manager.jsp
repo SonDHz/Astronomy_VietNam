@@ -1,6 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp" %>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -12,14 +12,14 @@
 <meta name="author" content="SmartUniversity">
 <title>Quản lý sản phẩm</title>
 <!-- google font -->
-<%@include file="/common/admin/style.jsp" %>
+<%@include file="/common/admin/style.jsp"%>
 </head>
 <!-- END HEAD -->
 <body
 	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark">
 	<div class="page-wrapper">
 		<!-- start header -->
-		<%@include file="/common/admin/header.jsp" %>
+		<%@include file="/common/admin/header.jsp"%>
 		<!-- end header -->
 		<!-- start color quick setting -->
 		<div class="quick-setting-main">
@@ -78,7 +78,7 @@
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
-			<%@include file="/common/admin/sidebar.jsp" %>
+			<%@include file="/common/admin/sidebar.jsp"%>
 			<!-- end sidebar menu -->
 			<!-- start page content -->
 			<div class="page-content-wrapper">
@@ -144,183 +144,6 @@
 															data-toggle="tooltip" data-original-title="Delete">
 															Delete</button>
 													</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>2</td>
-													<td>2</td>
-													<td>Truyện</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>3</td>
-													<td>3</td>
-													<td>Tiểu thuyết</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>4</td>
-													<td>4</td>
-													<td>Ống nhòm</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>5</td>
-													<td>5</td>
-													<td>Kính</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Brielle Williamson</td>
-													<td>Integration Specialist</td>
-													<td>New York</td>
-													<td>61</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Herrod Chandler</td>
-													<td>Sales Assistant</td>
-													<td>San Francisco</td>
-													<td>59</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Rhona Davidson</td>
-													<td>Integration Specialist</td>
-													<td>Tokyo</td>
-													<td>55</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Colleen Hurst</td>
-													<td>Javascript Developer</td>
-													<td>San Francisco</td>
-													<td>39</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Sonya Frost</td>
-													<td>Software Engineer</td>
-													<td>Edinburgh</td>
-													<td>23</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Jena Gaines</td>
-													<td>Office Manager</td>
-													<td>London</td>
-													<td>30</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Quinn Flynn</td>
-													<td>Support Lead</td>
-													<td>Edinburgh</td>
-													<td>22</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
 												</tr>
 											</tbody>
 										</table>
@@ -559,11 +382,11 @@
 		</div>
 		<!-- end page container -->
 		<!-- start footer -->
-		<%@include file="/common/admin/footer.jsp" %>
+		<%@include file="/common/admin/footer.jsp"%>
 		<!-- end footer -->
 	</div>
 	<!-- start js include path -->
-	<%@include file="/common/admin/js.jsp" %>
+	<%@include file="/common/admin/js.jsp"%>
 	<!-- end js include path -->
 </body>
 </html>

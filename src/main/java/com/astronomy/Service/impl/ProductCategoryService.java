@@ -46,3 +46,4 @@ public class ProductCategoryService implements IProductCategoryService {
 		return productCategoryMapper.toProductCategoryResponserDTO(productCategory);
 	}
 }
+

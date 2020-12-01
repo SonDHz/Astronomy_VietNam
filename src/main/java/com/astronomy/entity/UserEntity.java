@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,9 +20,12 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,17 +40,31 @@ import lombok.ToString;
 @Getter
 @Setter
 @Table(name = "user")
+@EntityListeners(AuditingEntityListener.class)
 @Builder
 @ToString
-public class UserEntity implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
+public class UserEntity {
+	
 	@Id
-	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
+	@Column(name = "createddate", updatable = false)
+	@CreatedDate
+	private Date createdDate;
+	
+	@Column(name = "modifieddate", updatable = true)
+	@LastModifiedDate
+	private Date modifiedDate;
+	
+	@Column(name = "createdby", updatable = false)
+	@CreatedBy
+	private String createdBy;
+	
+	@Column(name = "modifiedby", updatable = true)
+	@LastModifiedBy
+	private String modifiedBy;
+	
 	@Column(name = "username")
 	private String username;
 
@@ -78,21 +96,20 @@ public class UserEntity implements Serializable {
 
 	@Column(name = "status")
 	private Integer status;
-
-	@Column(name = "createby")
-	private String createBy;
-
-	@Column(name = "modifyby")
-	private String modifyBy;
 	
 	@OneToMany(mappedBy = "user")
 	private List<ProductEntity> products = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "user")
 	private List<PostEntity> post = new ArrayList<>();
-
+	
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
-	private List<RoleEntity> roles = new ArrayList<RoleEntity>();
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), 
+								  inverseJoinColumns = @JoinColumn(name = "roleid"))
+	private List<RoleEntity> roles = new ArrayList<>();
+
+//	@ManyToMany(fetch = FetchType.LAZY)
+//	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
+//	private List<RoleEntity> roles = new ArrayList<RoleEntity>();
 
 }

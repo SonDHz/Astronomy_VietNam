@@ -1,8 +1,8 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp" %>
+<%@include file="/common/taglib.jsp"%>
 <c:url var="productCategoryURL" value="/admin/productCategoryView" />
-<c:url var="productCategoryAPI" value="/api/ProductCategory"/>
+<c:url var="productCategoryAPI" value="/api/ProductCategory" />
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -14,14 +14,14 @@
 <meta name="author" content="SmartUniversity">
 <title>Quản lý loại sản phẩm</title>
 <!-- google font -->
-<%@include file="/common/admin/style.jsp" %>
+<%@include file="/common/admin/style.jsp"%>
 </head>
 <!-- END HEAD -->
 <body
 	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark">
 	<div class="page-wrapper">
 		<!-- start header -->
-		<%@include file="/common/admin/header.jsp" %>
+		<%@include file="/common/admin/header.jsp"%>
 		<!-- end header -->
 		<!-- start color quick setting -->
 		<div class="quick-setting-main">
@@ -80,7 +80,7 @@
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
-			<%@include file="/common/admin/sidebar.jsp" %>
+			<%@include file="/common/admin/sidebar.jsp"%>
 			<!-- end sidebar menu -->
 			<!-- start page content -->
 			<div class="page-content-wrapper">
@@ -132,30 +132,36 @@
 													<th><input type="checkbox" id="checkAll"></th>
 													<th>Tên loại sản phẩm</th>
 													<th>Code</th>
-													<th>Tạo bởi</th>
+													<th>Ngày tạo</th>
+													<th>Ngày Sửa</th>
+													<th>Tạo bỏi</th>
 													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
-											<form:form id="formSubmit" role="form" class="form-horizontal">
-											<c:forEach var="productCategorys" items="${productCategory}">
-												<tr>
-													<td><input type="checkbox" id="checkbox_${productCategorys.id}"
-																value="${productCategorys.id}" /></td>
-													<td>${productCategorys.code}</td>
-													<td>${productCategorys.name}</td>
-													<td>${productCategorys.createBy}</td>
-													<td>${productCategorys.modifyBy}</td>
-													<td>&nbsp;&nbsp; <c:url var="createModify"
+												<form:form id="formSubmit" role="form"
+													class="form-horizontal">
+													<c:forEach var="item" items="${productCategory}">
+														<tr>
+															<td><input type="checkbox" id="checkbox_${item.id}"
+																value="${item.id}" /></td>
+															<td>${item.name}</td>
+															<td>${item.code}</td>
+															<td>${item.createdDate}</td>
+															<td>${item.modifiedDate}</td>
+															<td>${item.createdBy}</td>
+															<td>${item.modifiedBy}</td>
+															<td>&nbsp;&nbsp; <%-- <c:url var="createModify"
 																	value="createModify/productCategory">
 																	<c:param name="id" value="${productCategorys.id}" />
-																</c:url> <a href='${createModify}'
+																</c:url>  --%>
+																<a href='${createModify}'
 																class="btn btn-outline-warning"
 																data-original-title="Update">Update</a> &nbsp;&nbsp;
 															</td>
-												</tr>
-												</c:forEach>
+														</tr>
+													</c:forEach>
 												</form:form>
 											</tbody>
 										</table>
@@ -239,48 +245,50 @@
 		</div>
 		<!-- end page container -->
 		<!-- start footer -->
-		<%@include file="/common/admin/footer.jsp" %>
+		<%@include file="/common/admin/footer.jsp"%>
 		<!-- end footer -->
 	</div>
 	<!-- start js include path -->
-	<%@include file="/common/admin/js.jsp" %>
+	<%@include file="/common/admin/js.jsp"%>
 	<!-- end js include path -->
-		<script >
-	function warningBeforeDelete() {
-		swal({
-			title : "Xác nhận xóa",
-			text : "Bạn có chắc chắn muốn xóa hay không",
-			type : "warning",
-			showCancelButton : true,
-			confirmButtonClass : "btn-success",
-			cancelButtonClass : "btn-danger",
-			confirmButtonText : "Xác nhận",
-			cancelButtonText : "Hủy bỏ",
-		}).then(
-				function(isConfirm) {
-					if (isConfirm) {
-						//call api delete
-						var ids = $('tbody input[type=checkbox]:checked').map(function() {
-									return $(this).val();
-								}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
-						deleteNew(ids);
-					}
-				});
-	}
-	function deleteNew(data) {
-		$.ajax({
-			url : '${productCategoryAPI}',
-			type : 'DELETE',
-			contentType: 'application/json',
-			data: JSON.stringify(data), 
-			success : function(result) {
-				window.location.href = "${productCategoryURL}?message=delete_success"; 
-		    },
-			error : function(error) {
-			    window.location.href = "${productCategoryURL}?message=error_system";
-			}
-		});	
-	}
+	<script>
+		function warningBeforeDelete() {
+			swal({
+				title : "Xác nhận xóa",
+				text : "Bạn có chắc chắn muốn xóa hay không",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonClass : "btn-success",
+				cancelButtonClass : "btn-danger",
+				confirmButtonText : "Xác nhận",
+				cancelButtonText : "Hủy bỏ",
+			}).then(
+					function(isConfirm) {
+						if (isConfirm) {
+							//call api delete
+							var ids = $('tbody input[type=checkbox]:checked')
+									.map(function() {
+										return $(this).val();
+									}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
+							deleteNew(ids);
+						}
+					});
+		}
+		function deleteNew(data) {
+			$
+					.ajax({
+						url : '${productCategoryAPI}',
+						type : 'DELETE',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						success : function(result) {
+							window.location.href = "${productCategoryURL}?message=delete_success";
+						},
+						error : function(error) {
+							window.location.href = "${productCategoryURL}?message=error_system";
+						}
+					});
+		}
 	</script>
 </body>
 </html>

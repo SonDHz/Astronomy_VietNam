@@ -132,7 +132,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="form-group row">
+											<%-- <div class="form-group row">
 												<label class="control-label col-md-3">Tạo bởi: 
 												</label>
 												<div class="col-md-4">
@@ -151,7 +151,7 @@
 															name="modifyBy" id="modifyBy" value="${model.modifyBy}" />
 													</div>
 												</div>
-											</div>
+											</div> --%>
 										</div>
 										<form:hidden path="id" id="idManufacturer"/>
 										<div class="form-group">
@@ -275,10 +275,10 @@
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function(result){
-					 window.location.href = "${manufacturerURL}?id="+result.id+"&message=insert_success";   
+					 window.location.href = "${manufacturerURL}?id="+result.id+"&message=insert_success";    
 				},
 				error: function(error){
-					 window.location.href = "${manufacturerURL}?message=error_system";  
+					 window.location.href = "${manufacturerURL}?message=error_system";   
 				}
  			});
 		}

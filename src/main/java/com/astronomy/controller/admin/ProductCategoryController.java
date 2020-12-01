@@ -1,3 +1,4 @@
+ 
 package com.astronomy.controller.admin;
 
 
@@ -9,7 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.astronomy.Service.impl.ProductCategoryService;
+
+import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.dto.ProductCategoryCreateModifyDTO;
 import com.astronomy.entity.ProductCategory;
 import com.astronomy.mapper.ProductCategoryMapper;
@@ -19,7 +21,7 @@ import com.astronomy.mapper.ProductCategoryMapper;
 public class ProductCategoryController {
 
 	@Autowired
-	ProductCategoryService productCategoryService;
+	IProductCategoryService productCategoryService;
 
 	@Autowired
 	ProductCategoryMapper productCategoryMapper;
@@ -38,7 +40,7 @@ public class ProductCategoryController {
 			productCategorydto = productCategoryService.findByIdDTO(id);
 		}
 		model.addAttribute("model", productCategorydto);
-		return "admin/action/actionCategory";
+		return "admin/action/actionProductCategory";
 	}
 	
 }

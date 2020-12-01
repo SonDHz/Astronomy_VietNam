@@ -14,7 +14,7 @@ public class ProductService implements IProductService {
 
 	@Autowired
 	private ProductRepository productRepository;
-	
+		
 	@Override
 	public List<ProductEntity> getAll() {
 		return productRepository.findAll();
@@ -31,4 +31,5 @@ public class ProductService implements IProductService {
 			productRepository.deleteById(item);
 		}
 	}
+	
 }

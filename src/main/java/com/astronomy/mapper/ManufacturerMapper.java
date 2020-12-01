@@ -13,8 +13,10 @@ public class ManufacturerMapper {
 		return ManufacturerEntity.builder()
 				.id(dto.getId())
 				.name(dto.getName())
-				.createBy(dto.getCreateBy())
-				.modifyBy(dto.getModifyBy())
+				.createdBy(dto.getCreatedBy())
+				.modifiedDate(dto.getModifiedDate())
+				.modifiedBy(dto.getModifiedBy())
+				.modifiedDate(dto.getModifiedDate())
 				.build();
 	}
 	
@@ -22,8 +24,10 @@ public class ManufacturerMapper {
 		return ManufacturerCreateModifyDTO.builder()
 				.id(manufacturer.getId())
 				.name(manufacturer.getName())
-				.createBy(manufacturer.getCreateBy())
-				.modifyBy(manufacturer.getModifyBy())
+				.createdBy(manufacturer.getCreatedBy())
+				.modifiedDate(manufacturer.getModifiedDate())
+				.modifiedBy(manufacturer.getModifiedBy())
+				.modifiedDate(manufacturer.getModifiedDate())
 				.build();
 	}
 }

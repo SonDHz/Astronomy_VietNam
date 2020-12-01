@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller(value = "HomeControllerOfAdmin")
-@RequestMapping(value = "admin")
+@RequestMapping(value = "/admin")
 public class HomeController {
 	
 	@RequestMapping("dashboard")

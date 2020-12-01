@@ -93,7 +93,7 @@
 								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
 									href="#">Home</a>&nbsp;</li>
 								<li><i class="fa fa-angle-right"></i></li>
-								<li class="active">Quản lý loại sản phẩm</li>
+								<li class="active">Quản lý nhà cung cấp</li>
 							</ol>
 						</div>
 					</div>
@@ -142,28 +142,9 @@
 													</div>
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Tạo bởi: 
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="createBy" type="text" class="form-control"
-															name="createBy" id="createBy" value="${model.createBy}"/>
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Sửa bởi:
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="modifyBy" type="text" class="form-control"
-															name="modifyBy" id="modifyBy" value="${model.modifyBy}" />
-													</div>
-												</div>
-											</div>
+											
 										</div>
-										<form:hidden path="id" id="idProductcategory"/>
+										<form:hidden path="id" id="idProductCategory"/>
 										<div class="form-group">
 											<div class="offset-md-3 col-md-9">
 											<c:if test="${not empty model.id}">
@@ -264,12 +245,11 @@
 		$('#btnAddOrUpdate').click(function (event){
 			event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
 			var data = {};
-			//Lấy gọi ra id (Lưu ý phải đặt name cho các field)
-			var formData = $('#formSubmit').serializeArray(); 
+			var formData = $('#formSubmit').serializeArray();
 			$.each(formData, function (i, v){
 				data["" + v.name + ""] = v.value;
 			});
-			var id = $('#idProductcategory').val();
+			var id = $('#idProductCategory').val();
 			if(id == ""){
 				add(data);
 			}else{
