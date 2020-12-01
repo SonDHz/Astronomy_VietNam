@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="orderURL" value="/admin/orderView"/>
-<c:url var="orderAPI" value="/api/Order"/> 
+<c:url var="productURL" value="/admin/productView" />
+<c:url var="productAPI" value="/api/Product" />
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -12,7 +12,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta name="description" content="Responsive Admin Template">
 <meta name="author" content="SmartUniversity">
-<title>Quản lý hóa đơn</title>
+<title>Quản lý sản phẩm</title>
 <!-- google font -->
 <%@include file="share/styleAction.jsp"%>
 </head>
@@ -93,7 +93,7 @@
 								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
 									href="#">Home</a>&nbsp;</li>
 								<li><i class="fa fa-angle-right"></i></li>
-								<li class="active">Quản lý hóa đơn</li>
+								<li class="active">Quản lý sản phẩm</li>
 							</ol>
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 						<div class="col-md-12 col-sm-12">
 							<div class="card card-box">
 								<div class="card-head">
-									<header>Quản lý hóa đơn</header>
+									<header>Quản lý sản phẩm</header>
 									<button id="panel-button2"
 										class="mdl-button mdl-js-button mdl-button--icon pull-right"
 										data-upgraded=",MaterialButton">
@@ -125,6 +125,107 @@
 															name="id" id="id" value="${model.id}"/>
 											</div>
 											<div class="form-group row">
+												<label class="control-label col-md-3">Tên sản phẩm: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="name" type="text" class="form-control"
+															name="name" id="name" value="${model.name}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Mô tả ngắn: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="shortDecription" type="text" class="form-control"
+															name="shortDecription" id="shortDecription" value="${model.shortDecription}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Trạng thái: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="status" type="text" class="form-control"
+															name="status" id="status" value="${model.status}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Hình ảnh: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="image" type="text" class="form-control"
+															name="image" id="image" value="${model.image}"/>
+													</div>
+												</div>
+											</div>
+												<div class="form-group row">
+												<label class="control-label col-md-3">Giá: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="price" type="text" class="form-control"
+															name="price" id="price" value="${model.price}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Số lượng: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="quantity" type="text" class="form-control"
+															name="quantity" id="quantity" value="${model.quantity}"/>
+													</div>
+												</div>
+											</div>
+											<%-- <div class="form-group row">
+												<label class="control-label col-md-3">Loại: 
+												</label>
+												<div class="col-md-8">
+													<form:select  path="productcategory" items="${productcategory}" itemLabel="id">
+														<form:option value=""/>
+							  	 						<form:options items="${id}"/>
+													</form:select>
+												</div>
+											</div> --%>
+											<%-- <div class="form-group row">
+												<label class="control-label col-md-3">Nhà sản xuất: 
+												</label>
+												<div class="col-md-8">
+													<form:select  path="manufacturer" items="${manufacturer}" itemLabel="id">
+														<form:option value=""/>
+							  	 						<form:options items="${id}"/>
+													</form:select>
+												</div>
+											</div> --%>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Tạo ngày: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="createdDate" type="date" class="form-control"
+															name="createdDate" id="createdDate" value="${model.createdDate}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Sửa ngày:
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="modifiedDate" type="date" class="form-control"
+															name="modifiedDate" id="modifiedDate" value="${model.modifiedDate}" />
+													</div>
+												</div>
+											</div>
+											
+											<div class="form-group row">
 												<label class="control-label col-md-3">Tạo bởi: 
 												</label>
 												<div class="col-md-4">
@@ -144,15 +245,35 @@
 													</div>
 												</div>
 											</div>
+											<%-- <div class="form-group row">
+												<label class="control-label col-md-3">Tạo bởi: 
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="createBy" type="text" class="form-control"
+															name="createBy" id="createBy" value="${model.createBy}"/>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Sửa bởi:
+												</label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i> <form:input path="modifyBy" type="text" class="form-control"
+															name="modifyBy" id="modifyBy" value="${model.modifyBy}" />
+													</div>
+												</div>
+											</div> --%>
 										</div>
-										<form:hidden path="id" id="idOrder"/>
+										<form:hidden path="id" id="idProduct"/>
 										<div class="form-group">
 											<div class="offset-md-3 col-md-9">
 											<c:if test="${not empty model.id}">
-												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Cập nhật hóa đơn</button>
+												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Cập nhật sản phẩm</button>
 											</c:if>
 											<c:if test="${empty model.id}">
-												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Thêm hóa đơn</button>
+												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Thêm sản phẩm</button>
 											</c:if>
 											</div>
 										</div>
@@ -251,7 +372,7 @@
 			$.each(formData, function (i, v){
 				data["" + v.name + ""] = v.value;
 			});
-			var id = $('#idOrder').val();
+			var id = $('#idProduct').val();
 			if(id == ""){
 				add(data);
 			}else{
@@ -261,32 +382,32 @@
 		
 		function add(data){
 			$.ajax({
-				url: '${orderAPI}',
+				url: '${productAPI}',
 				type: 'POST',
 				contentType: 'application/json',
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function(result){
-					 window.location.href = "${orderURL}?id="+result.id+"&message=insert_success";   
+					 window.location.href = "${productURL}?id="+result.id+"&message=insert_success";    
 				},
 				error: function(error){
-					 window.location.href = "${orderURL}?message=error_system";  
+					 window.location.href = "${productURL}?message=error_system";   
 				}
  			});
 		}
 		
 		function update(data){
 			$.ajax({
-				url: '${orderAPI}',
+				url: '${productAPI}',
 				type: 'PUT',
 				contentType: 'application/json',
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function(result){
-					window.location.href = "${orderURL}?"; 
+					window.location.href = "${productURL}?"; 
 				},
 				error: function(error){
-					window.location.href = "${orderURL}?message=error_system"; 
+					window.location.href = "${productURL}?message=error_system"; 
 				}
  			});
 		}
