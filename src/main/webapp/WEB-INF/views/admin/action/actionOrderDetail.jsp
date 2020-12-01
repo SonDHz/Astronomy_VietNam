@@ -128,7 +128,7 @@
 												<label class="control-label col-md-3">Hóa đơn: 
 												</label>
 												<div class="col-md-8">
-													<form:select path="order" items="${orders}" itemLabel="id">
+													<form:select  path="order" items="${orders}" itemLabel="id">
 														<form:option value=""/>
 							  	 						<form:options items="${id}"/>
 													</form:select>
@@ -287,10 +287,10 @@
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function(result){
-					 /* window.location.href = "${orderDetailURL}?id="+result.id+"&message=insert_success";   */ 
+				 window.location.href = "${orderDetailURL}?id="+result.id+"&message=insert_success";  
 				},
 				error: function(error){
-					 /* window.location.href = "${orderDetailURL}?message=error_system";   */
+				 window.location.href = "${orderDetailURL}?message=error_system"; 
 				}
  			});
 		}
