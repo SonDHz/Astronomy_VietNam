@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller(value = "HomeControllerOfAdmin")
-@RequestMapping("admin")
 public class HomeController {
 	
+
 	
 	@Autowired
 	private IOrderService orderService;
@@ -26,52 +26,48 @@ public class HomeController {
 	@Autowired
 	private IOrderDetailService orderdetailService;
 
-	
-	@RequestMapping("dashboard")
+
+	@RequestMapping("admin/dashboard")
 	public String index() {
 		return "admin/dashboard";
 	}
 	
-	@RequestMapping("employee")
+	@RequestMapping("admin/employee")
 	public String account() {
 		return "admin/employee_manager";
 	}
 	
-	@RequestMapping("customer")
+	@RequestMapping("admin/customer")
 	public String customer() {
 		return "admin/customer_manager";
 	}
 	
-	@RequestMapping("category")
+	@RequestMapping("admin/category")
 	public String category() {
 		return "admin/category_manager";
 	}
 	
-	@RequestMapping("post")
+	@RequestMapping("admin/post")
 	public String post() {
 		return "admin/post_manager";
 	}
 	
-	@RequestMapping("product")
+	@RequestMapping("admin/product")
 	public String product() {
 		return "admin/product_manager";
 	}
 	
-	@RequestMapping("productCategory")
+	@RequestMapping("admin/productCategory")
 	public String productCategory() {
 		return "admin/product_category_manager";
 	}
 	
-	@RequestMapping("manufacturer")
-	public String manufacturer() {
-		return "admin/manufacturer_manager";
-	}
-	
-	@RequestMapping("postCategory")
+	@RequestMapping("admin/postCategory")
 	public String postCategory() {
 		return "admin/post_category_manager";
 	}
 	
+
 	@RequestMapping("order")
 	public String order(Model model) {
 		List<OrderEntity> order = orderService.getAll();
@@ -90,4 +86,15 @@ public class HomeController {
 
 	
 
+
+	@RequestMapping("admin/order")
+	public String order() {
+		return "admin/order_manager";
+	}
+	
+	@RequestMapping("admin/oderDetail")
+	public String oderDetail() {
+		return "admin/order_detail_manager";
+	}
+	
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.astronomy.Service.PostService;
+import com.astronomy.Service.IPostService;
 import com.astronomy.dto.PostCreateModifyDTO;
 import com.astronomy.entity.PostEntity;
 import com.astronomy.mapper.PostMapper;
@@ -24,7 +24,7 @@ public class PostAPI {
 	private PostMapper postMapper;
 
 	@Autowired
-	private PostService postService;
+	private IPostService postService;
 
 	@GetMapping("api/post")
 	public List<PostEntity> getAll() {

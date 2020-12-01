@@ -16,7 +16,7 @@ FROM openjdk:11-jre-slim
 
 USER root
 
-COPY --from=MAVEN_BUILD /build/target/Astronomy_VN-0.0.1-SNAPSHOT.jar .
+COPY --from=MAVEN_BUILD /build/target/Astronomy_VN-0.0.1-SNAPSHOT.jar . 
 
 ENTRYPOINT ["java", "-jar"]
 

@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.astronomy.Service.PostService;
+import com.astronomy.Service.IPostService;
 import com.astronomy.entity.PostEntity;
 import com.astronomy.repository.PostRepository;
 
 @Service
-public class PostEntiyService implements PostService{
+public class PostEntiyService implements IPostService{
 
 	@Autowired
 	private PostRepository postRepository;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8">
@@ -125,77 +125,20 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>1</td>
-													<td>Hương Sen Việt</td>
-													<td>tien</td>
-													<td>ti</td>
+												<tr th:each="item : ${entity}">
+													<td th:utext="${item.id}"></td>
+													<td th:utext="${item.name}"></td>
+													<td th:utext="${item.createBy}"></td>
+													<td th:utext="${item.modifyBy}"></td>
 													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
+														<a th:href="@{showFormForUpdate/} + ${item.id}" class="btn btn-outline-warning"
 															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
+															data-original-title="Update">Update</a> &nbsp;&nbsp;
+														<a th:href="@{delete/} + ${item.id}"
+														class="btn btn-outline-danger" data-toggle="tooltip"
+														data-original-title="Delete"> Delete</a>
 													</td>
 												</tr>
-												<tr>
-													<td>2</td>
-													<td>Ba Khánh</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>Vinamilk</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>Dole</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>Dutch Lady</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-
 											</tbody>
 										</table>
 									</div>
@@ -277,72 +220,83 @@
 			<!-- end chat sidebar -->
 		</div>
 		<!-- Modal Update-->
-		<div class="modal fade" id="exampleModalUpdate" tabindex="-1"
-			role="dialog" aria-labelledby="exampleModalLabelUpdate"
-			aria-hidden="true">
+		<div class="modal fade" id="exampleModalUpdate" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Update</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
+				<form th:action="@{insert}" th:object="${dto}" method="POST">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">
+								<i class="fa fa-edit"></i>&nbsp;Sửa nhà cung cấp
+							</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="md-form mb-5">
+								<input type="hidden" class="form-control validate"
+									th:field=*{id} id="id"> <label data-error="wrong"
+									data-success="right"><i class="fa fa-table"></i>&nbsp;
+									Tên nhà cung cấp</label> <input type="text"
+									class="form-control validate" th:field=*{name} id="name">
+								<label data-error="wrong" data-success="right"><i
+									class="fa fa-table"></i>&nbsp; Tạo bởi</label> <input
+									class="form-control validate" th:field=*{createBy}
+									id="createBy"> <label data-error="wrong"
+									data-success="right"><i class="fa fa-table"></i>&nbsp;
+									Sửa bởi</label> <input class="form-control validate"
+									th:field=*{modifyBy} id="modifyBy">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Đóng</button>
+							<button type="submit" class="btn btn-primary">Lưu</button>
+						</div>
 					</div>
-					<div class="modal-body">
-						<input class="form-control validate" type="hidden" value="1">
-						<br> <label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Tên nhà cung cấp:</label> <input
-							class="form-control validate" type="text" value="Hương Sen Việt">
-						<br> <label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Tạo bởi:</label> <input
-							class="form-control validate" type="text" value="tien"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Sửa bởi:</label> <input
-							class="form-control validate" type="text" value="tien1">
-						<br>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Lưu</button>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
-
-		<!-- Modal -->
+		<!-- Modal Insert-->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">
-							<i class="fa fa-edit"></i>&nbsp;Thêm thể loại bài viết
-						</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="md-form mb-5">
-							<label data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Tên nhà cung cấp</label> <input
-								class="form-control validate"> <label data-error="wrong"
-								data-success="right"><i class="fa fa-table"></i>&nbsp;
-								Tạo bởi</label> <input class="form-control validate"> <label
-								data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Sửa bởi</label> <input
-								class="form-control validate">
+				<form th:action="@{insert}" th:object="${dto}" method="POST">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">
+								<i class="fa fa-edit"></i>&nbsp;Thêm nhà cung cấp
+							</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="md-form mb-5">
+								<input type="hidden" class="form-control validate"
+									th:field=*{id} id="id"> <label data-error="wrong"
+									data-success="right"><i class="fa fa-table"></i>&nbsp;
+									Tên nhà cung cấp</label> <input type="text"
+									class="form-control validate" th:field=*{name} id="name">
+								<label data-error="wrong" data-success="right"><i
+									class="fa fa-table"></i>&nbsp; Tạo bởi</label> <input
+									class="form-control validate" th:field=*{createBy}
+									id="createBy"> <label data-error="wrong"
+									data-success="right"><i class="fa fa-table"></i>&nbsp;
+									Sửa bởi</label> <input class="form-control validate"
+									th:field=*{modifyBy} id="modifyBy">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Đóng</button>
+							<button type="submit" class="btn btn-primary">Lưu</button>
 						</div>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary">Lưu</button>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 		<!-- end page container -->

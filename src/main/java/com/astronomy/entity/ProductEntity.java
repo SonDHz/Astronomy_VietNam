@@ -63,4 +63,8 @@ public class ProductEntity {
 	@JoinColumn(name = "orderdetail_id")
 	private OrderDetailEntity orderDetail;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private UserEntity user;
+	
 }

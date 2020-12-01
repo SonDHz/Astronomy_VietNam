@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -78,6 +79,12 @@ public class UserEntity implements Serializable {
 
 	@Column(name = "modifyby")
 	private String modifyBy;
+	
+	@OneToMany(mappedBy = "user")
+	private List<ProductEntity> products = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "user")
+	private List<PostEntity> post = new ArrayList<>();
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))

@@ -54,4 +54,9 @@ public class PostEntity {
 	@JoinColumn(name = "category_id")
 	private CategoryEntity category;
 	
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private UserEntity user;
+	
 }
