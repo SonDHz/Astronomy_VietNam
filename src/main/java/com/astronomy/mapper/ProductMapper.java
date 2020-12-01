@@ -4,13 +4,13 @@ import org.springframework.stereotype.Component;
 
 import com.astronomy.dto.ProductCreateModifyDTO;
 import com.astronomy.entity.ManufacturerEntity;
-import com.astronomy.entity.ProductCategory;
+import com.astronomy.entity.ProductCategoryEntity;
 import com.astronomy.entity.ProductEntity;
 
 @Component
 public class ProductMapper {
 	public ProductEntity toProduct(ProductCreateModifyDTO dto) {//
-		ProductCategory productCategory = ProductCategory.builder()//
+		ProductCategoryEntity productCategory = ProductCategoryEntity.builder()//
 				.id(dto.getProductCategory())//
 				.build();//
 

@@ -1,6 +1,8 @@
 package com.astronomy.Service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.astronomy.Service.IManufacturerService;
 import com.astronomy.dto.ManufacturerCreateModifyDTO;
 import com.astronomy.entity.ManufacturerEntity;
+import com.astronomy.entity.ProductCategoryEntity;
 import com.astronomy.mapper.ManufacturerMapper;
 import com.astronomy.repository.ManufacturerRepository;
 
@@ -28,12 +31,16 @@ public class ManufacturerEntityService implements IManufacturerService {
 		return manufacturerRepository.findAll();
 	}
 	
+//	@Override
+//	public ManufacturerCreateModifyDTO createModify(ManufacturerCreateModifyDTO dto) {
+//		ManufacturerEntity entity = new ManufacturerEntity();
+//		entity = mapper.toManufacturer(dto);
+//		return mapper.toManufacturerResponserDTO(manufacturerRepository.save(entity));
+//	}
+	
 	@Override
-	public ManufacturerCreateModifyDTO createModify(ManufacturerCreateModifyDTO dto) {
-		ManufacturerEntity entity = new ManufacturerEntity();
-		entity = mapper.toManufacturer(dto);
-		entity = manufacturerRepository.save(entity);
-		return dto;
+	public ManufacturerEntity createModify(ManufacturerEntity entity) {
+		return manufacturerRepository.save(entity);
 	}
 
 	@Override
@@ -48,4 +55,16 @@ public class ManufacturerEntityService implements IManufacturerService {
 		ManufacturerEntity manufacturer = manufacturerRepository.findById(id).orElse(null);
 		return mapper.toManufacturerResponserDTO(manufacturer);
 	}
+
+	@Override
+	public Map<Long, String> findAll() {
+		Map<Long, String> result = new HashMap<>();
+		List<ManufacturerEntity> entities = manufacturerRepository.findAll();
+		for (ManufacturerEntity item: entities) {
+			result.put(item.getId() ,item.getName());
+		}
+		return result;
+	}
+
+	
 }

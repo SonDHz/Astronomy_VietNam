@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.dto.ProductCategoryCreateModifyDTO;
-import com.astronomy.entity.ProductCategory;
+import com.astronomy.entity.ProductCategoryEntity;
 import com.astronomy.mapper.ProductCategoryMapper;
 
 @RequestMapping(value = "admin")
@@ -28,7 +28,7 @@ public class ProductCategoryController {
 
 	@GetMapping("productCategoryView")
 	public String productCategoryView(Model model) {
-		List<ProductCategory> list = productCategoryService.getAll();
+		List<ProductCategoryEntity> list = productCategoryService.getAll();
 		model.addAttribute("productCategory", list);
 		return "admin/product_category_manager";
 	}

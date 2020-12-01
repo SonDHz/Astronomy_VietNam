@@ -3,12 +3,12 @@ package com.astronomy.mapper;
 import org.springframework.stereotype.Component;
 
 import com.astronomy.dto.ProductCategoryCreateModifyDTO;
-import com.astronomy.entity.ProductCategory;
+import com.astronomy.entity.ProductCategoryEntity;
 
 @Component
 public class ProductCategoryMapper {
-	public ProductCategory toProductCategory(ProductCategoryCreateModifyDTO dto) {
-		return ProductCategory.builder()
+	public ProductCategoryEntity toProductCategory(ProductCategoryCreateModifyDTO dto) {
+		return ProductCategoryEntity.builder()
 				.id(dto.getId())
 				.name(dto.getName())
 				.code(dto.getCode())
@@ -18,7 +18,7 @@ public class ProductCategoryMapper {
 				.modifiedBy(dto.getModifiedBy())
 				.build();
 	}
-	public ProductCategoryCreateModifyDTO toProductCategoryResponserDTO(ProductCategory productCategory) {
+	public ProductCategoryCreateModifyDTO toProductCategoryResponserDTO(ProductCategoryEntity productCategory) {
 		return ProductCategoryCreateModifyDTO.builder()
 				.id(productCategory.getId())
 				.name(productCategory.getName())

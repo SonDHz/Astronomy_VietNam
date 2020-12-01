@@ -143,13 +143,13 @@
 													class="form-horizontal">
 													<c:forEach var="item" items="${entity}">
 														<tr>
-															<td><input type="checkbox" id="checkbox_${entity.id}"
-																value="${entity.id}" /></td>
-															<td>${entity.name}</td>
-															<td>${entity.createdDate}</td>
-															<td>${entity.modifiedDate}</td>
-															<td>${entity.createdBy}</td>
-															<td>${entity.modifiedBy}</td> 
+															<td><input type="checkbox" id="checkbox_${item.id}"
+																value="${item.id}" /></td>
+															<td>${item.name}</td>
+															<td>${item.createdDate}</td>
+															<td>${item.modifiedDate}</td>
+															<td>${item.createdBy}</td>
+															<td>${item.modifiedBy}</td> 
 															<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/manufacturer">
 																	<c:param name="id" value="${item.id}" />

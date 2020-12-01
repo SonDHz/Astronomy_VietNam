@@ -134,7 +134,7 @@
 													<th>Code</th>
 													<th>Ngày tạo</th>
 													<th>Ngày Sửa</th>
-													<th>Tạo bỏi</th>
+													<th>Tạo bởi</th>
 													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
@@ -152,10 +152,10 @@
 															<td>${item.modifiedDate}</td>
 															<td>${item.createdBy}</td>
 															<td>${item.modifiedBy}</td>
-															<td>&nbsp;&nbsp; <%-- <c:url var="createModify"
+															<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/productCategory">
-																	<c:param name="id" value="${productCategorys.id}" />
-																</c:url>  --%>
+																	<c:param name="id" value="${item.id}" />
+																</c:url>  
 																<a href='${createModify}'
 																class="btn btn-outline-warning"
 																data-original-title="Update">Update</a> &nbsp;&nbsp;

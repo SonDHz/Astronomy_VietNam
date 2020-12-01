@@ -25,14 +25,20 @@ public class ProductService implements IProductService {
 		return productRepository.findAll();
 	}
 	
+//	@Override
+//	public ProductCreateModifyDTO createModify(ProductCreateModifyDTO dto) {
+//		ProductEntity entity = new ProductEntity();
+//		entity = mapper.toProduct(dto);
+//		entity = mapper.toProductResponserDTO(product)
+//		entity = productRepository.save(entity);
+//		return entity;
+//	}
+	
 	@Override
-	public ProductCreateModifyDTO createModify(ProductCreateModifyDTO dto) {
-		ProductEntity entity = new ProductEntity();
-		entity = mapper.toProduct(dto);
-		entity = productRepository.save(entity);
-		return dto;
+	public ProductEntity createModify(ProductEntity entity) {
+		return productRepository.save(entity);
 	}
-
+	
 	@Override
 	public void delete(long[] ids) {
 		for (long id: ids) {
@@ -45,5 +51,4 @@ public class ProductService implements IProductService {
 		ProductEntity product = productRepository.findById(id).orElse(null);
 		return mapper.toProductResponserDTO(product);
 	}
-	
 }

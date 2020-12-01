@@ -130,30 +130,41 @@
 											<thead>
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
-													<th>Loại sản phẩm</th>
-													<th>Nhà cung cấp</th>
+													<!-- <th>Loại sản phẩm</th> -->
 													<th>Tên sản phẩm</th>
+													<!-- <th>Nhà sản xuất</th> -->
+													<th>Mô tả</th>
+													<th>Ngày tạo</th>
+													<th>Ngày Sửa</th>
+													<th>Tạo bởi</th>
+													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
-											<form:form id="formSubmit" role="form" class="form-horizontal">
-											<c:forEach var="product" items="${entity}">
-												<tr>
-													<td><input type="checkbox" id="checkbox_${entity.id}"
-																value="${entity.id}" /></td>
-													<td>${entity.name}</td>
-													<td>${entity.image}</td>
-													<td>${entity.price}</td>
-													<td>&nbsp;&nbsp; <c:url var="createModify"
+												<form:form id="formSubmit" role="form"
+													class="form-horizontal">
+													<c:forEach var="item" items="${entity}">
+														<tr>
+															<td><input type="checkbox" id="checkbox_${item.id}"
+																value="${item.id}" /></td>
+															<%-- <td>${item.productCategory}</td> --%>
+															<td>${item.name}</td>
+															<%-- <td>${item.manufacturer}</td> --%>
+															<td>${item.shortDecription}</td>
+															<td>${item.createdDate}</td>
+															<td>${item.modifiedDate}</td>
+															<td>${item.createdBy}</td>
+															<td>${item.modifiedBy}</td>
+															<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/product">
-																	<c:param name="id" value="${entity.id}" />
+																	<c:param name="id" value="${item.id}" />
 																</c:url> <a href='${createModify}'
 																class="btn btn-outline-warning"
 																data-original-title="Update">Update</a> &nbsp;&nbsp;
 															</td>
-												</tr>
-												</c:forEach>
+														</tr>
+													</c:forEach>
 												</form:form>
 											</tbody>
 										</table>
@@ -399,41 +410,43 @@
 	<%@include file="/common/admin/js.jsp"%>
 	<!-- end js include path -->
 	<script>
-	function warningBeforeDelete() {
-		swal({
-			title : "Xác nhận xóa",
-			text : "Bạn có chắc chắn muốn xóa hay không",
-			type : "warning",
-			showCancelButton : true,
-			confirmButtonClass : "btn-success",
-			cancelButtonClass : "btn-danger",
-			confirmButtonText : "Xác nhận",
-			cancelButtonText : "Hủy bỏ",
-		}).then(
-				function(isConfirm) {
-					if (isConfirm) {
-						//call api delete
-						var ids = $('tbody input[type=checkbox]:checked').map(function() {
-									return $(this).val();
-								}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
-						deleteNew(ids);
-					}
-				});
-	}
-	function deleteNew(data) {
-		$.ajax({
-			url : '${productAPI}',
-			type : 'DELETE',
-			contentType: 'application/json',
-			data: JSON.stringify(data), 
-			success : function(result) {
-				window.location.href = "${productURL}?message=delete_success"; 
-		    },
-			error : function(error) {
-			    window.location.href = "${productURL}?message=error_system";
-			}
-		});	
-	}
+		function warningBeforeDelete() {
+			swal({
+				title : "Xác nhận xóa",
+				text : "Bạn có chắc chắn muốn xóa hay không",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonClass : "btn-success",
+				cancelButtonClass : "btn-danger",
+				confirmButtonText : "Xác nhận",
+				cancelButtonText : "Hủy bỏ",
+			}).then(
+					function(isConfirm) {
+						if (isConfirm) {
+							//call api delete
+							var ids = $('tbody input[type=checkbox]:checked')
+									.map(function() {
+										return $(this).val();
+									}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
+							deleteNew(ids);
+						}
+					});
+		}
+		function deleteNew(data) {
+			$
+					.ajax({
+						url : '${productAPI}',
+						type : 'DELETE',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						success : function(result) {
+							window.location.href = "${productURL}?message=delete_success";
+						},
+						error : function(error) {
+							window.location.href = "${productURL}?message=error_system";
+						}
+					});
+		}
 	</script>
 </body>
 </html>

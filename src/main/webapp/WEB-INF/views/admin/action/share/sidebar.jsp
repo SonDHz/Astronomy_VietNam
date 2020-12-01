@@ -48,7 +48,7 @@
 					class="nav-link nav-toggle"> <i class="fa fa-users"></i>
 						<span class="title">Quản lý nhà cung cấp</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/productcategoryView"
+				<li class="nav-item"><a href="/admin/productCategoryView"
 					class="nav-link nav-toggle"> <i class="fa fa-tasks"></i>
 						<span class="title">Quản lý loại sản phẩm</span>
 				</a></li>

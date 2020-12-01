@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.dto.ProductCategoryCreateModifyDTO;
-import com.astronomy.entity.ProductCategory;
+import com.astronomy.entity.ProductCategoryEntity;
 import com.astronomy.mapper.ProductCategoryMapper;
 
 @RestController
@@ -27,14 +27,14 @@ public class ProductCategoryAPI {
 	private IProductCategoryService productCategoryService;
 
 	@PostMapping("ProductCategory")
-	public ResponseEntity<ProductCategory> createProductCategory(@RequestBody ProductCategory productCategory, Model model){
+	public ResponseEntity<ProductCategoryEntity> createProductCategory(@RequestBody ProductCategoryEntity productCategory, Model model){
 		ProductCategoryCreateModifyDTO productCategorydto = productCategoryMapper.toProductCategoryResponserDTO(productCategory);
 		model.addAttribute("model", productCategorydto);
 		return ResponseEntity.ok(productCategoryMapper.toProductCategory(productCategoryService.createModify(productCategorydto)));
 	}
 	
 	@PutMapping("ProductCategory")
-	public ResponseEntity<ProductCategory> updateProductCategory(@RequestBody ProductCategory productCategory, Model model){
+	public ResponseEntity<ProductCategoryEntity> updateProductCategory(@RequestBody ProductCategoryEntity productCategory, Model model){
 		ProductCategoryCreateModifyDTO productCategorydto = productCategoryMapper.toProductCategoryResponserDTO(productCategory);
 		model.addAttribute("model", productCategorydto);
 		return ResponseEntity.ok(productCategoryMapper.toProductCategory(productCategoryService.createModify(productCategorydto)));
@@ -46,7 +46,7 @@ public class ProductCategoryAPI {
 	}
 
 	@GetMapping("ProductCategory")
-	public List<ProductCategory> getAll() {
+	public List<ProductCategoryEntity> getAll() {
 		return productCategoryService.getAll();
 	}
 }

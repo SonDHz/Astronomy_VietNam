@@ -1,8 +1,10 @@
 package com.astronomy.Service.impl;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.astronomy.Service.IOrderDetailService;
 import com.astronomy.dto.OrderDetailCreateModifyDTO;
 import com.astronomy.entity.OrderDetailEntity;
@@ -18,9 +20,6 @@ public class OrderDetailEntityService implements IOrderDetailService {
 
 	@Autowired
 	private OrderDetailMapper orderDetailMapper;
-	
-	@Autowired
-	private OrderRepository repo;
 
 	@Override
 	public List<OrderDetailEntity> getAll() {

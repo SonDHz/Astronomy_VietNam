@@ -8,7 +8,7 @@ public interface IProductService {
 	
 	List <ProductEntity> getAll();
 	
-	ProductCreateModifyDTO createModify(ProductCreateModifyDTO dto);
+	ProductEntity createModify(ProductEntity dto);
 	
 	ProductCreateModifyDTO findByIdDTO(long id);
 	

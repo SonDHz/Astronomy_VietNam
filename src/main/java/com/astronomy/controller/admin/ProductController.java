@@ -6,38 +6,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.astronomy.Service.IManufacturerService;
-import com.astronomy.Service.IOrderDetailService;
 import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.Service.IProductService;
 import com.astronomy.dto.ProductCreateModifyDTO;
-import com.astronomy.entity.ManufacturerEntity;
-import com.astronomy.entity.OrderDetailEntity;
-import com.astronomy.entity.ProductCategory;
 import com.astronomy.entity.ProductEntity;
 import com.astronomy.mapper.ProductMapper;
-
-
 
 @RequestMapping(value = "admin")
 @Controller
 public class ProductController {
 	@Autowired
-	IProductService service;
+	private IProductService service;
 	
 	@Autowired
-	IProductCategoryService servicee;
-
-	@Autowired
-	ProductMapper mapper;
+	private IProductCategoryService productCategoryService;
 	
 	@Autowired
-	IManufacturerService serviceee;
+	private IManufacturerService manufacturerService;
 	
+	@Autowired
+	private ProductMapper mapper;
 	
 	@GetMapping("productView")
 	public String productView(Model model) {
@@ -53,18 +45,8 @@ public class ProductController {
 			dto = service.findByIdDTO(id);
 		}
 		model.addAttribute("model", dto);
+		model.addAttribute("productCategories", productCategoryService.findAll());
+		model.addAttribute("manufacturers", manufacturerService.findAll());
 		return "admin/action/actionProduct";
-	}
-	
-	@ModelAttribute("productcategory")
-	public List<ProductCategory> getproductcategory(){
-		List<ProductCategory> list = servicee.getAll();
-		return list;
-	}
-	
-	@ModelAttribute("manufacturer")
-	public List<ManufacturerEntity> getmanufacturer(){
-		List<ManufacturerEntity> list = serviceee.getAll();
-		return list;
 	}
 }

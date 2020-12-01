@@ -33,7 +33,7 @@
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý nhân viên</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/customer"
+				<li class="nav-item"><a href="/admin/customerView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý khách hàng</span>
 				</a></li>
@@ -52,7 +52,7 @@
 					class="nav-link nav-toggle"> <i class="fa fa-tasks"></i>
 						<span class="title">Quản lý loại sản phẩm</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/product"
+				<li class="nav-item"><a href="/admin/productView"
 					class="nav-link nav-toggle"> <i class="fa fa-product-hunt"></i>
 						<span class="title">Quản lý sản phẩm</span>
 				</a></li>

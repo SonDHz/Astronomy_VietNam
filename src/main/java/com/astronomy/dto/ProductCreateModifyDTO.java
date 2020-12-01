@@ -25,6 +25,7 @@ public class ProductCreateModifyDTO {
 	private Double price;
 	private String quantity;
 	private Long productCategory;
+	private String productCategoryCode;
 	private Long manufacturer;
 	private Long orderDetail;
 	private Date createdDate;

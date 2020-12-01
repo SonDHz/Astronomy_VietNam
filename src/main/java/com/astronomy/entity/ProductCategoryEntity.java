@@ -10,7 +10,6 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,8 +18,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,7 +35,7 @@ import lombok.ToString;
 @EntityListeners(AuditingEntityListener.class)
 @ToString
 @Builder
-public class ProductCategory {
+public class ProductCategoryEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
