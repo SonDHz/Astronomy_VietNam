@@ -130,11 +130,14 @@
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
 													<th>Username</th>
-													<th>Password</th>
 													<th>Họ và tên</th>
 													<th>Email</th>
 													<th>Phone</th>
 													<th>Birthday</th>
+													<th>Ngày tạo</th>
+													<th>Ngày sửa</th>
+													<th>Tạo bởi</th>
+													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
@@ -145,11 +148,14 @@
 													<td><input type="checkbox" id="checkbox_${customer.id}"
 																value="${customer.id}" /></td>
 													<td>${customer.username}</td>
-													<td>${customer.password }</td>
 													<td>${customer.fullName }</td>
 													<td>${customer.email }</td>
 													<td>${customer.phoneNumber }</td>
 													<td>${customer.birthday}</td>
+													<td>${customer.createdDate}</td>
+													<td>${customer.modifiedDate}</td>
+													<td>${customer.createdBy}</td>
+													<td>${customer.modifiedBy}</td>
 													<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/customer">
 																	<c:param name="id" value="${customer.id}" />

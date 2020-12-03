@@ -1,6 +1,8 @@
 package com.astronomy.Service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -27,15 +29,7 @@ public class CategoryEntityService implements CategoryService{
 	public List<CategoryEntity> getAll() {
 		return categoryRepository.getAll();
 	}
-	
-	@Override
-	public CategoryCreateModifyDTO createModify(CategoryCreateModifyDTO categorydto) {
-		CategoryEntity categoryentity = new CategoryEntity();
-		categoryentity = categoryMapper.toCategory(categorydto);
-		categoryentity = categoryRepository.save(categoryentity);
-		return categorydto;
-	}
-	
+		
 	@Override
 	public void delete(long[] ids) {
 		for(long item: ids) {
@@ -48,6 +42,21 @@ public class CategoryEntityService implements CategoryService{
 	public CategoryCreateModifyDTO findByIdDTO(long id) {
 		CategoryEntity categoryentity = categoryRepository.findById(id).orElse(null);
 		return categoryMapper.toCategoryCreateModifyDTO(categoryentity);
+	}
+
+	@Override
+	public CategoryEntity createModify(CategoryEntity entity) {
+		return categoryRepository.save(entity);
+	}
+
+	@Override
+	public Map<Long, String> findAll() {
+		Map<Long, String> result = new HashMap<>();
+		List<CategoryEntity> entities = categoryRepository.findAll();
+		for (CategoryEntity item: entities) {
+			result.put(item.getId() ,item.getName());
+		}
+		return result;
 	}
 
 }

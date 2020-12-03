@@ -41,7 +41,7 @@
 					class="nav-link nav-toggle"> <i class="fa fa-map" ></i>
 						<span class="title">Quản lý thể loại bài viết</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/post" class="nav-link nav-toggle">
+				<li class="nav-item"><a href="/admin/postView" class="nav-link nav-toggle">
 						<i class="fa fa-file"></i> <span class="title">Quản lý bài viết</span>
 				</a></li>
 				<li class="nav-item"><a href="/admin/manufacturerView"

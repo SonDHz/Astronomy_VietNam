@@ -10,10 +10,12 @@ public interface CategoryService {
 	
 	List<CategoryEntity> getAll();
 	
-	CategoryCreateModifyDTO createModify(CategoryCreateModifyDTO categorydto);
+	CategoryEntity createModify(CategoryEntity entity);
 	
 	CategoryCreateModifyDTO findByIdDTO(long id);
 	
 	void delete(long[] ids);
+	
+	Map<Long, String> findAll();
 	
 }

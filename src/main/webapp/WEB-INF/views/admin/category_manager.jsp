@@ -93,14 +93,14 @@
 									aria-expanded="false" class="btn-shadow btn btn-info"> <span
 									class="btn-icon-wrapper pr-2 opacity-7"> <i
 										class="fa fa-business-time fa-w-20"></i>
-								</span> Thêm loại bài viết
+								</span> Thêm nhà cung cấp
 								</a>
 								<button id="btnDelete" type="button" aria-haspopup="true"
 									onclick="warningBeforeDelete()" aria-expanded="false"
 									class="btn-shadow btn btn-danger">
 									<span class="btn-icon-wrapper pr-2 opacity-7"> <i
 										class="fa fa-business-time fa-w-20"></i>
-									</span> Xóa loại bài viết
+									</span> Xóa nhà cung cấp
 								</button>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">

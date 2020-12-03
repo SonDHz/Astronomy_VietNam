@@ -26,11 +26,8 @@ public class UserEntityService implements IUserService {
 	}
 	
 	@Override
-	public UserCreateModifyDTO createModify(UserCreateModifyDTO userdto) {
-		UserEntity userentity = new UserEntity();
-		userentity = userMapper.toUser(userdto);
-		userentity = userRepository.save(userentity);
-		return userdto;
+	public UserEntity createModify(UserEntity entity) {
+		return userRepository.save(entity);		 
 	}
 
 	@Override
@@ -44,6 +41,16 @@ public class UserEntityService implements IUserService {
 	public UserCreateModifyDTO findByIdDTO(long id) {
 		UserEntity userentity = userRepository.findById(id).orElse(null);
 		return userMapper.toUserResponserDTO(userentity);
+	}
+
+	@Override
+	public List<UserEntity> getAllUser() {
+		return userRepository.getAllUser();
+	}
+	
+	@Override
+	public List<UserEntity> getAllCustomer() {
+		return userRepository.getAllCustomer();
 	}
 	
 }
