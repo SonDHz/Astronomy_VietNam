@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+	<%@include file="/common/taglib.jsp" %>
 <div class="page-footer">
 	<div class="page-footer-inner">
 		2020 &copy; Edit template by Thiên Văn Việt <a

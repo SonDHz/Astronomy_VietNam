@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
@@ -11,7 +10,11 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Favicon-->
+
 <link rel="shortcut icon" href="../../web/img/fav.png">
+
+<link rel="shortcut icon" href="../../template/web/img/fav.png">
+
 <!-- Author Meta -->
 <meta name="author" content="codepixer">
 <!-- Meta Description -->
@@ -21,6 +24,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
+
 <title>Dụng cụ thiên văn</title>
 <!-- css -->
 <%@include file="/common/web/style.jsp" %>
@@ -31,11 +35,20 @@
 
 }
 </style>
+
+<title>Ruft Blog</title>
+<!-- css -->
+
+<%@include file="/common/web/style.jsp"%>
+
 </head>
 
 <body>
 	<!-- ==========Start header========== -->
+
 	<%@include file="/common/web/header.jsp" %>
+
+
 	<!-- ==========Stop header========== -->
 	<!-- Top Stories Area -->
 	<!-- Start main body Area -->
@@ -44,22 +57,40 @@
 			<div class="row">
 				<div class="col-lg-12 post-list">
 					<!-- Start Post Area -->
+
 					
+
+					<section class="post-area">
+
 						<div class="row">
 							<div class="col-lg-4 col-md-4">
 								<div class="single-post-item">
 									<div class="post-thumb">
-										<img src="<c:url value ='/template/web/img/archive/1.jpg'/>" height="529"
+
+										<img src="<c:url value ='/template/web/img/archive/1.jpg'/>" height="529" alt="">
+
+										<img src="../../template/web/img/archive/1.jpg" height="529"
+
 											width="auto" alt="">
 									</div>
 									<div class="post-details">
 										<h4>
+
 											<a href="#">Sản phẩm 1</a>
 										</h4>
 										<p class="card-text">Giá tiền: 20.000 VNĐ</p>
 										<div class="blog-meta">
 											  <a href="#" data-name="San-pham-1" data-price="20000" 
 											  class="add-to-cart btn btn-primary">Thêm vào giỏ hàng</a>
+
+											<a href="#">An Stormy Evening</a>
+										</h4>
+										<p>There is a moment in the life of any aspiring
+											astronomer that it is time to buy that first telescope. Itâs
+											exciting to think about setting up your own viewing station.</p>
+										<div class="blog-meta">
+											<a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+
 										</div>
 									</div>
 								</div>
@@ -68,17 +99,31 @@
 							<div class="col-lg-4 col-md-4">
 								<div class="single-post-item">
 									<div class="post-thumb">
-										<img src="<c:url value ='/template/web/img/archive/2.jpg'/>" height="529"
+
+										<img src="<c:url value ='/template/web/img/archive/2.jpg'/>" height="529" alt="">
+
+										<img src="../../template/web/img/archive/2.jpg" height="529"
+
 											width="auto" alt="">
 									</div>
 									<div class="post-details">
 										<h4>
+
 											<a href="#">Sản phẩm 2</a>
 										</h4>
 										 <p class="card-text">Giá tiền: 30.000 VNĐ</p>
 										<div class="blog-meta">
 											<a href="#" data-name="San-pham-2" data-price="30000"
 											 class="add-to-cart btn btn-primary">Thêm vào giỏ hàng</a>
+
+											<a href="#">An Stormy Evening</a>
+										</h4>
+										<p>There is a moment in the life of any aspiring
+											astronomer that it is time to buy that first telescope. Itâs
+											exciting to think about setting up your own viewing station.</p>
+										<div class="blog-meta">
+											<a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+
 										</div>
 									</div>
 								</div>
@@ -87,17 +132,31 @@
 							<div class="col-lg-4 col-md-4">
 								<div class="single-post-item">
 									<div class="post-thumb">
-										<img src="<c:url value ='/template/web/img/archive/3.jpg'/>" height="529"
+
+										<img src="<c:url value ='/template/web/img/archive/3.jpg'/>" height="529" alt="">
+
+										<img src="../../template/web/img/archive/3.jpg" height="529"
+
 											width="auto" alt="">
 									</div>
 									<div class="post-details">
 										<h4>
+
 											<a href="#">Sản phẩm 3</a>
 										</h4>
 										    <p class="card-text">Giá tiền: 40.000 VNĐ</p>
 										<div class="blog-meta">
 											<a href="#" data-name="San-pham-3" data-price="40000"
 											 class="add-to-cart btn btn-primary">Thêm vào giỏ hàng</a>
+
+											<a href="#">An Stormy Evening</a>
+										</h4>
+										<p>There is a moment in the life of any aspiring
+											astronomer that it is time to buy that first telescope. Item
+											exciting to think about setting up your own viewing station.</p>
+										<div class="blog-meta">
+											<a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+
 										</div>
 									</div>
 								</div>
@@ -125,12 +184,18 @@
 							</nav>
 						</div>
 				</div>
-				
+
+				</div>
+				</div>
+
+				</section>
+
 				<!-- Start Post Area -->
 			</div>
 		</div>
 	</div>
 
+</div>
 	<!-- Modal -->
 <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -157,6 +222,7 @@
     </div>
   </div>
 </div> 
+
 	<!-- Start main body Area -->
 
 	<!-- start footer Area -->
@@ -165,7 +231,8 @@
 
 	<!-- Javascript -->
 	<%@include file="/common/web/js.jsp" %>
-	<!-- End javascript -->
-</body>
 
+	
+	
+</body>
 </html>

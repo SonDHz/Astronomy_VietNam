@@ -1,6 +1,8 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
+<c:url var="orderDetailURL" value="/admin/orderDetailView"/>
+<c:url var="orderDetailAPI" value="/api/OrderDetail" />
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -86,12 +88,20 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								    <button type="button" aria-haspopup="true"
-										aria-expanded="false" class="btn-shadow btn btn-info"
-										data-toggle="modal" data-target="#exampleModal">
-										<span class="btn-icon-wrapper pr-2 opacity-7"> <i
-											class="fa fa-business-time fa-w-20"></i>
-										</span> Thêm hóa đơn chi tiết </button>
+								  		<c:url var="createModify" value="createModify/orderDetail" />
+								<a href='${createModify}' type="button" aria-haspopup="true"
+									aria-expanded="false" class="btn-shadow btn btn-info"> <span
+									class="btn-icon-wrapper pr-2 opacity-7"> <i
+										class="fa fa-business-time fa-w-20"></i>
+								</span> Thêm hóa đơn chi tiết
+								</a>
+								<button id="btnDelete" type="button" aria-haspopup="true"
+									onclick="warningBeforeDelete()" aria-expanded="false"
+									class="btn-shadow btn btn-danger">
+									<span class="btn-icon-wrapper pr-2 opacity-7"> <i
+										class="fa fa-business-time fa-w-20"></i>
+									</span> Xóa hóa đơn chi tiết
+								</button>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
 								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
@@ -119,86 +129,42 @@
                         <table id="example1" class="display" style="width: 100%;">
 											<thead>
 												<tr>
-													<th>#ID </th>
-													<th>Hóa đơn</th>
+													<th><input type="checkbox" id="checkAll"></th>
+													<th>Hóa đơn </th> 	
+													<th>Số Lượng</th>
 													<th>Giá</th>
-													<th>Số lượng</th>
 													<th>Tổng cộng</th>
+													<th>Ngày tạo</th>
+													<th>Ngày sửa</th>
+													<th>Tạo bởi</th>
+													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
+											<form:form id="formSubmit" role="form" class="form-horizontal">
+											<c:forEach var="orderDetail" items="${orderDetail}">
 												<tr>
-													<td>1</td>
-													<td>1</td>
-													<td>10.000đ</td>
-													<td>1</td>
-													<td>10.000đ</td>
-													<td>&nbsp;&nbsp<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
+												<td><input type="checkbox" id="checkbox_${orderDetail.id}"
+																value="${orderDetail.id}" /></td>
+												 	<td>${orderDetail.order}</td>
+													<td>${orderDetail.quantity}</td>
+													<td>${orderDetail.price}</td>
+													<td>${orderDetail.total}</td>
+													<td>${orderDetail.createdDate}</td>
+													<td>${orderDetail.modifiedDate}</td>
+													<td>${orderDetail.createdBy}</td>
+													<td>${orderDetail.modifiedBy}</td>
+													<td>&nbsp;&nbsp; <c:url var="createModify"
+																	value="createModify/orderDetail">
+																	<c:param name="id" value="${orderDetail.id}" />
+																</c:url> <a href='${createModify}'
+																class="btn btn-outline-warning"
+																data-original-title="Update">Update</a> &nbsp;&nbsp;
+															</td>
 												</tr>
-												<tr>
-													<td>2</td>
-													<td>2</td>
-													<td>20.000đ</td>
-													<td>1</td>
-													<td>20.000đ</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												<tr>
-												<td>3</td>
-													<td>3</td>
-													<td>30.000đ</td>
-													<td>1</td>
-													<td>30.000đ</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												<tr>
-												<td>4</td>
-													<td>4</td>
-													<td>40.000đ</td>
-													<td>1</td>
-													<td>40.000đ</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>5</td>
-													<td>50.000đ</td>
-													<td>1</td>
-													<td>50.000đ</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												
+												</c:forEach>
+												</form:form>
 											</tbody>
 										</table>
                                     </div>
@@ -269,89 +235,6 @@
 			<!-- end chat sidebar -->
 		</div>
 		<!-- end page container -->
-	<!-- Modal Update-->
-	<div class="modal fade" id="exampleModalUpdate" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalLabelUpdate"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Update</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-
-							<input class="form-control validate" type="hidden" value="1">
-							<br>
-					<label data-error="wrong" data-success="right"><i class="fa fa-table"></i>&nbsp;
-							Hóa đơn:</label>
-							<input class="form-control validate" type="text" value="1">
-							<br>
-					<label data-error="wrong" data-success="right"><i class="fa fa-table"></i>&nbsp;
-							Giá:</label>
-							<input class="form-control validate" type="text" value="10.000đ">
-							<br>
-					<label data-error="wrong" data-success="right"><i class="fa fa-table"></i>&nbsp;
-							Số lượng:</label>
-							<input class="form-control validate" type="text" value="1">
-							<br>
-					<label data-error="wrong" data-success="right"><i class="fa fa-table"></i>&nbsp;
-							Tổng cộng:</label>
-							<input class="form-control validate" type="text" value="10.000đ">
-							<br>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary"
-						data-dismiss="modal">Lưu</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">
-						<i class="fa fa-edit"></i>&nbsp;Thêm hóa đơn chi tiết
-					</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="md-form mb-5">
-
-						<label data-error="wrong" data-success="right"><i
-									class="fa fa-table"></i>&nbsp; Hóa đơn</label> <input
-									class="form-control validate"> 
-						<label data-error="wrong" data-success="right"><i
-									class="fa fa-table"></i>&nbsp; Giá</label> <input
-									class="form-control validate"> 
-						<label data-error="wrong" data-success="right"><i
-									class="fa fa-table"></i>&nbsp; Số lượng</label> <input
-									class="form-control validate"> 
-						<label data-error="wrong" data-success="right"><i
-									class="fa fa-table"></i>&nbsp; Tổng cộng</label> <input
-									class="form-control validate"> 
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Đóng</button>
-					<button type="button" class="btn btn-primary">Lưu</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<!-- end page container -->
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp" %>
@@ -361,5 +244,42 @@
 	
 	<%@include file="/common/admin/js.jsp" %>
 	<!-- end js include path -->
+	<script>
+	function warningBeforeDelete() {
+		swal({
+			title : "Xác nhận xóa",
+			text : "Bạn có chắc chắn muốn xóa hay không",
+			type : "warning",
+			showCancelButton : true,
+			confirmButtonClass : "btn-success",
+			cancelButtonClass : "btn-danger",
+			confirmButtonText : "Xác nhận",
+			cancelButtonText : "Hủy bỏ",
+		}).then(
+				function(isConfirm) {
+					if (isConfirm) {
+						//call api delete
+						var ids = $('tbody input[type=checkbox]:checked').map(function() {
+									return $(this).val();
+								}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
+						deleteNew(ids);
+					}
+				});
+	}
+	function deleteNew(data) {
+		$.ajax({
+			url : '${orderDetailAPI}',
+			type : 'DELETE',
+			contentType: 'application/json',
+			data: JSON.stringify(data), 
+			success : function(result) {
+				window.location.href = "${categoryURL}?message=delete_success"; 
+		    },
+			error : function(error) {
+			    window.location.href = "${categoryURL}?message=error_system";
+			}
+		});	
+	}
+	</script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.astronomy.mapper;
 
+import java.sql.ResultSet;
+
 import org.springframework.stereotype.Component;
 
 import com.astronomy.dto.CategoryCreateModifyDTO;
@@ -13,8 +15,10 @@ public class CategoryMapper {
 				.id(dto.getId())
 				.code(dto.getCode())
 				.name(dto.getName())
-				.createBy(dto.getCreateBy())
-				.modifyBy(dto.getModifyBy())
+				.createdBy(dto.getCreatedBy())
+				.modifiedDate(dto.getModifiedDate())
+				.modifiedBy(dto.getModifiedBy())
+				.modifiedDate(dto.getModifiedDate())
 				.build();
 	}
 	public CategoryCreateModifyDTO toCategoryCreateModifyDTO(CategoryEntity category) {
@@ -22,8 +26,10 @@ public class CategoryMapper {
 				.id(category.getId())
 				.code(category.getCode())
 				.name(category.getName())
-				.createBy(category.getCreateBy())
-				.modifyBy(category.getModifyBy())
+				.createdBy(category.getCreatedBy())
+				.modifiedDate(category.getModifiedDate())
+				.modifiedBy(category.getModifiedBy())
+				.modifiedDate(category.getModifiedDate())
 				.build();
 	}
 	

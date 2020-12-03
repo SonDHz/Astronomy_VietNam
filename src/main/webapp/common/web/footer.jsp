@@ -1,6 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@include file="/common/taglib.jsp" %>
+
+
 <footer class="footer-area section-gap">
 		<div class="container box_1170">
 			<div class="row">
@@ -37,6 +40,7 @@
 					<div class="single-footer-widget instafeed">
 						<h6 class="footer_title">Instagram Feed</h6>
 						<ul class="list instafeed d-flex flex-wrap">
+
 							<li><img src="<c:url value ='/template/web/img/i1.jpg'/>" alt=""></li>
 							<li><img src="<c:url value ='/template/web/img/i2.jpg'/>" alt=""></li>
 							<li><img src="<c:url value ='/template/web/img/i3.jpg'/>" alt=""></li>
@@ -45,6 +49,16 @@
 							<li><img src="<c:url value ='/template/web/img/i6.jpg'/>" alt=""></li>
 							<li><img src="<c:url value ='/template/web/img/i7.jpg'/>" alt=""></li>
 							<li><img src="<c:url value ='/template/web/img/i8.jpg'/>" alt=""></li>
+
+							<li><img src="../../web/img/i1.jpg" alt=""></li>
+							<li><img src="../../web/img/i2.jpg" alt=""></li>
+							<li><img src="../../web/img/i3.jpg" alt=""></li>
+							<li><img src="../../web/img/i4.jpg" alt=""></li>
+							<li><img src="../../web/img/i5.jpg" alt=""></li>
+							<li><img src="../../web/img/i6.jpg" alt=""></li>
+							<li><img src="../../web/img/i7.jpg" alt=""></li>
+							<li><img src="../../web/img/i8.jpg" alt=""></li>
+
 						</ul>
 					</div>
 				</div>

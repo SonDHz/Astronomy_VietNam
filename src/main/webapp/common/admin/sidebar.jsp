@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+	<%@include file="/common/taglib.jsp" %>
 <div class="sidebar-container">
 	<div class="sidemenu-container navbar-collapse collapse fixed-menu">
 		<div id="remove-scroll">
@@ -25,42 +25,42 @@
 						</div>
 					</div>
 				</li>
-				<li class="nav-item"><a href="dashboard" class="nav-link nav-toggle">
+				<li class="nav-item"><a href="/admin/dashboard" class="nav-link nav-toggle">
 						<i class="fa fa-home"></i> <span class="title">Trang
 							chủ</span>
 				</a></li>
-				<li class="nav-item"><a href="employee"
+				<li class="nav-item"><a href="/admin/userView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý nhân viên</span>
 				</a></li>
-				<li class="nav-item"><a href="customer"
+				<li class="nav-item"><a href="/admin/customerView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý khách hàng</span>
 				</a></li>
-				<li class="nav-item"><a href="category"
+				<li class="nav-item"><a href="/admin/categoryView"
 					class="nav-link nav-toggle"> <i class="fa fa-map" ></i>
 						<span class="title">Quản lý thể loại bài viết</span>
 				</a></li>
-				<li class="nav-item"><a href="post" class="nav-link nav-toggle">
+				<li class="nav-item"><a href="/admin/post" class="nav-link nav-toggle">
 						<i class="fa fa-file"></i> <span class="title">Quản lý bài viết</span>
 				</a></li>
-				<li class="nav-item"><a href="manufacturerView"
+				<li class="nav-item"><a href="/admin/manufacturerView"
 					class="nav-link nav-toggle"> <i class="fa fa-users"></i>
 						<span class="title">Quản lý nhà cung cấp</span>
 				</a></li>
-				<li class="nav-item"><a href="productCategory"
+				<li class="nav-item"><a href="/admin/productCategoryView"
 					class="nav-link nav-toggle"> <i class="fa fa-tasks"></i>
 						<span class="title">Quản lý loại sản phẩm</span>
 				</a></li>
-				<li class="nav-item"><a href="product"
+				<li class="nav-item"><a href="/admin/productView"
 					class="nav-link nav-toggle"> <i class="fa fa-product-hunt"></i>
 						<span class="title">Quản lý sản phẩm</span>
 				</a></li>
-				<li class="nav-item"><a href="order"
+				<li class="nav-item"><a href="/admin/orderView"
 					class="nav-link nav-toggle"> <i class="fa fa-credit-card"></i>
 						<span class="title">Quản lý hóa đơn</span>
 				</a></li>
-				<li class="nav-item"><a href="oderDetail"
+				<li class="nav-item"><a href="/admin/orderDetailView"
 					class="nav-link nav-toggle"> <i class="fa fa-credit-card"></i>
 						<span class="title">Quản lý hóa đơn chi tiết</span>
 				</a></li>

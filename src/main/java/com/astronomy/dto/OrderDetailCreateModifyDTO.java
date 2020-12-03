@@ -1,6 +1,6 @@
 package com.astronomy.dto;
 
-import java.io.Serializable;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,11 +15,14 @@ import lombok.ToString;
 @Setter
 @Builder
 @ToString
-public class OrderDetailCreateModifyDTO	 implements Serializable {
+public class OrderDetailCreateModifyDTO {
 	private Long id;
 	private Double total;
 	private Double price;
 	private Integer quantity;
 	private long order;
-	// hoa don chi tiet
+	private Date createdDate;
+	private Date modifiedDate;
+	private String createdBy;
+	private String modifiedBy;
 }

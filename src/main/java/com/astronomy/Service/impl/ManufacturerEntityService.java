@@ -1,6 +1,8 @@
 package com.astronomy.Service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -27,18 +29,17 @@ public class ManufacturerEntityService implements IManufacturerService {
 	public List<ManufacturerEntity> getAll() {
 		return manufacturerRepository.findAll();
 	}
-
+	
 //	@Override
-//	public ManufacturerEntity createModify(ManufacturerEntity manufacturerEntity) {
-//		return manufacturerRepository.save(manufacturerEntity);
+//	public ManufacturerCreateModifyDTO createModify(ManufacturerCreateModifyDTO dto) {
+//		ManufacturerEntity entity = new ManufacturerEntity();
+//		entity = mapper.toManufacturer(dto);
+//		return mapper.toManufacturerResponserDTO(manufacturerRepository.save(entity));
 //	}
 	
 	@Override
-	public ManufacturerCreateModifyDTO createModify(ManufacturerCreateModifyDTO dto) {
-		ManufacturerEntity entity = new ManufacturerEntity();
-		entity = mapper.toManufacturer(dto);
-		entity = manufacturerRepository.save(entity);
-		return dto;
+	public ManufacturerEntity createModify(ManufacturerEntity entity) {
+		return manufacturerRepository.save(entity);
 	}
 
 	@Override
@@ -53,4 +54,16 @@ public class ManufacturerEntityService implements IManufacturerService {
 		ManufacturerEntity manufacturer = manufacturerRepository.findById(id).orElse(null);
 		return mapper.toManufacturerResponserDTO(manufacturer);
 	}
+
+	@Override
+	public Map<Long, String> findAll() {
+		Map<Long, String> result = new HashMap<>();
+		List<ManufacturerEntity> entities = manufacturerRepository.findAll();
+		for (ManufacturerEntity item: entities) {
+			result.put(item.getId() ,item.getName());
+		}
+		return result;
+	}
+
+	
 }

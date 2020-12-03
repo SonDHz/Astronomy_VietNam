@@ -1,6 +1,8 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp" %>
+<%@include file="/common/taglib.jsp"%>
+<c:url var="productCategoryURL" value="/admin/productCategoryView" />
+<c:url var="productCategoryAPI" value="/api/ProductCategory" />
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -12,14 +14,14 @@
 <meta name="author" content="SmartUniversity">
 <title>Quản lý loại sản phẩm</title>
 <!-- google font -->
-<%@include file="/common/admin/style.jsp" %>
+<%@include file="/common/admin/style.jsp"%>
 </head>
 <!-- END HEAD -->
 <body
 	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark">
 	<div class="page-wrapper">
 		<!-- start header -->
-		<%@include file="/common/admin/header.jsp" %>
+		<%@include file="/common/admin/header.jsp"%>
 		<!-- end header -->
 		<!-- start color quick setting -->
 		<div class="quick-setting-main">
@@ -78,7 +80,7 @@
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
-			<%@include file="/common/admin/sidebar.jsp" %>
+			<%@include file="/common/admin/sidebar.jsp"%>
 			<!-- end sidebar menu -->
 			<!-- start page content -->
 			<div class="page-content-wrapper">
@@ -86,12 +88,19 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<button type="button" aria-haspopup="true" aria-expanded="false"
-									class="btn-shadow btn btn-info" data-toggle="modal"
-									data-target="#exampleModal">
+								<c:url var="createModify" value="createModify/productCategory" />
+								<a href='${createModify}' type="button" aria-haspopup="true"
+									aria-expanded="false" class="btn-shadow btn btn-info"> <span
+									class="btn-icon-wrapper pr-2 opacity-7"> <i
+										class="fa fa-business-time fa-w-20"></i>
+								</span> Thêm loại sản phẩm
+								</a>
+								<button id="btnDelete" type="button" aria-haspopup="true"
+									onclick="warningBeforeDelete()" aria-expanded="false"
+									class="btn-shadow btn btn-danger">
 									<span class="btn-icon-wrapper pr-2 opacity-7"> <i
 										class="fa fa-business-time fa-w-20"></i>
-									</span> Thêm loại sản phẩm
+									</span> Xóa loại sản phẩm
 								</button>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
@@ -120,195 +129,40 @@
 										<table id="example1" class="display" style="width: 100%;">
 											<thead>
 												<tr>
-													<th>#ID</th>
+													<th><input type="checkbox" id="checkAll"></th>
 													<th>Tên loại sản phẩm</th>
 													<th>Code</th>
+													<th>Ngày tạo</th>
+													<th>Ngày Sửa</th>
 													<th>Tạo bởi</th>
 													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>1</td>
-													<td>Kính</td>
-													<td>kinh</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>Sách</td>
-													<td>sach</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>Ống nhòm</td>
-													<td>123</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>Tiểu thuyết</td>
-													<td>321</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>Truyện</td>
-													<td>432</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>Brielle Williamson</td>
-													<td>Integration Specialist</td>
-													<td>New York</td>
-													<td>61</td>
-													<td>2012/12/02</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>Herrod Chandler</td>
-													<td>Sales Assistant</td>
-													<td>San Francisco</td>
-													<td>59</td>
-													<td>2012/08/06</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>Rhona Davidson</td>
-													<td>Integration Specialist</td>
-													<td>Tokyo</td>
-													<td>55</td>
-													<td>2010/10/14</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>Colleen Hurst</td>
-													<td>Javascript Developer</td>
-													<td>San Francisco</td>
-													<td>39</td>
-													<td>2009/09/15</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>Sonya Frost</td>
-													<td>Software Engineer</td>
-													<td>Edinburgh</td>
-													<td>23</td>
-													<td>2008/12/13</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>Jena Gaines</td>
-													<td>Office Manager</td>
-													<td>London</td>
-													<td>30</td>
-													<td>2008/12/19</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>Quinn Flynn</td>
-													<td>Support Lead</td>
-													<td>Edinburgh</td>
-													<td>22</td>
-													<td>2013/03/03</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
+												<form:form id="formSubmit" role="form"
+													class="form-horizontal">
+													<c:forEach var="item" items="${productCategory}">
+														<tr>
+															<td><input type="checkbox" id="checkbox_${item.id}"
+																value="${item.id}" /></td>
+															<td>${item.name}</td>
+															<td>${item.code}</td>
+															<td>${item.createdDate}</td>
+															<td>${item.modifiedDate}</td>
+															<td>${item.createdBy}</td>
+															<td>${item.modifiedBy}</td>
+															<td>&nbsp;&nbsp; <c:url var="createModify"
+																	value="createModify/productCategory">
+																	<c:param name="id" value="${item.id}" />
+																</c:url>  
+																<a href='${createModify}'
+																class="btn btn-outline-warning"
+																data-original-title="Update">Update</a> &nbsp;&nbsp;
+															</td>
+														</tr>
+													</c:forEach>
+												</form:form>
 											</tbody>
 										</table>
 									</div>
@@ -389,90 +243,52 @@
 			</div>
 			<!-- end chat sidebar -->
 		</div>
-
-		<!-- Modal Update-->
-		<div class="modal fade" id="exampleModalUpdate" tabindex="-1"
-			role="dialog" aria-labelledby="exampleModalLabelUpdate"
-			aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Update</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-
-						<input class="form-control validate" type="hidden" value="1">
-						<br> <label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Tên loại sản phẩm:</label> <input
-							class="form-control validate" type="text" value="Sách"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Code:</label> <input
-							class="form-control validate" type="text" value="123"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Tạo bởi:</label> <input
-							class="form-control validate" type="text" value="tien"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Sửa bởi:</label> <input
-							class="form-control validate" type="text" value="tien1">
-						<br>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Lưu</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">
-							<i class="fa fa-edit"></i>&nbsp;Thêm loại sản phẩm
-						</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="md-form mb-5">
-							<label data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Tên loại sản phẩm</label> <input
-								class="form-control validate"> <label data-error="wrong"
-								data-success="right"> <i class="fa fa-table"></i>&nbsp;
-								Code
-							</label> <input class="form-control validate"> <label
-								data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Tạo bởi</label> <input
-								class="form-control validate"> <label data-error="wrong"
-								data-success="right"><i class="fa fa-table"></i>&nbsp;
-								Sửa bởi</label> <input class="form-control validate">
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary">Lưu</button>
-					</div>
-				</div>
-			</div>
-		</div>
 		<!-- end page container -->
 		<!-- start footer -->
-		<%@include file="/common/admin/footer.jsp" %>
+		<%@include file="/common/admin/footer.jsp"%>
 		<!-- end footer -->
 	</div>
 	<!-- start js include path -->
-	<%@include file="/common/admin/js.jsp" %>
+	<%@include file="/common/admin/js.jsp"%>
 	<!-- end js include path -->
+	<script>
+		function warningBeforeDelete() {
+			swal({
+				title : "Xác nhận xóa",
+				text : "Bạn có chắc chắn muốn xóa hay không",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonClass : "btn-success",
+				cancelButtonClass : "btn-danger",
+				confirmButtonText : "Xác nhận",
+				cancelButtonText : "Hủy bỏ",
+			}).then(
+					function(isConfirm) {
+						if (isConfirm) {
+							//call api delete
+							var ids = $('tbody input[type=checkbox]:checked')
+									.map(function() {
+										return $(this).val();
+									}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
+							deleteNew(ids);
+						}
+					});
+		}
+		function deleteNew(data) {
+			$
+					.ajax({
+						url : '${productCategoryAPI}',
+						type : 'DELETE',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						success : function(result) {
+							window.location.href = "${productCategoryURL}?message=delete_success";
+						},
+						error : function(error) {
+							window.location.href = "${productCategoryURL}?message=error_system";
+						}
+					});
+		}
+	</script>
 </body>
 </html>

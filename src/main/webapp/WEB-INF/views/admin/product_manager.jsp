@@ -1,6 +1,8 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp" %>
+<%@include file="/common/taglib.jsp"%>
+<c:url var="productURL" value="/admin/productView" />
+<c:url var="productAPI" value="/api/Product" />
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -12,14 +14,14 @@
 <meta name="author" content="SmartUniversity">
 <title>Quản lý sản phẩm</title>
 <!-- google font -->
-<%@include file="/common/admin/style.jsp" %>
+<%@include file="/common/admin/style.jsp"%>
 </head>
 <!-- END HEAD -->
 <body
 	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark">
 	<div class="page-wrapper">
 		<!-- start header -->
-		<%@include file="/common/admin/header.jsp" %>
+		<%@include file="/common/admin/header.jsp"%>
 		<!-- end header -->
 		<!-- start color quick setting -->
 		<div class="quick-setting-main">
@@ -78,7 +80,7 @@
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
-			<%@include file="/common/admin/sidebar.jsp" %>
+			<%@include file="/common/admin/sidebar.jsp"%>
 			<!-- end sidebar menu -->
 			<!-- start page content -->
 			<div class="page-content-wrapper">
@@ -86,12 +88,19 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<button type="button" aria-haspopup="true" aria-expanded="false"
-									class="btn-shadow btn btn-info" data-toggle="modal"
-									data-target="#exampleModal">
+								<c:url var="createModify" value="createModify/product" />
+								<a href='${createModify}' type="button" aria-haspopup="true"
+									aria-expanded="false" class="btn-shadow btn btn-info"> <span
+									class="btn-icon-wrapper pr-2 opacity-7"> <i
+										class="fa fa-business-time fa-w-20"></i>
+								</span> Thêm sản phẩm
+								</a>
+								<button id="btnDelete" type="button" aria-haspopup="true"
+									onclick="warningBeforeDelete()" aria-expanded="false"
+									class="btn-shadow btn btn-danger">
 									<span class="btn-icon-wrapper pr-2 opacity-7"> <i
 										class="fa fa-business-time fa-w-20"></i>
-									</span> Thêm tài khoản sản phẩm
+									</span> Xóa sản phẩm
 								</button>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
@@ -120,208 +129,43 @@
 										<table id="example1" class="display" style="width: 100%;">
 											<thead>
 												<tr>
-													<th>#ID</th>
-													<th>Loại sản phẩm</th>
-													<th>Nhà cung cấp</th>
+													<th><input type="checkbox" id="checkAll"></th>
+													<!-- <th>Loại sản phẩm</th> -->
 													<th>Tên sản phẩm</th>
+													<!-- <th>Nhà sản xuất</th> -->
+													<th>Mô tả</th>
+													<th>Ngày tạo</th>
+													<th>Ngày Sửa</th>
+													<th>Tạo bởi</th>
+													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>Sách</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>2</td>
-													<td>2</td>
-													<td>Truyện</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>3</td>
-													<td>3</td>
-													<td>Tiểu thuyết</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>4</td>
-													<td>4</td>
-													<td>Ống nhòm</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>5</td>
-													<td>5</td>
-													<td>Kính</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Brielle Williamson</td>
-													<td>Integration Specialist</td>
-													<td>New York</td>
-													<td>61</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Herrod Chandler</td>
-													<td>Sales Assistant</td>
-													<td>San Francisco</td>
-													<td>59</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Rhona Davidson</td>
-													<td>Integration Specialist</td>
-													<td>Tokyo</td>
-													<td>55</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Colleen Hurst</td>
-													<td>Javascript Developer</td>
-													<td>San Francisco</td>
-													<td>39</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Sonya Frost</td>
-													<td>Software Engineer</td>
-													<td>Edinburgh</td>
-													<td>23</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Jena Gaines</td>
-													<td>Office Manager</td>
-													<td>London</td>
-													<td>30</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Quinn Flynn</td>
-													<td>Support Lead</td>
-													<td>Edinburgh</td>
-													<td>22</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
+												<form:form id="formSubmit" role="form"
+													class="form-horizontal">
+													<c:forEach var="item" items="${entity}">
+														<tr>
+															<td><input type="checkbox" id="checkbox_${item.id}"
+																value="${item.id}" /></td>
+															<%-- <td>${item.productCategory}</td> --%>
+															<td>${item.name}</td>
+															<%-- <td>${item.manufacturer}</td> --%>
+															<td>${item.shortDecription}</td>
+															<td>${item.createdDate}</td>
+															<td>${item.modifiedDate}</td>
+															<td>${item.createdBy}</td>
+															<td>${item.modifiedBy}</td>
+															<td>&nbsp;&nbsp; <c:url var="createModify"
+																	value="createModify/product">
+																	<c:param name="id" value="${item.id}" />
+																</c:url> <a href='${createModify}'
+																class="btn btn-outline-warning"
+																data-original-title="Update">Update</a> &nbsp;&nbsp;
+															</td>
+														</tr>
+													</c:forEach>
+												</form:form>
 											</tbody>
 										</table>
 									</div>
@@ -559,11 +403,50 @@
 		</div>
 		<!-- end page container -->
 		<!-- start footer -->
-		<%@include file="/common/admin/footer.jsp" %>
+		<%@include file="/common/admin/footer.jsp"%>
 		<!-- end footer -->
 	</div>
 	<!-- start js include path -->
-	<%@include file="/common/admin/js.jsp" %>
+	<%@include file="/common/admin/js.jsp"%>
 	<!-- end js include path -->
+	<script>
+		function warningBeforeDelete() {
+			swal({
+				title : "Xác nhận xóa",
+				text : "Bạn có chắc chắn muốn xóa hay không",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonClass : "btn-success",
+				cancelButtonClass : "btn-danger",
+				confirmButtonText : "Xác nhận",
+				cancelButtonText : "Hủy bỏ",
+			}).then(
+					function(isConfirm) {
+						if (isConfirm) {
+							//call api delete
+							var ids = $('tbody input[type=checkbox]:checked')
+									.map(function() {
+										return $(this).val();
+									}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
+							deleteNew(ids);
+						}
+					});
+		}
+		function deleteNew(data) {
+			$
+					.ajax({
+						url : '${productAPI}',
+						type : 'DELETE',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						success : function(result) {
+							window.location.href = "${productURL}?message=delete_success";
+						},
+						error : function(error) {
+							window.location.href = "${productURL}?message=error_system";
+						}
+					});
+		}
+	</script>
 </body>
 </html>

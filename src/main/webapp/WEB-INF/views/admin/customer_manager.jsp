@@ -1,6 +1,8 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
+<c:url var="customerURL" value="/admin/customerView" />
+<c:url var="customerAPI" value="/api/User"/>
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -86,14 +88,20 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<button type="button" aria-haspopup="true" aria-expanded="false"
-									class="btn-shadow btn btn-info" data-toggle="modal"
-									data-target="#exampleModal">
+								<c:url var="createModify" value="createModify/customer" />
+								<a href='${createModify}' type="button" aria-haspopup="true"
+									aria-expanded="false" class="btn-shadow btn btn-info"> <span
+									class="btn-icon-wrapper pr-2 opacity-7"> <i
+										class="fa fa-business-time fa-w-20"></i>
+								</span> Thêm khách hàng
+								</a>
+								<button id="btnDelete" type="button" aria-haspopup="true"
+									onclick="warningBeforeDelete()" aria-expanded="false"
+									class="btn-shadow btn btn-danger">
 									<span class="btn-icon-wrapper pr-2 opacity-7"> <i
 										class="fa fa-business-time fa-w-20"></i>
-									</span> Thêm tài khoản khách hàng
-								</button>
-							</div>
+									</span> Xóa khách hàng
+								</button>							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
 								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
 									href="#">Home</a>&nbsp;</li>
@@ -120,221 +128,38 @@
 										<table id="example1" class="display" style="width: 100%;">
 											<thead>
 												<tr>
-													<th>#ID</th>
+													<th><input type="checkbox" id="checkAll"></th>
 													<th>Username</th>
 													<th>Password</th>
 													<th>Họ và tên</th>
 													<th>Email</th>
+													<th>Phone</th>
+													<th>Birthday</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
+												<form:form id="formSubmit" role="form" class="form-horizontal">
+											<c:forEach var="customer" items="${userentity}">
 												<tr>
-													<td>1</td>
-													<td>tien123</td>
-													<td>123457</td>
-													<td>Đặng Anh Tiến</td>
-													<td>tien123@gmail.com</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
+													<td><input type="checkbox" id="checkbox_${customer.id}"
+																value="${customer.id}" /></td>
+													<td>${customer.username}</td>
+													<td>${customer.password }</td>
+													<td>${customer.fullName }</td>
+													<td>${customer.email }</td>
+													<td>${customer.phoneNumber }</td>
+													<td>${customer.birthday}</td>
+													<td>&nbsp;&nbsp; <c:url var="createModify"
+																	value="createModify/customer">
+																	<c:param name="id" value="${customer.id}" />
+																</c:url> <a href='${createModify}'
+																class="btn btn-outline-warning"
+																data-original-title="Update">Update</a> &nbsp;&nbsp;
+															</td>
 												</tr>
-												<tr>
-													<td>2</td>
-													<td>tien123</td>
-													<td>123457</td>
-													<td>Đặng Anh Tiến</td>
-													<td>tien123@gmail.com</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-													</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>tien123</td>
-													<td>123456</td>
-													<td>Đặng Anh Tiền</td>
-													<td>tien127@gmail.com</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>tien124</td>
-													<td>123454</td>
-													<td>Đặng Anh Tiên</td>
-													<td>tien124@gmail.com</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>tien125</td>
-													<td>123455</td>
-													<td>Đặng Anh Tiền</td>
-													<td>tien125@gmail.com</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Brielle Williamson</td>
-													<td>Integration Specialist</td>
-													<td>New York</td>
-													<td>61</td>
-													<td>2012/12/02</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Herrod Chandler</td>
-													<td>Sales Assistant</td>
-													<td>San Francisco</td>
-													<td>59</td>
-													<td>2012/08/06</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Rhona Davidson</td>
-													<td>Integration Specialist</td>
-													<td>Tokyo</td>
-													<td>55</td>
-													<td>2010/10/14</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Colleen Hurst</td>
-													<td>Javascript Developer</td>
-													<td>San Francisco</td>
-													<td>39</td>
-													<td>2009/09/15</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Sonya Frost</td>
-													<td>Software Engineer</td>
-													<td>Edinburgh</td>
-													<td>23</td>
-													<td>2008/12/13</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Jena Gaines</td>
-													<td>Office Manager</td>
-													<td>London</td>
-													<td>30</td>
-													<td>2008/12/19</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
-												<tr>
-													<td>Quinn Flynn</td>
-													<td>Support Lead</td>
-													<td>Edinburgh</td>
-													<td>22</td>
-													<td>2013/03/03</td>
-													<td>&nbsp;&nbsp;
-														<button class="btn btn-outline-success"
-															data-toggle="modal" data-target="#exampleModalView"
-															data-original-title="View">View</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-warning"
-															data-toggle="modal" data-target="#exampleModalUpdate"
-															data-original-title="Update">Update</button> &nbsp;&nbsp;
-														<button class="btn btn-outline-danger"
-															data-toggle="tooltip" data-original-title="Delete">
-															Delete</button>
-												</tr>
+												</c:forEach>
+												</form:form>
 											</tbody>
 										</table>
 									</div>
@@ -477,128 +302,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Modal Update-->
-	<div class="modal fade" id="exampleModalUpdate" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalLabelUpdate"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Update</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<input class="form-control validate" type="hidden" value="1">
-					<br> <label data-error="wrong" data-success="right"><i
-						class="fa fa-user"></i>&nbsp; Username:</label> <input
-						class="form-control validate" type="text" value="tien123">
-					<br> <label data-error="wrong" data-success="right"><i
-						class="fa fa-lock"></i>&nbsp; Password:</label> <input
-						class="form-control validate" type="text" value="123456">
-					<br> <label data-error="wrong" data-success="right"><i
-						class="fa fa-user"></i>&nbsp; Họ và tên:</label> <input
-						class="form-control validate" type="text" value="Dang Anh Tien">
-					<br> <label data-error="wrong" data-success="right"><i
-						class="fa fa-table"></i>&nbsp; Email:</label> <input
-						class="form-control validate" type="text"
-						value="tien123@gmail.com"> <br> <label
-						data-error="wrong" data-success="right"><i
-						class="fa fa-table"></i>&nbsp; Địa chỉ:</label> <input
-						class="form-control validate" type="text"
-						value="12 Hồng Hà, quận 10, TP.HCM"> <br> <label
-						data-error="wrong" data-success="right"><i
-						class="fa fa-phone"></i>&nbsp; SĐT:</label> <input
-						class="form-control validate" type="text" value="09067491622">
-					<br> <label data-error="wrong" data-success="right"><i
-						class="fa fa-table"></i>&nbsp; Giới tính:</label> <input
-						class="form-control validate" type="text" value="Nam"> <br>
-					<label data-error="wrong" data-success="right"><i
-						class="fa fa-birthday-cake"></i>&nbsp; Ngày sinh:</label> <input
-						class="form-control validate" type="text" value="31/07/2000">
-					<br> <label data-error="wrong" data-success="right"><i
-						class="fa fa-table"></i>&nbsp; Avatar:</label> <input
-						class="form-control validate" type="text" value="123.jpg">
-					<br> <label data-error="wrong" data-success="right"><i
-						class="fa fa-table"></i>&nbsp; Trạng thái:</label> <input
-						class="form-control validate" type="text" value="Đang hoạt động">
-					<br> <label data-error="wrong" data-success="right"><i
-						class="fa fa-table"></i>&nbsp; Tạo bởi:</label> <input
-						class="form-control validate" type="text" value="tien"> <br>
-					<label data-error="wrong" data-success="right"><i
-						class="fa fa-table"></i>&nbsp; Sửa bởi:</label> <input
-						class="form-control validate" type="text" value="ti"> <br>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Đóng</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Lưu</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">
-						<i class="fa fa-edit"></i>&nbsp;Thêm tài khoản nhân viên
-					</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="md-form mb-5">
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-user"></i>&nbsp; Username</label> <input
-							class="form-control validate"> <label data-error="wrong"
-							data-success="right"> <i class="fa fa-lock"></i>&nbsp;
-							Password
-						</label> <input class="form-control validate"><label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-user"></i>&nbsp; Họ và tên</label> <input
-							class="form-control validate"> <label data-error="wrong"
-							data-success="right"><i class="fa fa-table"></i>&nbsp;
-							Email</label> <input class="form-control validate"> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Địa chỉ</label> <input
-							class="form-control validate"> <label data-error="wrong"
-							data-success="right"><i class="fa fa-phone"></i>&nbsp;
-							SĐT</label> <input class="form-control validate"> <label
-							data-error="wrong" data-success="right"> <i
-							class="fa fa-table"></i>&nbsp; Giới tính
-						</label> <input class="form-control validate"><label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-birthday-cake"></i>&nbsp; Ngày sinh</label> <input
-							class="form-control validate"> <label data-error="wrong"
-							data-success="right"><i class="fa fa-table"></i>&nbsp;
-							Avatar</label> <input class="form-control validate"> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Trạng thái</label> <input
-							class="form-control validate"> <label data-error="wrong"
-							data-success="right"><i class="fa fa-table"></i>&nbsp;
-							Tạo bởi</label> <input class="form-control validate"> <label
-							data-error="wrong" data-success="right"> <i
-							class="fa fa-table"></i>&nbsp; Sửa bởi
-						</label> <input class="form-control validate">
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Đóng</button>
-					<button type="button" class="btn btn-primary">Lưu</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<!-- end page container -->
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp" %>
@@ -608,5 +311,42 @@
 	
 	<%@include file="/common/admin/js.jsp" %>
 	<!-- end js include path -->
+		<script >
+	function warningBeforeDelete() {
+		swal({
+			title : "Xác nhận xóa",
+			text : "Bạn có chắc chắn muốn xóa hay không",
+			type : "warning",
+			showCancelButton : true,
+			confirmButtonClass : "btn-success",
+			cancelButtonClass : "btn-danger",
+			confirmButtonText : "Xác nhận",
+			cancelButtonText : "Hủy bỏ",
+		}).then(
+				function(isConfirm) {
+					if (isConfirm) {
+						//call api delete
+						var ids = $('tbody input[type=checkbox]:checked').map(function() {
+									return $(this).val();
+								}).get();//Lấy được 1 mảng chứa id bài viết ta muốn xóa khi ta check
+						deleteNew(ids);
+					}
+				});
+	}
+	function deleteNew(data) {
+		$.ajax({
+			url : '${customerAPI}',
+			type : 'DELETE',
+			contentType: 'application/json',
+			data: JSON.stringify(data), 
+			success : function(result) {
+				window.location.href = "${customerURL}?message=delete_success"; 
+		    },
+			error : function(error) {
+			    window.location.href = "${customerURL}?message=error_system";
+			}
+		});	
+	}
+	</script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp" %>
+<%@include file="/common/taglib.jsp"%>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -12,15 +13,14 @@
     <!-- google font -->
     <link href="../../../../../../admin/css.css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css">
 	<!-- icons -->
-    <link href="../../admin/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="../../admin/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css">
+    <link href="../../template/admin/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="../../template/admin/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css">
     <!-- bootstrap -->
-	<link href="../../admin/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="../../template/admin/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- style -->
-    <link rel="stylesheet" href="../../admin/assets/css/pages/extra_pages.css">
+    <link rel="stylesheet" href="../../template/admin/assets/css/pages/extra_pages.css">
 	<!-- favicon -->
-    <link rel="shortcut icon" href="../../admin/assets/img/favicon.ico"> 
-
+    <link rel="shortcut icon" href="../../template/admin/assets/img/favicon.ico"> 
 </head>
 <body>
     <div class="form-title">
@@ -32,21 +32,21 @@
         </div>
         <div class="form formLogin">
             <h2>Đăng nhập</h2>
-            <form>
-                <input type="text" placeholder="Tài khoản">
-                <input type="password" placeholder="Mật khẩu">
+            <form:form action="/j_spring_security_login" method='POST'>
+                <input type="text" id="username" name="j_username" placeholder="Tài khoản">
+                <input type="password" id="password" name="j_password" placeholder="Mật khẩu">
                 <div class="remember text-left">
-                    <div class="checkbox checkbox-primary">
+                    <!-- <div class="checkbox checkbox-primary">
                         <input id="checkbox2" type="checkbox" checked="">
                         <label for="checkbox2">
                             Nhớ mật khẩu
                         </label>
-                    </div>
+                    </div> -->
                 </div>
-                <button>Đăng nhập</button>
+                <button type="submit">Đăng nhập</button>
                 <div class="forgetPassword"><a href="javascript:void(0)">Quên mật khẩu</a>
                 </div>
-            </form>
+            </form:form>
         </div>
         <div class="form formRegister">
             <h2>Create an account</h2>
@@ -71,8 +71,8 @@
         </div>
     </div>
     <!-- start js include path -->
-    <script src="../../admin/assets/plugins/jquery/jquery.min.js"></script>
-    <script src="../../admin/assets/js/pages/extra_pages/pages.js"></script>
+    <script src="../../template/admin/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="../../template/admin/assets/js/pages/extra_pages/pages.js"></script>
     <!-- end js include path -->
 </body>
 </html>

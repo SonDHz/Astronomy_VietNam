@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
@@ -149,7 +150,7 @@
 					
 					<!-- Chart end -->
 					<!-- start course list -->
-				<!-- 	<div class="row">
+					<div class="row">
 						<div class="col-lg-3 col-md-6 col-12 col-sm-6">
 							<div class="blogThumb">
 								<div class="thumb-center">
@@ -234,10 +235,10 @@
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div> 
 					<!-- End course list -->
 					<div class="row">
-						<!--<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
 							<div class="card  card-box">
 								<div class="card-head">
 									<header>CHAT</header>
@@ -360,8 +361,8 @@
 									</div>
 								</div>
 							</div>
-						</div> -->
-					<!-- <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+						</div> 
+					 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
 							<div class="card card-box">
 								<div class="card-head">
 									<header>Todo List</header>
@@ -682,7 +683,6 @@
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp" %>
 		<!-- end footer -->
-	</div>
 	<!-- start js include path -->
 	<%@include file="/common/admin/js.jsp" %>
 	<!-- end js include path -->
