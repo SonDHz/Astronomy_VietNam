@@ -24,33 +24,29 @@
 		<div class="row align-items-center justify-content-center d-flex">
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li class="menu-active"><a href="index.html"><Strong>Trang
+					<li class="menu-active"><a href="/"><Strong>Trang
 								chủ</Strong></a></li>
-					<li><a href="archive.html"><Strong>Giới thiệu</Strong></a></li>
+					<li><a href="#"><Strong>Giới thiệu</Strong></a></li>
 					<li class="menu-has-children"><a href=""><Strong>Thể
 								loại</Strong></a>
 						<ul>
 							<li><a href="elements.html"><h6>Lịch sử thiên văn
 										học</h6></a></li>
-							<li><a href="elements.html"><h6>Hệ mặt trời</h6></a></li>
-							<li><a href="elements.html"><h6>Các chòm sao</h6></a></li>
-							<li><a href="elements.html"><h6>Thiên hà</h6></a></li>
-							<li><a href="elements.html"><h6>Các hiện tượng</h6></a></li>
+							<li><a href="#"><h6>Hệ mặt trời</h6></a></li>
+							<li><a href="#"><h6>Các chòm sao</h6></a></li>
+							<li><a href="#"><h6>Thiên hà</h6></a></li>
+							<li><a href="#"><h6>Các hiện tượng</h6></a></li>
 						</ul></li>
-					<li class="menu-has-children"><a href=""><Strong>Sản phẩm</Strong></a>
-						<ul>
-							<li><a href="shoppingTools"><h6>Dụng cụ thiên văn</h6></a></li>
-							<li><a href="blog-details.html"><h6>Sách</h6></a></li>
-						</ul></li>
-					<li class="menu-has-children"><a href=""><Strong>Tham
+					<li><a href="user/shoppingTools"><Strong>Sản phẩm</Strong></a></li>
+					<li class="menu-has-children"><a href="#"><Strong>Tham
 								khảo</Strong></a>
 						<ul>
 							<li><a href="blog-details.html"><h6>Bài Viết, ý
 										kiến</h6></a></li>
 							<li><a href="blog-details.html"><h6>Giải trí</h6></a></li>
 						</ul></li>
-					<li><a href="archive.html"><Strong>Tin tức</Strong></a></li>
-					<li><a href="contact.html"><Strong>Liên hệ</Strong></a></li>
+					<li><a href="#"><Strong>Tin tức</Strong></a></li>
+					<li><a href="#"><Strong>Liên hệ</Strong></a></li>
 					<li><a href="login"
 						class="genric-btn success circle arrow text-success"><Strong>Đăng
 								nhập<Strong></a></li>
