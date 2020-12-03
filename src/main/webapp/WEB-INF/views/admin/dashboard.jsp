@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
@@ -17,7 +18,7 @@
 <!-- END HEAD -->
 <body
 	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark">
-	<div class="page-wrapper">
+	
 		<!-- start header -->
 		<%@include file="/common/admin/header.jsp" %>
 		<!-- end header -->
@@ -100,20 +101,19 @@
 						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 							<div class="analysis-box m-b-0 bg-b-purple">
 								<h3 class="text-white box-title">
-									DT <span class="pull-right"><i
-										class="fa fa-caret-up"></i> 345</span>
+										Hóa đơn
+									<span class="pull-right">15</span>
 								</h3>
-								<div id="sparkline7">
+								<div id="sparkline18">
 									<canvas
-										style="display: inline-block; width: 267px; height: 70px; vertical-align: top;"></canvas>
-								</div>
-							</div>
+										style="display: inline-block; width: 367px; height: 70px; vertical-align: top;"></canvas>
+								</div>							</div>
 						</div>
 						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 							<div class="analysis-box m-b-0 bg-b-danger">
 								<h3 class="text-white box-title">
-									Sales <span class="pull-right"><i class="fa fa-caret-up"></i>
-										643</span>
+									Sản phẩm   <span class="pull-right">
+										15</span>
 								</h3>
 								<div id="sparkline12">
 									<canvas
@@ -124,8 +124,7 @@
 						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 							<div class="analysis-box m-b-0 bg-b-cyan">
 								<h3 class="text-white box-title">
-									New User <span class="pull-right"><i
-										class="fa fa-caret-up"></i>765</span>
+									 Nhân viên<span class="pull-right">20</span>
 								</h3>
 								<div id="sparkline9">
 									<canvas
@@ -136,8 +135,8 @@
 						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 							<div class="analysis-box m-b-0 bg-b-blue">
 								<h3 class="text-white box-title">
-									Visitors <span class="pull-right"><i
-										class="fa fa-caret-up"></i> 323</span>
+									Khách hàng  <span class="pull-right">
+										40</span>
 								</h3>
 								<div id="sparkline16" class="text-center">
 									<canvas
@@ -236,7 +235,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> 
 					<!-- End course list -->
 					<div class="row">
 						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
@@ -362,8 +361,8 @@
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+						</div> 
+					 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
 							<div class="card card-box">
 								<div class="card-head">
 									<header>Todo List</header>
@@ -468,26 +467,25 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>  -->	
 					<div class="row">
 						<div class="col-md-4 col-sm-12 col-12">
 							<div class="white-box border-gray">
 								<h3 class="box-title">
 									<small class="pull-right m-t-10 text-success"><i
-										class="fa fa-sort-asc"></i> 18% High then last month</small>Site
-									Traffic
+										class="fa fa-sort-asc"></i> Cao hơn 40.40% so với tháng trước</small>Thông số
 								</h3>
 								<div class="stats-row">
 									<div class="stat-item">
-										<h6>Overall Growth</h6>
+										<h6>Tổng thể</h6>
 										<b>40.40%</b>
 									</div>
 									<div class="stat-item">
-										<h6>Montly</h6>
+										<h6>Tháng</h6>
 										<b>55.40%</b>
 									</div>
 									<div class="stat-item">
-										<h6>Day</h6>
+										<h6>Ngày</h6>
 										<b>4.50%</b>
 									</div>
 								</div>
@@ -500,7 +498,7 @@
 						<div class="col-md-4 col-sm-12 col-12">
 							<div class="card  card-box">
 								<div class="card-head">
-									<header>Notifications</header>
+									<header>Thông báo</header>
 									<div class="tools">
 										<a class="fa fa-repeat btn-color box-refresh"
 											href="javascript:;"></a> <a
@@ -515,78 +513,76 @@
 											<div
 												class="notification-list mail-list not-list small-slimscroll-style">
 												<a href="javascript:;" class="single-mail"> <span
-													class="icon bg-primary"> <i class="fa fa-user-o"></i>
-												</span> <span class="text-purple">Abhay Jani</span> Added you as
-													friend <span class="notificationtime"> <small>Just
-															Now</small>
+													class="icon bg-primary"> <i class="fa fa-envelope-o"></i>
+												</span> <span class="text-purple">Nguyễn Trung Quân</span> gửi bạn 1 email 
+												<span class="notificationtime"> <small>Bây giờ</small>
 												</span>
 												</a> <a href="javascript:;" class="single-mail"> <span
 													class="icon blue-bgcolor"> <i
-														class="fa fa-envelope-o"></i>
-												</span> <span class="text-purple">John Doe</span> send you a mail <span
-													class="notificationtime"> <small>Just Now</small>
-												</span>
-												</a> <a href="javascript:;" class="single-mail"> <span
-													class="icon bg-success"> <i
-														class="fa fa-check-square-o"></i>
-												</span> Success Message <span class="notificationtime"> <small>
-															2 Days Ago</small>
-												</span>
-												</a> <a href="javascript:;" class="single-mail"> <span
-													class="icon bg-warning"> <i class="fa fa-warning"></i>
-												</span> <strong>Database Overloaded Warning!</strong> <span
-													class="notificationtime"> <small>1 Week Ago</small>
-												</span>
-												</a> <a href="javascript:;" class="single-mail"> <span
-													class="icon bg-primary"> <i class="fa fa-user-o"></i>
-												</span> <span class="text-purple">Abhay Jani</span> Added you as
-													friend <span class="notificationtime"> <small>Just
-															Now</small>
+														class="fa fa-user-o"></i>
+												</span> <span class="text-purple">Trần Văn Tim</span> đã đăng ký tài khoản thành công <span
+													class="notificationtime"> <small>30 phút trước</small>
 												</span>
 												</a> <a href="javascript:;" class="single-mail"> <span
 													class="icon blue-bgcolor"> <i
-														class="fa fa-envelope-o"></i>
-												</span> <span class="text-purple">John Doe</span> send you a mail <span
-													class="notificationtime"> <small>Just Now</small>
-												</span>
-												</a> <a href="javascript:;" class="single-mail"> <span
-													class="icon bg-success"> <i
-														class="fa fa-check-square-o"></i>
-												</span> Success Message <span class="notificationtime"> <small>
-															2 Days Ago</small>
+														class="fa fa-user-o"></i>
+												</span> <span class="text-purple">Trần Văn Ti</span> đã đăng ký tài khoản thành công <span
+													class="notificationtime"> <small>1 giờ trước</small>
 												</span>
 												</a> <a href="javascript:;" class="single-mail"> <span
 													class="icon bg-warning"> <i class="fa fa-warning"></i>
-												</span> <strong>Database Overloaded Warning!</strong> <span
-													class="notificationtime"> <small>1 Week Ago</small>
+												</span> <strong> Dữ liệu sản phẩm tải lên không thành công</strong> <span
+													class="notificationtime"> <small>4 giờ trước</small>
+												</span>
+												</a> <a href="javascript:;" class="single-mail"> <span
+													class="icon bg-primary"> <i class="fa fa-envelope-o"></i>
+												</span> <span class="text-purple">Nguyễn Trung Quy</span> đã gửi bạn 1 email 
+												<span class="notificationtime"> <small>6 giờ trước</small>
+												</span>
+												</a> <a href="javascript:;" class="single-mail"> <span
+													class="icon blue-bgcolor"> <i
+														class="fa fa-user-o"></i>
+												</span> <span class="text-purple">Trần Văn Tin</span> đã đăng ký tài khoản thành công <span
+													class="notificationtime"> <small>2 ngày trước</small>
+												</span>
+												</a> <a href="javascript:;" class="single-mail"> <span
+													class="icon blue-bgcolor"> <i
+														class="fa fa-user-o"></i>
+												</span> <span class="text-purple">Trần Văn Tân</span> đã đăng ký tài khoản thành công <span
+													class="notificationtime"> <small>3 ngày trước</small>
+												</span>
+												</a> <a href="javascript:;" class="single-mail"> <span
+													class="icon bg-warning"> <i class="fa fa-warning"></i>
+												</span> <strong>Dữ liệu khách hàng tải lên không thành công!</strong> <span
+													class="notificationtime"> <small>1 tuần trước</small>
 												</span>
 												</a> <a href="javascript:;" class="single-mail"> <span
 													class="icon bg-danger"> <i class="fa fa-times"></i>
-												</span> <strong>Server Error!</strong> <span
-													class="notificationtime"> <small>10 Days Ago</small>
+												</span> <strong>Hệ thống quá tải!</strong> <span
+													class="notificationtime"> <small>10 ngày trước</small>
 												</span>
 												</a>
 											</div>
 											<div class="full-width text-center p-t-10">
 												<button type="button"
-													class="btn purple btn-outline btn-circle margin-0">View
-													All</button>
+													class="btn purple btn-outline btn-circle margin-0">Tất cả</button>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-12 col-12">
+							<div class="col-md-4 col-sm-12 col-12">
 							<div class="white-box border-gray">
 								<div class="user-bg">
 									<div class="overlay-box">
 										<div class="user-content">
 											<a href="javascript:void(0)"><img alt="img"
 												class="thumb-lg img-circle"
-												src="../../template/admin/assets/img/dp.jpg"></a>
-											<h4 class="text-white">Kiran Patel</h4>
-											<h5 class="text-white">info@kiranpatel.com</h5>
+												src="<c:url value ='/template/admin/assets/img/dp.jpg'/>"></a>
+													
+											<h4 class="text-white">Astronomy</h4>
+											<h5 class="text-white">astronomy123@gmail.com</h5>
 										</div>
 									</div>
 								</div>
@@ -596,25 +592,25 @@
 											<p class="text-purple">
 												<i class="fa fa-facebook"></i>
 											</p>
-											<h1>467</h1>
+											<h1>100.6k </h1>
 										</div>
 										<div class="col-md-4 col-sm-4 text-center">
 											<p class="text-success">
 												<i class="fa fa-twitter"></i>
 											</p>
-											<h1>234</h1>
+											<h1>500.1k</h1>
 										</div>
 										<div class="col-md-4 col-sm-4 text-center">
 											<p class="text-danger">
 												<i class="fa fa-instagram"></i>
 											</p>
-											<h1>686</h1>
+											<h1>250.2k</h1>
 										</div>
 									</div>
 									<div class="col-md-12  m-b-0 text-center">
 										<div class="stat-item">
-											<h6>Contact info</h6>
-											<b><i class="ti-mobile"></i> 123-456-7890</b>
+											<h6>Liên lạc</h6>
+											<b><i class="ti-mobile"></i>090-1234-678</b>
 										</div>
 									</div>
 								</div>
@@ -687,7 +683,6 @@
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp" %>
 		<!-- end footer -->
-	</div>
 	<!-- start js include path -->
 	<%@include file="/common/admin/js.jsp" %>
 	<!-- end js include path -->

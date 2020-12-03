@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+	<%@include file="/common/taglib.jsp" %>
 <script src="<c:url value='../template/admin/assets/plugins/jquery/jquery.min.js' />" rel="stylesheet"></script>
 <script src="<c:url value='../template/admin/assets/plugins/popper/popper.min.js' />" rel="stylesheet"></script>
 	<script src="<c:url value='../template/admin/assets/plugins/jquery-blockui/jquery.blockui.min.js' />" rel="stylesheet"></script>

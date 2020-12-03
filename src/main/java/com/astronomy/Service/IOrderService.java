@@ -8,7 +8,11 @@ public interface IOrderService {
 	
 	List <OrderEntity> getAll();
 	
-	OrderCreateModifyDTO createModify(OrderCreateModifyDTO orderdto);
+	Map<Long, String> findAll();
+	
+	//OrderCreateModifyDTO createModify(OrderCreateModifyDTO orderdto);
+	
+	OrderEntity createModify(OrderEntity entity);
 	
 	OrderCreateModifyDTO findByIdDTO(long id);
 	

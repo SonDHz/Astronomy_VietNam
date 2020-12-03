@@ -6,14 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.astronomy.Service.IOrderDetailService;
 import com.astronomy.Service.IOrderService;
 import com.astronomy.dto.OrderDetailCreateModifyDTO;
 import com.astronomy.entity.OrderDetailEntity;
-import com.astronomy.entity.OrderEntity;
 import com.astronomy.mapper.OrderDetailMapper;
 
 
@@ -44,12 +42,9 @@ public class OrderDetailController {
 			orderDetaildto = orderDetailService.findByIdDTO(id);
 		}
 		model.addAttribute("model", orderDetaildto);
+		model.addAttribute("order_ids", orderService.findAll());
 		return "admin/action/actionOrderDetail";
 	}
 	
-	@ModelAttribute("orders")
-	public List<OrderEntity> getorder(){
-		List<OrderEntity> list = orderService.getAll();
-		return list;
-	}
+	
 }

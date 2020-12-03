@@ -124,16 +124,15 @@
 											<form:hidden path="id" class="form-control"
 															name="id" id="id" value="${model.id}"/>
 											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Hóa đơn: 
+										 <div class="form-group row">
+												<label class="control-label col-md-3">Hóa đơn:
 												</label>
 												<div class="col-md-8">
-													<form:select  path="order" items="${orders}" itemLabel="id">
-														<form:option value=""/>
-							  	 						<form:options items="${id}"/>
+													<form:select path="order" id="order_id">
+														<form:options items="${order_ids}" />
 													</form:select>
 												</div>
-											</div>
+											</div>  	 
 											<div class="form-group row">
 												<label class="control-label col-md-3">Số lượng:
 												</label>

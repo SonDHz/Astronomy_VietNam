@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import com.astronomy.Service.IManufacturerService;
 import com.astronomy.dto.ManufacturerCreateModifyDTO;
 import com.astronomy.entity.ManufacturerEntity;
-import com.astronomy.entity.ProductCategoryEntity;
 import com.astronomy.mapper.ManufacturerMapper;
 import com.astronomy.repository.ManufacturerRepository;
 

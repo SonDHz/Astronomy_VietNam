@@ -46,11 +46,10 @@
 										<h4>
 											<a href="#">An Stormy Evening</a>
 										</h4>
-										<p>There is a moment in the life of any aspiring
-											astronomer that it is time to buy that first telescope. It’s
-											exciting to think about setting up your own viewing station.</p>
+										<p class="card-text">Price: 20.000 VND</p>
 										<div class="blog-meta">
-											<a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+											 <a href="#" data-name="Orange" data-price="20000" 
+											 class="add-to-cart btn btn-primary" >Add to cart</a>
 										</div>
 									</div>
 								</div>
@@ -66,11 +65,10 @@
 										<h4>
 											<a href="#">An Stormy Evening</a>
 										</h4>
-										<p>There is a moment in the life of any aspiring
-											astronomer that it is time to buy that first telescope. It’s
-											exciting to think about setting up your own viewing station.</p>
+										 <p class="card-text">Price: 30.000 VND</p>
 										<div class="blog-meta">
-											<a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+											<a href="#" data-name="Banana" data-price="30000"
+											 class="add-to-cart btn btn-primary">Add to cart</a>
 										</div>
 									</div>
 								</div>
@@ -86,11 +84,10 @@
 										<h4>
 											<a href="#">An Stormy Evening</a>
 										</h4>
-										<p>There is a moment in the life of any aspiring
-											astronomer that it is time to buy that first telescope. It’s
-											exciting to think about setting up your own viewing station.</p>
+										    <p class="card-text">Price: 40000 VND</p>
 										<div class="blog-meta">
-											<a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+											<a href="#" data-name="Lemon" data-price="40000"
+											 class="add-to-cart btn btn-primary">Add to cart</a>
 										</div>
 									</div>
 								</div>
@@ -124,6 +121,30 @@
 		</div>
 	</div>
 	</div>
+	<!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="show-cart table">
+          
+        </table>
+        <div>Total price: <span class="total-cart"></span> VND</div>
+        <button class="clear-cart btn btn-danger">Clear Cart</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Order now</button>
+      </div>
+    </div>
+  </div>
+</div> 
 	<!-- Start main body Area -->
 
 	<!-- start footer Area -->
