@@ -1,6 +1,15 @@
 package com.astronomy.controller.admin;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.astronomy.Service.IManufacturerService;
 import com.astronomy.Service.IProductCategoryService;
@@ -39,7 +49,8 @@ public class ProductController {
 	}
 
 	@GetMapping("createModify/product")
-	public String action(Model model, @RequestParam(value = "id", required = false) Long id) {
+	public String action(Model model,
+			@RequestParam(value = "id", required = false) Long id) {
 		ProductCreateModifyDTO dto = new ProductCreateModifyDTO();
 		if (id != null) {
 			dto = service.findByIdDTO(id);

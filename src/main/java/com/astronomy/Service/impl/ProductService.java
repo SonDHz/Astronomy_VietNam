@@ -3,6 +3,9 @@ package com.astronomy.Service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.astronomy.Service.IProductService;
@@ -50,5 +53,11 @@ public class ProductService implements IProductService {
 	public ProductCreateModifyDTO findByIdDTO(long id) {
 		ProductEntity product = productRepository.findById(id).orElse(null);
 		return mapper.toProductResponserDTO(product);
+	}
+
+	@Override
+	public Page<ProductEntity> getAll(int pageNo, int pageSize) {
+		
+		return productRepository.findAll(PageRequest.of(pageNo -1, pageSize));
 	}
 }

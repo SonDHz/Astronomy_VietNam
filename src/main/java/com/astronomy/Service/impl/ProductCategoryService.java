@@ -27,13 +27,15 @@ public class ProductCategoryService implements IProductCategoryService {
 		return productCategoryRepository.findAll();
 	}
 	
-	@Override
-	public ProductCategoryCreateModifyDTO createModify(ProductCategoryCreateModifyDTO productCategorydto) {
-		ProductCategoryEntity productCategory = new ProductCategoryEntity();
-		productCategory = productCategoryMapper.toProductCategory(productCategorydto);
-		productCategory = productCategoryRepository.save(productCategory);
-		return productCategorydto;
-	}
+	/*
+	 * @Override public ProductCategoryCreateModifyDTO
+	 * createModify(ProductCategoryCreateModifyDTO productCategorydto) {
+	 * ProductCategoryEntity productCategory = new ProductCategoryEntity();
+	 * productCategory =
+	 * productCategoryMapper.toProductCategory(productCategorydto); productCategory
+	 * = productCategoryRepository.save(productCategory); return productCategorydto;
+	 * }
+	 */
 
 	@Override
 	public void delete(long[] ids) {
@@ -56,6 +58,11 @@ public class ProductCategoryService implements IProductCategoryService {
 			result.put(item.getId(), item.getName());
 		}
 		return result;
+	}
+
+	@Override
+	public ProductCategoryEntity createModify(ProductCategoryEntity entity) {
+		return productCategoryRepository.save(entity);
 	}
 }
 

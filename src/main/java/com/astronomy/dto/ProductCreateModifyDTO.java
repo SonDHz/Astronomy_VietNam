@@ -2,6 +2,8 @@ package com.astronomy.dto;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,4 +34,8 @@ public class ProductCreateModifyDTO {
 	private Date modifiedDate;
 	private String createdBy;
 	private String modifiedBy;
+	private Integer page;
+	private Integer limit;
+	private Integer totalPage;
+	private Integer totalItem;
 }

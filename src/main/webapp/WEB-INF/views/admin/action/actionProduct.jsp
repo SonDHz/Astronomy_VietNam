@@ -3,6 +3,7 @@
 <%@include file="/common/taglib.jsp"%>
 <c:url var="productURL" value="/admin/productView" />
 <c:url var="productAPI" value="/api/Product" />
+<c:url var="productUploadAPI" value="/api/Product1" />
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -118,7 +119,7 @@
 								</div>
 								<div class="card-body" id="bar-parent2">
 									<form:form id="formSubmit" role="form" class="form-horizontal"
-										modelAttribute="model">
+										modelAttribute="model" method="Post" enctype="multipart/form-data">
 										<div class="form-body">
 											<div class="form-group row  margin-top-20">
 												<form:hidden path="id" class="form-control" name="id"
@@ -181,8 +182,8 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<form:input path="image" type="text" class="form-control"
-															name="image" id="image" value="${model.image}" />
+														<form:input path="image" type="file" class="form-control"
+															name="image" id="image1" value="${model.image}" />
 													</div>
 												</div>
 											</div>
@@ -359,6 +360,48 @@
 						}
 					});
 		}
+		
+		//UploadFile
+		$(document).ready(function () {
+			
+    })
+    //Gọi id cho image ở trên, để thực hiện sự kiện
+    	$('#image1').change(function () {
+    		var dataArray ={}
+    		var files = $(this)[0].files[0]
+    		if (files != undefined ){// xét xem file hình đã có chưa
+    			var reader = new FileReader();
+    			reader.onload = function(e) {
+    				dataArray["base64"] = e.target.result;
+ 					dataArray["name"] = files.name;
+    				upload (dataArray);
+    			};
+    			reader.readAsDataURL(files);
+    		}	
+    	});
+		//Gọi API
+		function upload (data){
+			$.ajax({
+				url: '${productUploadAPI}',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				/* success : function(result) {
+					window.location.href = "${productURL}?id="
+							+ result.id + "&message=insert_success"; 
+				},
+				 error : function(error) {
+					window.location.href = "${productURL}?message=error_system"; 
+				} */
+				success: function (res) {
+	                console.log(res);
+	            },
+				error: function (res) {
+		            console.log(res);
+	            }
+			});
+		} 
 	</script>
 	<!-- end js include path -->
 </body>

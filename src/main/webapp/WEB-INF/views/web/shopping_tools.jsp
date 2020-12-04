@@ -120,12 +120,12 @@
 								</ul>
 							</nav>
 						</div>
+						</section>
 				</div>
-				</section>
+				
 				<!-- Start Post Area -->
 			</div>
 		</div>
-	</div>
 	</div>
 	<!-- Start main body Area -->
 

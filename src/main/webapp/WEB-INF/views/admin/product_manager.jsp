@@ -133,17 +133,16 @@
 													<!-- <th>Loại sản phẩm</th> -->
 													<th>Tên sản phẩm</th>
 													<!-- <th>Nhà sản xuất</th> -->
-													<th>Mô tả</th>
-													<th>Ngày tạo</th>
-													<th>Ngày Sửa</th>
+													<th>Giá</th>
+													<th>Số lương</th>
+													<th>Hình ảnh</th>
 													<th>Tạo bởi</th>
-													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
 												<form:form id="formSubmit" role="form"
-													class="form-horizontal">
+													class="form-horizontal" >
 													<c:forEach var="item" items="${entity}">
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}"
@@ -151,11 +150,10 @@
 															<%-- <td>${item.productCategory}</td> --%>
 															<td>${item.name}</td>
 															<%-- <td>${item.manufacturer}</td> --%>
-															<td>${item.shortDecription}</td>
-															<td>${item.createdDate}</td>
-															<td>${item.modifiedDate}</td>
+															<td>${item.price}</td>
+															<td>${item.quantity}</td>
+															<td>${item.image}</td>
 															<td>${item.createdBy}</td>
-															<td>${item.modifiedBy}</td>
 															<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/product">
 																	<c:param name="id" value="${item.id}" />

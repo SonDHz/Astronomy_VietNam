@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.astronomy.Service.IProductCategoryService;
+import com.astronomy.dto.ManufacturerCreateModifyDTO;
 import com.astronomy.dto.ProductCategoryCreateModifyDTO;
+import com.astronomy.entity.ManufacturerEntity;
 import com.astronomy.entity.ProductCategoryEntity;
 import com.astronomy.mapper.ProductCategoryMapper;
 
@@ -27,17 +29,19 @@ public class ProductCategoryAPI {
 	private IProductCategoryService productCategoryService;
 
 	@PostMapping("ProductCategory")
-	public ResponseEntity<ProductCategoryEntity> createProductCategory(@RequestBody ProductCategoryEntity productCategory, Model model){
-		ProductCategoryCreateModifyDTO productCategorydto = productCategoryMapper.toProductCategoryResponserDTO(productCategory);
-		model.addAttribute("model", productCategorydto);
-		return ResponseEntity.ok(productCategoryMapper.toProductCategory(productCategoryService.createModify(productCategorydto)));
+	public ResponseEntity<ProductCategoryCreateModifyDTO> createProductCategory(
+			@RequestBody ProductCategoryCreateModifyDTO dto, Model model){
+		ProductCategoryEntity entity = productCategoryMapper.toProductCategory(dto);
+		model.addAttribute("model", dto);
+		return ResponseEntity.ok(productCategoryMapper.toProductCategoryResponserDTO(productCategoryService.createModify(entity)));
 	}
 	
 	@PutMapping("ProductCategory")
-	public ResponseEntity<ProductCategoryEntity> updateProductCategory(@RequestBody ProductCategoryEntity productCategory, Model model){
-		ProductCategoryCreateModifyDTO productCategorydto = productCategoryMapper.toProductCategoryResponserDTO(productCategory);
-		model.addAttribute("model", productCategorydto);
-		return ResponseEntity.ok(productCategoryMapper.toProductCategory(productCategoryService.createModify(productCategorydto)));
+	public ResponseEntity<ProductCategoryCreateModifyDTO> updateProductCategory(
+			@RequestBody ProductCategoryCreateModifyDTO dto, Model model){
+		ProductCategoryEntity entity = productCategoryMapper.toProductCategory(dto);
+		model.addAttribute("model", dto);
+		return ResponseEntity.ok(productCategoryMapper.toProductCategoryResponserDTO(productCategoryService.createModify(entity)));
 	}
 	
 	@DeleteMapping("ProductCategory")

@@ -10,7 +10,7 @@ public interface IProductCategoryService {
 	
 	List <ProductCategoryEntity> getAll();
 	
-	ProductCategoryCreateModifyDTO createModify(ProductCategoryCreateModifyDTO dto);
+	ProductCategoryEntity createModify(ProductCategoryEntity entity);
 	
 	void delete( long[] ids);
 	
