@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-
+	
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en">
+
 <head>
 <!-- Mobile Specific Meta -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Favicon-->
-<link rel="shortcut icon" href="../../web/img/fav.png">
 <link rel="shortcut icon" href="../../template/web/img/fav.png">
 <!-- Author Meta -->
 <meta name="author" content="codepixer">
@@ -21,11 +20,12 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>Trang chủ</title>
-<!-- css -->
-<%@include file="/common/web/style.jsp"%>
 <title>Ruft Blog</title>
+<!-- css -->
+
+<%@include file="/common/web/style.jsp"%>
 </head>
+
 <body>
 	<!-- ==========Start header========== -->
 	<%@include file="/common/web/header.jsp"%>
@@ -41,8 +41,7 @@
 						<div class="single-stories-carousel d-flex align-items-center">
 							<div class="stories-thumb">
 								<img class="img-fluid"
-									src="<c:url value ='/template/web/img/posts/carousel/stories1.jpg'/>"
-									alt=""> 
+									src="../../template/web/img/posts/carousel/stories1.jpg" alt="">
 							</div>
 							<div class="stories-details">
 								<h6>
@@ -56,8 +55,7 @@
 						<div class="single-stories-carousel d-flex align-items-center">
 							<div class="stories-thumb">
 								<img class="img-fluid"
-									src="<c:url value ='/template/web/img/posts/carousel/stories2.jpg'/>"
-									alt="">
+									src="../../template/web/img/posts/carousel/stories2.jpg" alt="">
 							</div>
 							<div class="stories-details">
 								<h6>
@@ -71,68 +69,63 @@
 						<div class="single-stories-carousel d-flex align-items-center">
 							<div class="stories-thumb">
 								<img class="img-fluid"
-									src="<c:url value ='/template/web/img/posts/carousel/stories3.jpg'/>"
-									alt="">
-								<div class="stories-details">
-									<h6>
-										<a href="">2nd Gen Smoke Alarm <br> get up from sleep
-										</a>
-									</h6>
-									<p>September 14, 2018</p>
-								</div>
+									src="../../template/web/img/posts/carousel/stories3.jpg" alt="">
 							</div>
-							<!-- single stories carousel -->
-							<div class="single-stories-carousel d-flex align-items-center">
-								<div class="stories-thumb">
-									<img class="img-fluid"
-										src="<c:url value ='/template/web/img/posts/carousel/stories4.jpg'/>"
-										alt="">
-								</div>
-								<div class="stories-details">
-									<h6>
-										<a href="">2nd Gen Smoke Alarm <br> get up from sleep
-										</a>
-									</h6>
-									<p>September 14, 2018</p>
-								</div>
+							<div class="stories-details">
+								<h6>
+									<a href="">2nd Gen Smoke Alarm <br> get up from sleep
+									</a>
+								</h6>
+								<p>September 14, 2018</p>
 							</div>
-							<!-- single stories carousel -->
-							<div class="single-stories-carousel d-flex align-items-center">
-								<div class="stories-thumb">
-									<img class="img-fluid"
-										src="<c:url value ='/template/web/img/posts/carousel/stories5.jpg'/>"
-										alt="">
-								</div>
-								<div class="stories-details">
-									<h6>
-										<a href="">2nd Gen Smoke Alarm <br> get up from sleep
-										</a>
-									</h6>
-									<p>September 14, 2018</p>
-								</div>
+						</div>
+						<!-- single stories carousel -->
+						<div class="single-stories-carousel d-flex align-items-center">
+							<div class="stories-thumb">
+								<img class="img-fluid"
+									src="../../template/web/img/posts/carousel/stories4.jpg" alt="">
 							</div>
-							<!-- single stories carousel -->
-							<div class="single-stories-carousel d-flex align-items-center">
-								<div class="stories-thumb">
-									<img class="img-fluid"
-										src="<c:url value ='/template/web/img/posts/carousel/stories6.jpg'/>"
-										alt="">
-								</div>
-								<div class="stories-details">
-									<h6>
-										<a href="">2nd Gen Smoke Alarm <br> get up from sleep
-										</a>
-									</h6>
-									<p>September 14, 2018</p>
-								</div>
+							<div class="stories-details">
+								<h6>
+									<a href="">2nd Gen Smoke Alarm <br> get up from sleep
+									</a>
+								</h6>
+								<p>September 14, 2018</p>
+							</div>
+						</div>
+						<!-- single stories carousel -->
+						<div class="single-stories-carousel d-flex align-items-center">
+							<div class="stories-thumb">
+								<img class="img-fluid"
+									src="../../template/web/img/posts/carousel/stories5.jpg" alt="">
+							</div>
+							<div class="stories-details">
+								<h6>
+									<a href="">2nd Gen Smoke Alarm <br> get up from sleep
+									</a>
+								</h6>
+								<p>September 14, 2018</p>
+							</div>
+						</div>
+						<!-- single stories carousel -->
+						<div class="single-stories-carousel d-flex align-items-center">
+							<div class="stories-thumb">
+								<img class="img-fluid"
+									src="../../template/web/img/posts/carousel/stories6.jpg" alt="">
+							</div>
+							<div class="stories-details">
+								<h6>
+									<a href="">2nd Gen Smoke Alarm <br> get up from sleep
+									</a>
+								</h6>
+								<p>September 14, 2018</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			</div>
+		</div>
 	</section>
-
 	<!-- End Stories Area -->
 
 	<!-- Start Post Silder Area -->
@@ -145,8 +138,7 @@
 						<div class="single-post-carousel">
 							<div class="post-thumb">
 								<img class="img-fluid"
-									src="<c:url value ='/template/web/img/posts/carousel/post1.jpg'/>"
-									alt="">
+									src="../../template/web/img/posts/carousel/post1.jpg" alt="">
 							</div>
 							<div class="post-details">
 								<h2>
@@ -157,8 +149,7 @@
 								<div class="post-content d-flex justify-content-between">
 									<div class="post-meta">
 										<div class="thumb">
-											<img src="<c:url value ='/template/web/img/author/a1.png'/>"
-												alt=""> 
+											<img src="../../template/web/img/author/a1.png" alt="">
 										</div>
 										<div class="c-desc">
 											<h6>Marvel Maison</h6>
@@ -179,8 +170,7 @@
 						<div class="single-post-carousel">
 							<div class="post-thumb">
 								<img class="img-fluid"
-									src="<c:url value ='/template/web/img/posts/carousel/post2.jpg'/>"
-									alt="">
+									src="../../template/web/img/posts/carousel/post2.jpg" alt="">
 							</div>
 							<div class="post-details">
 								<h2>
@@ -191,8 +181,7 @@
 								<div class="post-content d-flex justify-content-between">
 									<div class="post-meta">
 										<div class="thumb">
-											<img src="<c:url value ='/template/web/img/author/a2.png'/>"
-												alt="">
+											<img src="../../template/web/img/author/a1.png" alt="">
 										</div>
 										<div class="c-desc">
 											<h6>Marvel Maison</h6>
@@ -213,8 +202,7 @@
 						<div class="single-post-carousel">
 							<div class="post-thumb">
 								<img class="img-fluid"
-									src="<c:url value ='/template/web/img/posts/carousel/post3.jpg'/>"
-									alt="">
+									src="../../template/web/img/posts/carousel/post3.jpg" alt="">
 							</div>
 							<div class="post-details">
 								<h2>
@@ -225,8 +213,7 @@
 								<div class="post-content d-flex justify-content-between">
 									<div class="post-meta">
 										<div class="thumb">
-											<img src="<c:url value ='/template/web/img/author/a1.png'/>"
-												alt="">
+											<img src="../../template/web/img/author/a1.png" alt="">
 										</div>
 										<div class="c-desc">
 											<h6>Marvel Maison</h6>
@@ -261,8 +248,7 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="single-post-item">
 									<div class="post-thumb">
-										<img class="img-fluid"
-											src="<c:url value ='/template/web/img/archive/c1.jpg'/>"
+										<img class="img-fluid" src="../../template/web/img/archive/c1.jpg"
 											alt="">
 									</div>
 									<div class="post-details">
@@ -275,10 +261,7 @@
 										<div class="blog-meta">
 											<a href="#" class="m-gap"><span
 												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
-												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</a>
-
-										<a	href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
-
+												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
 										</div>
 									</div>
 								</div>
@@ -287,60 +270,7 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="single-post-item">
 									<div class="post-thumb">
-										<img class="img-fluid"
-											src="<c:url value ='/template/web/img/archive/c2.jpg'/>"
-											alt=""> 
-									</div>
-									<div class="post-details">
-										<h4>
-											<a href="#">An Stormy Evening</a>
-										</h4>
-										<p>There is a moment in the life of any aspiring
-											astronomer that it is time to buy that first telescope. It’s
-											exciting to think about setting up your own viewing station.</p>
-										<div class="blog-meta">
-											<a href="#" class="m-gap"><span
-												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
-												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</a>
-
-										<a	href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
-
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-6 col-md-6">
-								<div class="single-post-item">
-									<div class="post-thumb">
-										<img class="img-fluid"
-											src="<c:url value ='/template/web/img/archive/c3.jpg'/>"
-											alt=""> 
-									</div>
-									<div class="post-details">
-										<h4>
-											<a href="#">An Stormy Evening</a>
-										</h4>
-										<p>There is a moment in the life of any aspiring
-											astronomer that it is time to buy that first telescope. It’s
-											exciting to think about setting up your own viewing station.</p>
-										<div class="blog-meta">
-											<a href="#" class="m-gap"><span
-												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
-												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</a>
-
-										<a	href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
-
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-6 col-md-6">
-								<div class="single-post-item">
-									<div class="post-thumb">
-										<img class="img-fluid"
-											src="<c:url value ='/template/web/img/archive/c4.jpg'/>"
+										<img class="img-fluid" src="../../template/web/img/archive/c2.jpg"
 											alt="">
 									</div>
 									<div class="post-details">
@@ -353,10 +283,7 @@
 										<div class="blog-meta">
 											<a href="#" class="m-gap"><span
 												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
-												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</a>
-
-										<a	href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
-
+												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
 										</div>
 									</div>
 								</div>
@@ -365,10 +292,8 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="single-post-item">
 									<div class="post-thumb">
-
-										<img class="img-fluid"
-											src="<c:url value ='/template/web/img/archive/c4.jpg'/>"
-											alt=""> 
+										<img class="img-fluid" src="../../template/web/img/archive/c3.jpg"
+											alt="">
 									</div>
 									<div class="post-details">
 										<h4>
@@ -380,10 +305,7 @@
 										<div class="blog-meta">
 											<a href="#" class="m-gap"><span
 												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
-												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</a>
-
-										<a	href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
-
+												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
 										</div>
 									</div>
 								</div>
@@ -392,10 +314,8 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="single-post-item">
 									<div class="post-thumb">
-
-										<img class="img-fluid"
-											src="<c:url value ='/template/web/img/archive/c2.jpg'/>"
-											alt=""> 
+										<img class="img-fluid" src="../../template/web/img/archive/c4.jpg"
+											alt="">
 									</div>
 									<div class="post-details">
 										<h4>
@@ -407,10 +327,7 @@
 										<div class="blog-meta">
 											<a href="#" class="m-gap"><span
 												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
-												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</a>
-
-										<a	href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
-
+												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
 										</div>
 									</div>
 								</div>
@@ -419,9 +336,8 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="single-post-item">
 									<div class="post-thumb">
-										<img class="img-fluid"
-											src="<c:url value ='/template/web/img/archive/c3.jpg'/>"
-											alt=""> 
+										<img class="img-fluid" src="../../template/web/img/archive/c1.jpg"
+											alt="">
 									</div>
 									<div class="post-details">
 										<h4>
@@ -433,10 +349,7 @@
 										<div class="blog-meta">
 											<a href="#" class="m-gap"><span
 												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
-												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</a>
-
-										<a	href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
-
+												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
 										</div>
 									</div>
 								</div>
@@ -445,9 +358,8 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="single-post-item">
 									<div class="post-thumb">
-										<img class="img-fluid"
-											src="<c:url value ='/template/web/img/archive/c4.jpg'/>"
-											alt=""> 
+										<img class="img-fluid" src="../../template/web/img/archive/c2.jpg"
+											alt="">
 									</div>
 									<div class="post-details">
 										<h4>
@@ -459,10 +371,51 @@
 										<div class="blog-meta">
 											<a href="#" class="m-gap"><span
 												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
-												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</a>
+												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
 
-										<a	href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
+							<div class="col-lg-6 col-md-6">
+								<div class="single-post-item">
+									<div class="post-thumb">
+										<img class="img-fluid" src="../../template/web/img/archive/c3.jpg"
+											alt="">
+									</div>
+									<div class="post-details">
+										<h4>
+											<a href="#">An Stormy Evening</a>
+										</h4>
+										<p>There is a moment in the life of any aspiring
+											astronomer that it is time to buy that first telescope. It’s
+											exciting to think about setting up your own viewing station.</p>
+										<div class="blog-meta">
+											<a href="#" class="m-gap"><span
+												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
+												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
 
+							<div class="col-lg-6 col-md-6">
+								<div class="single-post-item">
+									<div class="post-thumb">
+										<img class="img-fluid" src="../../template/web/img/archive/c4.jpg"
+											alt="">
+									</div>
+									<div class="post-details">
+										<h4>
+											<a href="#">An Stormy Evening</a>
+										</h4>
+										<p>There is a moment in the life of any aspiring
+											astronomer that it is time to buy that first telescope. It’s
+											exciting to think about setting up your own viewing station.</p>
+										<div class="blog-meta">
+											<a href="#" class="m-gap"><span
+												class="lnr lnr-calendar-full"></span>March 14, 2018</a> <a
+												href="#" class="m-gap"><span class="lnr lnr-bubble"></span>05</span></a>
 										</div>
 									</div>
 								</div>
@@ -498,11 +451,8 @@
 
 				<div class="col-lg-4 sidebar">
 					<div class="single-widget protfolio-widget">
-
-						<img class="img-fluid"
-							src="<c:url value ='/template/web/img/blog/user2.png'/>" alt="">
-
-						 <a href="#">
+						<img class="img-fluid" src="../../template/web/img/blog/user2.png" alt="">
+						<a href="#">
 							<h4>Peter Anderson</h4>
 						</a>
 						<p class="p-text">Boot camps have its supporters andit
@@ -515,11 +465,7 @@
 							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 							<li><a href="#"><i class="fa fa-behance"></i></a></li>
 						</ul>
-
-						<img src="<c:url value ='/template/web/img/sign.png'/>" alt="">
-
-					
-
+						<img src="../../template/web/img/sign.png" alt="">
 					</div>
 
 					<div class="single-widget popular-posts-widget">
@@ -533,11 +479,7 @@
 									<div class="single-popular-post d-flex flex-row">
 										<div class="popular-thumb">
 											<img class="img-fluid"
-												src="<c:url value ='/template/web/img/posts/carousel/stories1.jpg'/>"
-												alt="">
-
-											
-
+												src="../../template/web/img/posts/carousel/stories1.jpg" alt="">
 										</div>
 										<div class="popular-details">
 											<h6>
@@ -551,11 +493,7 @@
 									<div class="single-popular-post d-flex flex-row">
 										<div class="popular-thumb">
 											<img class="img-fluid"
-												src="<c:url value ='/template/web/img/posts/carousel/stories2.jpg'/>"
-												alt="">
-
-										
-
+												src="../../template/web/img/posts/carousel/stories2.jpg" alt="">
 										</div>
 										<div class="popular-details">
 											<h6>
@@ -569,10 +507,7 @@
 									<div class="single-popular-post d-flex flex-row">
 										<div class="popular-thumb">
 											<img class="img-fluid"
-												src="<c:url value ='/template/web/img/posts/carousel/stories3.jpg'/>"
-												alt="">
-
-										
+												src="../../template/web/img/posts/carousel/stories3.jpg" alt="">
 										</div>
 										<div class="popular-details">
 											<h6>
@@ -586,10 +521,7 @@
 									<div class="single-popular-post d-flex flex-row">
 										<div class="popular-thumb">
 											<img class="img-fluid"
-												src="<c:url value ='/template/web/img/posts/carousel/stories4.jpg'/>"
-												alt="">
-
-										
+												src="../../template/web/img/posts/carousel/stories4.jpg" alt="">
 										</div>
 										<div class="popular-details">
 											<h6>
@@ -607,27 +539,7 @@
 									<div class="single-popular-post d-flex flex-row">
 										<div class="popular-thumb">
 											<img class="img-fluid"
-												src="<c:url value ='/template/web/img/posts/carousel/stories2.jpg'/>"
-												alt="">
-
-									
-										</div>
-										<div class="popular-details">
-											<h6>
-												<a href="">2nd Gen Smoke Alarm <br> get up from
-													sleep
-												</a>
-											</h6>
-											<p>September 14, 2018</p>
-										</div>
-									</div>
-									<div class="single-popular-post d-flex flex-row">
-										<div class="popular-thumb">
-
-											<img class="img-fluid"
-												src="<c:url value ='/template/web/img/posts/carousel/stories3.jpg'/>"
-												alt=""> 
-
+												src="../../template/web/img/posts/carousel/stories2.jpg" alt="">
 										</div>
 										<div class="popular-details">
 											<h6>
@@ -641,11 +553,7 @@
 									<div class="single-popular-post d-flex flex-row">
 										<div class="popular-thumb">
 											<img class="img-fluid"
-												src="<c:url value ='/template/web/img/posts/carousel/stories1.jpg'/>"
-												alt="">
-
-											
-
+												src="../../template/web/img/posts/carousel/stories3.jpg" alt="">
 										</div>
 										<div class="popular-details">
 											<h6>
@@ -659,10 +567,21 @@
 									<div class="single-popular-post d-flex flex-row">
 										<div class="popular-thumb">
 											<img class="img-fluid"
-												src="<c:url value ='/template/web/img/posts/carousel/stories4.jpg'/>"
-												alt="">
-
-
+												src="../../template/web/img/posts/carousel/stories1.jpg" alt="">
+										</div>
+										<div class="popular-details">
+											<h6>
+												<a href="">2nd Gen Smoke Alarm <br> get up from
+													sleep
+												</a>
+											</h6>
+											<p>September 14, 2018</p>
+										</div>
+									</div>
+									<div class="single-popular-post d-flex flex-row">
+										<div class="popular-thumb">
+											<img class="img-fluid"
+												src="../../template/web/img/posts/carousel/stories4.jpg" alt="">
 										</div>
 										<div class="popular-details">
 											<h6>
@@ -684,51 +603,43 @@
 							<li><a href="#"
 								class="justify-content-between align-items-center d-flex">
 									<p>
-
-										<img src="<c:url value ='/template/web/img/bullet.png'/>"
-											alt="">International 
+										<img src="../../template/web/img/bullet.png" alt="">International
 										(56)
 									</p>
 							</a></li>
 							<li><a href="#"
 								class="justify-content-between align-items-center d-flex">
 									<p>
-
-										<img src="<c:url value ='/template/web/img/bullet.png'/>"
-											alt="">Tours and  Travels (45)
+										<img src="../../template/web/img/bullet.png" alt="">Tours and
+										Travels (45)
 									</p>
 							</a></li>
 							<li><a href="#"
 								class="justify-content-between align-items-center d-flex">
 									<p>
-
-										<img src="<c:url value ='/template/web/img/bullet.png'/>"
-											alt="">Cooking Tips  (23)
+										<img src="../../template/web/img/bullet.png" alt="">Cooking Tips
+										(23)
 									</p>
 							</a></li>
 							<li><a href="#"
 								class="justify-content-between align-items-center d-flex">
 									<p>
-
-										<img src="<c:url value ='/template/web/img/bullet.png'/>"
-											alt="">Life Style  and Fashion (72)
+										<img src="../../template/web/img/bullet.png" alt="">Life Style
+										and Fashion (72)
 									</p>
 							</a></li>
 							<li><a href="#"
 								class="justify-content-between align-items-center d-flex">
 									<p>
-
-										<img src="<c:url value ='/template/web/img/bullet.png'/>"
-											alt="">Organic News  (37)
+										<img src="../../template/web/img/bullet.png" alt="">Organic News
+										(37)
 									</p>
 							</a></li>
 							<li><a href="#"
 								class="justify-content-between align-items-center d-flex">
 									<p>
-
-										<img src="<c:url value ='/template/web/img/bullet.png'/>"
-											alt="">Games and 
-										and Sports (19)
+										<img src="../../template/web/img/bullet.png" alt="">Games and
+										Sports (19)
 									</p>
 							</a></li>
 						</ul>
@@ -753,46 +664,15 @@
 			</div>
 		</div>
 	</div>
-
-
-	<!-- Modal -->
-	<div class="modal fade" id="cart" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Giỏ hàng</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<table class="show-cart table">
-
-					</table>
-					<div>
-						Tổng cộng: <span class="total-cart"></span> VNĐ
-					</div>
-					<button class="clear-cart btn btn-danger">Xóa</button>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Đóng</button>
-					<button type="button" class="btn btn-primary">Thanh toán</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<!-- Start main body Area -->
 
 	<!-- start footer Area -->
-	<%@include file="/common/web/footer.jsp"%>
+	<%@include file="/common/web/footer.jsp"%> 
 	<!-- End footer Area -->
 
 	<!-- Javascript -->
 	<%@include file="/common/web/js.jsp"%>
-
 	<!-- End javascript -->
 </body>
+
 </html>
