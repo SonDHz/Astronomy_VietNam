@@ -116,17 +116,17 @@
                         <table id="example1" class="display" style="width: 100%;">
 											<thead>
 												<tr>
-													<th>#ID hóa đơn</th>
+													<th>#ID </th>
 													<th>Tạo bởi</th>
 													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>1</td>
-													<td>tien</td>
-													<td>ti</td>
+												<tr th:each="order: ${order}">
+													<td th:text="${order.id}"></td>
+													<td th:text="${order.createBy}"></td>
+													<td th:text="${order.modifyBy}"></td>
 													<td>&nbsp;&nbsp<button
 														 class="btn btn-outline-warning"
 														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
@@ -135,55 +135,6 @@
 														data-original-title="Delete"> Delete </button>
 													</td>
 												</tr>
-												<tr>
-													<td>2</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												<tr>
-												<td>4</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>tien</td>
-													<td>ti</td>
-													<td>&nbsp;&nbsp;<button
-														 class="btn btn-outline-warning"
-														data-toggle="modal" data-target="#exampleModalUpdate" data-original-title="Update">
-															Update </button> &nbsp;&nbsp; <button 
-														class="btn btn-outline-danger" data-toggle="tooltip"
-														data-original-title="Delete"> Delete </button>
-													</td>
-												</tr>
-												
 											</tbody>
 										</table>
                                     </div>

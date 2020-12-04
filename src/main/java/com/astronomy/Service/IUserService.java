@@ -9,9 +9,13 @@ public interface IUserService {
 
 	List <UserEntity> getAll();
 	
-	UserCreateModifyDTO createModify(UserCreateModifyDTO userdto);
+	UserEntity createModify(UserEntity entity);
 	
 	UserCreateModifyDTO findByIdDTO(long id);
 	
 	void delete(long[] ids);
+
+	List<UserEntity> getAllUser();
+
+	List<UserEntity> getAllCustomer();
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@include file="/common/taglib.jsp" %>
 <div class="page-header navbar navbar-fixed-top">
 	<div class="page-header-inner ">
 		<!-- logo start -->
@@ -184,7 +184,7 @@
 						<li><a href="#"> <i class="icon-directions"></i> Trợ giúp
 						</a></li>
 						<li class="divider"></li>
-						<li><a href="l#"> <i class="icon-logout"></i> Đăng xuất
+						<li><a href="/logout"> <i class="icon-logout"></i> Đăng xuất
 						</a></li>
 					</ul></li>
 				<!-- end manage user dropdown -->

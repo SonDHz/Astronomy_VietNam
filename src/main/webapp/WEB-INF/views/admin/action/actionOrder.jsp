@@ -123,24 +123,12 @@
 											<div class="form-group row  margin-top-20">
 											<form:hidden path="id" class="form-control"
 															name="id" id="id" value="${model.id}"/>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Tạo bởi: 
+											<label class="control-label col-md-3">Tên hóa đơn: 
 												</label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="createdBy" type="text" class="form-control"
-															name="createdBy" id="createdBy" value="${model.createdBy}"/>
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Sửa bởi:
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="modifiedBy" type="text" class="form-control"
-															name="modifiedBy" id="modifiedBy" value="${model.modifiedBy}" />
+														<i class="fa"></i> <form:input path="name" type="text" class="form-control"
+															name="name" id="name" value="${model.name}"/>
 													</div>
 												</div>
 											</div>

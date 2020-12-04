@@ -131,6 +131,7 @@
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
 													<th>#ID hóa đơn</th>
+													<th>Tên hóa đơn</th>
 													<th>Tạo bởi</th>
 													<th>Sửa bởi</th>
 													<th>Action</th>
@@ -143,6 +144,7 @@
 													<td><input type="checkbox" id="checkbox_${order.id}"
 																value="${order.id}" /></td>
 													<td>${order.id}</td>
+													<td>${order.name}</td>
 													<td>${order.createdBy}</td>
 													<td>${order.modifiedBy}</td>
 													<td>&nbsp;&nbsp; <c:url var="createModify"

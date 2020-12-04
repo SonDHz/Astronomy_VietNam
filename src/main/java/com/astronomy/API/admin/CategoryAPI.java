@@ -27,19 +27,21 @@ public class CategoryAPI {
 
 	@Autowired
 	private CategoryService categoryService;
-
+	
 	@PostMapping("Category")
-	public ResponseEntity<CategoryEntity> createCategory(@RequestBody CategoryEntity categoryentity, Model model){
-		CategoryCreateModifyDTO categorydto = categoryMapper.toCategoryCreateModifyDTO(categoryentity);
-		model.addAttribute("model", categorydto);
-		return ResponseEntity.ok(categoryMapper.toCategory(categoryService.createModify(categorydto)));
+	public ResponseEntity<CategoryCreateModifyDTO> createCategory(
+			@RequestBody CategoryCreateModifyDTO dto, Model model){
+		CategoryEntity entity = categoryMapper.toCategory(dto);
+		model.addAttribute("model", dto);
+		return ResponseEntity.ok(categoryMapper.toCategoryCreateModifyDTO(categoryService.createModify(entity)));
 	}
 	
 	@PutMapping("Category")
-	public ResponseEntity<CategoryEntity> updateCategory(@RequestBody CategoryEntity categoryentity, Model model){
-		CategoryCreateModifyDTO categorydto = categoryMapper.toCategoryCreateModifyDTO(categoryentity);
-		model.addAttribute("model", categorydto);
-		return ResponseEntity.ok(categoryMapper.toCategory(categoryService.createModify(categorydto)));
+	public ResponseEntity<CategoryCreateModifyDTO> updateCategory(
+			@RequestBody CategoryCreateModifyDTO dto, Model model){
+		CategoryEntity entity = categoryMapper.toCategory(dto);
+		model.addAttribute("model", dto);
+		return ResponseEntity.ok(categoryMapper.toCategoryCreateModifyDTO(categoryService.createModify(entity)));
 	}
 
 	@DeleteMapping("Category")

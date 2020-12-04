@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+	<%@include file="/common/taglib.jsp" %>
 <div class="sidebar-container">
 	<div class="sidemenu-container navbar-collapse collapse fixed-menu">
 		<div id="remove-scroll">
@@ -41,7 +41,7 @@
 					class="nav-link nav-toggle"> <i class="fa fa-map" ></i>
 						<span class="title">Quản lý thể loại bài viết</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/post" class="nav-link nav-toggle">
+				<li class="nav-item"><a href="/admin/postView" class="nav-link nav-toggle">
 						<i class="fa fa-file"></i> <span class="title">Quản lý bài viết</span>
 				</a></li>
 				<li class="nav-item"><a href="/admin/manufacturerView"
@@ -60,7 +60,7 @@
 					class="nav-link nav-toggle"> <i class="fa fa-credit-card"></i>
 						<span class="title">Quản lý hóa đơn</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/oderDetail"
+				<li class="nav-item"><a href="/admin/orderDetailView"
 					class="nav-link nav-toggle"> <i class="fa fa-credit-card"></i>
 						<span class="title">Quản lý hóa đơn chi tiết</span>
 				</a></li>

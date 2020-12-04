@@ -225,13 +225,13 @@
 													</div>
 												</div>
 											</div>
-											<div class="form-group row">
+											<%-- <div class="form-group row">
 												<label class="control-label col-md-3">Tạo bởi: 
 												</label>
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i> <form:input path="createBy" type="text" class="form-control"
-															name="createBy" id="createBy" value="${model.createBy}"/>
+															name="createBy" id="createBy" value="${model.createdBy}"/>
 													</div>
 												</div>
 											</div>
@@ -241,10 +241,10 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i> <form:input path="modifyBy" type="text" class="form-control"
-															name="modifyBy" id="modifyBy" value="${model.modifyBy}" />
+															name="modifyBy" id="modifyBy" value="${model.modifiedBy}" />
 													</div>
 												</div>
-											</div>
+											</div> --%>
 										</div>
 										<form:hidden path="id" id="idCustomer"/>
 										<div class="form-group">

@@ -130,10 +130,14 @@
 											<thead>
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
-													<!-- <th>Hóa đơn</th> -->
+													<th>Hóa đơn </th> 	
 													<th>Số Lượng</th>
 													<th>Giá</th>
 													<th>Tổng cộng</th>
+													<th>Ngày tạo</th>
+													<th>Ngày sửa</th>
+													<th>Tạo bởi</th>
+													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
@@ -143,10 +147,14 @@
 												<tr>
 												<td><input type="checkbox" id="checkbox_${orderDetail.id}"
 																value="${orderDetail.id}" /></td>
-													<%-- <td>${orderDetail.order_id}</td> --%>
+												 	<td>${orderDetail.order}</td>
 													<td>${orderDetail.quantity}</td>
 													<td>${orderDetail.price}</td>
 													<td>${orderDetail.total}</td>
+													<td>${orderDetail.createdDate}</td>
+													<td>${orderDetail.modifiedDate}</td>
+													<td>${orderDetail.createdBy}</td>
+													<td>${orderDetail.modifiedBy}</td>
 													<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/orderDetail">
 																	<c:param name="id" value="${orderDetail.id}" />

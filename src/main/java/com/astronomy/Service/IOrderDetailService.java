@@ -1,18 +1,17 @@
 package com.astronomy.Service;
 
 import java.util.List;
-
 import com.astronomy.dto.OrderDetailCreateModifyDTO;
 import com.astronomy.entity.OrderDetailEntity;
-
 
 public interface IOrderDetailService {
 	
 	List <OrderDetailEntity> getAll();
 	
-	OrderDetailCreateModifyDTO createModify(OrderDetailCreateModifyDTO orderdetaildto);
+	OrderDetailEntity createModify(OrderDetailEntity dto);
 	
 	OrderDetailCreateModifyDTO findByIdDTO(long id);
 	
 	void delete(long[] ids);
+	
 }

@@ -19,6 +19,7 @@ public class OrderCreateModifyDTO {
 	private Long id;
 	private Date createdDate;
 	private Date modifiedDate;
+	private String name;
 	private String createdBy;
 	private String modifiedBy;
 }
