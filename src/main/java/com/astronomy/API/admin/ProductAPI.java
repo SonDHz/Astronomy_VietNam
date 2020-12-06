@@ -27,7 +27,8 @@ public class ProductAPI {
 	private IProductService productService;
 
 	@PostMapping("Product")
-	public ResponseEntity<ProductCreateModifyDTO> createProduct(@RequestBody ProductCreateModifyDTO dto, Model model){
+	public ResponseEntity<ProductCreateModifyDTO> createProduct(
+			@RequestBody ProductCreateModifyDTO dto, Model model){
 		ProductEntity entity = productMapper.toProduct(dto);
 		model.addAttribute("model", entity);
 		return ResponseEntity.ok(productMapper.toProductResponserDTO(productService.createModify(entity)));
