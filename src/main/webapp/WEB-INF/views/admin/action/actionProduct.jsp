@@ -306,7 +306,6 @@
 	<%@include file="share/footer.jsp"%>
 	<!-- end footer -->
 	<!-- start js include path -->
-
 	<%@include file="share/js.jsp"%>
 	<script>
 /* 		$('#btnAddOrUpdate').click(function(event) {

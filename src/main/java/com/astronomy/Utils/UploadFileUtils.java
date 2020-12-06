@@ -43,7 +43,6 @@ public class UploadFileUtils {
             // Copy file to the target location (Replacing existing file with the same name)
             Path targetLocation = Path.of(fileLatest);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
-
             return fileLatest;
         } catch (IOException ex) {
             throw new IOException("Could not store file " + ". Please try again!", ex);

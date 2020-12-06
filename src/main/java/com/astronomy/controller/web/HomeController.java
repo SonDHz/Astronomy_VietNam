@@ -31,7 +31,7 @@ public class HomeController {
 		return "login";
 	}
 
-	@RequestMapping(value = "user/shoppingTools")
+	@RequestMapping(value = "shoppingTools")
 	public String shopping() {
 		return "web/shopping_tools";
 	}

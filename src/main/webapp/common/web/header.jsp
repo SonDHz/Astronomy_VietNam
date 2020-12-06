@@ -29,7 +29,7 @@
 				<ul class="nav-menu">
 					<li class="menu-active"><a href="/"><Strong>Trang
 								chủ</Strong></a></li>
-					<li><a href="user/shoppingTools"><Strong>Sản phẩm</Strong></a></li>
+					<li><a href="/shoppingTools"><Strong>Sản phẩm</Strong></a></li>
 					<li class="menu-has-children"><a href="#"><Strong>Tham
 								khảo</Strong></a>
 						<ul>
