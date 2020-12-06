@@ -38,7 +38,7 @@ public class PostController {
 			dto = service.findByIdDTO(id);
 		}
 		model.addAttribute("model", dto);
-		model.addAttribute("category", categoryService.findAll()); //cái category ở đây để làm gì v m
+		model.addAttribute("category", categoryService.findAll()); 
 		return "admin/action/actionPost";
 	}
 }

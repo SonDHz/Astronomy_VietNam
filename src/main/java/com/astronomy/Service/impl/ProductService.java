@@ -57,7 +57,7 @@ public class ProductService implements IProductService {
 
 	@Override
 	public Page<ProductEntity> getAll(int pageNo, int pageSize) {
-		
+
 		return productRepository.findAll(PageRequest.of(pageNo -1, pageSize));
 	}
 }

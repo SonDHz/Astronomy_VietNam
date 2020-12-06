@@ -36,6 +36,7 @@ public class ProductAPI {
 	@Autowired
 	UploadFileUtils uploadFileUtils;
 
+
 	@PostMapping(value = "Product")
 	public ResponseEntity<ProductCreateModifyDTO> createProduct(HttpServletResponse response, String url, @RequestParam("img") MultipartFile file, ProductCreateModifyDTO dto, Model model) throws IOException{
 		String image = uploadFileUtils.writeOrUpdate(file);
