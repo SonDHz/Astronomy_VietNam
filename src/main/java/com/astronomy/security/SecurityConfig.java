@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.csrf().disable()
 			.authorizeRequests()//
-				.antMatchers("/", "/shoppingTools", "/template/**", "/login", "/logout").permitAll()//
+				.antMatchers("/", "/shoppingTools/**", "/template/**", "/login", "/logout", "/page/**", "/getImageView").permitAll()//
 				.antMatchers("/admin/**").hasAnyAuthority("ADMIN")//
 				.antMatchers("/user/**").hasAnyAuthority("USER")//
 				.anyRequest().authenticated()
@@ -56,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .exceptionHandling()//
             	.and()
             	.exceptionHandling()
-                .accessDeniedPage("/403");//
+                .accessDeniedPage("/login");//
 		
 //		// Chỉ cho phép user có quyền ADMIN truy cập đường dẫn /admin/**
 //		http.authorizeRequests().antMatchers("/admin/**").access("hasRole('ADMIN')");

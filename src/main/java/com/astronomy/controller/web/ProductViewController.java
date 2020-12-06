@@ -22,49 +22,55 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.astronomy.Service.IProductService;
 import com.astronomy.entity.ProductEntity;
 
-
-@RequestMapping(value = "user")
 @Controller
 public class ProductViewController {
 	@Autowired
 	private IProductService service;
-	
+
 	@GetMapping("shoppingTools")
 	public String productViews(Model model) {
+		System.out.println("1");
 		return findPaginated(1, model);
 	}
-	
+
 	@GetMapping(value = "getImageView")
-    @ResponseBody
-    public ResponseEntity<ByteArrayResource> getImage(@RequestParam("img") String photo){
-		if(!photo.equals("") || photo != null){
-            try{
-                Path fileName = Paths.get(photo);
-                byte[] buffer = Files.readAllBytes(fileName);
-                ByteArrayResource byteArrayResource = new ByteArrayResource(buffer);
-                return ResponseEntity.ok()
-                        .contentLength(buffer.length)
-                        .contentType(MediaType.parseMediaType("image/png"))
-                        .body(byteArrayResource);
-            }catch (Exception e){
-            	e.printStackTrace();
-            }
-        }
-        return ResponseEntity.badRequest().build();
-    }
-	
-	@GetMapping("/page/{pageNo}")
+	@ResponseBody
+	public ResponseEntity<ByteArrayResource> getImage(@RequestParam("img") String photo) {
+		System.out.println("2");
+		if (!photo.equals("") || photo != null) {
+			try {
+				Path fileName = Paths.get(photo);
+				byte[] buffer = Files.readAllBytes(fileName);
+				ByteArrayResource byteArrayResource = new ByteArrayResource(buffer);
+				return ResponseEntity.ok().contentLength(buffer.length)
+						.contentType(MediaType.parseMediaType("image/png")).body(byteArrayResource);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return ResponseEntity.badRequest().build();
+	}
+
+	@GetMapping("/shoppingTools/{pageNo}")
 	public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model) {
+		System.out.println("3");
 		LocalDate ht = LocalDate.now();
+		System.out.println("1.1");
 		model.addAttribute("ht", ht);
+		System.out.println("1.2");
 		Page<ProductEntity> page = service.getAll(pageNo, 6);
+		System.out.println("1.3");
 		List<ProductEntity> list = page.getContent();
+		System.out.println("1.4");
 		model.addAttribute("currentPage", pageNo);
+		System.out.println("1.5");
 		model.addAttribute("totalPages", page.getTotalPages());
+		System.out.println("1.6");
 		model.addAttribute("totalItems", page.getTotalElements());
+		System.out.println("1.7");
 		model.addAttribute("entityView", list);
+		System.out.println("1.8");
 		return "web/shopping_tools";
 	}
-	
-	
+
 }

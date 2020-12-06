@@ -38,7 +38,7 @@
 						</ul></li>
 					<li><a href="#"><Strong>Tin tức</Strong></a></li>
 					<li><a href="#"><Strong>Liên hệ</Strong></a></li>
-					<li><a href="login"
+					<li><a href="/login"
 						class="genric-btn success circle arrow text-success"><Strong>Đăng
 								nhập<Strong></a></li>
 				</ul>
