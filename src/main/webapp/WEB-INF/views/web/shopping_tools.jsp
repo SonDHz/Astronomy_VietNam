@@ -44,16 +44,16 @@
 							<div class="col-lg-4 col-md-4">
 								<div class="single-post-item">
 									<div class="post-thumb">
-										<img src="../../template/web/img/archive/1.jpg" height="529"
-											width="auto" alt="">
+										<c:url var="display" value='getImageView'>
+											<c:param name="img" value="${item.image}" />
+											</c:url> <img alt="" src="${display}" width="auto"
+											height="550px">
 									</div>
 									<div class="post-details">
 										<h4>
 											<a href="#">${item.name}</a>
 										</h4>
-												<p>There is a moment in the life of any aspiring
-											astronomer that it is time to buy that first telescope. It
-											exciting to think about setting up your own viewing station.</p>
+												<p>${item.shortDecription}</p>
 										<div class="blog-meta">
 											<a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
 										</div>
