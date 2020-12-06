@@ -136,13 +136,16 @@
 													<th>Giá</th>
 													<th>Số lương</th>
 													<th>Hình ảnh</th>
+													<th>Ngày tạo</th>
+													<th>Ngày sửa</th>
 													<th>Tạo bởi</th>
+													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
 												<form:form id="formSubmit" role="form"
-													class="form-horizontal" >
+													class="form-horizontal">
 													<c:forEach var="item" items="${entity}">
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}"
@@ -152,8 +155,14 @@
 															<%-- <td>${item.manufacturer}</td> --%>
 															<td>${item.price}</td>
 															<td>${item.quantity}</td>
-															<td>${item.image}</td>
+															<td><c:url var="display" value='getImage'>
+																	<c:param name="name" value="${item.image}" />
+																</c:url> <img alt="" src="${display}" width="170px"
+																height="90px"></td>
+															<td>${item.createdDate}</td>
+															<td>${item.modifiedDate}</td>
 															<td>${item.createdBy}</td>
+															<td>${item.modifiedBy}</td>
 															<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/product">
 																	<c:param name="id" value="${item.id}" />
@@ -419,8 +428,8 @@
 				confirmButtonText : "Xác nhận",
 				cancelButtonText : "Hủy bỏ",
 			}).then(
-					function(isConfirm) {
-						if (isConfirm) {
+					function(result) {
+						if (result.value) {
 							//call api delete
 							var ids = $('tbody input[type=checkbox]:checked')
 									.map(function() {
@@ -438,10 +447,10 @@
 						contentType : 'application/json',
 						data : JSON.stringify(data),
 						success : function(result) {
-							window.location.href = "${productURL}?message=delete_success";
+							window.location.href = "${orderURL}?message=delete_success";
 						},
 						error : function(error) {
-							window.location.href = "${productURL}?message=error_system";
+							window.location.href = "${orderURL}?message=error_system";
 						}
 					});
 		}

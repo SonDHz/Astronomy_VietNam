@@ -269,8 +269,8 @@
 				confirmButtonText : "Xác nhận",
 				cancelButtonText : "Hủy bỏ",
 			}).then(
-					function(isConfirm) {
-						if (isConfirm) {
+					function(result) {
+						if (result.value) {
 							//call api delete
 							var ids = $('tbody input[type=checkbox]:checked')
 									.map(function() {

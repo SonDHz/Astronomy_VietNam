@@ -1,30 +1,27 @@
 package com.astronomy.controller.admin;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
 
-import javax.servlet.ServletContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.astronomy.Service.IManufacturerService;
 import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.Service.IProductService;
 import com.astronomy.dto.ProductCreateModifyDTO;
 import com.astronomy.entity.ProductEntity;
-import com.astronomy.mapper.ProductMapper;
 
 @RequestMapping(value = "admin")
 @Controller
@@ -38,15 +35,31 @@ public class ProductController {
 	@Autowired
 	private IManufacturerService manufacturerService;
 	
-	@Autowired
-	private ProductMapper mapper;
-	
 	@GetMapping("productView")
 	public String productView(Model model) {
 		List<ProductEntity> list = service.getAll();
 		model.addAttribute("entity", list);
 		return "admin/product_manager";
 	}
+	
+	@GetMapping(value = "getImage")
+    @ResponseBody
+    public ResponseEntity<ByteArrayResource> getImage(@RequestParam("name") String photo){
+		if(!photo.equals("") || photo != null){
+            try{
+                Path fileName = Paths.get(photo);
+                byte[] buffer = Files.readAllBytes(fileName);
+                ByteArrayResource byteArrayResource = new ByteArrayResource(buffer);
+                return ResponseEntity.ok()
+                        .contentLength(buffer.length)
+                        .contentType(MediaType.parseMediaType("image/png"))
+                        .body(byteArrayResource);
+            }catch (Exception e){
+            	e.printStackTrace();
+            }
+        }
+        return ResponseEntity.badRequest().build();
+    }
 
 	@GetMapping("createModify/product")
 	public String action(Model model,

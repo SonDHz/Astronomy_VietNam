@@ -118,8 +118,8 @@
 									</ul>
 								</div>
 								<div class="card-body" id="bar-parent2">
-									<form:form id="formSubmit" role="form" class="form-horizontal"
-										modelAttribute="model" method="Post" enctype="multipart/form-data">
+									<form:form id="formSubmit" role="form" class="form-horizontal" action="/api/Product"
+										modelAttribute="model" method="post" enctype="multipart/form-data">
 										<div class="form-body">
 											<div class="form-group row  margin-top-20">
 												<form:hidden path="id" class="form-control" name="id"
@@ -141,7 +141,7 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<form:input path="name" type="text" class="form-control"
+														<input type="text" class="form-control"
 															name="name" id="name" value="${model.name}" />
 													</div>
 												</div>
@@ -182,8 +182,7 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<form:input path="image" type="file" class="form-control"
-															name="image" id="image1" value="${model.image}" />
+														<input type="file" id="image" class="form-control" name="img" />
 													</div>
 												</div>
 											</div>
@@ -214,11 +213,11 @@
 										<div class="form-group">
 											<div class="offset-md-3 col-md-9">
 												<c:if test="${not empty model.id}">
-													<button type="button" class="btn btn-info"
+													<button type="submit" class="btn btn-info"
 														id="btnAddOrUpdate">Cập nhật sản phẩm</button>
 												</c:if>
 												<c:if test="${empty model.id}">
-													<button type="button" class="btn btn-info"
+													<button type="submit" class="btn btn-info"
 														id="btnAddOrUpdate">Thêm sản phẩm</button>
 												</c:if>
 											</div>
@@ -310,7 +309,7 @@
 
 	<%@include file="share/js.jsp"%>
 	<script>
-		$('#btnAddOrUpdate').click(function(event) {
+/* 		$('#btnAddOrUpdate').click(function(event) {
 			event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
 			var data = {};
 			//Lấy gọi ra id (Lưu ý phải đặt name cho các field)
@@ -324,7 +323,7 @@
 			} else {
 				update(data);
 			}
-		});
+		}); 
 
 		function add(data) {
 			$
@@ -335,14 +334,14 @@
 						data : JSON.stringify(data),
 						dataType : 'json',
 						success : function(result) {
-							window.location.href = "${productURL}?id="
-									+ result.id + "&message=insert_success"; 
+							 window.location.href = "${productURL}?id="
+									+ result.id + "&message=insert_success";  
 						},
 						error : function(error) {
-							window.location.href = "${productURL}?message=error_system"; 
+							window.location.href = "${productURL}?message=error_system";  
 						}
 					});
-		}
+		} 
 
 		function update(data) {
 			$
@@ -360,14 +359,12 @@
 						}
 					});
 		}
-		
 		//UploadFile
 		$(document).ready(function () {
-			
-    })
+    })  */
     //Gọi id cho image ở trên, để thực hiện sự kiện
-    	$('#image1').change(function () {
-    		var dataArray ={}
+    /* 	$('#image1').click(function () {
+    		var dataArray = {}
     		var files = $(this)[0].files[0]
     		if (files != undefined ){// xét xem file hình đã có chưa
     			var reader = new FileReader();
@@ -387,13 +384,6 @@
 				contentType : 'application/json',
 				data : JSON.stringify(data),
 				dataType : 'json',
-				/* success : function(result) {
-					window.location.href = "${productURL}?id="
-							+ result.id + "&message=insert_success"; 
-				},
-				 error : function(error) {
-					window.location.href = "${productURL}?message=error_system"; 
-				} */
 				success: function (res) {
 	                console.log(res);
 	            },
@@ -401,7 +391,7 @@
 		            console.log(res);
 	            }
 			});
-		} 
+		}   */
 	</script>
 	<!-- end js include path -->
 </body>
