@@ -32,10 +32,5 @@ public class ProductCreateModifyDTO {
 	private Date modifiedDate;
 	private String createdBy;
 	private String modifiedBy;
-	private Integer page;
-	private Integer limit;
-	private Integer totalPage;
-	private Integer totalItem;
-	
 	
 }

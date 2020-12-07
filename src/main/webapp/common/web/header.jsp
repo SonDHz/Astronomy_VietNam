@@ -14,8 +14,14 @@
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 search-trigger">
 				<a href="#" class="search"> <i class="lnr lnr-magnifier"
-					id="search"></i></a>
+					id="search"></i>
+				</a> &nbsp;&nbsp;
+				<a href="/login" class="genric-btn success circle arrow text-success">
+					<Strong>Đăng nhập<Strong></a>
+				</li>
+
 			</div>
+
 		</div>
 	</div>
 </section>
@@ -38,9 +44,7 @@
 						</ul></li>
 					<li><a href="#"><Strong>Tin tức</Strong></a></li>
 					<li><a href="#"><Strong>Liên hệ</Strong></a></li>
-					<li><a href="/login"
-						class="genric-btn success circle arrow text-success"><Strong>Đăng
-								nhập<Strong></a></li>
+
 				</ul>
 			</nav>
 		</div>
