@@ -17,6 +17,8 @@ public interface IProductService {
 	
 	ProductCreateModifyDTO findByIdDTO(long id);
 	
+	public List<Object> count();
+	
 	void delete(long[] ids);
 	
 }
