@@ -159,10 +159,9 @@
 																</c:url> <img alt="" src="${display}" width="170px"
 																height="90px"></td>
 															<td>${item.createdBy}</td>
-															<td>&nbsp;&nbsp;
-																<input type="hidden" id="id" name="id" value="${item.id}"/>
-																<a href='#exampleModal' data-toggle="modal"
-																data-target=".bd-example-modal-lg"
+															<td>&nbsp;&nbsp; <input type="hidden" id="id"
+																name="id" value="${item.id}" /> <a href='#exampleModal'
+																data-toggle="modal" data-target=".bd-example-modal-lg"
 																class="btn btn-outline-success vBtn">View</a>
 																&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/product">
@@ -262,8 +261,7 @@
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" >Quản lý sản
-								phẩm</h5>
+							<h5 class="modal-title">Quản lý sản phẩm</h5>
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
@@ -279,8 +277,8 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Tên sản phẩm:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<input id="name" style="border: none;"></label><br> <label
-								data-error="wrong" data-success="right"><i
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="name" style="border: none;"></label><br>
+							<label data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Hình ảnh:</strong></label><br>
 							&nbsp;&nbsp;&nbsp;&nbsp;<label>123.jpg</label> <br> <label
 								data-error="wrong" data-success="right"><i
