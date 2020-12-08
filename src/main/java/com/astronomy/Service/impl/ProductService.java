@@ -60,4 +60,11 @@ public class ProductService implements IProductService {
 
 		return productRepository.findAll(PageRequest.of(pageNo -1, pageSize));
 	}
+
+	@Override
+	public List<Object> count() {
+		return productRepository.countProduct();
+	}
+
+	
 }
