@@ -72,4 +72,17 @@ public class ProductController {
 		model.addAttribute("manufacturers", manufacturerService.findAll());
 		return "admin/action/actionProduct";
 	}
+	
+	@GetMapping("productViewDetail")
+	public String actionview(Model model,
+			@RequestParam(value = "id", required = false) Long id) {
+		System.out.println("1");
+		ProductCreateModifyDTO dto = new ProductCreateModifyDTO();
+		model.addAttribute("model", dto);
+		model.addAttribute("productCategories", productCategoryService.findAll());
+		model.addAttribute("manufacturers", manufacturerService.findAll());
+		System.out.println("2");
+		 service.findByIdDTO(id);
+		 return null;
+	}
 }
