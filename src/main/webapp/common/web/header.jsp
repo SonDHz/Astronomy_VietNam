@@ -16,7 +16,7 @@
 				<a href="#" class="search"> <i class="lnr lnr-magnifier"
 					id="search"></i>
 				</a> &nbsp;&nbsp;
-				<a href="/login" class="genric-btn success circle arrow text-success">
+				<a href="/login" class="genric-btn success circle arrow" style="font-size: 15px;">
 					<Strong>Đăng nhập<Strong></a>
 				</li>
 

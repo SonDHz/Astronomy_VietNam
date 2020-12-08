@@ -7,11 +7,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -74,15 +76,15 @@ public class ProductController {
 	}
 	
 	@GetMapping("productViewDetail")
-	public String actionview(Model model,
+	@ResponseBody
+	public void actionview(Model model,
 			@RequestParam(value = "id", required = false) Long id) {
 		System.out.println("1");
 		ProductCreateModifyDTO dto = new ProductCreateModifyDTO();
-		model.addAttribute("model", dto);
+		model.addAttribute("modelDetail", dto);
 		model.addAttribute("productCategories", productCategoryService.findAll());
 		model.addAttribute("manufacturers", manufacturerService.findAll());
 		System.out.println("2");
-		 service.findByIdDTO(id);
-		 return null;
+		service.findByIdDTO(id);
 	}
 }

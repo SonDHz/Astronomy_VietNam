@@ -130,6 +130,7 @@
 											<thead>
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
+													<th>#ID</th>
 													<!-- <th>Loại sản phẩm</th> -->
 													<th>Tên sản phẩm</th>
 													<!-- <th>Nhà sản xuất</th> -->
@@ -147,6 +148,7 @@
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}"
 																value="${item.id}" /></td>
+															<td><label>${item.id}</label></td>
 															<%-- <td>${item.productCategory}</td> --%>
 															<td>${item.name}</td>
 															<%-- <td>${item.manufacturer}</td> --%>
@@ -157,18 +159,17 @@
 																</c:url> <img alt="" src="${display}" width="170px"
 																height="90px"></td>
 															<td>${item.createdBy}</td>
-															<td>&nbsp;&nbsp; <c:url var="createModify"
+															<td>&nbsp;&nbsp;
+																<input type="hidden" id="id" name="id" value="${item.id}"/>
+																<a href='#exampleModal' data-toggle="modal"
+																data-target=".bd-example-modal-lg"
+																class="btn btn-outline-success vBtn">View</a>
+																&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/product">
 																	<c:param name="id" value="${item.id}" />
 																</c:url> <a href='${createModify}'
 																class="btn btn-outline-warning"
-																data-original-title="Update">Update</a> &nbsp;&nbsp;
-																
-																<c:url var="view" value="productViewDetail">
-																<c:param name="id" value="${item.id}" />
-																</c:url> <a href='${view}' id="id"
-																class="btn btn-outline-warning"
-																data-toggle="modal" data-target=".bd-example-modal-lg">View</a>
+																data-original-title="Update">Update</a>
 															</td>
 														</tr>
 													</c:forEach>
@@ -254,64 +255,55 @@
 			<!-- end chat sidebar -->
 		</div>
 		<!-- Modal View-->
-		<div class="modal fade bd-example-modal-lg" tabindex="-1" 
-		role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-    <div class="modal-content">
-			<!-- 		<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">View</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div> -->
-					<div class="modal-body">
-					<form:form id="idView" role="form" class="form-horizontal" action="/api/Product"
-										modelAttribute="model" method="post" enctype="multipart/form-data">
-						<form:hidden path="id" class="form-control" name="id"
-													id="id" value="${model.id}" />
-						<label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Loại sản phẩm:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label >1</label> <br> 
-						<label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Nhà cung cấp:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br>  
-						<%-- <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Tên sản phẩm:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="name" type="text" class="form-control"
-															name="name" id="status" value="${model.name}" /><br>  --%>
-						<label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Hình ảnh:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>123.jpg</label> <br> 
-						<label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Giá:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>156.789đ</label> <br> 
-						<label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Số lượng:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> 
-						<label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Mô tả ngắn:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>123</label> <br> 
-						<label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Trạng thái:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>Đang hoạt động</label> <br> 
-						</form:form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Close</button>
+		<form>
+			<div id="exampleModal" class="modal fade bd-example-modal-lg"
+				tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" >Quản lý sản
+								phẩm</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<input type="hidden" class="form-control" name="id" id="id"
+								value="" /> <label data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Loại sản phẩm:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Nhà cung cấp:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Tên sản phẩm:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="name" style="border: none;"></label><br> <label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Hình ảnh:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<label>123.jpg</label> <br> <label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Giá:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<label>156.789đ</label> <br> <label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Số lượng:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Mô tả ngắn:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<label>123</label> <br> <label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Trạng thái:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<label>Đang hoạt động</label> <br>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Close</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 		<!-- end page container -->
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp"%>
@@ -343,9 +335,7 @@
 						}
 					});
 		}
-		
-		
-		
+
 		function deleteNew(data) {
 			$
 					.ajax({
@@ -361,8 +351,38 @@
 						}
 					});
 		}
-		
-		
+
+		/* View detail */
+		$(document)
+				.ready(
+						function() {
+							$('[data-toggle="tooltip"]').tooltip();
+
+							$('tbody .vBtn')
+									.on(
+											'click',
+											function() {
+												var id = $(this).parent().find(
+														'#id').val();
+												$
+														.ajax({
+															type : 'GET',
+															url : '${pageContext.request.contextPath}/api/Product/find/'
+																	+ id,
+															success : function(
+																	product) {
+																$(
+																		'#exampleModal #id')
+																		.val(
+																				product.id);
+																$(
+																		'#exampleModal #name')
+																		.val(
+																				product.name);
+															}
+														})
+											})
+						})
 	</script>
 </body>
 </html>
