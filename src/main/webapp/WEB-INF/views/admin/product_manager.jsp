@@ -159,10 +159,9 @@
 																</c:url> <img alt="" src="${display}" width="170px"
 																height="90px"></td>
 															<td>${item.createdBy}</td>
-															<td>&nbsp;&nbsp;
-																<input type="hidden" id="id" name="id" value="${item.id}"/>
-																<a href='#exampleModal' data-toggle="modal"
-																data-target=".bd-example-modal-lg"
+															<td>&nbsp;&nbsp; <input type="hidden" id="id"
+																name="id" value="${item.id}" /> <a href='#exampleModal'
+																data-toggle="modal" data-target=".bd-example-modal-lg"
 																class="btn btn-outline-success vBtn">View</a>
 																&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/product">
@@ -256,14 +255,14 @@
 		</div>
 		<!-- Modal View-->
 		<form>
+		
 			<div id="exampleModal" class="modal fade bd-example-modal-lg"
 				tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 				aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" >Quản lý sản
-								phẩm</h5>
+							<h5 class="modal-title">Quản lý sản phẩm</h5>
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
@@ -271,30 +270,43 @@
 						</div>
 						<div class="modal-body">
 							<input type="hidden" class="form-control" name="id" id="id"
-								value="" /> <label data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; <strong>Loại sản phẩm:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
+								value="" />
+								  <label
 								data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; <strong>Nhà cung cấp:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
+								class="fa fa-table"></i>&nbsp; <strong>Loại sản phẩm:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="productCategory" style="border: none;"><br>
+							<label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Nhà sản xuất:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="manufacturer"  style="border: none;"><br> 
+							<label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Tên sản phẩm:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<input id="name" style="border: none;"></label><br> <label
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="name" style="border: none;"><br>
+							<label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Hình ảnh:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<label>123.jpg</label> <br> <label
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<c:url var="display" value='getImage'>
+							<c:param name="image" value="image" />
+							</c:url> <img alt="" src="${display}" width="170px" height="90px">
+							<br>
+							 <label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Giá:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<label>156.789đ</label> <br> <label
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="price" style="border: none;"><br>
+							<label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Số lượng:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="quantity" style="border: none;"><br> 
+							<label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Mô tả ngắn:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<label>123</label> <br> <label
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="shortDecription" style="border: none;"><br>
+							<label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Trạng thái:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<label>Đang hoạt động</label> <br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="status" style="border: none;"><br>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
@@ -303,6 +315,7 @@
 					</div>
 				</div>
 			</div>
+		
 		</form>
 		<!-- end page container -->
 		<!-- start footer -->
@@ -379,6 +392,35 @@
 																		'#exampleModal #name')
 																		.val(
 																				product.name);
+																$(
+																		'#exampleModal #price')
+																		.val(
+																				product.price);
+																$(
+																'#exampleModal #quantity')
+																.val(
+																		product.quantity);
+																$(
+																'#exampleModal #shortDecription')
+																.val(
+																		product.shortDecription);
+																$(
+																'#exampleModal #productCategory')
+																.val(product.productCategory
+																		);
+																$(
+																'#exampleModal #manufacturer')
+																.val(
+																		product.manufacturer);
+																$(
+																'#exampleModal #status')
+																.val(
+																		product.status);
+																$(
+																'#exampleModal #image')
+																.val(
+																		product.image);
+																
 															}
 														})
 											})
