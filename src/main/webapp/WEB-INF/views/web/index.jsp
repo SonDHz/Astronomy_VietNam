@@ -20,9 +20,12 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>Ruft Blog</title>
+<title>Thiên Văn Việt</title>
 <!-- css -->
-
+<style>
+.fa fa-user-circle fa-2x{
+padding:10px;}
+</style>
 <%@include file="/common/web/style.jsp"%>
 </head>
 

@@ -20,7 +20,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>Ruft Blog</title>
+<title>Sản phẩm</title>
 <!-- css -->
 
 <%@include file="/common/web/style.jsp"%>
@@ -51,7 +51,11 @@
 											</div>
 											<div class="post-details">
 												<h4>
-													<a href="#">${item.name}</a>
+												<c:url var="view"
+												value="ProductViewDetail">
+											<c:param name="id" value="${item.id}" />
+											</c:url>
+													<a href="${view }">${item.name}</a>
 												</h4>
 												<p>${item.shortDecription}</p>
 												<div class="blog-meta">

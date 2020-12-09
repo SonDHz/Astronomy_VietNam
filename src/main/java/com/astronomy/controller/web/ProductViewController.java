@@ -19,13 +19,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.astronomy.Service.IManufacturerService;
+import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.Service.IProductService;
+import com.astronomy.dto.ProductCreateModifyDTO;
 import com.astronomy.entity.ProductEntity;
 
 @Controller
 public class ProductViewController {
 	@Autowired
 	private IProductService service;
+	
+	@Autowired
+	private IProductCategoryService productCategoryService;
+	
+	@Autowired
+	private IManufacturerService manufacturerService;
 
 	@GetMapping("shoppingTools")
 	public String productViews(Model model) {
@@ -71,6 +80,19 @@ public class ProductViewController {
 		model.addAttribute("entityView", list);
 		System.out.println("1.8");
 		return "web/shopping_tools";
+	}
+	
+	@GetMapping("ProductViewDetail")
+	public String action(Model model,
+			@RequestParam(value = "id", required = false) Long id) {
+		ProductCreateModifyDTO dto = new ProductCreateModifyDTO();
+		if (id != null) {
+			dto = service.findByIdDTO(id);
+		}
+		model.addAttribute("model", dto);
+		model.addAttribute("productCategories", productCategoryService.findAll());
+		model.addAttribute("manufacturers", manufacturerService.findAll());
+		return "web/ProductViews";
 	}
 
 }
