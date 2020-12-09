@@ -12,12 +12,24 @@
 					src="<c:url value ='/template/web/img/logo.png'/>" alt="">
 				</a>
 			</div>
+<<<<<<< HEAD
 			<div class="col-lg-6 col-md-6 col-sm-6 search-trigger ">
 				<a href="/login"
 						class="genric-btn info circle arrow text-gray"><Strong>
 						<i class="fa fa-user-circle fa-3x,font-size:1000px"></i>&nbsp;&nbsp;&nbsp;ĐĂNG
 								NHẬP</Strong></a>
+=======
+			<div class="col-lg-6 col-md-6 col-sm-6 search-trigger">
+				<a href="#" class="search"> <i class="lnr lnr-magnifier"
+					id="search"></i>
+				</a> &nbsp;&nbsp;
+				<a href="/login" class="genric-btn success circle arrow" style="font-size: 15px;">
+					<Strong>Đăng nhập<Strong></a>
+				</li>
+
+>>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
 			</div>
+
 		</div>
 	</div>
 </section>
@@ -38,9 +50,15 @@
 							<li><a href="blog-details.html"><h6><i class="fa fa-newspaper-o fa-lg,font-size:10px"></i>&nbsp;&nbsp;Bài viết</h6></a></li>
 							<li><a href="blog-details.html"><h6><i class="fa fa-list fa-lg,font-size:10px"></i>&nbsp;&nbsp;Giải trí</h6></a></li>
 						</ul></li>
+<<<<<<< HEAD
 					<li><a href="#"><Strong><i class="fa fa-info fa-lg,font-size:10px"></i>&nbsp;&nbsp;Tin tức</Strong></a></li>
 					<li><a href="#"><Strong><i class="fa fa-comment-o fa-lg,font-size:10px"></i>&nbsp;&nbsp;Liên hệ</Strong></a></li>
 					<!--  <li><i class="fa fa-shopping-cart fa-2x,ml-auto p-2 "></i></li>  -->
+=======
+					<li><a href="#"><Strong>Tin tức</Strong></a></li>
+					<li><a href="#"><Strong>Liên hệ</Strong></a></li>
+
+>>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
 				</ul>
 				
 			</nav>

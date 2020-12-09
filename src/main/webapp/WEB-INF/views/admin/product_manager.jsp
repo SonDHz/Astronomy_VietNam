@@ -130,16 +130,14 @@
 											<thead>
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
+													<th>#ID</th>
 													<!-- <th>Loại sản phẩm</th> -->
 													<th>Tên sản phẩm</th>
 													<!-- <th>Nhà sản xuất</th> -->
 													<th>Giá</th>
 													<th>Số lương</th>
 													<th>Hình ảnh</th>
-													<th>Ngày tạo</th>
-													<th>Ngày sửa</th>
 													<th>Tạo bởi</th>
-													<th>Sửa bởi</th>
 													<th>Action</th>
 												</tr>
 											</thead>
@@ -150,6 +148,7 @@
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}"
 																value="${item.id}" /></td>
+															<td><label>${item.id}</label></td>
 															<%-- <td>${item.productCategory}</td> --%>
 															<td>${item.name}</td>
 															<%-- <td>${item.manufacturer}</td> --%>
@@ -159,16 +158,17 @@
 																	<c:param name="name" value="${item.image}" />
 																</c:url> <img alt="" src="${display}" width="170px"
 																height="90px"></td>
-															<td>${item.createdDate}</td>
-															<td>${item.modifiedDate}</td>
 															<td>${item.createdBy}</td>
-															<td>${item.modifiedBy}</td>
-															<td>&nbsp;&nbsp; <c:url var="createModify"
+															<td>&nbsp;&nbsp; <input type="hidden" id="id"
+																name="id" value="${item.id}" /> <a href='#exampleModal'
+																data-toggle="modal" data-target=".bd-example-modal-lg"
+																class="btn btn-outline-success vBtn">View</a>
+																&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/product">
 																	<c:param name="id" value="${item.id}" />
 																</c:url> <a href='${createModify}'
 																class="btn btn-outline-warning"
-																data-original-title="Update">Update</a> &nbsp;&nbsp;
+																data-original-title="Update">Update</a>
 															</td>
 														</tr>
 													</c:forEach>
@@ -254,160 +254,69 @@
 			<!-- end chat sidebar -->
 		</div>
 		<!-- Modal View-->
-		<div class="modal fade" id="exampleModalView" tabindex="-1"
-			role="dialog" aria-labelledby="exampleModalLabelView"
-			aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">View</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>#ID:</strong>:</label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Loại sản phẩm:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Nhà cung cấp:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Tên sản phẩm:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>Sách</label> <br> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Hình ảnh:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>123.jpg</label> <br> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Giá:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>156.789đ</label> <br> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Số lượng:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>1</label> <br> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Mô tả ngắn:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>123</label> <br> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Trạng thái:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>Đang hoạt động</label> <br> <label
-							data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; <strong>Hóa đơn chi tiết:</strong></label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;<label>trống</label> <br>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal Update-->
-		<div class="modal fade" id="exampleModalUpdate" tabindex="-1"
-			role="dialog" aria-labelledby="exampleModalLabelUpdate"
-			aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Update</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-
-						<input class="form-control validate" type="hidden" value="1">
-						<br> <label data-error="wrong" data-success="right"><i
-							class="fa fa-user"></i>&nbsp; Loại sản phẩm:</label> <input
-							class="form-control validate" type="text" value="1"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Nhà cung cấp:</label> <input
-							class="form-control validate" type="text" value="1"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Tên sản phẩm:</label> <input
-							class="form-control validate" type="text" value="Sách"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Hình ảnh:</label> <input
-							class="form-control validate" type="text" value="123.jpg">
-						<br> <label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Giá:</label> <input
-							class="form-control validate" type="text" value="156.789đ">
-						<br> <label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Số lượng:</label> <input
-							class="form-control validate" type="text" value="1"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Mô tả ngắn:</label> <input
-							class="form-control validate" type="text" value="123"> <br>
-						<label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Trạng thái:</label> <input
-							class="form-control validate" type="text" value="Đang hoạt động">
-						<br> <label data-error="wrong" data-success="right"><i
-							class="fa fa-table"></i>&nbsp; Hóa đơn chi tiết:</label> <input
-							class="form-control validate" type="text" value="Trống">
-						<br>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Lưu</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">
-							<i class="fa fa-edit"></i>&nbsp;Thêm tài khoản nhân viên
-						</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="md-form mb-5">
-							<label data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Loại sản phẩm</label> <input
-								class="form-control validate"> <label data-error="wrong"
-								data-success="right"> <i class="fa fa-table"></i>&nbsp;
-								Nhà cung cấp
-							</label> <input class="form-control validate"><label
+		<form>
+		
+			<div id="exampleModal" class="modal fade bd-example-modal-lg"
+				tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Quản lý sản phẩm</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<input type="hidden" class="form-control" name="id" id="id"
+								value="" />
+								  <label
 								data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Tên sản phẩm</label> <input
-								class="form-control validate"> <label data-error="wrong"
-								data-success="right"><i class="fa fa-table"></i>&nbsp;
-								Hình ảnh</label> <input class="form-control validate"> <label
+								class="fa fa-table"></i>&nbsp; <strong>Loại sản phẩm:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="productCategory" style="border: none;"><br>
+							<label
 								data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Giá</label> <input
-								class="form-control validate"> <label data-error="wrong"
-								data-success="right"><i class="fa fa-table"></i>&nbsp;
-								Số lượng</label> <input class="form-control validate"> <label
-								data-error="wrong" data-success="right"> <i
-								class="fa fa-table"></i>&nbsp; Mô tả ngắn
-							</label> <input class="form-control validate"><label
+								class="fa fa-table"></i>&nbsp; <strong>Nhà sản xuất:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="manufacturer"  style="border: none;"><br> 
+							<label
 								data-error="wrong" data-success="right"><i
-								class="fa fa-table"></i>&nbsp; Trạng thái</label> <input
-								class="form-control validate">
+								class="fa fa-table"></i>&nbsp; <strong>Tên sản phẩm:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="name" style="border: none;"><br>
+							<label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Hình ảnh:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<c:url var="display" value='getImage'>
+							<c:param name="image" value="image" />
+							</c:url> <img alt="" src="${display}" width="170px" height="90px">
+							<br>
+							 <label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Giá:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="price" style="border: none;"><br>
+							<label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Số lượng:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="quantity" style="border: none;"><br> 
+							<label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Mô tả ngắn:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="shortDecription" style="border: none;"><br>
+							<label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Trạng thái:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="status" style="border: none;"><br>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Close</button>
 						</div>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary">Lưu</button>
-					</div>
 				</div>
 			</div>
-		</div>
+		
+		</form>
 		<!-- end page container -->
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp"%>
@@ -439,6 +348,7 @@
 						}
 					});
 		}
+
 		function deleteNew(data) {
 			$
 					.ajax({
@@ -454,6 +364,67 @@
 						}
 					});
 		}
+
+		/* View detail */
+		$(document)
+				.ready(
+						function() {
+							$('[data-toggle="tooltip"]').tooltip();
+
+							$('tbody .vBtn')
+									.on(
+											'click',
+											function() {
+												var id = $(this).parent().find(
+														'#id').val();
+												$
+														.ajax({
+															type : 'GET',
+															url : '${pageContext.request.contextPath}/api/Product/find/'
+																	+ id,
+															success : function(
+																	product) {
+																$(
+																		'#exampleModal #id')
+																		.val(
+																				product.id);
+																$(
+																		'#exampleModal #name')
+																		.val(
+																				product.name);
+																$(
+																		'#exampleModal #price')
+																		.val(
+																				product.price);
+																$(
+																'#exampleModal #quantity')
+																.val(
+																		product.quantity);
+																$(
+																'#exampleModal #shortDecription')
+																.val(
+																		product.shortDecription);
+																$(
+																'#exampleModal #productCategory')
+																.val(product.productCategory
+																		);
+																$(
+																'#exampleModal #manufacturer')
+																.val(
+																		product.manufacturer);
+																$(
+																'#exampleModal #status')
+																.val(
+																		product.status);
+																$(
+																'#exampleModal #image')
+																.val(
+																		product.image);
+																
+															}
+														})
+											})
+						})
 	</script>
 </body>
 </html>

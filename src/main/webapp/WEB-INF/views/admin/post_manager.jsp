@@ -246,9 +246,6 @@
 		</div>
 		<!-- Modal View-->
 		
-		<!-- Modal Update-->
-		<!-- Modal -->
-		
 		<!-- end page container -->
 		<!-- start footer -->
 		<%@include file="/common/admin/footer.jsp"%>
