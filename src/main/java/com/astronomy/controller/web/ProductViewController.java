@@ -82,7 +82,11 @@ public class ProductViewController {
 		return "web/shopping_tools";
 	}
 	
+<<<<<<< HEAD
+	@GetMapping("ProductViewDetail")
+=======
 	@GetMapping("/productViewDetail")
+>>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
 	public String action(Model model,
 			@RequestParam(value = "id", required = false) Long id) {
 		ProductCreateModifyDTO dto = new ProductCreateModifyDTO();
@@ -92,9 +96,14 @@ public class ProductViewController {
 		model.addAttribute("model", dto);
 		model.addAttribute("productCategories", productCategoryService.findAll());
 		model.addAttribute("manufacturers", manufacturerService.findAll());
+<<<<<<< HEAD
+		return "web/ProductViews";
+	}
+=======
 		 return "web/ProductViews";
 	}
 		
 	
+>>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
 
 }
