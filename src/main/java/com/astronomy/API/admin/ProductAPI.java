@@ -22,11 +22,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.astronomy.Service.IManufacturerService;
+import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.Service.IProductService;
 import com.astronomy.Utils.UploadFileUtils;
 import com.astronomy.dto.ProductCreateModifyDTO;
 import com.astronomy.entity.ProductEntity;
 import com.astronomy.mapper.ProductMapper;
+import com.astronomy.repository.ProductRepository;
 
 @RestController
 @RequestMapping(value = "api")
@@ -38,8 +41,11 @@ public class ProductAPI {
 	private IProductService productService;
 	
 	@Autowired
-	UploadFileUtils uploadFileUtils;
-
+	private UploadFileUtils uploadFileUtils;
+	
+	@Autowired
+	private ProductRepository repo;
+	
 	@PostMapping(value = "Product")
 	public ResponseEntity<ProductCreateModifyDTO> createProduct(HttpServletResponse response, String url, @RequestParam("img") MultipartFile file, ProductCreateModifyDTO dto, Model model) throws IOException{
 		String image = uploadFileUtils.writeOrUpdate(file);
@@ -54,11 +60,13 @@ public class ProductAPI {
 	
 	@GetMapping(value = "Product/find/{id}")
 	@ResponseBody
-	public ResponseEntity<ProductCreateModifyDTO> find(@PathVariable("id") Long id){
+	public ResponseEntity<ProductEntity> find( Model model, @PathVariable("id") Long id){
 		try {
-			return new ResponseEntity<ProductCreateModifyDTO>(productService.findByIdDTO(id), HttpStatus.OK);
+			ProductEntity entity = repo.findById(id).orElse(null);
+			System.out.println("entity: " + entity.getProductCategory());
+			return new ResponseEntity<ProductEntity>(entity, HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<ProductCreateModifyDTO>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<ProductEntity>(HttpStatus.BAD_REQUEST);
 		}
 	}
 

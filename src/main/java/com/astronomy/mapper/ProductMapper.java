@@ -10,6 +10,8 @@ import com.astronomy.entity.ProductEntity;
 @Component
 public class ProductMapper {
 	public ProductEntity toProduct(ProductCreateModifyDTO dto) {//
+		ProductEntity entity = null;
+		
 		ProductCategoryEntity productCategory = ProductCategoryEntity.builder()//
 				.id(dto.getProductCategory())//
 				.build();//

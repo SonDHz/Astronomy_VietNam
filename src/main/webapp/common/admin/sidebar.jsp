@@ -29,13 +29,13 @@
 						<i class="fa fa-home"></i> <span class="title">Trang
 							chủ</span>
 				</a></li>
-				<li class="nav-item"><a href="/admin/userView"
+				<!-- <li class="nav-item"><a href="/admin/userView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý nhân viên</span>
-				</a></li>
+				</a></li> -->
 				<li class="nav-item"><a href="/admin/customerView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
-						<span class="title">Quản lý khách hàng</span>
+						<span class="title">Quản lý tài khoản</span>
 				</a></li>
 				<li class="nav-item"><a href="/admin/categoryView"
 					class="nav-link nav-toggle"> <i class="fa fa-map" ></i>

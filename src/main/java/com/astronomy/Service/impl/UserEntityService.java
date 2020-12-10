@@ -43,10 +43,10 @@ public class UserEntityService implements IUserService {
 		return userMapper.toUserResponserDTO(userentity);
 	}
 
-	@Override
-	public List<UserEntity> getAllUser() {
-		return userRepository.getAllUser();
-	}
+//	@Override
+//	public List<UserEntity> getAllUser() {
+//		return userRepository.getAllUser();
+//	}
 	
 	@Override
 	public List<UserEntity> getAllCustomer() {

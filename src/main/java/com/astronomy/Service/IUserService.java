@@ -15,7 +15,5 @@ public interface IUserService {
 	
 	void delete(long[] ids);
 
-	List<UserEntity> getAllUser();
-
 	List<UserEntity> getAllCustomer();
 }

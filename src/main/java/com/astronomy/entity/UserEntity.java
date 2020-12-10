@@ -97,8 +97,8 @@ public class UserEntity {
 	@Column(name = "status")
 	private Integer status;
 	
-	@OneToMany(mappedBy = "user")
-	private List<ProductEntity> products = new ArrayList<>();
+//	@OneToMany(mappedBy = "user")
+//	private List<ProductEntity> products = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "user")
 	private List<PostEntity> post = new ArrayList<>();

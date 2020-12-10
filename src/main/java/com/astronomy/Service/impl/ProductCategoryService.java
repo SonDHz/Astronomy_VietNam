@@ -64,5 +64,6 @@ public class ProductCategoryService implements IProductCategoryService {
 	public ProductCategoryEntity createModify(ProductCategoryEntity entity) {
 		return productCategoryRepository.save(entity);
 	}
+
 }
 
