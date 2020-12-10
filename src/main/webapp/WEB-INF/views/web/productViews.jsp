@@ -20,7 +20,6 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<<<<<<< HEAD
 <title>Sản phẩm chi tiết</title>
 <!-- css -->
 <style>
@@ -49,196 +48,67 @@
 }
 
 .input-group-btn {
-	display: flex
+	display: flex;
 }
 
-=======
-<title>Sản phẩm 1</title>
-<!-- css -->
-<style>
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
 .price {
-	font-size: 20px
+	font-size: 20px;
 }
 
 .title {
-	font-size: 30px
+	font-size: 30px;
 }
 
 .code {
-<<<<<<< HEAD
-	font-size: 23px
+
+	font-size: 23px;
 }
 
 .code1 {
-	font-size: 17px
+	font-size: 17px;
 }
 
 .quantity {
-	font-size: 20px
-=======
-	font-size: 30px
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
+	font-size: 20px;
+	font-size: 30px;
+
 }
 
 .pb-product-details-ul {
-	list-style-type: none;
-	padding-left: 0;
-	color: black;
-}
+        list-style-type: none;
+        padding-left: 0;
+        color: black;
+    }
 
-.pb-product-details-ul>li {
-	padding-bottom: 5px;
-	font-size: 15px;
-}
+        .pb-product-details-ul > li {
+            padding-bottom: 5px;
+            font-size: 15px;
+        }
 
-<<<<<<< HEAD
-/* #gradient {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#feffff+0,ddf1f9+31,a0d8ef+62 */
-background
-:
- 
-#feffff
-; /* Old browsers */
+    #hits {
+        border-right: 1px solid white;
+        border-left: 1px solid white;
+        vertical-align: middle;
+        padding-top: 15px;
+        font-size: 17px;
+        color: white;
+    }
 
-	
-background
-:
- 
--moz-linear-gradient
-(left
-,
-#feffff
- 
-0%,
-#ddf1f9
- 
-31%,
-#a0d8ef
- 
-62%);
-/* FF3.6-15 */
-background
-:
- 
--webkit-linear-gradient
-(left
-,
-#feffff
- 
-0%,
-#ddf1f9
- 
-31%,
-#a0d8ef
- 
-62%);
-/* Chrome10-25,Safari5.1-6 */
-background
-:
- 
-linear-gradient
-(to
- 
-right
-,
-#feffff
- 
-0%,
-#ddf1f9
- 
-31%,
-#a0d8ef
- 
-62%);
-/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter
-:
- 
-progid
-:DXImageTransform
-.Microsoft
-.gradient
-(
- 
-startColorstr
-='
-#feffff
-'
-,
-endColorstr
-='
-#a0d8ef
-'
-,
-GradientType
-=1); /* IE6-9 */
+    #fan {
+        vertical-align: middle;
+        padding-top: 15px;
+        font-size: 17px;
+        color: white;
+    }
 
-	
-border
-:
- 
-1
-px
- 
-solid
- 
-#f2f2f2
-;
-
-	
-padding
-:
- 
-20
-px
-;
-}
-* /
-=======
-#gradient {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#feffff+0,ddf1f9+31,a0d8ef+62 */
-	background: #feffff; /* Old browsers */
-	background: -moz-linear-gradient(left, #feffff 0%, #ddf1f9 31%, #a0d8ef 62%);
-	/* FF3.6-15 */
-	background: -webkit-linear-gradient(left, #feffff 0%, #ddf1f9 31%, #a0d8ef 62%);
-	/* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right, #feffff 0%, #ddf1f9 31%, #a0d8ef 62%);
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff',
-		endColorstr='#a0d8ef', GradientType=1); /* IE6-9 */
-	border: 1px solid #f2f2f2;
-	padding: 20px;
-}
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
-
-#hits {
-	border-right: 1px solid white;
-	border-left: 1px solid white;
-	vertical-align: middle;
-	padding-top: 15px;
-	font-size: 17px;
-	color: white;
-}
-
-#fan {
-	vertical-align: middle;
-	padding-top: 15px;
-	font-size: 17px;
-	color: white;
-}
-
-.pb-product-details-fa>span {
-	padding-top: 20px;
-}
-<<<<<<< HEAD
+    .pb-product-details-fa > span {
+        padding-top: 20px;
+    }
 
 .pic {
 	border: solid 2px;
 	border-width: 5px borde;
 }
-=======
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
 </style>
 <!-- Responsive Product Details - END -->
 <%@include file="/common/web/style.jsp"%>
@@ -252,7 +122,6 @@ px
 	<!-- Start main body Area -->
 	<div class="main-body section-gap">
 		<div class="container box_1170">
-<<<<<<< HEAD
 			<div id="gradient">
 				<form:form id="formSubmit" role="form" class="form-horizontal row"
 					action="/api/Product" modelAttribute="model" method="post"
@@ -347,59 +216,17 @@ px
 						&nbsp;&nbsp;&nbsp;
 						<button type="button" class="btn btn-primary">Thêm vào
 							giỏ hàng</button>
-
+	</form:form>
 					</div>
-=======
-		
-			<div id="gradient">
-			<form:form id="formSubmit" role="form" class="form-horizontal row" action="/api/Product"
-				modelAttribute="model" method="post" enctype="multipart/form-data">					
-				<div class="col-md-4">
-					<c:url var="display" value='/getImageView'>
-						<c:param name="img" value="${model.image}" />
-							</c:url> 
-						<img alt="" src="${display}" width="auto" height="350px">
 				</div>
-				<div class="col-md-8" >
-					<div class="row">
-						<div class="col-xs-6 col-md-6">
-							<ul class="pb-product-details-ul">
-								<li><span class="fa fa-table fa-2x">
-										<div class="code">
-											<strong>${model.name}</strong>
-										</div>
-								</span></li>
-							</ul>
-						</div>
-					</div>
-					<br>
-					<p>Mô tả: ${model.shortDecription}</p>
-					<br>
-					<div class="price">Giá: ${model.price}</div>
-					<br> <br>
-					<button type="button" class="btn btn-danger">Mua hàng</button>
-					&nbsp;&nbsp;&nbsp;
-					<button type="button" class="btn btn-primary">Thêm vào giỏ
-						hàng</button>
-				</div>
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
-				</form:form>
-			</div>
 			<br>
 			<div class="row">
 				<div class="tabs_div">
 					<ul>
-<<<<<<< HEAD
 						<li><strong>Thông số kỹ thuật</strong></li>
 						<li><strong>Phụ kiện đi kèm</strong></li>
 						<li><strong>Tham khảo</strong></li>
 						<li><strong>Giới thiệu</strong></li>
-=======
-						<li>Thông số kỹ thuật</li>
-						<li>Phụ kiện đi kèm</li>
-						<li>Tham khảo</li>
-						<li>Giới thiệu</li>
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
 					</ul>
 					<div>
 						<table class="table">
@@ -461,17 +288,17 @@ px
 								</tr>
 								<tr>
 									<td>Kính thiên văn Celestron Astromater 70EQ</td>
-<<<<<<< HEAD
+
 
 								</tr>
 								<tr>
 									<td>Kính thiên văn Celestron Deluxe 130EQ</td>
-=======
+
 									
 								</tr>
 								<tr>
 									<td>Kính thiên văn Celestron Deluxe 130EQ </td>
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
+
 								</tr>
 							</tbody>
 						</table>
@@ -480,7 +307,6 @@ px
 						<table class="table">
 							<tbody>
 								<tr>
-<<<<<<< HEAD
 									<td class="decs">Celestron AstroMaster 130EQ là dòng kính
 										thiên văn chính hãng rất tiện lợi cho các bạn mang đi du lịch,
 										có thể được lắp ráp rất dễ dàng mà không cần thêm bất cứ dụng
@@ -491,27 +317,13 @@ px
 										cho riêng mình. Với kính thiên văn Celestron AstroMaster
 										130EQ, bạn có thể quan sát được Mặt Trăng, sao Mộc, sao
 										Thổ,…hay quan sát địa văn như một chiếc ống nhòm.r</td>
-=======
-									
-									<td>Celestron AstroMaster 130EQ là dòng kính thiên văn
-										chính hãng rất tiện lợi cho các bạn mang đi du lịch, có thể
-										được lắp ráp rất dễ dàng mà không cần thêm bất cứ dụng cụ phụ
-										trợ nào. Nó còn là một món quà giải trí, học tập tuyệt vời của
-										các ông bố bà mẹ dành tặng cho các bạn nhỏ muốn khám phá bầu
-										trời, là chiếc kính rất phù hợp dành cho những bạn mới bắt đầu
-										quan tâm đến thiên văn, vũ trụ muốn có một chiếc kính cho
-										riêng mình. Với kính thiên văn Celestron AstroMaster 130EQ,
-										bạn có thể quan sát được Mặt Trăng, sao Mộc, sao Thổ,…hay quan
-										sát địa văn như một chiếc ống nhòm.r</td>
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
-
-		</div>
+</div>
 	</div>
 	<!-- Start main body Area -->
 
@@ -529,7 +341,7 @@ px
 		jQuery(function($) {
 			$(".tabs_div").shieldTabs();
 		});
-<<<<<<< HEAD
+
 		$(document).ready(function() {
 
 			var quantitiy = 0;
@@ -563,8 +375,7 @@ px
 			});
 
 		});
-=======
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
+
 	</script>
 </body>
 <link rel="stylesheet" type="text/css"

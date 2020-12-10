@@ -51,22 +51,15 @@
 											</div>
 											<div class="post-details">
 												<h4>
-<<<<<<< HEAD
 												<c:url var="view"
-												value="ProductViewDetail">
+												value="productViewDetail">
 											<c:param name="id" value="${item.id}" />
 											</c:url>
-													<a href="${view }">${item.name}</a>
-=======
-												<c:url var="view" value="productViewDetail">
-																<c:param name="id" value="${item.id}" />
-																</c:url> 
-													<a href='${view}'>${item.name}</a>
->>>>>>> 7a5f921f11077cda19bafa4218c2b1610cfc07e4
+													<a href="${view}">${item.name}</a>
 												</h4>
 												<p>${item.shortDecription}</p>
 												<div class="blog-meta">
-													<a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+													<a href="${view}" class="btn btn-primary">Thêm vào giỏ hàng</a>
 												</div>
 											</div>
 										</div>
