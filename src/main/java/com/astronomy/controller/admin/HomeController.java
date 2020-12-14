@@ -19,4 +19,10 @@ public class HomeController {
 		model.addAttribute("product", product.count());
 		return "admin/dashboard";
 	}
+	
+	@RequestMapping("Edit")
+	public String e() {
+		return "admin/Post_Edit";
+	}
+	
 }
