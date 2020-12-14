@@ -24,12 +24,12 @@ public class UserController {
 	@Autowired
 	UserMapper userMapper;
 
-	@GetMapping("userView")
-	public String UserView(Model model) {
-		List<UserEntity> list = userService.getAllUser();
-		model.addAttribute("userentity", list);
-		return "admin/employee_manager";
-	}
+//	@GetMapping("userView")
+//	public String UserView(Model model) {
+//		List<UserEntity> list = userService.getAllUser();
+//		model.addAttribute("userentity", list);
+//		return "admin/employee_manager";
+//	}
 
 	@GetMapping("createModify/user")
 	public String action(Model model, @RequestParam(value = "id", required = false) Long id) {

@@ -51,10 +51,5 @@ public class UserAPI {
 	public void delete(@RequestBody long[] ids) {
 		userService.delete(ids);
 	}
-
-	@GetMapping("User")
-	public List<UserEntity> getAll() {
-		return userService.getAllUser();
-	}
 	
 }

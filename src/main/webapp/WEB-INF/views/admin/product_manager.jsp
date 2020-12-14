@@ -131,11 +131,11 @@
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
 													<th>#ID</th>
-													<!-- <th>Loại sản phẩm</th> -->
+													<th>Loại sản phẩm</th>
 													<th>Tên sản phẩm</th>
-													<!-- <th>Nhà sản xuất</th> -->
+													<th>Nhà sản xuất</th> 
 													<th>Giá</th>
-													<th>Số lương</th>
+													<th>Số lượng</th>
 													<th>Hình ảnh</th>
 													<th>Tạo bởi</th>
 													<th>Action</th>
@@ -149,9 +149,9 @@
 															<td><input type="checkbox" id="checkbox_${item.id}"
 																value="${item.id}" /></td>
 															<td><label>${item.id}</label></td>
-															<%-- <td>${item.productCategory}</td> --%>
+															<td>${item.productCategory.name}</td>
 															<td>${item.name}</td>
-															<%-- <td>${item.manufacturer}</td> --%>
+															<td>${item.manufacturer.name}</td>
 															<td>${item.price}</td>
 															<td>${item.quantity}</td>
 															<td><c:url var="display" value='getImage'>
@@ -255,7 +255,7 @@
 		</div>
 		<!-- Modal View-->
 		<form>
-		
+
 			<div id="exampleModal" class="modal fade bd-example-modal-lg"
 				tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 				aria-hidden="true">
@@ -270,40 +270,35 @@
 						</div>
 						<div class="modal-body">
 							<input type="hidden" class="form-control" name="id" id="id"
-								value="" />
-								  <label
-								data-error="wrong" data-success="right"><i
+								value="" /> <label data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Loại sản phẩm:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<input id="productCategory" style="border: none;"><br>
-							<label
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="productCategory"
+								style="border: none;"><br> <label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Nhà sản xuất:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<input id="manufacturer"  style="border: none;"><br> 
-							<label
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="manufacturer"
+								style="border: none;"><br> <label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Tên sản phẩm:</strong></label><br>
 							&nbsp;&nbsp;&nbsp;&nbsp;<input id="name" style="border: none;"><br>
-							<label
-								data-error="wrong" data-success="right"><i
+							<label data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Hình ảnh:</strong></label><br>
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<c:url var="display" value='getImage'>
-							<c:param name="image" value="image" />
-							</c:url> <img alt="" src="${display}" width="170px" height="90px">
-							<br>
-							 <label
-								data-error="wrong" data-success="right"><i
+								<c:param name="image" value="image" />
+							</c:url>
+							<img alt="" src="${display}" width="170px" height="90px"> <br>
+							<label data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Giá:</strong></label><br>
 							&nbsp;&nbsp;&nbsp;&nbsp;<input id="price" style="border: none;"><br>
-							<label
-								data-error="wrong" data-success="right"><i
+							<label data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Số lượng:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<input id="quantity" style="border: none;"><br> 
-							<label
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="quantity"
+								style="border: none;"><br> <label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Mô tả ngắn:</strong></label><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;<input id="shortDecription" style="border: none;"><br>
-							<label
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="shortDecription"
+								style="border: none;"><br> <label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Trạng thái:</strong></label><br>
 							&nbsp;&nbsp;&nbsp;&nbsp;<input id="status" style="border: none;"><br>
@@ -315,7 +310,6 @@
 					</div>
 				</div>
 			</div>
-		
 		</form>
 		<!-- end page container -->
 		<!-- start footer -->
@@ -348,7 +342,6 @@
 						}
 					});
 		}
-
 		function deleteNew(data) {
 			$
 					.ajax({
@@ -364,13 +357,11 @@
 						}
 					});
 		}
-
 		/* View detail */
 		$(document)
 				.ready(
 						function() {
 							$('[data-toggle="tooltip"]').tooltip();
-
 							$('tbody .vBtn')
 									.on(
 											'click',
@@ -384,6 +375,8 @@
 																	+ id,
 															success : function(
 																	product) {
+																console
+																		.log(product);
 																$(
 																		'#exampleModal #id')
 																		.val(
@@ -397,30 +390,30 @@
 																		.val(
 																				product.price);
 																$(
-																'#exampleModal #quantity')
-																.val(
-																		product.quantity);
+																		'#exampleModal #quantity')
+																		.val(
+																				product.quantity);
 																$(
-																'#exampleModal #shortDecription')
-																.val(
-																		product.shortDecription);
+																		'#exampleModal #shortDecription')
+																		.val(
+																				product.shortDecription);
 																$(
-																'#exampleModal #productCategory')
-																.val(product.productCategory
-																		);
+																		'#exampleModal #productCategory')
+																		.val(
+																				product.productCategory.name);
 																$(
-																'#exampleModal #manufacturer')
-																.val(
-																		product.manufacturer);
+																		'#exampleModal #manufacturer')
+																		.val(
+																				product.manufacturer.name);
 																$(
-																'#exampleModal #status')
-																.val(
-																		product.status);
+																		'#exampleModal #status')
+																		.val(
+																				product.status);
 																$(
-																'#exampleModal #image')
-																.val(
-																		product.image);
-																
+																		'#exampleModal #image')
+																		.val(
+																				product.image);
+
 															}
 														})
 											})

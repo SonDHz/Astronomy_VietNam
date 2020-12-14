@@ -19,6 +19,9 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -61,5 +64,6 @@ public class ManufacturerEntity {
 	private String name;
 	
 	@OneToMany(mappedBy = "manufacturer")
+	@JsonBackReference(value = "manufacturer")
 	private List<ProductEntity> products = new ArrayList<>();
 }

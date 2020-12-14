@@ -29,6 +29,7 @@ import com.astronomy.Utils.UploadFileUtils;
 import com.astronomy.dto.ProductCreateModifyDTO;
 import com.astronomy.entity.ProductEntity;
 import com.astronomy.mapper.ProductMapper;
+import com.astronomy.repository.ProductRepository;
 
 @RestController
 @RequestMapping(value = "api")
@@ -40,14 +41,11 @@ public class ProductAPI {
 	private IProductService productService;
 	
 	@Autowired
-	UploadFileUtils uploadFileUtils;
+	private UploadFileUtils uploadFileUtils;
 	
 	@Autowired
-	private IProductCategoryService productCategoryService;
+	private ProductRepository repo;
 	
-	@Autowired
-	private IManufacturerService manufacturerService;
-
 	@PostMapping(value = "Product")
 	public ResponseEntity<ProductCreateModifyDTO> createProduct(HttpServletResponse response, String url, @RequestParam("img") MultipartFile file, ProductCreateModifyDTO dto, Model model) throws IOException{
 		String image = uploadFileUtils.writeOrUpdate(file);
@@ -62,13 +60,12 @@ public class ProductAPI {
 	
 	@GetMapping(value = "Product/find/{id}")
 	@ResponseBody
-	public ResponseEntity<ProductCreateModifyDTO> find( Model model, @PathVariable("id") Long id){
+	public ResponseEntity<ProductEntity> find( Model model, @PathVariable("id") Long id){
 		try {
-			model.addAttribute("productCategories", productCategoryService.findAll());
-			model.addAttribute("manufacturers", manufacturerService.findAll());
-			return new ResponseEntity<ProductCreateModifyDTO>(productService.findByIdDTO(id), HttpStatus.OK);
+			ProductEntity entity = repo.findById(id).orElse(null);
+			return new ResponseEntity<ProductEntity>(entity, HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<ProductCreateModifyDTO>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<ProductEntity>(HttpStatus.BAD_REQUEST);
 		}
 	}
 

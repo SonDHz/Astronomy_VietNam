@@ -1,6 +1,5 @@
 package com.astronomy.entity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -97,8 +96,8 @@ public class UserEntity {
 	@Column(name = "status")
 	private Integer status;
 	
-	@OneToMany(mappedBy = "user")
-	private List<ProductEntity> products = new ArrayList<>();
+//	@OneToMany(mappedBy = "user")
+//	private List<ProductEntity> products = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "user")
 	private List<PostEntity> post = new ArrayList<>();

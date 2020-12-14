@@ -36,11 +36,15 @@ public class HomeController {
 		return "web/shopping_tools";
 	}
 	
+	@RequestMapping(value = "shopping_cart")
+	public String cart() {
+		return "web/shopping_cart";
+	}
+	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		HttpSession httpSession = request.getSession();
 		httpSession.removeAttribute("USER");
-
 		return "redirect:/login";
 	}
 }

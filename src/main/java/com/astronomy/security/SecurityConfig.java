@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private MyUserDetailsService userDetailsService;
-	
+
 	@Autowired
 	private CustomSuccessHandler successHander;
 
@@ -37,45 +37,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		http
-			.csrf().disable()
-			.authorizeRequests()//
-				.antMatchers("/", "/shoppingTools/**", "/template/**", "/login", "/logout", "/page/**", "/getImageView").permitAll()//
+		http.csrf().disable().authorizeRequests()//
+				.antMatchers("/", "/shoppingTools/**", "/template/**", "/login", "/logout"//
+						, "/page/**", "/getImageView", "/productViewDetail/**")
+				.permitAll()//
 				.antMatchers("/admin/**").hasAnyAuthority("ADMIN")//
 				.antMatchers("/user/**").hasAnyAuthority("USER")//
-				.anyRequest().authenticated()
-				.and()//
-			.formLogin()//
+				.anyRequest().authenticated().and()//
+				.formLogin()//
 				.loginProcessingUrl("/j_spring_security_login")//
 				.loginPage("/login")//
 				.usernameParameter("j_username")//
 				.passwordParameter("j_password")//
 				.successHandler(successHander)//
-                .failureUrl("/login?error")//
-                .and()//
-            .exceptionHandling()//
-            	.and()
-            	.exceptionHandling()
-                .accessDeniedPage("/login");//
-		
-//		// Chỉ cho phép user có quyền ADMIN truy cập đường dẫn /admin/**
-//		http.authorizeRequests().antMatchers("/admin/**").access("hasRole('ADMIN')");
-//		// Chỉ cho phép user có quyền ADMIN hoặc USER truy cập đường dẫn
-//		// /user/**
-//		http.authorizeRequests().antMatchers("/user/**").access("hasRole('ADMIN') or hasRole('USER')");
-//		// Khi người dùng đã login, với vai trò USER, Nhưng truy cập vào trang
-//		// yêu cầu vai trò ADMIN, sẽ chuyển hướng tới trang /403
-//		http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
-//		// Cấu hình cho Login Form.
-//		http.authorizeRequests().and().formLogin()//
-//				.loginProcessingUrl("/j_spring_security_login")//
-//				.loginPage("/login")//
-//				.defaultSuccessUrl("/user")//
-//				.failureUrl("/login?message=error")//
-//				.usernameParameter("username")//
-//				.passwordParameter("password")
-//				// Cấu hình cho Logout Page.
-//				.and().logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/login?message=logout");
+				.failureUrl("/login?error")//
+				.and()//
+				.exceptionHandling()//
+				.and().exceptionHandling().accessDeniedPage("/login");//
 	}
 
 }

@@ -28,15 +28,6 @@ public class ProductService implements IProductService {
 		return productRepository.findAll();
 	}
 	
-//	@Override
-//	public ProductCreateModifyDTO createModify(ProductCreateModifyDTO dto) {
-//		ProductEntity entity = new ProductEntity();
-//		entity = mapper.toProduct(dto);
-//		entity = mapper.toProductResponserDTO(product)
-//		entity = productRepository.save(entity);
-//		return entity;
-//	}
-	
 	@Override
 	public ProductEntity createModify(ProductEntity entity) {
 		return productRepository.save(entity);
@@ -57,7 +48,6 @@ public class ProductService implements IProductService {
 
 	@Override
 	public Page<ProductEntity> getAll(int pageNo, int pageSize) {
-
 		return productRepository.findAll(PageRequest.of(pageNo -1, pageSize));
 	}
 
@@ -66,5 +56,9 @@ public class ProductService implements IProductService {
 		return productRepository.countProduct();
 	}
 
-	
+	@Override
+	public ProductEntity findByIdEntity(long id) {
+		ProductEntity product = productRepository.findById(id).orElse(null);
+		return product;
+	}
 }

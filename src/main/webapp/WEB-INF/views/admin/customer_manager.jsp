@@ -93,20 +93,20 @@
 									aria-expanded="false" class="btn-shadow btn btn-info"> <span
 									class="btn-icon-wrapper pr-2 opacity-7"> <i
 										class="fa fa-business-time fa-w-20"></i>
-								</span> Thêm khách hàng
+								</span> Thêm tài khoản
 								</a>
 								<button id="btnDelete" type="button" aria-haspopup="true"
 									onclick="warningBeforeDelete()" aria-expanded="false"
 									class="btn-shadow btn btn-danger">
 									<span class="btn-icon-wrapper pr-2 opacity-7"> <i
 										class="fa fa-business-time fa-w-20"></i>
-									</span> Xóa khách hàng
+									</span> Xóa tài khoản
 								</button>							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
 								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
 									href="#">Home</a>&nbsp;</li>
 								<li><i class="fa fa-angle-right"></i></li>
-								<li class="active">Quản lý khách hàng</li>
+								<li class="active">Quản lý tài khoản</li>
 							</ol>
 						</div>
 					</div>
@@ -114,7 +114,7 @@
 						<div class="col-md-12">
 							<div class="card card-topline-aqua">
 								<div class="card-head">
-									<header>Bảng quản lý dữ liệu khách hàng</header>
+									<header>Bảng quản lý dữ liệu tài khoản</header>
 									<div class="tools">
 										<a class="fa fa-repeat btn-color box-refresh"
 											href="javascript:;"></a> <a
@@ -143,22 +143,22 @@
 											</thead>
 											<tbody>
 												<form:form id="formSubmit" role="form" class="form-horizontal">
-											<c:forEach var="customer" items="${userentity}">
+											<c:forEach var="item" items="${userentity}">
 												<tr>
-													<td><input type="checkbox" id="checkbox_${customer.id}"
-																value="${customer.id}" /></td>
-													<td>${customer.username}</td>
-													<td>${customer.fullName }</td>
-													<td>${customer.email }</td>
-													<td>${customer.phoneNumber }</td>
-													<td>${customer.birthday}</td>
-													<td>${customer.createdDate}</td>
-													<td>${customer.modifiedDate}</td>
-													<td>${customer.createdBy}</td>
-													<td>${customer.modifiedBy}</td>
+													<td><input type="checkbox" id="checkbox_${item.id}"
+																value="${item.id}" /></td>
+													<td>${item.username}</td>
+													<td>${item.fullName }</td>
+													<td>${item.email }</td>
+													<td>${item.phoneNumber }</td>
+													<td>${item.birthday}</td>
+													<td>${item.createdDate}</td>
+													<td>${item.modifiedDate}</td>
+													<td>${item.createdBy}</td>
+													<td>${item.modifiedBy}</td>
 													<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/customer">
-																	<c:param name="id" value="${customer.id}" />
+																	<c:param name="id" value="${item.id}" />
 																</c:url> <a href='${createModify}'
 																class="btn btn-outline-warning"
 																data-original-title="Update">Update</a> &nbsp;&nbsp;
