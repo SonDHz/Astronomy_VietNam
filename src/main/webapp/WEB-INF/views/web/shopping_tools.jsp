@@ -46,20 +46,18 @@
 											<div class="post-thumb">
 												<c:url var="display" value='/getImageView'>
 													<c:param name="img" value="${item.image}" />
-												</c:url> 
+												</c:url>
 												<img alt="" src="${display}" width="auto" height="550px">
 											</div>
 											<div class="post-details">
 												<h4>
-												<c:url var="view"
-												value="productViewDetail">
-											<c:param name="id" value="${item.id}" />
-											</c:url>
+													<c:url var="view" value="/productViewDetail/${item.id}"/>
 													<a href="${view}">${item.name}</a>
 												</h4>
 												<p>${item.shortDecription}</p>
 												<div class="blog-meta">
-													<a href="${view}" class="btn btn-primary">Thêm vào giỏ hàng</a>
+													<a href="${view}" class="btn btn-primary">Thêm vào giỏ
+														hàng</a>
 												</div>
 											</div>
 										</div>
@@ -81,8 +79,8 @@
 									<c:forEach var="i" begin="1" end="${totalPages}">
 										<c:choose>
 											<c:when test="${currentPage == i}">
-												<li class="page-item active "><a href="/shoppingTools/${i}"
-													class="page-link">${i}</a></li>
+												<li class="page-item active "><a
+													href="/shoppingTools/${i}" class="page-link">${i}</a></li>
 											</c:when>
 											<c:otherwise>
 												<li class="page-item  "><a href="/shoppingTools/${i}"

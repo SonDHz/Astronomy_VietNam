@@ -133,9 +133,9 @@
 													<th>#ID</th>
 													<th>Loại sản phẩm</th>
 													<th>Tên sản phẩm</th>
-													<!-- <th>Nhà sản xuất</th> -->
+													<th>Nhà sản xuất</th> 
 													<th>Giá</th>
-													<th>Số lương</th>
+													<th>Số lượng</th>
 													<th>Hình ảnh</th>
 													<th>Tạo bởi</th>
 													<th>Action</th>
@@ -151,7 +151,7 @@
 															<td><label>${item.id}</label></td>
 															<td>${item.productCategory.name}</td>
 															<td>${item.name}</td>
-															<%-- <td>${item.manufacturer}</td> --%>
+															<td>${item.manufacturer.name}</td>
 															<td>${item.price}</td>
 															<td>${item.quantity}</td>
 															<td><c:url var="display" value='getImage'>
@@ -404,7 +404,7 @@
 																$(
 																		'#exampleModal #manufacturer')
 																		.val(
-																				product.manufacturer);
+																				product.manufacturer.name);
 																$(
 																		'#exampleModal #status')
 																		.val(

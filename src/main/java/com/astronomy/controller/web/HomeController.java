@@ -45,7 +45,6 @@ public class HomeController {
 	public String logout(HttpServletRequest request) {
 		HttpSession httpSession = request.getSession();
 		httpSession.removeAttribute("USER");
-
 		return "redirect:/login";
 	}
 }

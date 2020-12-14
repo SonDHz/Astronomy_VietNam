@@ -96,9 +96,9 @@ public class ProductEntity implements Serializable {
 	@ToString.Exclude
 	private ProductCategoryEntity productCategory;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "manufacturer_id")
-	@JsonIgnore
+	@JsonManagedReference(value = "products")
 	@ToString.Exclude
 	private ManufacturerEntity manufacturer;
 

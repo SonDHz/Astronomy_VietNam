@@ -63,7 +63,6 @@ public class ProductAPI {
 	public ResponseEntity<ProductEntity> find( Model model, @PathVariable("id") Long id){
 		try {
 			ProductEntity entity = repo.findById(id).orElse(null);
-			System.out.println("entity: " + entity.getProductCategory());
 			return new ResponseEntity<ProductEntity>(entity, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<ProductEntity>(HttpStatus.BAD_REQUEST);

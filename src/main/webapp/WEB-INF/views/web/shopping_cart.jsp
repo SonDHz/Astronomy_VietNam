@@ -24,12 +24,16 @@
 <!-- css -->
 <style>
 table {
-  width: 100%;
+	width: 100%;
 }
-p{
-color:#7c32ff;}
-b{
-display:flex;}
+
+p {
+	color: #7c32ff;
+}
+
+b {
+	display: flex;
+}
 </style>
 <%@include file="/common/web/style.jsp"%>
 </head>
@@ -46,9 +50,10 @@ display:flex;}
 				<div class="col-lg-12 post-list">
 					<!-- Start Post Area -->
 					<section class="post-area">
-					<p style="font-size:40px"><strong>Giỏ hàng</strong></p>
-					<br>
-					
+						<p style="font-size: 40px">
+							<strong>Giỏ hàng</strong>
+						</p>
+						<br>
 						<div>
 							<table class="table table-bordered">
 								<thead class="thead-dark">
@@ -58,42 +63,41 @@ display:flex;}
 										<th>Số lượng</th>
 										<th>Giá tiền</th>
 										<th>Tổng cộng</th>
+										<th colspan="2">Hành động</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="text-center">
-										<td>Sách thiên văn</td>
-										<td>Otto</td>
-										<td>1</td>
-										<th>10.000VNĐ</th>
-										<td>10.000VNĐ&nbsp;<button class="btn btn-info">Xóa</button></td>
-										
-									</tr>
-									<tr class="text-center">
-										<td>Ống nhòm thiên văn</td>
-										<td>Thornton</td>
-										<td>2</td>
-										<td>20.000VNĐ</td>
-										<td>20.000VNĐ&nbsp;<button class="btn btn-info">Xóa</button></td>
-									</tr>
-									<tr class="text-center">
-										<td>Kính thiên văn</td>
-										<td>Alice</td>
-										<td>3</td>
-										<td>30.000VNĐ</td>
-										<td>30.000VNĐ&nbsp;<button class="btn btn-info">Xóa</button></td>
-									</tr>
+									<c:forEach var="item" items="${Cart}">
+										<tr class="text-center">
+											<td>${ item.value.product.name }</td>
+											<td><c:url var="display" value='/getImageView'>
+													<c:param name="img" value="${item.value.product.image}" />
+												</c:url> <img class="pic" alt="" src="${display}" width="auto"
+												height="120px"></td>
+											<td><input type="number" min="1" max="5"
+												id="quanty-cart-${item.key}" value="${ item.value.quanty }" /></td>
+											<td>${ item.value.product.price }</td>
+											<th>${ item.value.totalPrice }</th>
+											<td>&nbsp;<a
+												href="<c:url value='/deleteCart/${ item.key }'/>"
+												class="btn btn-danger">Xóa</a></td>
+											<td>&nbsp;
+												<button class="btn btn-warning edit-cart" onclick="EditQuanty();" data-id="${ item.key }">
+													Sửa</button>
+											</td>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 							<br>
 							<div class="b">
-							<button class="btn btn-primary">Hình thức thanh toán</button>&nbsp;&nbsp;
-							<button class="btn btn-danger">Tiến hành đặt hàng</button>
+								<button class="btn btn-success">Tiến hành đặt hàng</button>
+								<h2>Tổng đơn: ${TotalPrice}</h2>
 							</div>
 						</div>
 					</section>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
@@ -106,6 +110,13 @@ display:flex;}
 	<!-- Javascript -->
 	<%@include file="/common/web/js.jsp"%>
 	<!-- End javascript -->
+	<script type="text/javascript">
+		$(".edit-cart").on("click", function(){
+			var id = $(this).data("id");
+			var quanty = $("#quanty-cart-"+id).val();
+			window.location = "editCart/"+id+"/"+quanty;
+		})
+	</script>
 </body>
 
 </html>

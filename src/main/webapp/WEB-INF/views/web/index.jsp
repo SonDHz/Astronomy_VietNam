@@ -27,6 +27,7 @@
 padding:10px;}
 </style>
 <%@include file="/common/web/style.jsp"%>
+
 </head>
 
 <body>

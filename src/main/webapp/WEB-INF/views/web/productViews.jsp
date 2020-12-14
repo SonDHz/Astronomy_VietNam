@@ -60,7 +60,6 @@
 }
 
 .code {
-
 	font-size: 23px;
 }
 
@@ -71,39 +70,38 @@
 .quantity {
 	font-size: 20px;
 	font-size: 30px;
-
 }
 
 .pb-product-details-ul {
-        list-style-type: none;
-        padding-left: 0;
-        color: black;
-    }
+	list-style-type: none;
+	padding-left: 0;
+	color: black;
+}
 
-        .pb-product-details-ul > li {
-            padding-bottom: 5px;
-            font-size: 15px;
-        }
+.pb-product-details-ul>li {
+	padding-bottom: 5px;
+	font-size: 15px;
+}
 
-    #hits {
-        border-right: 1px solid white;
-        border-left: 1px solid white;
-        vertical-align: middle;
-        padding-top: 15px;
-        font-size: 17px;
-        color: white;
-    }
+#hits {
+	border-right: 1px solid white;
+	border-left: 1px solid white;
+	vertical-align: middle;
+	padding-top: 15px;
+	font-size: 17px;
+	color: white;
+}
 
-    #fan {
-        vertical-align: middle;
-        padding-top: 15px;
-        font-size: 17px;
-        color: white;
-    }
+#fan {
+	vertical-align: middle;
+	padding-top: 15px;
+	font-size: 17px;
+	color: white;
+}
 
-    .pb-product-details-fa > span {
-        padding-top: 20px;
-    }
+.pb-product-details-fa>span {
+	padding-top: 20px;
+}
 
 .pic {
 	border: solid 2px;
@@ -123,8 +121,8 @@
 	<div class="main-body section-gap">
 		<div class="container box_1170">
 			<div id="gradient">
-				<form:form id="formSubmit" role="form" class="form-horizontal row"
-					action="/api/Product" modelAttribute="model" method="post"
+				<form id="formSubmit" role="form" class="form-horizontal row"
+					action="/api/Product" modelAttribute="model" method="get"
 					enctype="multipart/form-data">
 					<div class="col-md-4">
 						<c:url var="display" value='/getImageView'>
@@ -183,13 +181,15 @@
 							</div>
 						</div>
 						<br>
-						<p class="p text-danger"><strong>Thông tin chi tiết xin vui lòng xem bên dưới</strong></p>
+						<p class="p text-danger">
+							<strong>Thông tin chi tiết xin vui lòng xem bên dưới</strong>
+						</p>
 						<br>
 						<div class="price">
 							<strong>Giá tiền : ${model.price}&nbsp;VNĐ</strong>
 						</div>
 						<br>
-						<div class="quantity">
+						<!-- <div class="quantity">
 							<strong>Số lượng</strong>
 						</div>
 						<br>
@@ -201,7 +201,7 @@
 										data-type="minus" data-field="">
 										<span class="fa fa-minus"></span>
 									</button>&nbsp;&nbsp; <input type="text" id="quantity" name="quantity"
-									class="form-control input-number" value="1" min="1" max="100">&nbsp;&nbsp;
+									class="form-control input-number" value="1" min="1" max="100" >&nbsp;&nbsp;
 									<button type="button"
 										class="quantity-right-plus btn btn-info btn-number"
 										data-type="plus" data-field="">
@@ -210,120 +210,119 @@
 								</span>
 							</div>
 						</div>
-						<br>
+						<br> -->
 
-						<button type="button" class="btn btn-danger">Mua hàng</button>
-						&nbsp;&nbsp;&nbsp;
-						<button type="button" class="btn btn-primary">Thêm vào
-							giỏ hàng</button>
-	</form:form>
-					</div>
+						<c:url var="addToCart" value="/addCart/${model.id}" />
+						<a href="${addToCart}" type="submit" class="btn btn-primary">Thêm
+							vào giỏ hàng</a>
+				</form>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="tabs_div">
+				<ul>
+					<li><strong>Thông số kỹ thuật</strong></li>
+					<li><strong>Phụ kiện đi kèm</strong></li>
+					<li><strong>Tham khảo</strong></li>
+					<li><strong>Giới thiệu</strong></li>
+				</ul>
+				<div>
+					<table class="table">
+						<tbody>
+							<tr>
+								<td class="success">Thiết kế quang học:</td>
+								<td>Phản xạ Newton</td>
+							</tr>
+							<tr>
+								<td class="success">Đường kính:</td>
+								<td>130mm (5.11 “)</td>
+							</tr>
+							<tr>
+								<td class="success">Độ dài tiêu cự:</td>
+								<td>650mm (25,6 “)</td>
+							</tr>
+							<tr>
+								<td class="success">Khẩu độ:</td>
+								<td>f /5</td>
+							</tr>
+							<tr>
+								<td class="success">Kính định vị tìm mục tiêu</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="success">Lớp phủ:</td>
+								<td>Quang nhôm</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-			<br>
-			<div class="row">
-				<div class="tabs_div">
-					<ul>
-						<li><strong>Thông số kỹ thuật</strong></li>
-						<li><strong>Phụ kiện đi kèm</strong></li>
-						<li><strong>Tham khảo</strong></li>
-						<li><strong>Giới thiệu</strong></li>
-					</ul>
-					<div>
-						<table class="table">
-							<tbody>
-								<tr>
-									<td class="success">Thiết kế quang học:</td>
-									<td>Phản xạ Newton</td>
-								</tr>
-								<tr>
-									<td class="success">Đường kính:</td>
-									<td>130mm (5.11 “)</td>
-								</tr>
-								<tr>
-									<td class="success">Độ dài tiêu cự:</td>
-									<td>650mm (25,6 “)</td>
-								</tr>
-								<tr>
-									<td class="success">Khẩu độ:</td>
-									<td>f /5</td>
-								</tr>
-								<tr>
-									<td class="success">Kính định vị tìm mục tiêu</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td class="success">Lớp phủ:</td>
-									<td>Quang nhôm</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div>
-						<table class="table">
-							<tbody>
-								<tr>
-									<td class="success">Bộ điều khiển tinh chỉnh</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td class="success">Chân máy:</td>
-									<td>Đường kính ống chân 1.25 ”</td>
-								</tr>
-								<tr>
-									<td class="success">Phần mềm Starry Night Basic Edition</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td class="success">Khay phụ kiện</td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div>
-						<table class="table">
-							<tbody>
-								<tr>
-									<td>Kính thiên văn Celestron Astromaster 114EQ</td>
-								</tr>
-								<tr>
-									<td>Kính thiên văn Celestron Astromater 70EQ</td>
+				<div>
+					<table class="table">
+						<tbody>
+							<tr>
+								<td class="success">Bộ điều khiển tinh chỉnh</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="success">Chân máy:</td>
+								<td>Đường kính ống chân 1.25 ”</td>
+							</tr>
+							<tr>
+								<td class="success">Phần mềm Starry Night Basic Edition</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="success">Khay phụ kiện</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div>
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>Kính thiên văn Celestron Astromaster 114EQ</td>
+							</tr>
+							<tr>
+								<td>Kính thiên văn Celestron Astromater 70EQ</td>
 
 
-								</tr>
-								<tr>
-									<td>Kính thiên văn Celestron Deluxe 130EQ</td>
+							</tr>
+							<tr>
+								<td>Kính thiên văn Celestron Deluxe 130EQ</td>
 
-									
-								</tr>
-								<tr>
-									<td>Kính thiên văn Celestron Deluxe 130EQ </td>
 
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div>
-						<table class="table">
-							<tbody>
-								<tr>
-									<td class="decs">Celestron AstroMaster 130EQ là dòng kính
-										thiên văn chính hãng rất tiện lợi cho các bạn mang đi du lịch,
-										có thể được lắp ráp rất dễ dàng mà không cần thêm bất cứ dụng
-										cụ phụ trợ nào. Nó còn là một món quà giải trí, học tập tuyệt
-										vời của các ông bố bà mẹ dành tặng cho các bạn nhỏ muốn khám
-										phá bầu trời, là chiếc kính rất phù hợp dành cho những bạn mới
-										bắt đầu quan tâm đến thiên văn, vũ trụ muốn có một chiếc kính
-										cho riêng mình. Với kính thiên văn Celestron AstroMaster
-										130EQ, bạn có thể quan sát được Mặt Trăng, sao Mộc, sao
-										Thổ,…hay quan sát địa văn như một chiếc ống nhòm.r</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+							</tr>
+							<tr>
+								<td>Kính thiên văn Celestron Deluxe 130EQ</td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div>
+					<table class="table">
+						<tbody>
+							<tr>
+								<td class="decs">Celestron AstroMaster 130EQ là dòng kính
+									thiên văn chính hãng rất tiện lợi cho các bạn mang đi du lịch,
+									có thể được lắp ráp rất dễ dàng mà không cần thêm bất cứ dụng
+									cụ phụ trợ nào. Nó còn là một món quà giải trí, học tập tuyệt
+									vời của các ông bố bà mẹ dành tặng cho các bạn nhỏ muốn khám
+									phá bầu trời, là chiếc kính rất phù hợp dành cho những bạn mới
+									bắt đầu quan tâm đến thiên văn, vũ trụ muốn có một chiếc kính
+									cho riêng mình. Với kính thiên văn Celestron AstroMaster 130EQ,
+									bạn có thể quan sát được Mặt Trăng, sao Mộc, sao Thổ,…hay quan
+									sát địa văn như một chiếc ống nhòm.r</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
-</div>
+		</div>
+	</div>
 	</div>
 	<!-- Start main body Area -->
 
@@ -341,41 +340,29 @@
 		jQuery(function($) {
 			$(".tabs_div").shieldTabs();
 		});
-
 		$(document).ready(function() {
-
 			var quantitiy = 0;
 			$('.quantity-right-plus').click(function(e) {
-
 				// Stop acting like a button
 				e.preventDefault();
 				// Get the field name
 				var quantity = parseInt($('#quantity').val());
-
 				// If is not undefined
-
 				$('#quantity').val(quantity + 1);
-
 				// Increment
-
 			});
-
 			$('.quantity-left-minus').click(function(e) {
 				// Stop acting like a button
 				e.preventDefault();
 				// Get the field name
 				var quantity = parseInt($('#quantity').val());
-
 				// If is not undefined
-
 				// Increment
 				if (quantity > 0) {
 					$('#quantity').val(quantity - 1);
 				}
 			});
-
 		});
-
 	</script>
 </body>
 <link rel="stylesheet" type="text/css"

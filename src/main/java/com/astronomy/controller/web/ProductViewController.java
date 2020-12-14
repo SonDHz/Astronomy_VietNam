@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
@@ -51,6 +53,7 @@ public class ProductViewController {
 				return ResponseEntity.ok().contentLength(buffer.length)
 						.contentType(MediaType.parseMediaType("image/png")).body(byteArrayResource);
 			} catch (Exception e) {
+				System.out.println("catch");
 				e.printStackTrace();
 			}
 		}
@@ -70,8 +73,8 @@ public class ProductViewController {
 		return "web/shopping_tools";
 	}
 
-	@GetMapping("/productViewDetail")
-	public String action(Model model, @RequestParam(value = "id", required = false) Long id) {
+	@GetMapping("/productViewDetail/{id}")
+	public String action(Model model, @PathVariable(value = "id", required = false) Long id) {
 		ProductCreateModifyDTO dto = new ProductCreateModifyDTO();
 		if (id != null) {
 			dto = service.findByIdDTO(id);

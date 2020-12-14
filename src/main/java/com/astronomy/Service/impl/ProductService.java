@@ -43,7 +43,6 @@ public class ProductService implements IProductService {
 	@Override
 	public ProductCreateModifyDTO findByIdDTO(long id) {
 		ProductEntity product = productRepository.findById(id).orElse(null);
-		System.out.println("product: " + product.getProductCategory());
 		return mapper.toProductResponserDTO(product);
 	}
 
