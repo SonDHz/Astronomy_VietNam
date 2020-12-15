@@ -128,7 +128,7 @@
 						<c:url var="display" value='/getImageView'>
 							<c:param name="img" value="${model.image}" />
 						</c:url>
-						<img class="pic" alt="" src="${display}" width="auto"
+						<img class="pic" alt="" src="${display}" width="350px"
 							height="350px">
 					</div>
 					<div class="col-md-8" id="overview">

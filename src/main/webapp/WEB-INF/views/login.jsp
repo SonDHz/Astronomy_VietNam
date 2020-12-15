@@ -40,14 +40,9 @@
 	<!-- Login Form-->
 	<div class="login-form text-center">
 		<div class="toggle">
-			<i class="fa fa-user-plus"></i>
+			
 		</div>
 		<div class="form formLogin">
-			<div>
-				<c:if test="${ param.success }">
-					<div class="alert alert-info">Đăng kí tài khoản thành công</div>
-				</c:if>
-			</div>
 			<h2>Đăng nhập</h2>
 			<form:form action="/j_spring_security_login" method='POST'>
 				<input type="text" id="username" name="j_username"
@@ -64,7 +59,7 @@
 				</div>
 				<button type="submit">Đăng nhập</button>
 				<div class="forgetPassword">
-					<a href="javascript:void(0)">Quên mật khẩu</a>
+					<a href="/registration">Đăng kí tài khoản</a>
 				</div>
 			</form:form>
 		</div>

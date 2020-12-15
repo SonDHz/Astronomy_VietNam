@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -68,23 +69,23 @@ public class UserEntity {
 	@Column(name = "status")
 	private Integer status;
 
-//	@Column(name = "createddate", updatable = false)
-//	@CreatedDate
-//	private Date createdDate;
-//
-//	@Column(name = "modifieddate", updatable = true)
-//	@LastModifiedDate
-//	private Date modifiedDate;
-//
-//	@Column(name = "createdby", updatable = false)
-//	@CreatedBy
-//	private String createdBy;
-//
-//	@Column(name = "modifiedby", updatable = true)
-//	@LastModifiedBy
-//	private String modifiedBy;
+	@Column(name = "createddate", updatable = false)
+	@CreatedDate
+	private Date createdDate;
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@Column(name = "modifieddate", updatable = true)
+	@LastModifiedDate
+	private Date modifiedDate;
+
+	@Column(name = "createdby", updatable = false)
+	@CreatedBy
+	private String createdBy;
+
+	@Column(name = "modifiedby", updatable = true)
+	@LastModifiedBy
+	private String modifiedBy;
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
 	private List<RoleEntity> roles = new ArrayList<>();
 }
