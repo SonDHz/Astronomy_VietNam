@@ -1,5 +1,6 @@
 package com.astronomy.Service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.astronomy.Service.IUserService;
 import com.astronomy.dto.UserCreateModifyDTO;
+import com.astronomy.entity.RoleEntity;
 import com.astronomy.entity.UserEntity;
 import com.astronomy.mapper.UserMapper;
 import com.astronomy.repository.UserRepository;
@@ -51,6 +53,18 @@ public class UserEntityService implements IUserService {
 	@Override
 	public List<UserEntity> getAllCustomer() {
 		return userRepository.getAllCustomer();
+	}
+
+	@Override
+	public UserEntity registration(UserCreateModifyDTO dto) {
+		UserEntity user = new UserEntity(dto.getId(), dto.getUsername(), 
+				dto.getPassword(), dto.getFullName(), dto.getEmail(),
+				dto.getPhoneNumber(), dto.getAddress(), dto.getStatus(),
+				/*
+				 * dto.getCreatedDate(), dto.getModifiedDate(), dto.getCreatedBy(),
+				 * dto.getModifiedBy(),
+				 */ Arrays.asList(new RoleEntity("USER")));
+		return userRepository.save(user);
 	}
 	
 }

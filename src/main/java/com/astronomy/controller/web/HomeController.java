@@ -5,9 +5,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.astronomy.dto.UserCreateModifyDTO;
 
 
 @Controller(value = "HomeControllerOfWeb")
@@ -19,7 +22,8 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "login")
-	public String login(@RequestParam(required = false) String message, final Model model) {
+	public String login(@RequestParam(required = false) String message, final Model model,
+			@ModelAttribute("userDTO") UserCreateModifyDTO dto) {
 		if (message != null && !message.isEmpty()) {
 			if (message.equals("logout")) {
 				model.addAttribute("message", "Logout!");

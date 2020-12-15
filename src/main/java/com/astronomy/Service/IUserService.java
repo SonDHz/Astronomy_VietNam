@@ -11,6 +11,8 @@ public interface IUserService {
 	
 	UserEntity createModify(UserEntity entity);
 	
+	UserEntity registration(UserCreateModifyDTO dto);
+	
 	UserCreateModifyDTO findByIdDTO(long id);
 	
 	void delete(long[] ids);
