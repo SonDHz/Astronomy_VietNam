@@ -31,8 +31,9 @@ p {
 	color: #7c32ff;
 }
 
-b {
-	display: flex;
+.text-muted{
+font-size:26px;
+font-family: 'Langar', cursive;
 }
 </style>
 <%@include file="/common/web/style.jsp"%>
@@ -90,9 +91,9 @@ b {
 								</tbody>
 							</table>
 							<br>
-							<div class="b">
-								<button class="btn btn-success">Tiến hành đặt hàng</button>
-								<h2>Tổng đơn: ${TotalPrice}</h2>
+							<div class="d-flex justify-content-between">
+								<a href="/checkout" class="btn btn-success">Tiến hành đặt hàng</a> 
+								<span class="text-muted">Tổng đơn: ${TotalPrice} &nbsp;VNĐ</span>
 							</div>
 						</div>
 					</section>

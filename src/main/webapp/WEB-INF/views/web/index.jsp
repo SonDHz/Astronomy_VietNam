@@ -10,7 +10,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Favicon-->
-<link rel="shortcut icon" href="../../template/web/img/fav.png">
+
 <!-- Author Meta -->
 <meta name="author" content="codepixer">
 <!-- Meta Description -->
@@ -433,8 +433,8 @@ padding:10px;}
 													class="lnr lnr-arrow-left"></span>
 											</span>
 										</a></li>
-										<li class="page-item"><a href="#" class="page-link">01</a></li>
-										<li class="page-item active"><a href="#"
+										<li class="page-item active"><a href="#" class="page-link">01</a></li>
+										<li class="page-item "><a href="#"
 											class="page-link">02</a></li>
 										<li class="page-item"><a href="#" class="page-link">03</a></li>
 										<li class="page-item"><a href="#" class="page-link">04</a></li>

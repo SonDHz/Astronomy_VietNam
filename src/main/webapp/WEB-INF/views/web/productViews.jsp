@@ -136,16 +136,16 @@
 							<div class="col-xs-6 col-md-6">
 								<ul class="pb-product-details-ul">
 									<li><span class="fa fa-archive fa-2x text-danger"><br>
-											<div class="code1 text-danger">
+											<div class="code1 text-muted">
 												<strong>Tên sản phẩm: ${model.name}</strong>
 											</div> </span></li>
 									<li><span class="fa fa-star fa-2x text-warning">
-											<div class="code1 text-warning">
+											<div class="code1 text-muted">
 												<strong>Trạng thái: ${model.status}</strong>
 											</div>
 									</span></li>
 									<li><span class="fa fa-arrow-up fa-2x text-info">
-											<div class="code1 text-info">
+											<div class="code1 text-muted">
 												<strong>${model.shortDecription}</strong>
 											</div>
 									</span></li>
