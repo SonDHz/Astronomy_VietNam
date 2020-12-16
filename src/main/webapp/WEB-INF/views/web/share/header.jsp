@@ -27,9 +27,14 @@
 		<div class="row align-items-center justify-content-center d-flex">
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
+				
 					<li class="menu-active"><a href="/"><Strong>Trang
 								chủ</Strong></a></li>
-					<li><a href="/shoppingTools"><Strong>Sản phẩm</Strong></a></li>
+					<li class="menu-has-children"><a href="/shoppingTools"><Strong>Sản phẩm</Strong></a>
+						<ul>
+							<li><a href="blog-details.html"><h6>Ống nhòm</h6></a></li>
+							<li><a href="blog-details.html"><h6>Kính</h6></a></li>
+						</ul></li>
 					<li class="menu-has-children"><a href="#"><Strong>Tham
 								khảo</Strong></a>
 						<ul>

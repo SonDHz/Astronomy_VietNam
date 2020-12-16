@@ -20,4 +20,5 @@ public class AstronomyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AstronomyApplication.class, args);
 	}
+	
 }

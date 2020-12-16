@@ -5,6 +5,8 @@
 <%@include file="/common/taglib.jsp"%>
 <%@include file="/common/web/style.jsp"%>
 <%@ page import="com.astronomy.Utils.SecurityUtils"%>
+<c:url var="productcategoryURL" value="/admin/productCategoryView"/>
+<c:url var="productcategoryAPI" value="/api/ProductCategory"/>
 <!--================ Start header Top Area =================-->
 
 <section class="header-top">
@@ -55,8 +57,18 @@
 					<li><a href="/"><Strong><i
 								class="fa fa-home fa-lg,font-size:10px"></i>&nbsp;&nbsp;Trang
 								chủ</Strong></a></li>
-					<li><a href="/shoppingTools"><Strong><i
-								class="fa fa-gift fa-lg,font-size:10px"></i>&nbsp;&nbsp;Sản phẩm</Strong></a></li>
+								
+					<li><a href="#"><Strong><i
+								class="fa fa-gift fa-lg,font-size:10px"></i>&nbsp;&nbsp;Sản phẩm</Strong></a>
+								<ul>
+								<c:forEach var="item" items="${productCategorySession}">
+							<li><a href='<c:url value= "/shoppingTools/${item.id}"/>'><h6>
+										<i class="fa fa-newspaper-o fa-lg,font-size:10px"></i>&nbsp;&nbsp;${item.name}
+									</h6></a></li>
+								</c:forEach>	
+						</ul>
+								</li>
+		
 					<li class="menu-has-children"><a href="#"><Strong><i
 								class="fa fa-table fa-lg,font-size:10px"></i>&nbsp;&nbsp;Tham
 								khảo</Strong></a>

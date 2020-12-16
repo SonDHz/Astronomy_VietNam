@@ -23,4 +23,8 @@ public interface IProductService {
 	
 	void delete(long[] ids);
 	
+	List<ProductEntity> getProductByCategory(long id);
+	
+	Page<ProductEntity> getProductPaging( int pageNo, int pageSize);
+
 }
