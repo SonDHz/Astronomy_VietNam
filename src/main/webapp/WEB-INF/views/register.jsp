@@ -35,50 +35,33 @@
 </head>
 <body>
 	<div class="form-title">
-		<h1>Đăng nhập và trải nghiệm</h1>
+		<h1>Đăng kí tài khoản</h1>
 	</div>
 	<!-- Login Form-->
 	<div class="login-form text-center">
-		<div class="toggle">
-			
-		</div>
 		<div class="form formLogin">
-			<h2>Đăng nhập</h2>
-			<form:form action="/j_spring_security_login" method='POST'>
-				<input type="text" id="username" name="j_username"
-					placeholder="Tài khoản">
-				<input type="password" id="password" name="j_password"
-					placeholder="Mật khẩu">
-				<div class="remember text-left">
-					<!-- <div class="checkbox checkbox-primary">
-                        <input id="checkbox2" type="checkbox" checked="">
-                        <label for="checkbox2">
-                            Nhớ mật khẩu
-                        </label>
-                    </div> -->
-				</div>
-				<button type="submit">Đăng nhập</button>
-				<div class="forgetPassword">
-					<a href="/registration">Đăng kí tài khoản</a>
-				</div>
-			</form:form>
+			<div>
+				<c:if test="${ param.success }">
+					<div class="alert alert-info">Đăng kí tài khoản thành công</div>
+				</c:if>
+			</div>
 		</div>
 		<div class="form formRegister">
 			<h2>Tạo tài khoản</h2>
 			<form:form action="/registration" method="POST"
 				modelAttribute="userDTO">
 				<form:hidden path="id" name="id" value="${userDto.id}" />
-				<form:input path="username" name="username" type="text"
+				<form:input path="username" name="username" type="text" value="${userDto.username}"
 					placeholder="Tên tài khoản" />
-				<form:input path="password" name="password" type="password"
+				<form:input path="password" name="password" type="password" value="${userDto.password}"
 					placeholder="Password" />
-				<form:input path="fullName" name="fullName" type="text"
+				<form:input path="fullName" name="fullName" type="text" value="${userDto.fullName}"
 					placeholder="Họ tên" />
-				<form:input path="email" name="email" type="email"
+				<form:input path="email" name="email" type="email" value="${userDto.email}"
 					placeholder="Email" />
-				<form:input path="phoneNumber" name="phoneNumber" type="number"
+				<form:input path="phoneNumber" name="phoneNumber" type="number" value="${userDto.phoneNumber}"
 					placeholder="Số điện thoại" />
-				<form:input path="address" name="address" type="text"
+				<form:input path="address" name="address" type="text" value="${userDto.address}"
 					placeholder="Địa chỉ" />
 				<form:hidden path="status" name="status" value="1" />
 				<button type="submit">Đăng kí</button>

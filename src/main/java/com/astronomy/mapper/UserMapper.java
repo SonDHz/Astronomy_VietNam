@@ -17,14 +17,11 @@ public class UserMapper {
 				.email(dto.getEmail())//
 				.phoneNumber(dto.getPhoneNumber())//
 				.address(dto.getAddress())//
-				.gender(dto.getGender())//
-				.birthday(dto.getBirthday())//
-				.avatar(dto.getAvatar())//
 				.status(dto.getStatus())//
-				.createdBy(dto.getCreatedBy())//
-				.createdDate(dto.getCreatedDate())//
-				.modifiedBy(dto.getModifiedBy())//
-				.modifiedDate(dto.getModifiedDate())//
+//				.createdBy(dto.getCreatedBy())//
+//				.createdDate(dto.getCreatedDate())//
+//				.modifiedBy(dto.getModifiedBy())//
+//				.modifiedDate(dto.getModifiedDate())//
 				.build();//
 	}
 	
@@ -37,14 +34,11 @@ public class UserMapper {
 				.email(user.getEmail())//
 				.phoneNumber(user.getPhoneNumber())//
 				.address(user.getAddress())//
-				.gender(user.getGender())//
-				.birthday(user.getBirthday())//
-				.avatar(user.getAvatar())//
 				.status(user.getStatus())//
-				.createdBy(user.getCreatedBy())//
-				.createdDate(user.getCreatedDate())//
-				.modifiedBy(user.getModifiedBy())//
-				.modifiedDate(user.getModifiedDate())//
+//				.createdBy(user.getCreatedBy())//
+//				.createdDate(user.getCreatedDate())//
+//				.modifiedBy(user.getModifiedBy())//
+//				.modifiedDate(user.getModifiedDate())//
 				.build();//
 	}
 }

@@ -32,7 +32,6 @@ public class ProductCategoryAPI {
 	public ResponseEntity<ProductCategoryCreateModifyDTO> createProductCategory(
 			@RequestBody ProductCategoryCreateModifyDTO dto, Model model){
 		ProductCategoryEntity entity = productCategoryMapper.toProductCategory(dto);
-		model.addAttribute("model", dto);
 		return ResponseEntity.ok(productCategoryMapper.toProductCategoryResponserDTO(productCategoryService.createModify(entity)));
 	}
 	
