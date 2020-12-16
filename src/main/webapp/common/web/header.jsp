@@ -85,7 +85,7 @@
 
 					<li><a href="#"><Strong><i
 								class="fa fa-info fa-lg,font-size:10px"></i>&nbsp;&nbsp;Tin tức</Strong></a></li>
-					<li><a href="#"><Strong><i
+					<li><a href="/contact"><Strong><i
 								class="fa fa-comment-o fa-lg,font-size:10px"></i>&nbsp;&nbsp;Liên
 								hệ</Strong></a></li>
 				</ul>

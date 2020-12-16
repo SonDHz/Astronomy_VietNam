@@ -47,6 +47,11 @@ public class HomeController {
 		return "web/shopping_tools";
 	}
 	
+	@RequestMapping(value = "contact")
+	public String contact1() {
+		return "web/contact";
+	}
+	
 	@RequestMapping(value = "shopping_cart")
 	public String cart() {
 		return "web/shopping_cart";
