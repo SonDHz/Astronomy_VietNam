@@ -61,4 +61,14 @@ public class ProductService implements IProductService {
 		ProductEntity product = productRepository.findById(id).orElse(null);
 		return product;
 	}
+
+	@Override
+	public List<ProductEntity> getProductByCategory(long id) {
+		return productRepository.getProductByCategory(id);
+	}
+
+	@Override
+	public Page<ProductEntity> getProductPaging(int pageNo, int pageSize) {
+		return productRepository.findAll(PageRequest.of(pageNo -1, pageSize));
+	}
 }

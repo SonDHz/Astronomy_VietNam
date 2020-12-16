@@ -5,9 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
@@ -19,11 +17,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.astronomy.Service.IManufacturerService;
+import com.astronomy.Service.IPagingService;
 import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.Service.IProductService;
+import com.astronomy.dto.PagingDTO;
 import com.astronomy.dto.ProductCreateModifyDTO;
+import com.astronomy.entity.ProductCategoryEntity;
 import com.astronomy.entity.ProductEntity;
 
 @Controller
@@ -36,10 +36,57 @@ public class ProductViewController {
 
 	@Autowired
 	private IManufacturerService manufacturerService;
+	
+	@Autowired
+	private IPagingService pagingService ;
+	
+	@GetMapping("shoppingTools/{id}")
+	public String productViews(Model model, @PathVariable(value = "id") long id) {
+		List<ProductCategoryEntity> pro = productCategoryService.getAll();
+		model.addAttribute("productCategorySession", pro);
+		List<ProductEntity> entity =  service.getProductByCategory(id);
+		model.addAttribute("entityView", entity);
+		return "web/shopping_tools";
+	}
+	
+// Phân trang cũ 
+//	@GetMapping("shoppingTools/{id}")
+//	public String productViews(Model model, @PathVariable(value = "id") long id) {
+//		List<ProductCategoryEntity> pro = productCategoryService.getAll();
+//		model.addAttribute("productCategorySession", pro);
+//		return findPaginated(1, model, id);
+//	}
+//
+//	@GetMapping("/shoppingTools/{id}/{pageNo}")
+//	public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model, @PathVariable long id) {
+//		List<ProductCategoryEntity> pro = productCategoryService.getAll();
+//		model.addAttribute("productCategorySession", pro);
+//		LocalDate ht = LocalDate.now();
+//		model.addAttribute("ht", ht);
+//		Page<ProductEntity> page = service.getProductPaging(pageNo, 6);
+//		System.out.println("page: " + page);
+////		List<ProductEntity> list = page.getContent();
+//		List<ProductEntity> entity =  service.getProductByCategory(id);
+//		entity = page.getContent();
+//		model.addAttribute("currentPage", pageNo);
+//		model.addAttribute("totalPages", page.getTotalPages());
+//		model.addAttribute("totalItems", page.getTotalElements());
+//		
+////		model.addAttribute("entityView", list);
+//		model.addAttribute("productByCategory", entity);	
+//		return "web/shopping_tools";
+//	}
 
-	@GetMapping("shoppingTools")
-	public String productViews(Model model) {
-		return findPaginated(1, model);
+	@GetMapping("/productViewDetail/{id}")
+	public String action(Model model, @PathVariable(value = "id", required = false) Long id) {
+		ProductCreateModifyDTO dto = new ProductCreateModifyDTO();
+		if (id != null) {
+			dto = service.findByIdDTO(id);
+		}
+		model.addAttribute("model", dto);
+		model.addAttribute("productCategories", productCategoryService.findAll());
+		model.addAttribute("manufacturers", manufacturerService.findAll());
+		return "web/productViews";
 	}
 
 	@GetMapping(value = "getImageView")
@@ -58,31 +105,6 @@ public class ProductViewController {
 			}
 		}
 		return ResponseEntity.badRequest().build();
-	}
-
-	@GetMapping("/shoppingTools/{pageNo}")
-	public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model) {
-		LocalDate ht = LocalDate.now();
-		model.addAttribute("ht", ht);
-		Page<ProductEntity> page = service.getAll(pageNo, 6);
-		List<ProductEntity> list = page.getContent();
-		model.addAttribute("currentPage", pageNo);
-		model.addAttribute("totalPages", page.getTotalPages());
-		model.addAttribute("totalItems", page.getTotalElements());
-		model.addAttribute("entityView", list);
-		return "web/shopping_tools";
-	}
-
-	@GetMapping("/productViewDetail/{id}")
-	public String action(Model model, @PathVariable(value = "id", required = false) Long id) {
-		ProductCreateModifyDTO dto = new ProductCreateModifyDTO();
-		if (id != null) {
-			dto = service.findByIdDTO(id);
-		}
-		model.addAttribute("model", dto);
-		model.addAttribute("productCategories", productCategoryService.findAll());
-		model.addAttribute("manufacturers", manufacturerService.findAll());
-		return "web/productViews";
 	}
 
 }

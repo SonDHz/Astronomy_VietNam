@@ -1,20 +1,31 @@
 package com.astronomy.controller.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.astronomy.Service.IProductCategoryService;
+import com.astronomy.entity.ProductCategoryEntity;
+
 
 @Controller(value = "HomeControllerOfWeb")
 public class HomeController {
 
+	@Autowired
+	IProductCategoryService productCategoryService;
+	
 	@RequestMapping(value = "/")
-	public String index() {
+	public String index(Model model) {
+		List<ProductCategoryEntity> list = productCategoryService.getAll();
+		model.addAttribute("productCategorySession", list);
 		return "web/index";
 	}
 
