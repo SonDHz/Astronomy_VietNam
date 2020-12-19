@@ -57,7 +57,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "shopping_cart")
-	public String cart() {
+	public String cart(Model model) {
+		List<ProductCategoryEntity> list = productCategoryService.getAll();
+		model.addAttribute("productCategorySession", list);
 		return "web/shopping_cart";
 	}
 	

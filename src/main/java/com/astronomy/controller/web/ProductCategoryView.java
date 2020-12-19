@@ -13,8 +13,6 @@ import com.astronomy.entity.ProductCategoryEntity;
 
 @Controller
 public class ProductCategoryView {
-
 	@Autowired
 	IProductCategoryService productCategoryService;
-	
 }
