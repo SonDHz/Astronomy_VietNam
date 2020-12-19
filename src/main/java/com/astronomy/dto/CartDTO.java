@@ -15,4 +15,12 @@ public class CartDTO {
 	private Integer quanty;
 	private double totalPrice;
 	private ProductEntity product;
+	
+	public void calAndSetTotalPriceOfProduct() {
+		this.setTotalPrice(this.getQuanty() * this.getProduct().getPrice()); 
+	}
+	
+	public void calAndSetTotalPriceOfProduct(int quantity) {
+		this.setTotalPrice(quantity * this.getProduct().getPrice()); 
+	}
 }

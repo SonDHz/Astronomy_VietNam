@@ -38,7 +38,6 @@ font-family: 'Langar', cursive;
 </style>
 <%@include file="/common/web/style.jsp"%>
 </head>
-
 <body>
 	<!-- ==========Start header========== -->
 	<%@include file="/common/web/header.jsp"%>
@@ -68,7 +67,7 @@ font-family: 'Langar', cursive;
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="item" items="${Cart}">
+									<c:forEach var="item" items="${SESSION_CART}">
 										<tr class="text-center">
 											<td>${ item.value.product.name }</td>
 											<td><c:url var="display" value='/getImageView'>
@@ -93,7 +92,7 @@ font-family: 'Langar', cursive;
 							<br>
 							<div class="d-flex justify-content-between">
 								<a href="/checkout" class="btn btn-success">Tiến hành đặt hàng</a> 
-								<span class="text-muted">Tổng đơn: ${TotalPrice} &nbsp;VNĐ</span>
+								<span class="text-muted">Tổng đơn: ${SESSION_TOTAL_PRICES} &nbsp;VNĐ</span>
 							</div>
 						</div>
 					</section>

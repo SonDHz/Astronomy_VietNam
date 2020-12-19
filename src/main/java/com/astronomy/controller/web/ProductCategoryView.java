@@ -17,9 +17,4 @@ public class ProductCategoryView {
 	@Autowired
 	IProductCategoryService productCategoryService;
 	
-//	@RequestMapping(value = "/productCategoryView")
-//	public String productCategoryView(HttpSession session, Model model) {
-		
-//		return null;
-//	}
 }

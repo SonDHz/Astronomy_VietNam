@@ -133,6 +133,7 @@
 													<!-- <th>Loại sản phẩm</th> -->
 													<th>Tiêu đề bài viết</th>
 													<th>Mô tả</th>
+													<th>Hình ảnh</th>
 													<th>Ngày tạo</th>
 													<th>Ngày Sửa</th>
 													<th>Tạo bởi</th>
@@ -149,6 +150,10 @@
 																value="${item.id}" /></td>														
 															<td>${item.title}</td>
 															<td>${item.shortDescription}</td>
+															<td><c:url var="display" value='getImage'>
+																	<c:param name="name" value="${item.thumbnail}" />
+																</c:url> <img alt="" src="${display}" width="170px"
+																height="90px"></td></td>
 															<td>${item.createdDate}</td>
 															<td>${item.modifiedDate}</td>
 															<td>${item.createdBy}</td>

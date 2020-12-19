@@ -12,6 +12,8 @@ public interface IOrderService {
 	
 	//OrderCreateModifyDTO createModify(OrderCreateModifyDTO orderdto);
 	
+	OrderCreateModifyDTO addOrders(OrderCreateModifyDTO dto);
+	
 	OrderEntity createModify(OrderEntity entity);
 	
 	OrderCreateModifyDTO findByIdDTO(long id);

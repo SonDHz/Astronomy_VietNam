@@ -6,20 +6,23 @@ import com.astronomy.dto.OrderDetailCreateModifyDTO;
 
 import com.astronomy.entity.OrderDetailEntity;
 import com.astronomy.entity.OrderEntity;
+import com.astronomy.entity.ProductEntity;
 
 @Component
 public class OrderDetailMapper {
 	public OrderDetailEntity toOrderDetail(OrderDetailCreateModifyDTO dto) {
-		System.out.println("Dto: " + dto);
 		OrderEntity order = OrderEntity.builder()
 				.id(dto.getOrder())
+				.build();
+		ProductEntity product = ProductEntity.builder()
+				.id(dto.getProduct())
 				.build();
 		return OrderDetailEntity.builder()
 				.id(dto.getId())
 				.total(dto.getTotal())
-				.price(dto.getPrice())
 				.quantity(dto.getQuantity())
 				.order(order)
+				.product(product)
 				.createdDate(dto.getCreatedDate())
 				.modifiedDate(dto.getModifiedDate())
 				.createdBy(dto.getCreatedBy())
@@ -32,9 +35,9 @@ public class OrderDetailMapper {
 		return OrderDetailCreateModifyDTO.builder()
 				.id(orderdetail.getId())
 				.total(orderdetail.getTotal())
-				.price(orderdetail.getPrice())
 				.quantity(orderdetail.getQuantity())
 				.order(orderdetail.getOrder().getId())
+				.product(orderdetail.getProduct().getId())
 				.createdDate(orderdetail.getCreatedDate())
 				.modifiedDate(orderdetail.getModifiedDate())
 				.createdBy(orderdetail.getCreatedBy())

@@ -87,5 +87,6 @@ public class UserEntity {
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
+	@ToString.Exclude
 	private List<RoleEntity> roles = new ArrayList<>();
 }

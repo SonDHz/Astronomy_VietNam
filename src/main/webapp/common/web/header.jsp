@@ -4,7 +4,6 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@include file="/common/taglib.jsp"%>
 <%@include file="/common/web/style.jsp"%>
-<%@ page import="com.astronomy.Utils.SecurityUtils"%>
 <c:url var="productcategoryURL" value="/admin/productCategoryView" />
 <c:url var="productcategoryAPI" value="/api/ProductCategory" />
 
@@ -91,7 +90,7 @@
 					<security:authorize access="isAuthenticated()">
 						<security:authentication property="principal" var="user" />
 						<ul class="nav-menu">
-							<li><a href="#">Welcome, ${ user.username }</a></li>
+							<li><a href="#">Welcome, ${ user.fullName }</a></li>
 						</ul>
 					</security:authorize>
 					<nav id="nav-menu-container">
@@ -100,7 +99,7 @@
 								<!--Has cart: header_cart-no-cart -->
 								<a href="/shopping_cart"><i
 									class=" header_cart-icon fa fa-shopping-cart text-muted"></i> <span
-									class="header_cart-notice">${TotalQuanty}</span></a>
+									class="header_cart-notice">${SESSION_TOTAL_QUANTITY}</span></a>
 							</div>
 						</div>
 					</nav>

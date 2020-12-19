@@ -2,9 +2,12 @@ package com.astronomy.API.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +34,7 @@ public class ManufacturerAPI {
 	
 	@PostMapping("Manufacturer")
 	public ResponseEntity<ManufacturerCreateModifyDTO> createManufacturer(
-			@RequestBody ManufacturerCreateModifyDTO dto, Model model){
+			@Valid @RequestBody ManufacturerCreateModifyDTO dto, Model model){
 		ManufacturerEntity entity = manufacturerMapper.toManufacturer(dto);
 		model.addAttribute("model", dto);
 		return ResponseEntity.ok(manufacturerMapper.toManufacturerResponserDTO(manufacturerService.createModify(entity)));
