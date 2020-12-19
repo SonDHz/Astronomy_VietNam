@@ -60,7 +60,6 @@ public class ManufacturerEntity {
 	@LastModifiedBy
 	private String modifiedBy;
 	
-	@NotBlank(message = "Tên nhà cung cấp không được để trống")
 	@Column(name = "name")
 	private String name;
 	
