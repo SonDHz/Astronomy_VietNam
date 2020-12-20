@@ -128,7 +128,7 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i> <form:input path="name" type="text" class="form-control"
-															name="name" id="name" value="${model.name}"/>
+															name="name" required="required" id="name" value="${model.name}"/>
 													</div>
 												</div>
 											</div>
