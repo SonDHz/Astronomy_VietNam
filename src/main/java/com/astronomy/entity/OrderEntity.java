@@ -55,7 +55,7 @@ public class OrderEntity {
 	private String address;
 	
 	@Column(name = "total")
-	private String total;
+	private Double total;
 	
 	@Column(name = "quanty")
 	private Integer quanty;

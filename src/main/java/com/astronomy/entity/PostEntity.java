@@ -66,7 +66,7 @@ public class PostEntity {
 	@Column(name = "thumbnail")
 	private String thumbnail;
 	
-	@Column(name = "content")
+	@Column(name = "content", columnDefinition = "TEXT")
 	private String content;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

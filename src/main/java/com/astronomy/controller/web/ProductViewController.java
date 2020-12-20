@@ -79,6 +79,8 @@ public class ProductViewController {
 
 	@GetMapping("/productViewDetail/{id}")
 	public String action(Model model, @PathVariable(value = "id", required = false) Long id) {
+		List<ProductCategoryEntity> list = productCategoryService.getAll();
+		model.addAttribute("productCategorySession", list);
 		ProductCreateModifyDTO dto = new ProductCreateModifyDTO();
 		if (id != null) {
 			dto = service.findByIdDTO(id);

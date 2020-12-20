@@ -21,7 +21,7 @@ public class OrderCreateModifyDTO {
 	private String name;
 	private String email;
 	private String address;
-	private String total;
+	private Double total;
 	private Integer quanty;
 	private String note;
 	private Date createdDate;
