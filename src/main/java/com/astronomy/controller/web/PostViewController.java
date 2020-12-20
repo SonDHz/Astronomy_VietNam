@@ -11,12 +11,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.astronomy.Service.CategoryService;
 import com.astronomy.Service.IPostService;
+import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.dto.PostCreateModifyDTO;
 import com.astronomy.entity.PostEntity;
+import com.astronomy.entity.ProductCategoryEntity;
+
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -32,13 +36,23 @@ public class PostViewController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	@GetMapping("PostView")
-	public String productViews(Model model) {
+	@Autowired
+	private IProductCategoryService productCategoryService;
+	
+	@GetMapping("/")
+	public String productView(Model model) {
+		List<ProductCategoryEntity> pro = productCategoryService.getAll();
+		model.addAttribute("productCategorySession", pro);
+
 		return findPaginated(1, model);
 	}
-
-	@GetMapping("/PostView/{pageNo}")
+	
+	@GetMapping("/{pageNo}")
 	public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model) {
+		List<ProductCategoryEntity> pro = productCategoryService.getAll();
+		model.addAttribute("productCategorySession", pro);
+		List<PostEntity> POST = service.getAll();
+		model.addAttribute("entity", POST);
 		LocalDate ht = LocalDate.now();
 		model.addAttribute("ht", ht);
 		Page<PostEntity> page = service.getPostPaging(pageNo, 6);
@@ -47,10 +61,10 @@ public class PostViewController {
 		model.addAttribute("totalPages", page.getTotalPages());
 		model.addAttribute("totalItems", page.getTotalElements());	
 		model.addAttribute("postView", list);	
-		return "web/postView";
+		return "web/index";
 	}
 	
-	@GetMapping("/postViewDetail/{id}")
+	@GetMapping("/postViewDetail")
 	public String action(Model model, @RequestParam(value = "id", required = false) Long id) {
 		PostCreateModifyDTO dto = new PostCreateModifyDTO();
 		if (id != null) {
@@ -58,7 +72,7 @@ public class PostViewController {
 		}
 		model.addAttribute("model", dto);
 		model.addAttribute("category", categoryService.findAll()); 
-		return "web/postViewDetail";
+		return "web/PostView";
 	}
 
 	@GetMapping(value = "getImageViewPost")
@@ -78,5 +92,4 @@ public class PostViewController {
 		}
 		return ResponseEntity.badRequest().build();
 	}
-	
 }
