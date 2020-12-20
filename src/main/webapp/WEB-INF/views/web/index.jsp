@@ -55,7 +55,10 @@ padding:10px;}
 							</div>
 							<div class="stories-details">
 								<h6>
-									<a href="#">${posts.title}</a>
+									<c:url var="view" value="/postViewDetail">
+												<c:param name="id" value="${posts.id}"></c:param>
+											</c:url>
+											<a href="${view}">${posts.title}</a>
 								</h6>
 							</div>
 							
@@ -88,8 +91,10 @@ padding:10px;}
 							</div>
 							<div class="post-details">
 								<h2>
-									<a href="#">${posts.title}
-									</a>
+									<c:url var="view" value="/postViewDetail">
+												<c:param name="id" value="${posts.id}"></c:param>
+											</c:url>
+											<a href="${view}">${posts.title}</a>
 								</h2>
 								<div class="post-content d-flex justify-content-between">
 									<div class="details">
@@ -123,7 +128,7 @@ padding:10px;}
 										<c:url var="display" value='/getImageViewPost'>
 													<c:param name="img" value="${post.thumbnail}"/>
 												</c:url>
-												<img alt="" src="${display}" width="auto" height="600px">
+												<img alt="" src="${display}" width="800px" height="600px">
 									</div>
 									<div class="post-details">
 										<h4>
@@ -219,8 +224,10 @@ padding:10px;}
 										</div>
 										<div class="popular-details">
 											<h6>
-												<a href="">${posts.title }
-												</a>
+												<c:url var="view" value="/postViewDetail">
+												<c:param name="id" value="${posts.id}"></c:param>
+											</c:url>
+											<a href="${view}">${posts.title}</a>
 											</h6>
 										</div>
 									</div>
