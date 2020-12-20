@@ -222,86 +222,8 @@
 		<div class="row">
 			<div class="tabs_div">
 				<ul>
-					<li><strong>Thông số kỹ thuật</strong></li>
-					<li><strong>Phụ kiện đi kèm</strong></li>
-					<li><strong>Tham khảo</strong></li>
 					<li><strong>Giới thiệu</strong></li>
 				</ul>
-				<div>
-					<table class="table">
-						<tbody>
-							<tr>
-								<td class="success">Thiết kế quang học:</td>
-								<td>Phản xạ Newton</td>
-							</tr>
-							<tr>
-								<td class="success">Đường kính:</td>
-								<td>130mm (5.11 “)</td>
-							</tr>
-							<tr>
-								<td class="success">Độ dài tiêu cự:</td>
-								<td>650mm (25,6 “)</td>
-							</tr>
-							<tr>
-								<td class="success">Khẩu độ:</td>
-								<td>f /5</td>
-							</tr>
-							<tr>
-								<td class="success">Kính định vị tìm mục tiêu</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td class="success">Lớp phủ:</td>
-								<td>Quang nhôm</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div>
-					<table class="table">
-						<tbody>
-							<tr>
-								<td class="success">Bộ điều khiển tinh chỉnh</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td class="success">Chân máy:</td>
-								<td>Đường kính ống chân 1.25 ”</td>
-							</tr>
-							<tr>
-								<td class="success">Phần mềm Starry Night Basic Edition</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td class="success">Khay phụ kiện</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div>
-					<table class="table">
-						<tbody>
-							<tr>
-								<td>Kính thiên văn Celestron Astromaster 114EQ</td>
-							</tr>
-							<tr>
-								<td>Kính thiên văn Celestron Astromater 70EQ</td>
-
-
-							</tr>
-							<tr>
-								<td>Kính thiên văn Celestron Deluxe 130EQ</td>
-
-
-							</tr>
-							<tr>
-								<td>Kính thiên văn Celestron Deluxe 130EQ</td>
-
-							</tr>
-						</tbody>
-					</table>
-				</div>
 				<div>
 					<table class="table">
 						<tbody>
