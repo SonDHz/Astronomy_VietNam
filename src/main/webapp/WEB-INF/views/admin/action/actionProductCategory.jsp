@@ -118,17 +118,18 @@
 									</ul>
 								</div>
 								<div class="card-body" id="bar-parent2">
-									<form:form id="formSubmit" role="form" class="form-horizontal" modelAttribute="model">
+									<form:form  id="formSubmit" role="form" class="form-horizontal" onsubmit="return validateForm()" modelAttribute="model">
 										<div class="form-body">
 											<div class="form-group row  margin-top-20">
 											<form:hidden path="id" class="form-control"
-															name="id" id="id" value="${model.id}"/>
+															name="id" id="id" value="${model.id}" />
 												<label class="control-label col-md-3">Tên loại sản phẩm:
 												</label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="name" type="text" class="form-control"
-															name="name" id="name" value="${model.name}"/>
+														<i class="fa"></i> 
+														<form:input path="name" type="text" class="form-control"
+															name="name" id="name" value="${model.name}" pattern="\S+" title="Three letter country code" placeholder="Enter name"/>
 													</div>
 												</div>
 											</div>

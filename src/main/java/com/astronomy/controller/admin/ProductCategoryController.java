@@ -4,10 +4,14 @@ package com.astronomy.controller.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -34,13 +38,14 @@ public class ProductCategoryController {
 	}
 
 	@GetMapping("createModify/productCategory")
-	public String action(Model model, @RequestParam(value = "id", required = false) Long id) {
+	public String action(Model model, @RequestParam(value = "id", required = false) Long id,
+			@Valid @ModelAttribute ("moddel") ProductCategoryEntity theproductCategory,
+			BindingResult theBindingResult) {
 		ProductCategoryCreateModifyDTO productCategorydto = new ProductCategoryCreateModifyDTO();
 		if (id != null) {
 			productCategorydto = productCategoryService.findByIdDTO(id);
 		}
 		model.addAttribute("model", productCategorydto);
-		return "admin/action/actionProductCategory";
-	}
-	
+		return "admin/action/actionProductCategory";	
 }
+	}

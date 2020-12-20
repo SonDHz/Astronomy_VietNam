@@ -117,6 +117,13 @@
 			<artifactId>spring-aspects</artifactId>
 		</dependency>
 		
+		<!-- Hibernate Validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.4.1.Final</version>
+        </dependency>
+        
 	<dependency>
     <groupId>org.webjars.bower</groupId>
     <artifactId>summernote</artifactId>
