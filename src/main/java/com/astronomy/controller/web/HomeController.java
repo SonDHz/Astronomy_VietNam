@@ -45,7 +45,7 @@ public class HomeController {
 		}
 		return "login";
 	}
-
+	
 	@RequestMapping(value = "shoppingTools")
 	public String shopping() {
 		return "web/shopping_tools";
@@ -54,6 +54,11 @@ public class HomeController {
 	@RequestMapping(value = "contact")
 	public String contact1() {
 		return "web/contact";
+	}
+	
+	@RequestMapping(value = "shopping_success")
+	public String shoppingsuccess1() {
+		return "web/shopping_success";
 	}
 	
 	@RequestMapping(value = "shopping_cart")

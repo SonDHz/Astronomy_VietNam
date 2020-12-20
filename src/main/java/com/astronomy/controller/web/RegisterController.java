@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.astronomy.Service.IUserService;
 import com.astronomy.dto.UserCreateModifyDTO;
-import com.astronomy.entity.UserEntity;
+
 
 @Controller
 @RequestMapping(value = "/registration")
@@ -29,6 +29,11 @@ public class RegisterController {
 	@PostMapping
 	public String registrationController(@ModelAttribute("userDTO") UserCreateModifyDTO dto) {
 		service.registration(dto);
-		return "redirect:/registration?success";
+		return "redirect:/registration/register_success";
+	}
+	
+	@RequestMapping(value = "register_success")
+	public String registersuccess1() {
+		return "register_success";
 	}
 }
