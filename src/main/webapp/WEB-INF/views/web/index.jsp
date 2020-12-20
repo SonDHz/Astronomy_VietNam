@@ -51,7 +51,7 @@ padding:10px;}
 							<c:url var="display" value='/getImageViewPost'>
 													<c:param name="img" value="${posts.thumbnail}"/>
 												</c:url>
-												<img class="img-fluid" alt="" src="${display}" >
+												<img width="50px" height="100px" alt="" src="${display}" >
 							</div>
 							<div class="stories-details">
 								<h6>

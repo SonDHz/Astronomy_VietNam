@@ -41,7 +41,7 @@
 		<div class="row" style="margin-top: 150px">
 			<form:form role="form" class="form-horizontal" modelAttribute="model"
 				method="GET">
-								${ model.title }
+							<h4>${ model.title }</h4>	
 								${ model.content } 
 								<Strong></Strong>
 			</form:form>
