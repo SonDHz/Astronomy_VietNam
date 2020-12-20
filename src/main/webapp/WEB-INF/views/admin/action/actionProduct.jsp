@@ -141,7 +141,7 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<input type="text" class="form-control"
+														<input type="text" class="form-control" required
 															name="name" id="name" value="${model.name}" />
 													</div>
 												</div>

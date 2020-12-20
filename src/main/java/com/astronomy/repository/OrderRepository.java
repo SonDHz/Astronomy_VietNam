@@ -8,6 +8,6 @@ import com.astronomy.entity.OrderEntity;
 
 public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 		
-	@Query(value = "SELECT MAX(id) FROM oder;", nativeQuery = true)
+	@Query(value = "SELECT MAX(id) FROM orders;", nativeQuery = true)
 	public long getIDLastOrder(); //
 }

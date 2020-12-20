@@ -31,10 +31,9 @@ public class ManufacturerAPI {
 	@Autowired
 	private IManufacturerService manufacturerService;
 	
-	
 	@PostMapping("Manufacturer")
 	public ResponseEntity<ManufacturerCreateModifyDTO> createManufacturer(
-			@RequestBody ManufacturerCreateModifyDTO dto, Model model){
+			@Valid @RequestBody ManufacturerCreateModifyDTO dto, Model model){
 		ManufacturerEntity entity = manufacturerMapper.toManufacturer(dto);
 		model.addAttribute("model", dto);
 		return ResponseEntity.ok(manufacturerMapper.toManufacturerResponserDTO(manufacturerService.createModify(entity)));
