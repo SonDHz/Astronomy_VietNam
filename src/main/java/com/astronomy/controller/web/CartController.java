@@ -107,6 +107,8 @@ public class CartController {
 			orderDetailService.addOrderDetail(cart);
 		}
 		session.removeAttribute(SESSION_CART.name());
+		session.removeAttribute(SESSION_TOTAL_QUANTITY.name());
+		session.removeAttribute(SESSION_TOTAL_PRICES.name());
 		return "redirect:/shoppingTools";
 	}
 }
