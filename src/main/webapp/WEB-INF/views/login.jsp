@@ -10,7 +10,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta name="description" content="Responsive Admin Template">
 <meta name="author" content="SmartUniversity">
-<title>Smile Admin | Bootstrap Responsive Admin Template</title>
+<title>Đăng nhập</title>
 <!-- google font -->
 <link
 	href="../../../../../../admin/css.css?family=Poppins:300,400,500,600,700"

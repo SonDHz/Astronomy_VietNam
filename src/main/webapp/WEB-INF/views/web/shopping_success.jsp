@@ -18,7 +18,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>Thanh toán</title>
+<title>Đặt hàng thành công</title>
 <style>
 .row {
 	display: -ms-flexbox; /* IE10 */
@@ -58,44 +58,28 @@ input[type=date] {
 p {
 	color: #7c32ff;
 }
+h1{
+font-size:40px;}
+.cart{
+height:400px;
+weight:400px}
 </style>
 </head>
-
 <body>
 	<%@include file="/common/web/header.jsp"%>
 	<!-- Start contact-page Area -->
 	<section class="contact-page-area section-gap">
 		<div class="container box_1170">
-			<div class="row">
-				<form:form action="/checkout" method="POST" modelAttribute="order">
-					<div class="row">
-						<div class="col-lg-7">
-							<p style="font-size: 40px">
-								<strong>Thông tin khách hàng</strong>
-							</p>
-							<br> <label for="fname"><i class="fa fa-user"></i>&nbsp;
-								Họ và tên</label>
-							<form:input type="text" path="name"/>
-							<label for="email"><i class="fa fa-envelope"></i>&nbsp;
-								Email</label>
-							<form:input type="text" path="email"/>
-							<label for="adr"><i class="fa fa-phone"></i>&nbsp; SĐT</label>
-							<form:input type="text" path="phone"/>
-							<label for="city"><i class="fa fa-address-card-o"></i>&nbsp;
-								Địa chỉ</label>
-							<form:textarea path="address" rows="5" cols="82"/>
-							<label for="city"><i class="fa fa-table"></i>&nbsp; Ghi
-								chú</label>
-							<form:textarea path="note" rows="5" cols="82"/>
-						</div>
-						<div class="col-lg-5">
-							<img class="gif" src="../../template/web/img/giphy (1).gif"
-								alt="">
-						</div>
-					</div>
-					<a href="/shopping_success" class="btn btn-info">Thanh toán</a>
-				</form:form> 
+			<div class="d-flex justify-content-center">
+				<h1><strong>Đặt hàng thành công</strong>&nbsp;&nbsp;<i class="fa fa-check-circle text-success"></i></h1>
 			</div>
+			<div class="d-flex justify-content-center">
+			<img class="cart" src="../../template/web/img/cart.png" alt="">
+			</div>
+			<br>
+			<div class="d-flex justify-content-center">
+				<a href="/" class="btn btn-info">Quay lại trang chủ</a>
+				</div>
 		</div>
 
 	</section>
