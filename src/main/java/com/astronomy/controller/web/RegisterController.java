@@ -29,11 +29,6 @@ public class RegisterController {
 	@PostMapping
 	public String registrationController(@ModelAttribute("userDTO") UserCreateModifyDTO dto) {
 		service.registration(dto);
-		return "redirect:/registration/register_success";
-	}
-	
-	@RequestMapping(value = "register_success")
-	public String registersuccess1() {
 		return "register_success";
 	}
 }

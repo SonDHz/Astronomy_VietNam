@@ -93,7 +93,7 @@ p {
 								alt="">
 						</div>
 					</div>
-					<a href="/shopping_success" class="btn btn-info">Thanh toán</a>
+					<button type="submit" class="btn btn-info">Thanh toán</button>
 				</form:form> 
 			</div>
 		</div>

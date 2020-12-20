@@ -31,8 +31,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "oder")
 @Entity
+@Table(name = "orders")
 @EntityListeners(AuditingEntityListener.class)
 @Builder
 @ToString
