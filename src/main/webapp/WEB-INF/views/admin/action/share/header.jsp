@@ -5,8 +5,7 @@
 	<div class="page-header-inner ">
 		<!-- logo start -->
 		<div class="page-logo">
-			<a href="index.html"> <img alt=""
-				src="../../template/admin/assets/img/logo.png"> <span
+			<a href="index.html"> <p>Astronomy</p> <span
 				class="logo-default">Astronomy</span>
 			</a>
 		</div>

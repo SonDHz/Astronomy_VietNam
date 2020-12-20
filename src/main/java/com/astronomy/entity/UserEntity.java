@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -43,27 +44,10 @@ import lombok.ToString;
 @Builder
 @ToString
 public class UserEntity {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name = "createddate", updatable = false)
-	@CreatedDate
-	private Date createdDate;
-	
-	@Column(name = "modifieddate", updatable = true)
-	@LastModifiedDate
-	private Date modifiedDate;
-	
-	@Column(name = "createdby", updatable = false)
-	@CreatedBy
-	private String createdBy;
-	
-	@Column(name = "modifiedby", updatable = true)
-	@LastModifiedBy
-	private String modifiedBy;
-	
+
 	@Column(name = "username")
 	private String username;
 
@@ -82,33 +66,27 @@ public class UserEntity {
 	@Column(name = "address")
 	private String address;
 
-	@Column(name = "gender")
-	private Integer gender;
-	
-	@Column(name = "birthday")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private Date birthday;
-
-	@Column(name = "avatar")
-	private String avatar;
-
 	@Column(name = "status")
 	private Integer status;
-	
-//	@OneToMany(mappedBy = "user")
-//	private List<ProductEntity> products = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "user")
-	private List<PostEntity> post = new ArrayList<>();
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), 
-								  inverseJoinColumns = @JoinColumn(name = "roleid"))
+
+	@Column(name = "createddate", updatable = false)
+	@CreatedDate
+	private Date createdDate;
+
+	@Column(name = "modifieddate", updatable = true)
+	@LastModifiedDate
+	private Date modifiedDate;
+
+	@Column(name = "createdby", updatable = false)
+	@CreatedBy
+	private String createdBy;
+
+	@Column(name = "modifiedby", updatable = true)
+	@LastModifiedBy
+	private String modifiedBy;
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
+	@ToString.Exclude
 	private List<RoleEntity> roles = new ArrayList<>();
-
-//	@ManyToMany(fetch = FetchType.LAZY)
-//	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
-//	private List<RoleEntity> roles = new ArrayList<RoleEntity>();
-
 }

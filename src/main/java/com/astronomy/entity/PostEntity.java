@@ -71,11 +71,13 @@ public class PostEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
+	@ToString.Exclude
 	private CategoryEntity category;
 	
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
+	@ToString.Exclude
 	private UserEntity user;
 	
 }

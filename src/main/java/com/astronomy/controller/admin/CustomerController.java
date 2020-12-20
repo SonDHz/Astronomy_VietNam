@@ -32,6 +32,7 @@ public class CustomerController {
 	public String UserView(Model model) {
 		List<UserEntity> list = userService.getAllCustomer();
 		model.addAttribute("userentity", list);
+		System.out.println("list: " + list);
 		return "admin/customer_manager";
 	}
 

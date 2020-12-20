@@ -43,6 +43,8 @@ public class MyUserDetailsService implements UserDetailsService {
 		MyUser myUser = new MyUser(userEntity.getUsername(), userEntity.getPassword(),//
 				true, true, true, true, authorities);
 		myUser.setFullName(userEntity.getFullName());
+		myUser.setAddress(userEntity.getAddress());
+		myUser.setEmail(userEntity.getEmail());
 		return myUser;
 	}
 }

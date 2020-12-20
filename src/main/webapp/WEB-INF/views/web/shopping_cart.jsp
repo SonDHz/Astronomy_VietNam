@@ -31,13 +31,13 @@ p {
 	color: #7c32ff;
 }
 
-b {
-	display: flex;
+.text-muted{
+font-size:26px;
+font-family: 'Langar', cursive;
 }
 </style>
 <%@include file="/common/web/style.jsp"%>
 </head>
-
 <body>
 	<!-- ==========Start header========== -->
 	<%@include file="/common/web/header.jsp"%>
@@ -67,7 +67,7 @@ b {
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="item" items="${Cart}">
+									<c:forEach var="item" items="${SESSION_CART}">
 										<tr class="text-center">
 											<td>${ item.value.product.name }</td>
 											<td><c:url var="display" value='/getImageView'>
@@ -90,9 +90,9 @@ b {
 								</tbody>
 							</table>
 							<br>
-							<div class="b">
-								<button class="btn btn-success">Tiến hành đặt hàng</button>
-								<h2>Tổng đơn: ${TotalPrice}</h2>
+							<div class="d-flex justify-content-between">
+								<a href="/checkout" class="btn btn-success">Tiến hành đặt hàng</a> 
+								<span class="text-muted">Tổng đơn: ${SESSION_TOTAL_PRICES} &nbsp;VNĐ</span>
 							</div>
 						</div>
 					</section>

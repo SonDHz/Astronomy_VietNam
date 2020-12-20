@@ -23,9 +23,6 @@ public class UserCreateModifyDTO {
 	private String email;
 	private String phoneNumber;
 	private String address;
-	private Integer gender;
-	private Date birthday;
-	private String avatar;
 	private Integer status;
 	private Date createdDate;
 	private Date modifiedDate;

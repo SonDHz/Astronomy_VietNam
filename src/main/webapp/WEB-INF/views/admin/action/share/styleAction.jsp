@@ -28,6 +28,7 @@
     <link href="<c:url value='../../template/admin/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css' />" rel="stylesheet"/>
     <!-- sweetalert -->
 	<link href="<c:url value='../../template/admin/sweetalert/sweetalert2.min.css' />" rel="stylesheet"/>
+	<script src="<c:url value='../../ckeditor/ckeditor.js' />" ></script>
     
     
     

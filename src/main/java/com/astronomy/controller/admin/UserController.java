@@ -1,7 +1,5 @@
 package com.astronomy.controller.admin;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.astronomy.Service.IUserService;
 import com.astronomy.dto.UserCreateModifyDTO;
-import com.astronomy.entity.UserEntity;
 import com.astronomy.mapper.UserMapper;
 
-@RequestMapping(value = "admin")
 @Controller
+@RequestMapping(value = "admin")
 public class UserController {
 	
 	@Autowired
@@ -34,7 +31,6 @@ public class UserController {
 	@GetMapping("createModify/user")
 	public String action(Model model, @RequestParam(value = "id", required = false) Long id) {
 		UserCreateModifyDTO userdto = new UserCreateModifyDTO();
-		
 		if (id != null) {
 			userdto = userService.findByIdDTO(id);
 		}

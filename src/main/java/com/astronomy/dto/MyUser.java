@@ -21,5 +21,7 @@ public class MyUser extends User {
 	}
 	
 	private String fullName;
+	private String address;
+	private String email;
 	
 }

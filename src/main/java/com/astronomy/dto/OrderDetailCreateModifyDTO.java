@@ -21,6 +21,7 @@ public class OrderDetailCreateModifyDTO {
 	private Double price;
 	private Integer quantity;
 	private long order;
+	private long product;
 	private Date createdDate;
 	private Date modifiedDate;
 	private String createdBy;

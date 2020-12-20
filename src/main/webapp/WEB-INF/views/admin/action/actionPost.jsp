@@ -118,25 +118,24 @@
 								</div>
 								<div class="card-body" id="bar-parent2">
 									<form:form id="formSubmit" role="form" class="form-horizontal"
-										modelAttribute="model">
+										modelAttribute="model" action="/api/Post" method="POST" enctype="multipart/form-data">
 										<div class="form-body">
 											<div class="form-group row  margin-top-20">
 												<form:hidden path="id" class="form-control" name="id"
 													id="id" value="${model.id}" />
 											</div>
 											<div class="form-group row">
-												<label class="control-label col-md-3">Thể loại bài viết:
-												</label>
+												<label class="control-label col-md-3">Thể loại bài
+													viết: </label>
 												<div class="col-md-8">
 													<form:select path="category" id="category">
-														<form:option value="" label="-- Chọn thể loại bài viết --"/>
+														<form:option value="" label="-- Chọn thể loại bài viết --" />
 														<form:options items="${category}" />
 													</form:select>
 												</div>
 											</div>
 											<div class="form-group row">
-												<label class="control-label col-md-3">Tên tiêu đề:
-												</label>
+												<label class="control-label col-md-3">Tên tiêu đề: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
@@ -155,14 +154,17 @@
 															id="shortDescription" value="${model.shortDescription}" />
 													</div>
 												</div>
-											</div>		
+											</div>
 											<div class="form-group row">
 												<label class="control-label col-md-3">Hình ảnh: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<form:input path="thumbnail" type="text" class="form-control"
-															name="thumbnail" id="thumbnail" value="${model.thumbnail}" />
+														<!-- <input  id="image" class="form-control" name="img" /> -->
+														<input type="file"
+															 id="thumbnail" class="form-control" name="img" 
+															<%-- value="${model.thumbnail}" --%> />
+														<!-- <input type="file" id="image" class="form-control" name="img" /> -->
 													</div>
 												</div>
 											</div>
@@ -171,22 +173,23 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<form:input path="content" type="text" class="form-control"
-															name="content" id="content" value="${model.content}" />
+														<form:textarea path="content" rows="7" cols="85"
+															type="text" class="form-control" name="content"
+															id="content" value="${model.content}" />
 													</div>
 												</div>
-											</div>	 				
-											
-										</div>	
+											</div>
+
+										</div>
 										<form:hidden path="id" id="idPost" />
 										<div class="form-group">
 											<div class="offset-md-3 col-md-9">
 												<c:if test="${not empty model.id}">
-													<button type="button" class="btn btn-info"
+													<button type="submit" class="btn btn-info"
 														id="btnAddOrUpdate">Cập nhật bài viết</button>
 												</c:if>
 												<c:if test="${empty model.id}">
-													<button type="button" class="btn btn-info"
+													<button type="submit" class="btn btn-info"
 														id="btnAddOrUpdate">Thêm bài viết</button>
 												</c:if>
 											</div>
@@ -278,14 +281,21 @@
 
 	<%@include file="share/js.jsp"%>
 	<script>
-		$('#btnAddOrUpdate').click(function(event) {
+		var editor = '';
+		$(document).ready(function() {
+			editor = CKEDITOR.replace('content');
+		});
+
+		/* $('#btnAddOrUpdate').click(function(event) {
 			event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
 			var data = {};
 			//Lấy gọi ra id (Lưu ý phải đặt name cho các field)
 			var formData = $('#formSubmit').serializeArray();
+			formData.append('thumbnail', input.files[0]);
 			$.each(formData, function(i, v) {
 				data["" + v.name + ""] = v.value;
 			});
+			data["content"] = editor.getData();
 			var id = $('#idPost').val();
 			if (id == "") {
 				add(data);
@@ -295,39 +305,38 @@
 		});
 
 		function add(data) {
-			$
-					.ajax({
-						url : '${postAPI}',
-						type : 'POST',
-						contentType : 'application/json',
-						data : JSON.stringify(data),
-						dataType : 'json',
-						success : function(result) {
-							window.location.href = "${postURL}?id="
-									+ result.id + "&message=insert_success"; 
-						},
-						error : function(error) {
-							window.location.href = "${postURL}?message=error_system"; 
-						}
-					});
+			$.ajax({
+				url : '${postAPI}',
+				type : 'POST',
+				enctype : 'multipart/form-data',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					window.location.href = "${postURL}?id=" + result.id
+							+ "&message=insert_success";
+				},
+				error : function(error) {
+					window.location.href = "${postURL}?message=error_system";
+				}
+			});
 		}
 
 		function update(data) {
-			$
-					.ajax({
-						url : '${postAPI}',
-						type : 'PUT',
-						contentType : 'application/json',
-						data : JSON.stringify(data),
-						dataType : 'json',
-						success : function(result) {
-							window.location.href = "${postURL}?";
-						},
-						error : function(error) {
-							window.location.href = "${postURL}?message=error_system";
-						}
-					});
-		}
+			$.ajax({
+				url : '${postAPI}',
+				type : 'PUT',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					window.location.href = "${postURL}?";
+				},
+				error : function(error) {
+					window.location.href = "${postURL}?message=error_system";
+				}
+			});
+		} */
 	</script>
 	<!-- end js include path -->
 </body>

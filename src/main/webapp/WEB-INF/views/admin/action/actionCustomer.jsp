@@ -132,16 +132,8 @@
 													</div>
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Password: 
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="password" type="text" class="form-control"
+											<form:hidden path="password" type="text" class="form-control"
 															name="password" id="password" value="${model.password}"/>
-													</div>
-												</div>
-											</div>
 											<div class="form-group row">
 												<label class="control-label col-md-3">Họ và tên: 
 												</label>
@@ -182,41 +174,8 @@
 													</div>
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Giới tính: 
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> 
-														<label>Nữ   <form:radiobutton path="gender" class="form-control"
-															name="gender" id="gender" value="0"/></label> &nbsp;&nbsp;
-														<label>Nam  <form:radiobutton path="gender" class="form-control"
-															name="gender" id="gender" value="1"/></label>	
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Ngày sinh: 
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="birthday" type="date" class="form-control"
-															name="birthday" id="birthday" />
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Hình: 
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="avatar" type="text" class="form-control"
-															name="avatar" id="avatar" value="${model.avatar}"/>
-													</div>
-												</div>
-											</div>
 												<div class="form-group row">
-												<label class="control-label col-md-3">Mô tả: 
+												<label class="control-label col-md-3">Trạng thái: 
 												</label>
 												<div class="col-md-4">
 													<div class="input-icon right">

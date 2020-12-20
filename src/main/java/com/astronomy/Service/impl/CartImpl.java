@@ -23,64 +23,44 @@ public class CartImpl implements ICartService {
 
 	@Override
 	public HashMap<Long, CartDTO> addCart(long id, HashMap<Long, CartDTO> cart) {
-		CartDTO itemCart = new CartDTO();
+		CartDTO itemCart = null;
 		ProductCreateModifyDTO product = mapper.toProductResponserDTO(productService.findByIdEntity(id));
-		if(product != null && cart.containsKey(id)) {
+		
+		boolean isExistProduct = product != null && cart.containsKey(id);
+		
+		if(isExistProduct) {
 			itemCart = cart.get(id);
-			itemCart.setQuanty(itemCart .getQuanty() + 1);
-			itemCart.setTotalPrice(itemCart.getQuanty() * itemCart.getProduct().getPrice());
+			itemCart.setQuanty(itemCart.getQuanty() + 1);
 		} else {
+			itemCart = new CartDTO();
 			itemCart.setProduct(mapper.toProduct(product));
 			itemCart.setQuanty(1);
-			itemCart.setTotalPrice(itemCart.getQuanty() * itemCart.getProduct().getPrice());
 		}
 		
+		itemCart.calAndSetTotalPriceOfProduct();
 		cart.put(id, itemCart);
 		return cart;
 	}
 
 	@Override
-	public HashMap<Long, CartDTO> editCart(long id, int quanty, HashMap<Long, CartDTO> cart) {
-		CartDTO itemCart = new CartDTO();
-		if(cart == null) {
-			return cart;
-		}
-		if(cart.containsKey(id)){
-			itemCart = cart.get(id);
-			itemCart.setQuanty(quanty);
-			double totalPrice = quanty * itemCart.getProduct().getPrice();
-			itemCart.setTotalPrice(totalPrice); 
-		}
-		cart.put(id, itemCart);
+	public HashMap<Long, CartDTO> editCart(long id, int quantity, HashMap<Long, CartDTO> cart) {
+		boolean isExistProduct = cart != null && cart.containsKey(id);
+		if(isExistProduct) {
+			CartDTO itemCart = cart.get(id);
+			itemCart.setQuanty(quantity);
+			itemCart.calAndSetTotalPriceOfProduct(quantity); 
+			cart.put(id, itemCart);
+		}		
 		return cart;
 	}
 
 	@Override
 	public HashMap<Long, CartDTO> deleteCart(long id, HashMap<Long, CartDTO> cart) {
-		if(cart == null) {
-			return cart;
-		}
-		if(cart.containsKey(id)) {
+		boolean isExistProduct = cart != null && cart.containsKey(id);
+		
+		if(isExistProduct) {
 			cart.remove(id);
 		}
 		return cart;
-	}
-	
-	@Override
-	public int totalQuanty(HashMap<Long, CartDTO> cart) {
-		int totalQuanty = 0;
-		for(Map.Entry<Long, CartDTO> itemCart : cart.entrySet()) {
-			totalQuanty += itemCart.getValue().getQuanty();
-		}
-		return totalQuanty;
-	}
-	
-	@Override
-	public double totalPrice(HashMap<Long, CartDTO> cart) {
-		double totalPrice = 0;
-		for(Map.Entry<Long, CartDTO> itemCart : cart.entrySet()) {
-			totalPrice += itemCart.getValue().getTotalPrice();
-		}
-		return totalPrice;
 	}
 }

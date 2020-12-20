@@ -42,8 +42,26 @@ public class OrderEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "phone")
+	private String phone;
+	
 	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "address")
+	private String address;
+	
+	@Column(name = "total")
+	private String total;
+	
+	@Column(name = "quanty")
+	private Integer quanty;
+	
+	@Column(name = "note")
+	private String note;
 	
 	@Column(name = "createddate", updatable = false)
 	@CreatedDate

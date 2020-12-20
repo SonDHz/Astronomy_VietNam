@@ -40,6 +40,12 @@ public class OrderDetailEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "total")
+	private Double total;
+	
+	@Column(name = "quantity")
+	private Integer quantity;
+	
 	@Column(name = "createddate", updatable = false)
 	@CreatedDate
 	private Date createdDate;
@@ -55,15 +61,6 @@ public class OrderDetailEntity {
 	@Column(name = "modifiedby", updatable = true)
 	@LastModifiedBy
 	private String modifiedBy;
-	
-	@Column(name = "total")
-	private Double total;
-	
-	@Column(name = "price")
-	private Double price;
-	
-	@Column(name = "quantity")
-	private Integer quantity;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")

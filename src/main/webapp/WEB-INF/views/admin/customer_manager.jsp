@@ -89,12 +89,12 @@
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
 								<c:url var="createModify" value="createModify/customer" />
-								<a href='${createModify}' type="button" aria-haspopup="true"
+								<%-- <a href='${createModify}' type="button" aria-haspopup="true"
 									aria-expanded="false" class="btn-shadow btn btn-info"> <span
 									class="btn-icon-wrapper pr-2 opacity-7"> <i
 										class="fa fa-business-time fa-w-20"></i>
 								</span> Thêm tài khoản
-								</a>
+								</a> --%>
 								<button id="btnDelete" type="button" aria-haspopup="true"
 									onclick="warningBeforeDelete()" aria-expanded="false"
 									class="btn-shadow btn btn-danger">
@@ -133,12 +133,11 @@
 													<th>Họ và tên</th>
 													<th>Email</th>
 													<th>Phone</th>
-													<th>Birthday</th>
 													<th>Ngày tạo</th>
 													<th>Ngày sửa</th>
 													<th>Tạo bởi</th>
 													<th>Sửa bởi</th>
-													<th>Action</th>
+													<!-- <th>Action</th> -->
 												</tr>
 											</thead>
 											<tbody>
@@ -151,18 +150,17 @@
 													<td>${item.fullName }</td>
 													<td>${item.email }</td>
 													<td>${item.phoneNumber }</td>
-													<td>${item.birthday}</td>
 													<td>${item.createdDate}</td>
 													<td>${item.modifiedDate}</td>
 													<td>${item.createdBy}</td>
-													<td>${item.modifiedBy}</td>
-													<td>&nbsp;&nbsp; <c:url var="createModify"
+													<td>${item.modifiedBy}</td> 
+													<%-- <td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/customer">
 																	<c:param name="id" value="${item.id}" />
 																</c:url> <a href='${createModify}'
 																class="btn btn-outline-warning"
 																data-original-title="Update">Update</a> &nbsp;&nbsp;
-															</td>
+															</td> --%>
 												</tr>
 												</c:forEach>
 												</form:form>

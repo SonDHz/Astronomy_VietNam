@@ -17,9 +17,15 @@ import lombok.ToString;
 @ToString
 public class OrderCreateModifyDTO {
 	private Long id;
+	private String phone;
+	private String name;
+	private String email;
+	private String address;
+	private String total;
+	private Integer quanty;
+	private String note;
 	private Date createdDate;
 	private Date modifiedDate;
-	private String name;
 	private String createdBy;
 	private String modifiedBy;
 }

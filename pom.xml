@@ -117,19 +117,27 @@
 			<artifactId>spring-aspects</artifactId>
 		</dependency>
 		
-		<!-- Hibernate Validator -->
-        <dependency>
+		<!-- Bcrypt -->
+		<dependency>
+			<groupId>org.mindrot</groupId>
+			<artifactId>jbcrypt</artifactId>
+			<version>0.4</version>
+		</dependency>
+
+		<!-- Validation -->
+		<dependency>
+
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>5.4.1.Final</version>
         </dependency>
+
         
 	<dependency>
     <groupId>org.webjars.bower</groupId>
     <artifactId>summernote</artifactId>
     <version>0.8.11</version>
 </dependency>
-	
 	</dependencies>
 
 	<build>
