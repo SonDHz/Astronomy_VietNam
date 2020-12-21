@@ -9,6 +9,7 @@ public class OrderMapper {
 	public OrderEntity toOrder(OrderCreateModifyDTO dto) {
 		return OrderEntity.builder()
 				.id(dto.getId())
+				.userID(dto.getUserID())
 				.email(dto.getEmail())
 				.phone(dto.getPhone())
 				.name(dto.getName())
@@ -26,6 +27,7 @@ public class OrderMapper {
 	public OrderCreateModifyDTO toOrderResponserDTO(OrderEntity order) {
 		return OrderCreateModifyDTO.builder()
 				.id(order.getId())
+				.userID(order.getUserID())
 				.email(order.getEmail())
 				.phone(order.getPhone())
 				.name(order.getName())

@@ -17,6 +17,7 @@ import lombok.ToString;
 @ToString
 public class OrderDetailCreateModifyDTO {
 	private Long id;
+	private Long userID;
 	private Double total;
 	private Double price;
 	private Integer quantity;

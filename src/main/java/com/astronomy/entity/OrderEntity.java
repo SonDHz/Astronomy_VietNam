@@ -42,6 +42,9 @@ public class OrderEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "userID")
+	private Long userID;
+	
 	@Column(name = "email")
 	private String email;
 	

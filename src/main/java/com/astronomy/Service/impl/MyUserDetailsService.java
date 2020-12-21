@@ -42,6 +42,7 @@ public class MyUserDetailsService implements UserDetailsService {
 		//put thông tin của user vào security để duy trì khi login
 		MyUser myUser = new MyUser(userEntity.getUsername(), userEntity.getPassword(),//
 				true, true, true, true, authorities);
+		myUser.setId(userEntity.getId());
 		myUser.setFullName(userEntity.getFullName());
 		myUser.setAddress(userEntity.getAddress());
 		myUser.setEmail(userEntity.getEmail());

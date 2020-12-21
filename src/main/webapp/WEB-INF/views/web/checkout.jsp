@@ -73,6 +73,7 @@ p {
 							<p style="font-size: 40px">
 								<strong>Thông tin khách hàng</strong>
 							</p>
+							<form:hidden path="userID"/>
 							<br> <label for="fname"><i class="fa fa-user"></i>&nbsp;
 								Họ và tên</label>
 							<form:input type="text" path="name"/>

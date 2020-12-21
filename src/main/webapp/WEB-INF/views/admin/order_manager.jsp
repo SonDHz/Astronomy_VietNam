@@ -89,12 +89,12 @@
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
 								<c:url var="createModify" value="createModify/order" />
-								<a href='${createModify}' type="button" aria-haspopup="true"
+								<%-- <a href='${createModify}' type="button" aria-haspopup="true"
 									aria-expanded="false" class="btn-shadow btn btn-info"> <span
 									class="btn-icon-wrapper pr-2 opacity-7"> <i
 										class="fa fa-business-time fa-w-20"></i>
 								</span> Thêm hóa đơn
-								</a>
+								</a> --%>
 								<button id="btnDelete" type="button" aria-haspopup="true"
 									onclick="warningBeforeDelete()" aria-expanded="false"
 									class="btn-shadow btn btn-danger">
@@ -131,9 +131,15 @@
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
 													<th>#ID hóa đơn</th>
-													<th>Tên hóa đơn</th>
+													<th>#ID người dùng</th>
+													<th>Tên người dùng</th>
+													<th>Địa chỉ</th>
+													<th>Số điện thoại</th>
+													<th>Email</th>
+													<th>Ghi chú</th>
+													<th>Ngày tạo</th>
 													<th>Tạo bởi</th>
-													<th>Sửa bởi</th>
+													<th>Tổng tiền</th>
 													<th>Action</th>
 												</tr>
 											</thead>
@@ -145,9 +151,15 @@
 															<td><input type="checkbox" id="checkbox_${order.id}"
 																value="${order.id}" /></td>
 															<td>${order.id}</td>
+															<td>${order.userID}</td>
 															<td>${order.name}</td>
+															<td>${order.address}</td>
+															<td>${order.phone}</td>
+															<td>${order.email}</td>
+															<td>${order.note}</td>
 															<td>${order.createdBy}</td>
 															<td>${order.modifiedBy}</td>
+															<td>${order.total}</td>
 															<td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/order">
 																	<c:param name="id" value="${order.id}" />

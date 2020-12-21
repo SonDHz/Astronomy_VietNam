@@ -34,11 +34,15 @@ import lombok.ToString;
 @Table(name = "orderdetail")
 @EntityListeners(AuditingEntityListener.class)
 @Builder
+@ToString
 public class OrderDetailEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "userID")
+	private Long userID;
 	
 	@Column(name = "total")
 	private Double total;
@@ -64,10 +68,12 @@ public class OrderDetailEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")
+	@ToString.Exclude
 	private ProductEntity product;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "order_id")
+	@ToString.Exclude
 	private OrderEntity order;
 	
 }

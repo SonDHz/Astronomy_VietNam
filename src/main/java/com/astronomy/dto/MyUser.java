@@ -20,6 +20,7 @@ public class MyUser extends User {
 		// TODO Auto-generated constructor stub
 	}
 	
+	private Long id;
 	private String fullName;
 	private String address;
 	private String email;

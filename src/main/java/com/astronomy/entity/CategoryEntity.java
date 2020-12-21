@@ -57,9 +57,6 @@ public class CategoryEntity {
 	@LastModifiedBy
 	private String modifiedBy;
 	
-	@Column(name = "code")
-	private String code;
-	
 	@Column(name = "name")
 	private String name;
 	

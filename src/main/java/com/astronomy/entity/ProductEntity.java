@@ -71,7 +71,7 @@ public class ProductEntity implements Serializable {
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "shortdecription")
+	@Column(name = "shortdecription", columnDefinition = "TEXT")
 	private String shortDecription;
 
 	@Column(name = "status")
@@ -85,7 +85,10 @@ public class ProductEntity implements Serializable {
 
 	@Column(name = "quantity")
 	private String quantity;
-
+	
+	@Column(name = "introduce", columnDefinition = "TEXT")
+	private String introduce;
+	
 	@OneToMany(mappedBy = "product")
 	@ToString.Exclude
 	private List<OrderDetailEntity> orderDetail = new ArrayList<>();
