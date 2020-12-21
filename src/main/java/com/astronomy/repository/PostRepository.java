@@ -16,6 +16,9 @@ public interface PostRepository extends JpaRepository<PostEntity, Long> {
 	@Query(value = "select * from post ORDER BY id desc", nativeQuery = true)
 	public List<PostEntity> getAllIdDesc();
 	
+	@Query(value = "select * from post ORDER BY id desc limit 8", nativeQuery = true)
+	public List<PostEntity> getAllIdDescLimit();
+	
 	@Query(value = "select * from post ORDER BY rand() limit 3", nativeQuery = true)
 	public List<PostEntity> getAllRamdom();
 }

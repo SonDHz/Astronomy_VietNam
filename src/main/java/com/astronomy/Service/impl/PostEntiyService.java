@@ -61,5 +61,10 @@ public class PostEntiyService implements IPostService{
 	public List<PostEntity> getAllRamdom() {
 		return postRepository.getAllRamdom();
 	}
+
+	@Override
+	public List<PostEntity> getAllIdDescLimit() {
+		return postRepository.getAllIdDescLimit();
+	}
 	
 }
