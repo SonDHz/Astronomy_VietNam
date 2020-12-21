@@ -35,7 +35,7 @@
 	<div class="main-body section-gap">
 		<div class="container box_1170">
 		<div class ="col-md-2">
-			<form:form action="/shoppingToolsSearch/" method="get"> 
+			<form:form action="/shoppingToolsSearch/{name}" method="get"> 
 				<input type="text" class="form-control" name="search" placeholder="Tìm kiếm...">
 			</form:form>
 		</div>

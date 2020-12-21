@@ -21,7 +21,7 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 			nativeQuery = true)
 	public List<ProductEntity> getProductByCategory(long id);
 	
-	@Query(value = "select * from post where title like '%'?'%'",
+	@Query(value = "select * from product where name like '%'?'%' ",
 			nativeQuery = true)
 	public List<ProductEntity> getProductSearch( String name );
 }
