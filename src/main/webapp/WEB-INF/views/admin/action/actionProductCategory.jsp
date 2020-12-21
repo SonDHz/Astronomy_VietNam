@@ -131,23 +131,10 @@
 														<form:input path="name" type="text" class="form-control"
 															name="name" id="name" value="${model.name}"
 															placeholder="Tên loại sản phẩm" />
-																<div id='open_ender_output'></div>
+														<div id='open_ender_output'></div>
 													</div>
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Code: </label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i>
-														<form:input path="code" type="text" class="form-control"
-															name="code" id="code" value="${model.code}"
-															placeholder="Mã code" />
-															<div id='open_ender_output_code'></div>
-													</div>
-												</div>
-											</div>
-
 										</div>
 										<form:hidden path="id" id="idProductCategory" />
 										<div class="form-group">
@@ -249,38 +236,40 @@
 
 	<%@include file="share/js.jsp"%>
 	<script>
-		$('#btnAddOrUpdate').click(function(event) {
-			event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
-			var data = {};
-			var check = true;
+		$('#btnAddOrUpdate')
+				.click(
+						function(event) {
+							event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
+							var data = {};
+							var check = true;
 
-			var openEnderContent = '&lt;p&gt;&lt;span style="color: #ff0000;"&gt;Hãy nhập nhà cung cấp!&lt;/span&gt;&lt;/p&gt;';
-			
-			var formData = $('#formSubmit').serializeArray();
-			$.each(formData, function(i, v) {
-				if (v.name == "name") {
-					if (v.value == "") {
-						$('#open_ender_output').html(
-						// create an element where the html content as the string
-						$('<div/>', {
-							html : openEnderContent
-						// get text content from element for decoded text  
-						}).text())
-						
-						check = false;
-					}
-				}
-				data["" + v.name + ""] = v.value;
-			});
-			var id = $('#idProductCategory').val();
-			if (check) {
-				if (id == "") {
-					add(data);
-				} else {
-					update(data);
-				}
-			}
-		});
+							var openEnderContent = '&lt;p&gt;&lt;span style="color: #ff0000;"&gt;Hãy nhập tên loại sản phẩm!&lt;/span&gt;&lt;/p&gt;';
+
+							var formData = $('#formSubmit').serializeArray();
+							$.each(formData, function(i, v) {
+								if (v.name == "name") {
+									if (v.value == "") {
+										$('#open_ender_output').html(
+										// create an element where the html content as the string
+										$('<div/>', {
+											html : openEnderContent
+										// get text content from element for decoded text  
+										}).text())
+
+										check = false;
+									}
+								}
+								data["" + v.name + ""] = v.value;
+							});
+							var id = $('#idProductCategory').val();
+							if (check) {
+								if (id == "") {
+									add(data);
+								} else {
+									update(data);
+								}
+							}
+						});
 
 		function add(data) {
 			$

@@ -131,7 +131,6 @@
 												<tr>
 													<th><input type="checkbox" id="checkAll"></th>
 													<th>Tên loại sản phẩm</th>
-													<th>Code</th>
 													<th>Ngày tạo</th>
 													<th>Ngày Sửa</th>
 													<th>Tạo bởi</th>
@@ -147,7 +146,6 @@
 															<td><input type="checkbox" id="checkbox_${item.id}"
 																value="${item.id}" /></td>
 															<td>${item.name}</td>
-															<td>${item.code}</td>
 															<td>${item.createdDate}</td>
 															<td>${item.modifiedDate}</td>
 															<td>${item.createdBy}</td>

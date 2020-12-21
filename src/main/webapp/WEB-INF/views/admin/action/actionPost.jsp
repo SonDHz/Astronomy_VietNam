@@ -118,7 +118,8 @@
 								</div>
 								<div class="card-body" id="bar-parent2">
 									<form:form id="formSubmit" role="form" class="form-horizontal"
-										modelAttribute="model" action="/api/Post" method="POST" enctype="multipart/form-data">
+										modelAttribute="model" action="/api/Post" method="POST"
+										enctype="multipart/form-data">
 										<div class="form-body">
 											<div class="form-group row  margin-top-20">
 												<form:hidden path="id" class="form-control" name="id"
@@ -128,19 +129,27 @@
 												<label class="control-label col-md-3">Thể loại bài
 													viết: </label>
 												<div class="col-md-8">
-													<form:select path="category" id="category">
-														<form:option value="" label="-- Chọn thể loại bài viết --" />
-														<form:options items="${category}" />
-													</form:select>
+													<select name="category" id="category" required=""
+														oninvalid="this.setCustomValidity('Hãy chọn thể loại')"
+														oninput="setCustomValidity('')">
+														<option value="" label="-- Chọn thể loại bài viết --"></option>
+														<c:forEach var="categoryName" items="${category}">
+															<option value="${categoryName.key}">${categoryName.value}</option>
+														</c:forEach>
+													</select>
+
+
 												</div>
 											</div>
 											<div class="form-group row">
 												<label class="control-label col-md-3">Tên tiêu đề: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i>
-														<form:input path="title" type="text" class="form-control"
-															name="title" id="title" value="${model.title}" />
+														<i class="fa"></i> <input type="text" class="form-control"
+															name="title" id="title" value="${model.title}"
+															required=""
+															oninvalid="this.setCustomValidity('Hãy nhập tiêu đề')"
+															oninput="setCustomValidity('')" />
 													</div>
 												</div>
 											</div>
@@ -149,9 +158,10 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<form:textarea path="shortDescription" type="text"
-															class="form-control" name="shortDescription"
-															id="shortDescription" value="${model.shortDescription}" />
+														<textarea class="form-control" name="shortDescription"
+															id="shortDescription" required=""
+															oninvalid="this.setCustomValidity('Hãy nhập mô tả')"
+															oninput="setCustomValidity('')">${model.shortDescription}</textarea>
 													</div>
 												</div>
 											</div>
@@ -161,9 +171,11 @@
 													<div class="input-icon right">
 														<i class="fa"></i>
 														<!-- <input  id="image" class="form-control" name="img" /> -->
-														<input type="file"
-															 id="thumbnail" class="form-control" name="img" 
-															<%-- value="${model.thumbnail}" --%> />
+														<input type="file" id="thumbnail" class="form-control"
+															name="img" required=""
+															oninvalid="this.setCustomValidity('Hãy chọn ảnh')"
+															oninput="setCustomValidity('')" />
+														<%-- value="${model.thumbnail}" --%>
 														<!-- <input type="file" id="image" class="form-control" name="img" /> -->
 													</div>
 												</div>
@@ -172,10 +184,16 @@
 												<label class="control-label col-md-3">Nội dung: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
+														<%-- <i class="fa"></i> <textarea rows="7" cols="85" 
+															class="form-control" name="content" id="content"
+															required=""
+															oninvalid="this.setCustomValidity('Hãy nhập mô tả')"
+															oninput="setCustomValidity('')">${model.content}</textarea> --%>
 														<i class="fa"></i>
-														<form:textarea path="content" rows="7" cols="85"
-															type="text" class="form-control" name="content"
-															id="content" value="${model.content}" />
+														<textarea class="form-control" name="shortDescription"
+															id="content" required=""
+															oninvalid="this.setCustomValidity('Hãy nhập nội dung')"
+															oninput="setCustomValidity('')">${model.content}</textarea>
 													</div>
 												</div>
 											</div>
@@ -280,6 +298,7 @@
 	<!-- start js include path -->
 
 	<%@include file="share/js.jsp"%>
+
 	<script>
 		var editor = '';
 		$(document).ready(function() {
