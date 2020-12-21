@@ -29,4 +29,6 @@ public interface IUserService {
 	void delete(long[] ids);
 
 	List<UserEntity> getAllCustomer();
+	
+	public int countUser();
 }

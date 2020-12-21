@@ -23,4 +23,6 @@ public interface IPostService {
 	
 	public List<PostEntity> getAllRamdom();
 	
+	public int countPost();
+	
 }

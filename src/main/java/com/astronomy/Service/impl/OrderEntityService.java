@@ -66,8 +66,12 @@ public class OrderEntityService implements IOrderService {
 
 	@Override
 	public OrderCreateModifyDTO addOrders(OrderCreateModifyDTO dto) {
-		System.out.println("Order dto: " + dto);
 		OrderEntity entity = orderMapper.toOrder(dto);
 		return orderMapper.toOrderResponserDTO(orderRepository.save(entity));
+	}
+
+	@Override
+	public int countOrder() {
+		return orderRepository.countOrder();
 	}
 }

@@ -19,7 +19,7 @@ public interface IProductService {
 	
 	ProductEntity findByIdEntity(long id);
 	
-	public List<Object> count();
+	public int count();
 	
 	void delete(long[] ids);
 	

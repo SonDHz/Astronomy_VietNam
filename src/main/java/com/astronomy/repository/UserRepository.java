@@ -16,4 +16,8 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 	@Query(value = "select u.* from user_role ul left join user u on  ul.userid = u.id  \n"
 			+ "inner join role rl on ul.roleid = rl.id where code = \"USER\";", nativeQuery = true)
 	public List<UserEntity> getAllCustomer(); //
+	
+	
+	@Query(value = "SELECT COUNT(*) FROM `user` u ;", nativeQuery = true)
+	public int countUser();
 }

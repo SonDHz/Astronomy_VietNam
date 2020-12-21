@@ -15,7 +15,7 @@ import com.astronomy.entity.ProductEntity;
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 
 	@Query(value = "SELECT COUNT(*) FROM product", nativeQuery = true)
-	List<Object> countProduct();
+	public int countProduct();
 	
 	@Query(value = "select p.* from product p left join productcategory prc on  p.productcategory_id  = prc.id where productcategory_id= ?",
 			nativeQuery = true)

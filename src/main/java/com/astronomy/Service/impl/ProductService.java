@@ -52,7 +52,7 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
-	public List<Object> count() {
+	public int count() {
 		return productRepository.countProduct();
 	}
 
