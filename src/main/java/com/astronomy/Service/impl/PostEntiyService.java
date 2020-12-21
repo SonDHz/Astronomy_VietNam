@@ -63,8 +63,13 @@ public class PostEntiyService implements IPostService{
 	}
 
 	@Override
+	public List<PostEntity> getAllIdDescLimit() {
+		return postRepository.getAllIdDescLimit();
+	}
+	
 	public int countPost() {
 		return postRepository.countPost();
+
 	}
 	
 }

@@ -48,7 +48,7 @@ public class ProductViewController {
 		model.addAttribute("entityView", entity);
 		return "web/shopping_tools";
 	}
-	
+		
 // Phân trang cũ 
 //	@GetMapping("shoppingTools/{id}")
 //	public String productViews(Model model, @PathVariable(value = "id") long id) {
@@ -91,6 +91,15 @@ public class ProductViewController {
 		return "web/productViews";
 	}
 
+	@GetMapping("/shoppingToolsSearch/{name}")
+	public String productSearch(Model model, @PathVariable(value = "name") String name) {
+		List<ProductCategoryEntity> pro = productCategoryService.getAll();
+		model.addAttribute("productCategorySession", pro);
+		List<ProductEntity> entity =  service.getProductSearch(name);
+		model.addAttribute("entityView", entity);
+		return "web/shopping_tools";
+	}
+	
 	@GetMapping(value = "getImageView")
 	@ResponseBody
 	public ResponseEntity<ByteArrayResource> getImage(@RequestParam("img") String photo) {

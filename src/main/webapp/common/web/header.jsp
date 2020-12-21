@@ -55,6 +55,14 @@
 								class="fa fa-home fa-lg,font-size:10px"></i>&nbsp;&nbsp;Trang
 								chủ</Strong></a></li>
 
+
+					<li><a href="/about_us"><strong> <i
+								class="fa fa-newspaper-o fa-lg,font-size:10px"></i>&nbsp;&nbsp;Giới thiệu
+								
+						</strong> </a></li>
+
+
+
 					<li><a href="#"><Strong><i
 								class="fa fa-gift fa-lg,font-size:10px"></i>&nbsp;&nbsp;Sản phẩm</Strong></a>
 						<ul>
