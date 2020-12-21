@@ -90,7 +90,7 @@
 					<security:authorize access="isAuthenticated()">
 						<security:authentication property="principal" var="user" />
 						<ul class="nav-menu">
-							<li><a href="/user-detail">Welcome, ${ user.fullName }</a></li>
+							<li><a href="/user-bill-detail/${ user.id }">Welcome, ${ user.fullName }</a></li>
 						</ul>
 					</security:authorize>
 					<nav id="nav-menu-container">

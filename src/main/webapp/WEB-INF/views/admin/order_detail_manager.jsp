@@ -137,7 +137,7 @@
 													<th>Tổng cộng</th>
 													<th>Ngày tạo</th>
 													<th>Tạo bởi</th>
-													<th>Action</th>
+													<!-- <th>Action</th> -->
 												</tr>
 											</thead>
 											<tbody>
@@ -155,13 +155,13 @@
 															<td>${orderDetail.total}</td>
 															<td>${orderDetail.createdDate}</td>
 															<td>${orderDetail.createdBy}</td>
-															<td>&nbsp;&nbsp; <c:url var="createModify"
+															<%-- <td>&nbsp;&nbsp; <c:url var="createModify"
 																	value="createModify/orderDetail">
 																	<c:param name="id" value="${orderDetail.id}" />
 																</c:url> <a href='${createModify}'
 																class="btn btn-outline-warning"
 																data-original-title="Update">Update</a> &nbsp;&nbsp;
-															</td>
+															</td> --%>
 														</tr>
 													</c:forEach>
 												</form:form>

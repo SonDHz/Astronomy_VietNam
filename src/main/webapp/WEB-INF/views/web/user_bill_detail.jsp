@@ -44,10 +44,10 @@ h4 {
 	<!-- Top Stories Area -->
 	<div class="container">
 		<div class="row" style="margin-top: 120px">
-			<table class="table table-sm" style="width: 100%;">
+			<h1>Lịch sử đơn hàng</h1>
+			<table class="table table-striped" style="width: 100%;">
 				<thead>
 					<tr>
-						<th>#ID</th>
 						<th>Hóa đơn</th>
 						<th>Số Lượng</th>
 						<th>Sản phẩm</th>
@@ -57,24 +57,16 @@ h4 {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td>the Bird</td>
-						<td>@twitter</td>
-					</tr>
+					<c:forEach var="item" items="${ listOrderDetailByUserID }">
+						<tr>
+							<td>${item.order.id}</td>
+							<td>${item.quantity}</td>
+							<td>${item.product.name}</td>
+							<td>${item.total}</td>
+							<td>${item.createdDate}</td>
+							<td>${item.createdBy}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
