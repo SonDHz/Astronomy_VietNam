@@ -26,5 +26,7 @@ public interface IProductService {
 	List<ProductEntity> getProductByCategory(long id);
 	
 	Page<ProductEntity> getProductPaging( int pageNo, int pageSize);
+	
+	List<ProductEntity> getProductSearch( String name );
 
 }

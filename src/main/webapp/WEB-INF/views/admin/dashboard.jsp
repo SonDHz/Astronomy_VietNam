@@ -134,90 +134,36 @@
 
 				<!-- Chart end -->
 				<!-- start course list -->
+				
 				<div class="row">
+				<form:form id="formSubmit" role="form" class="row ">
+						<c:forEach var="postdashboard" items="${entity}">
 					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
 						<div class="blogThumb">
 							<div class="thumb-center">
-								<img class="img-responsive" alt="user"
-									src="../../template/admin/assets/img/blog/blog1.jpg">
+								<c:url var="display" value='/getImageViewPostDashboard'>
+							<c:param name="img" value="${postdashboard.thumbnail}"/>
+									</c:url>
+							<img alt="" src="${display}" width="280px" height="200px">
 							</div>
 							<div class="white-box">
 								<div class="text-muted">
-									<span class="m-r-10">June 16</span> <a
+									<span class="m-r-10">${postdashboard.createdDate}</span> <a
 										class="text-muted m-l-10" href="#"><i
-										class="fa fa-heart-o"></i> 56</a>
+										class="fa fa-heart-o"></i></a>
 								</div>
-								<h3 class="m-t-20 m-b-20">White Woman Practices Yoga In</h3>
-								<p>There is a new neighbor on Sesame Street. Her name is
-									Julia</p>
+								<h3 class="m-t-20 m-b-20">${postdashboard.title}</h3>
+								<p>${postdashboard.shortDescription}</p>
 								<button
 									class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
 									more</button>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
-						<div class="blogThumb">
-							<div class="thumb-center">
-								<img class="img-responsive" alt="user"
-									src="../../template/admin/assets/img/blog/blog2.jpg">
-							</div>
-							<div class="white-box">
-								<div class="text-muted">
-									<span class="m-r-10">Feb 12</span> <a class="text-muted m-l-10"
-										href="#"><i class="fa fa-heart-o"></i> 45</a>
-								</div>
-								<h3 class="m-t-20 m-b-20">How Much Radon is In Your Home?</h3>
-								<p>There is a new neighbor on Sesame Street. Her name is
-									Julia</p>
-								<button
-									class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
-									more</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
-						<div class="blogThumb">
-							<div class="thumb-center">
-								<img class="img-responsive" alt="user"
-									src="../../template/admin/assets/img/blog/blog3.jpg">
-							</div>
-							<div class="white-box">
-								<div class="text-muted">
-									<span class="m-r-10">Dec 17</span> <a class="text-muted m-l-10"
-										href="#"><i class="fa fa-heart-o"></i> 79</a>
-								</div>
-								<h3 class="m-t-20 m-b-20">White Woman Practices Yoga In</h3>
-								<p>There is a new neighbor on Sesame Street. Her name is
-									Julia</p>
-								<button
-									class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
-									more</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
-						<div class="blogThumb">
-							<div class="thumb-center">
-								<img class="img-responsive" alt="user"
-									src="../../template/admin/assets/img/blog/blog4.jpg">
-							</div>
-							<div class="white-box">
-								<div class="text-muted">
-									<span class="m-r-10">April 23</span> <a
-										class="text-muted m-l-10" href="#"><i
-										class="fa fa-heart-o"></i> 654</a>
-								</div>
-								<h3 class="m-t-20 m-b-20">How Much Radon is In Your Home?</h3>
-								<p>There is a new neighbor on Sesame Street. Her name is
-									Julia</p>
-								<button
-									class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
-									more</button>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
+				</form:form>
 				</div>
+				
 				<!-- End course list -->
 				<div class="row">
 					<div class="col-lg-6 col-md-12 col-sm-12 col-12">

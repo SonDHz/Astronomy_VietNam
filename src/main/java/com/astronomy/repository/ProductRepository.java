@@ -21,8 +21,7 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 			nativeQuery = true)
 	public List<ProductEntity> getProductByCategory(long id);
 	
-	@Query(value = "select p.* from product p left join productcategory prc on  p.productcategory_id  = prc.id where productcategory_id= ? limit ?, ?",
+	@Query(value = "select * from product where name like '%'?'%' ",
 			nativeQuery = true)
-	public List<ProductEntity> getProductByPaging(int pageNo, int pageSize);
-
+	public List<ProductEntity> getProductSearch( String name );
 }
