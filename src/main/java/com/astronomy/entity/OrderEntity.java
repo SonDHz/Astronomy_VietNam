@@ -31,8 +31,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "oder")
 @Entity
+@Table(name = "orders")
 @EntityListeners(AuditingEntityListener.class)
 @Builder
 @ToString
@@ -41,6 +41,9 @@ public class OrderEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "userID")
+	private Long userID;
 	
 	@Column(name = "email")
 	private String email;

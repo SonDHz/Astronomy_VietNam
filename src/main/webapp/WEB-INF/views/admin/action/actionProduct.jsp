@@ -141,7 +141,7 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<input type="text" class="form-control"
+														<input type="text" class="form-control" required
 															name="name" id="name" value="${model.name}" />
 													</div>
 												</div>
@@ -164,6 +164,17 @@
 														<form:textarea path="shortDecription" type="text"
 															class="form-control" name="shortDecription"
 															id="shortDecription" value="${model.shortDecription}" />
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="control-label col-md-3">Giới thiệu sản phẩm: </label>
+												<div class="col-md-4">
+													<div class="input-icon right">
+														<i class="fa"></i>
+														<form:textarea path="introduce" type="text"
+															class="form-control" name="shortDecription"
+															id="shortDecription" value="${model.introduce}" />
 													</div>
 												</div>
 											</div>

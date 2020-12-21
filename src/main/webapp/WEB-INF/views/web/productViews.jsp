@@ -222,100 +222,13 @@
 		<div class="row">
 			<div class="tabs_div">
 				<ul>
-					<li><strong>Thông số kỹ thuật</strong></li>
-					<li><strong>Phụ kiện đi kèm</strong></li>
-					<li><strong>Tham khảo</strong></li>
 					<li><strong>Giới thiệu</strong></li>
 				</ul>
 				<div>
 					<table class="table">
 						<tbody>
 							<tr>
-								<td class="success">Thiết kế quang học:</td>
-								<td>Phản xạ Newton</td>
-							</tr>
-							<tr>
-								<td class="success">Đường kính:</td>
-								<td>130mm (5.11 “)</td>
-							</tr>
-							<tr>
-								<td class="success">Độ dài tiêu cự:</td>
-								<td>650mm (25,6 “)</td>
-							</tr>
-							<tr>
-								<td class="success">Khẩu độ:</td>
-								<td>f /5</td>
-							</tr>
-							<tr>
-								<td class="success">Kính định vị tìm mục tiêu</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td class="success">Lớp phủ:</td>
-								<td>Quang nhôm</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div>
-					<table class="table">
-						<tbody>
-							<tr>
-								<td class="success">Bộ điều khiển tinh chỉnh</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td class="success">Chân máy:</td>
-								<td>Đường kính ống chân 1.25 ”</td>
-							</tr>
-							<tr>
-								<td class="success">Phần mềm Starry Night Basic Edition</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td class="success">Khay phụ kiện</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div>
-					<table class="table">
-						<tbody>
-							<tr>
-								<td>Kính thiên văn Celestron Astromaster 114EQ</td>
-							</tr>
-							<tr>
-								<td>Kính thiên văn Celestron Astromater 70EQ</td>
-
-
-							</tr>
-							<tr>
-								<td>Kính thiên văn Celestron Deluxe 130EQ</td>
-
-
-							</tr>
-							<tr>
-								<td>Kính thiên văn Celestron Deluxe 130EQ</td>
-
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div>
-					<table class="table">
-						<tbody>
-							<tr>
-								<td class="decs">Celestron AstroMaster 130EQ là dòng kính
-									thiên văn chính hãng rất tiện lợi cho các bạn mang đi du lịch,
-									có thể được lắp ráp rất dễ dàng mà không cần thêm bất cứ dụng
-									cụ phụ trợ nào. Nó còn là một món quà giải trí, học tập tuyệt
-									vời của các ông bố bà mẹ dành tặng cho các bạn nhỏ muốn khám
-									phá bầu trời, là chiếc kính rất phù hợp dành cho những bạn mới
-									bắt đầu quan tâm đến thiên văn, vũ trụ muốn có một chiếc kính
-									cho riêng mình. Với kính thiên văn Celestron AstroMaster 130EQ,
-									bạn có thể quan sát được Mặt Trăng, sao Mộc, sao Thổ,…hay quan
-									sát địa văn như một chiếc ống nhòm.r</td>
+								<td class="decs">${model.introduce}</td>
 							</tr>
 						</tbody>
 					</table>

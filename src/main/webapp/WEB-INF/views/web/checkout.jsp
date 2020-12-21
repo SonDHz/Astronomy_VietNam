@@ -73,6 +73,7 @@ p {
 							<p style="font-size: 40px">
 								<strong>Thông tin khách hàng</strong>
 							</p>
+							<form:hidden path="userID"/>
 							<br> <label for="fname"><i class="fa fa-user"></i>&nbsp;
 								Họ và tên</label>
 							<form:input type="text" path="name"/>
@@ -93,7 +94,7 @@ p {
 								alt="">
 						</div>
 					</div>
-					<a href="/shopping_success" class="btn btn-info">Thanh toán</a>
+					<button type="submit" class="btn btn-info">Thanh toán</button>
 				</form:form> 
 			</div>
 		</div>

@@ -19,12 +19,14 @@ public interface IProductService {
 	
 	ProductEntity findByIdEntity(long id);
 	
-	public List<Object> count();
+	public int count();
 	
 	void delete(long[] ids);
 	
 	List<ProductEntity> getProductByCategory(long id);
 	
 	Page<ProductEntity> getProductPaging( int pageNo, int pageSize);
+	
+	List<ProductEntity> getProductSearch( String name );
 
 }

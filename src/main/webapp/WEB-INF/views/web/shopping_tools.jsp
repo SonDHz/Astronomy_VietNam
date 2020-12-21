@@ -34,9 +34,15 @@
 	<!-- Start main body Area -->
 	<div class="main-body section-gap">
 		<div class="container box_1170">
+		<div class ="col-md-2">
+			<form:form action="/shoppingToolsSearch/{name}" method="get"> 
+				<input type="text" class="form-control" name="search" placeholder="Tìm kiếm...">
+			</form:form>
+		</div>
 			<div class="row">
 				<div class="col-lg-12 post-list">
 					<!-- Start Post Area -->
+					
 					<section class="post-area">
 						<div>
 							<form:form id="formSubmit" role="form" class="row">

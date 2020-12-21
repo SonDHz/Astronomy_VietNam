@@ -99,48 +99,33 @@
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-purple">
 							<h3 class="text-white box-title">
-								Hóa đơn <span class="pull-right">15</span>
+								Số lượng hóa đơn <span class="pull-right">${order}</span>
 							</h3>
-							<div id="sparkline18">
-								<canvas
-									style="display: inline-block; width: 367px; height: 70px; vertical-align: top;"></canvas>
-							</div>
+							<i class="fa fa-facebook"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-danger">
 							<h3 class="text-white box-title">
-								Sản phẩm
-								<c:forEach var="item" items="${product}">
-									<span class="pull-right">132154</span>
-								</c:forEach>
+								Số lượng sản phẩm <span class="pull-right">${product}</span>
 							</h3>
-							<div id="sparkline12">
-								<canvas
-									style="display: inline-block; width: 367px; height: 70px; vertical-align: top;"></canvas>
-							</div>
+							<i class="fa fa-facebook"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-cyan">
 							<h3 class="text-white box-title">
-								Nhân viên<span class="pull-right">20</span>
+								Số lượng tài khoản<span class="pull-right">${accout}</span>
 							</h3>
-							<div id="sparkline9">
-								<canvas
-									style="display: inline-block; width: 267px; height: 70px; vertical-align: top;"></canvas>
-							</div>
+							<i class="fa fa-facebook"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-blue">
 							<h3 class="text-white box-title">
-								Khách hàng <span class="pull-right"> 40</span>
+								Số lượng bài viết <span class="pull-right">${post}</span>
 							</h3>
-							<div id="sparkline16" class="text-center">
-								<canvas
-									style="display: inline-block; width: 215px; height: 70px; vertical-align: top;"></canvas>
-							</div>
+							<i class="fa fa-facebook"></i>
 						</div>
 					</div>
 				</div>
@@ -149,90 +134,36 @@
 
 				<!-- Chart end -->
 				<!-- start course list -->
+				
 				<div class="row">
+				<form:form id="formSubmit" role="form" class="row ">
+						<c:forEach var="postdashboard" items="${entity}">
 					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
 						<div class="blogThumb">
 							<div class="thumb-center">
-								<img class="img-responsive" alt="user"
-									src="../../template/admin/assets/img/blog/blog1.jpg">
+								<c:url var="display" value='/getImageViewPostDashboard'>
+							<c:param name="img" value="${postdashboard.thumbnail}"/>
+									</c:url>
+							<img alt="" src="${display}" width="280px" height="200px">
 							</div>
 							<div class="white-box">
 								<div class="text-muted">
-									<span class="m-r-10">June 16</span> <a
+									<span class="m-r-10">${postdashboard.createdDate}</span> <a
 										class="text-muted m-l-10" href="#"><i
-										class="fa fa-heart-o"></i> 56</a>
+										class="fa fa-heart-o"></i></a>
 								</div>
-								<h3 class="m-t-20 m-b-20">White Woman Practices Yoga In</h3>
-								<p>There is a new neighbor on Sesame Street. Her name is
-									Julia</p>
+								<h3 class="m-t-20 m-b-20">${postdashboard.title}</h3>
+								<p>${postdashboard.shortDescription}</p>
 								<button
 									class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
 									more</button>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
-						<div class="blogThumb">
-							<div class="thumb-center">
-								<img class="img-responsive" alt="user"
-									src="../../template/admin/assets/img/blog/blog2.jpg">
-							</div>
-							<div class="white-box">
-								<div class="text-muted">
-									<span class="m-r-10">Feb 12</span> <a class="text-muted m-l-10"
-										href="#"><i class="fa fa-heart-o"></i> 45</a>
-								</div>
-								<h3 class="m-t-20 m-b-20">How Much Radon is In Your Home?</h3>
-								<p>There is a new neighbor on Sesame Street. Her name is
-									Julia</p>
-								<button
-									class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
-									more</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
-						<div class="blogThumb">
-							<div class="thumb-center">
-								<img class="img-responsive" alt="user"
-									src="../../template/admin/assets/img/blog/blog3.jpg">
-							</div>
-							<div class="white-box">
-								<div class="text-muted">
-									<span class="m-r-10">Dec 17</span> <a class="text-muted m-l-10"
-										href="#"><i class="fa fa-heart-o"></i> 79</a>
-								</div>
-								<h3 class="m-t-20 m-b-20">White Woman Practices Yoga In</h3>
-								<p>There is a new neighbor on Sesame Street. Her name is
-									Julia</p>
-								<button
-									class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
-									more</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
-						<div class="blogThumb">
-							<div class="thumb-center">
-								<img class="img-responsive" alt="user"
-									src="../../template/admin/assets/img/blog/blog4.jpg">
-							</div>
-							<div class="white-box">
-								<div class="text-muted">
-									<span class="m-r-10">April 23</span> <a
-										class="text-muted m-l-10" href="#"><i
-										class="fa fa-heart-o"></i> 654</a>
-								</div>
-								<h3 class="m-t-20 m-b-20">How Much Radon is In Your Home?</h3>
-								<p>There is a new neighbor on Sesame Street. Her name is
-									Julia</p>
-								<button
-									class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
-									more</button>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
+				</form:form>
 				</div>
+				
 				<!-- End course list -->
 				<div class="row">
 					<div class="col-lg-6 col-md-12 col-sm-12 col-12">

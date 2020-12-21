@@ -52,7 +52,7 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
-	public List<Object> count() {
+	public int count() {
 		return productRepository.countProduct();
 	}
 
@@ -71,4 +71,10 @@ public class ProductService implements IProductService {
 	public Page<ProductEntity> getProductPaging(int pageNo, int pageSize) {
 		return productRepository.findAll(PageRequest.of(pageNo -1, pageSize));
 	}
+
+	@Override
+	public List<ProductEntity> getProductSearch(String name) {
+		return productRepository.getProductSearch(name);
+	}
+
 }

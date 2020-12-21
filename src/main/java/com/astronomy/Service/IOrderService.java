@@ -19,4 +19,6 @@ public interface IOrderService {
 	OrderCreateModifyDTO findByIdDTO(long id);
 	
 	void delete(long[] ids);
+	
+	public int countOrder();
 }

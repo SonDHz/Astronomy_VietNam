@@ -60,7 +60,7 @@ public class PostEntity {
 	@Column(name = "title")
 	private String title;
 	
-	@Column(name = "shortdescription")
+	@Column(name = "shortdescription", columnDefinition = "TEXT")
 	private String shortDescription;
 	
 	@Column(name = "thumbnail")

@@ -18,7 +18,6 @@ import lombok.ToString;
 public class ProductCategoryCreateModifyDTO {
 	private Long id;
 	private String name;
-	private String code;
 	private Date createdDate;
 	private Date modifiedDate;
 	private String createdBy;

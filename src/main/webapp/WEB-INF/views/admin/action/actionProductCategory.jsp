@@ -133,17 +133,6 @@
 													</div>
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="control-label col-md-3">Code: 
-												</label>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i> <form:input path="code" type="text" class="form-control"
-															name="code" id="code" value="${model.code}"/>
-													</div>
-												</div>
-											</div>
-											
 										</div>
 										<form:hidden path="id" id="idProductCategory"/>
 										<div class="form-group">

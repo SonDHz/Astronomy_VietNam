@@ -2,6 +2,7 @@ package com.astronomy.controller.web;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import static com.astronomy.constant.EConstant.SESSION_CART;
+import static com.astronomy.constant.EConstant.SESSION_TOTAL_PRICES;
+import static com.astronomy.constant.EConstant.SESSION_TOTAL_QUANTITY;
 
 import com.astronomy.Service.IProductCategoryService;
 import com.astronomy.dto.UserCreateModifyDTO;
@@ -24,6 +28,9 @@ public class HomeController {
 
 	@Autowired
 	IProductCategoryService productCategoryService;
+	
+	@Autowired
+	HttpSession session;
 	
 	@RequestMapping(value = "/")
 	public String index(Model model) {
@@ -52,7 +59,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "contact")
-	public String contact1() {
+	public String contact1(Model model) {
+		List<ProductCategoryEntity> list = productCategoryService.getAll();
+		model.addAttribute("productCategorySession", list);
 		return "web/contact";
 	}
 	
@@ -102,6 +111,9 @@ public class HomeController {
 	public String logout(HttpServletRequest request) {
 		HttpSession httpSession = request.getSession();
 		httpSession.removeAttribute("USER");
+		session.removeAttribute(SESSION_CART.name());
+		session.removeAttribute(SESSION_TOTAL_QUANTITY.name());
+		session.removeAttribute(SESSION_TOTAL_PRICES.name());
 		return "redirect:/login";
 	}
 }

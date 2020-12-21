@@ -15,6 +15,7 @@
 <title>Quản lý nhà cung cấp</title>
 <!-- google font -->
 <%@include file="share/styleAction.jsp"%>
+
 </head>
 <!-- END HEAD -->
 <body
@@ -128,7 +129,7 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i> <form:input path="name" type="text" class="form-control"
-															name="name" id="name" value="${model.name}"/>
+														 name="name" id="name" value="${model.name}"/>
 													</div>
 												</div>
 											</div>
@@ -231,19 +232,29 @@
 
 	<%@include file="share/js.jsp"%>
 	<script>
+	 	 
 		$('#btnAddOrUpdate').click(function (event){
 			event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
 			var data = {};
+			var check = true;
 			//Lấy gọi ra id (Lưu ý phải đặt name cho các field)
 			var formData = $('#formSubmit').serializeArray(); 
 			$.each(formData, function (i, v){
+				if(v.name == "name"){
+					if(v.value == ""){
+						alert("Null")
+						check = false;
+					}
+				}
 				data["" + v.name + ""] = v.value;
 			});
 			var id = $('#idManufacturer').val();
-			if(id == ""){
-				add(data);
-			}else{
-				update(data);
+			if(check){
+				if(id == ""){
+					add(data);
+				}else{
+					update(data);
+				}
 			}
 		});
 		

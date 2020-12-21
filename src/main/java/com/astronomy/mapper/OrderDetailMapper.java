@@ -19,6 +19,7 @@ public class OrderDetailMapper {
 				.build();
 		return OrderDetailEntity.builder()
 				.id(dto.getId())
+				.userID(dto.getUserID())
 				.total(dto.getTotal())
 				.quantity(dto.getQuantity())
 				.order(order)
@@ -34,6 +35,7 @@ public class OrderDetailMapper {
 		System.out.println("Entity: " + orderdetail);
 		return OrderDetailCreateModifyDTO.builder()
 				.id(orderdetail.getId())
+				.userID(orderdetail.getUserID())
 				.total(orderdetail.getTotal())
 				.quantity(orderdetail.getQuantity())
 				.order(orderdetail.getOrder().getId())

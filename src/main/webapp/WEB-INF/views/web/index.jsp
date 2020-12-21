@@ -55,7 +55,10 @@ padding:10px;}
 							</div>
 							<div class="stories-details">
 								<h6>
-									<a href="#">${posts.title}</a>
+									<c:url var="view" value="/postViewDetail">
+												<c:param name="id" value="${posts.id}"></c:param>
+											</c:url>
+											<a href="${view}">${posts.title}</a>
 								</h6>
 							</div>
 							
@@ -76,24 +79,26 @@ padding:10px;}
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
 				<form:form id="formSubmit" role="form" class="owl-carousel active-post-carusel" >
-						<c:forEach var="posts" items="${entity}">
+						<c:forEach var="postsramdom" items="${entityramdom}">
 					<div >
 						<!-- single carousel item -->
 						<div class="single-post-carousel">
 							<div class="post-thumb">
 							<c:url var="display" value='/getImageViewPost'>
-													<c:param name="img" value="${posts.thumbnail}"/>
+													<c:param name="img" value="${postsramdom.thumbnail}"/>
 												</c:url>
 												<img alt="" src="${display}" height="500px" width="400px" >
 							</div>
 							<div class="post-details">
 								<h2>
-									<a href="#">${posts.title}
-									</a>
+									<c:url var="view" value="/postViewDetail">
+												<c:param name="id" value="${postsramdom.id}"></c:param>
+											</c:url>
+											<a href="${view}">${postsramdom.title}</a>
 								</h2>
 								<div class="post-content d-flex justify-content-between">
 									<div class="details">
-										<p>${posts.shortDescription}</p>
+										<p>${postsramdom.shortDescription}</p>
 									</div>
 								</div>
 							</div>
@@ -123,7 +128,7 @@ padding:10px;}
 										<c:url var="display" value='/getImageViewPost'>
 													<c:param name="img" value="${post.thumbnail}"/>
 												</c:url>
-												<img alt="" src="${display}" width="auto" height="600px">
+												<img alt="" src="${display}" width="700px" height="500px">
 									</div>
 									<div class="post-details">
 										<h4>
@@ -197,38 +202,6 @@ padding:10px;}
 							<li><a href="#"><i class="fa fa-behance"></i></a></li>
 						</ul>
 						<img src="../../template/web/img/sign.png" alt="">
-					</div>
-
-					<div class="single-widget popular-posts-widget">
-						<div class="jq-tab-wrapper" id="horizontalTab">
-							<div class="jq-tab-menu">
-								<div class="jq-tab-title active" data-tab="1">Popular</div>
-								
-							</div>
-							
-							<div class="jq-tab-content-wrapper">
-								<div class="jq-tab-content active" data-tab="1">
-								<form:form id="formSubmit" role="form"  >
-						<c:forEach var="posts" items="${entity}">
-									<div class="single-popular-post d-flex flex-row">
-										<div class="popular-thumb">
-											<c:url var="display" value='/getImageViewPost'>
-													<c:param name="img" value="${posts.thumbnail}"/>
-												</c:url>
-												<img alt="" src="${display}" height="115px" width="100px" >
-										</div>
-										<div class="popular-details">
-											<h6>
-												<a href="">${posts.title }
-												</a>
-											</h6>
-										</div>
-									</div>
-									</c:forEach>
-									</form:form>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

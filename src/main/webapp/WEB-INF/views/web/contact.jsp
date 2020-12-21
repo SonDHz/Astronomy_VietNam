@@ -38,7 +38,7 @@
 
 				<div class="col-lg-4 d-flex flex-column address-wrap">
 					<div class="single-contact-address d-flex flex-row">
-
+						${ mesage }
 						<div class="icon">
 							<span class="lnr lnr-home"></span>
 						</div>
@@ -67,40 +67,39 @@
 					</div>
 				</div>
 				<div class="col-lg-8">
-					<form class="form-area " id="myForm" action="mail.php"
-						method="post" class="contact-form text-right">
+					<form class="form-areas" action="send" method="POST" class="contact-form text-right">
 						<div class="row">
 							<div class="col-lg-6 form-group">
-								<input name="name" placeholder="Họ và tên"
+								<!-- <input name="name" placeholder="Họ và tên"
 									onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Họ và tên'"
-									class="common-input mb-20 form-control" required="" type="text">
+									class="common-input mb-20 form-control" required="" type="text"> -->
 
-								<input name="email" placeholder="Địa chỉ email"
+								<input name="from" placeholder="Địa chỉ email"
 									pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
 									onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Enter email address'"
 									class="common-input mb-20 form-control" required=""
-									type="email">
+									type="email"/>
 								
-								<input name="subject"
-									placeholder="SĐT" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Chủ đề'"
-									class="common-input mb-20 form-control" required="" type="text">
+								<input name="to"
+									placeholder="to" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'to'"
+									class="common-input mb-20 form-control" required="" type="text"/> 
 								
 								<input name="subject"
 									placeholder="Chủ đề" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Chủ đề'"
-									class="common-input mb-20 form-control" required="" type="text">
+									class="common-input mb-20 form-control" required="" type="text"/>
 							</div>
 							<div class="col-lg-6 form-group">
-								<textarea class="common-textarea form-control" name="message"
+								<textarea class="common-textarea form-control" name="body"
 									placeholder="Nội dung" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Nội dung'" required=""></textarea>
-							</div>
+							</div> 
 							<div class="col-lg-12 d-flex justify-content-between">
-								<div class="alert-msg" style="text-align: left;"></div>
-								<button class="genric-btn primary circle text-uppercase"
+								<div class="alert-msg" style="text-align: left;"></div> 
+								<button class="genric-btn primary circle text-uppercase" type="submit"
 									style="float: right;">Gửi</button>
 							</div>
 						</div>

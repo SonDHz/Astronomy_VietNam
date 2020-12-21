@@ -19,4 +19,14 @@ public interface IPostService {
 	
 	Page<PostEntity> getPostPaging( int pageNo, int pageSize);
 	
+	public List<PostEntity> getAllIdDesc();
+	
+	public List<PostEntity> getAllRamdom();
+	
+
+	public List<PostEntity> getAllIdDescLimit();
+
+	public int countPost();
+
+	
 }

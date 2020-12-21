@@ -55,21 +55,21 @@ public class CartController {
 	@Autowired
 	private IProductCategoryService productCategoryService;
 
-	@RequestMapping(value = "addCart/{id}")
+	@RequestMapping(value = "/addCart/{id}")
 	public String addCart(@PathVariable long id) {
 		HashMap<Long, CartDTO> cart = service.addCart(id, CartUtils.getOrInitialCart(session));
 		this.transformSession(cart);
 		return NavigateUtils.toReferer(request);
 	}
 
-	@RequestMapping(value = "editCart/{id}/{quanty}")
+	@RequestMapping(value = "/editCart/{id}/{quanty}")
 	public String editCart(@PathVariable long id, @PathVariable int quanty) {
 		HashMap<Long, CartDTO> cart = service.editCart(id, quanty, CartUtils.getOrInitialCart(session));
 		this.transformSession(cart);
 		return NavigateUtils.toReferer(request);
 	}
 
-	@RequestMapping(value = "deleteCart/{id}")
+	@RequestMapping(value = "/deleteCart/{id}")
 	public String deleteCart(@PathVariable long id) {
 		HashMap<Long, CartDTO> cart = service.deleteCart(id, CartUtils.getOrInitialCart(session));
 		this.transformSession(cart);
@@ -82,13 +82,14 @@ public class CartController {
 		session.setAttribute(SESSION_TOTAL_PRICES.name(), CartUtils.calPrices(cart));
 	}
 
-	@GetMapping(value = "checkout")
+	@GetMapping(value = "/checkout")
 	public String checkOut(Model model) {
 		List<ProductCategoryEntity> list = productCategoryService.getAll();
 		model.addAttribute("productCategorySession", list);
 		OrderCreateModifyDTO dto = new OrderCreateModifyDTO();
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (principal != null) {
+			dto.setUserID(((MyUser) principal).getId());
 			dto.setAddress(((MyUser) principal).getAddress());
 			dto.setName(((MyUser) principal).getFullName());
 			dto.setEmail(((MyUser) principal).getEmail());
@@ -98,7 +99,7 @@ public class CartController {
 	}
 
 	@SuppressWarnings("unchecked")
-	@PostMapping(value = "checkout")
+	@PostMapping(value = "/checkout")
 	public String checkOutBill(@ModelAttribute("order") OrderCreateModifyDTO dto) {
 		dto.setQuanty((int)session.getAttribute(SESSION_TOTAL_QUANTITY.name()));
 		dto.setTotal((double)session.getAttribute(SESSION_TOTAL_PRICES.name()));

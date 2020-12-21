@@ -51,4 +51,25 @@ public class PostEntiyService implements IPostService{
 	public Page<PostEntity> getPostPaging(int pageNo, int pageSize) {
 		return postRepository.findAll(PageRequest.of(pageNo -1, pageSize));
 	}
+
+	@Override
+	public List<PostEntity> getAllIdDesc() {
+		return postRepository.getAllIdDesc();
+	}
+
+	@Override
+	public List<PostEntity> getAllRamdom() {
+		return postRepository.getAllRamdom();
+	}
+
+	@Override
+	public List<PostEntity> getAllIdDescLimit() {
+		return postRepository.getAllIdDescLimit();
+	}
+	
+	public int countPost() {
+		return postRepository.countPost();
+
+	}
+	
 }

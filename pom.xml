@@ -131,13 +131,12 @@
             <artifactId>hibernate-validator</artifactId>
             <version>5.4.1.Final</version>
         </dependency>
-
         
-	<dependency>
-    <groupId>org.webjars.bower</groupId>
-    <artifactId>summernote</artifactId>
-    <version>0.8.11</version>
-</dependency>
+        <!-- Mail -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>

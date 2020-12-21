@@ -43,7 +43,6 @@ public class PostViewController {
 	public String productView(Model model) {
 		List<ProductCategoryEntity> pro = productCategoryService.getAll();
 		model.addAttribute("productCategorySession", pro);
-
 		return findPaginated(1, model);
 	}
 	
@@ -51,11 +50,13 @@ public class PostViewController {
 	public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model) {
 		List<ProductCategoryEntity> pro = productCategoryService.getAll();
 		model.addAttribute("productCategorySession", pro);
-		List<PostEntity> POST = service.getAll();
+		List<PostEntity> POST = service.getAllIdDesc();
 		model.addAttribute("entity", POST);
+		List<PostEntity> post = service.getAllRamdom();
+		model.addAttribute("entityramdom", post);
 		LocalDate ht = LocalDate.now();
 		model.addAttribute("ht", ht);
-		Page<PostEntity> page = service.getPostPaging(pageNo, 12);
+		Page<PostEntity> page = service.getPostPaging(pageNo, 6);
 		List<PostEntity> list = page.getContent();
 		model.addAttribute("currentPage", pageNo);
 		model.addAttribute("totalPages", page.getTotalPages());
