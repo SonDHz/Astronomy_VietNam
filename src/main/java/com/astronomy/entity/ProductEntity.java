@@ -24,6 +24,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -91,6 +92,7 @@ public class ProductEntity implements Serializable {
 	
 	@OneToMany(mappedBy = "product")
 	@ToString.Exclude
+	@JsonIgnore
 	private List<OrderDetailEntity> orderDetail = new ArrayList<>();
 
 	@ManyToOne(fetch = FetchType.EAGER)

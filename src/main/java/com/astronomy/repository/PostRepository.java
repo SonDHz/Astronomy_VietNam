@@ -21,4 +21,7 @@ public interface PostRepository extends JpaRepository<PostEntity, Long> {
 	
 	@Query(value = "select * from post ORDER BY rand() limit 3", nativeQuery = true)
 	public List<PostEntity> getAllRamdom();
+	
+	@Query(value = "select count(*) from post;", nativeQuery = true)
+	public int countPost();
 }

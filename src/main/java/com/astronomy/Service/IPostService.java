@@ -23,6 +23,10 @@ public interface IPostService {
 	
 	public List<PostEntity> getAllRamdom();
 	
+
 	public List<PostEntity> getAllIdDescLimit();
+
+	public int countPost();
+
 	
 }

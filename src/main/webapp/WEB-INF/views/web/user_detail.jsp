@@ -43,21 +43,14 @@ h4 {
 
 	<!-- Top Stories Area -->
 	<div class="container">
+		<security:authentication property="principal" var="user" />
 		<div class="row" style="margin-top: 120px">
-			<div class="col-6">
-				<img alt="" src="../../template/web/img/account.gif" width="100%"
-					height="350px" class="w-100"> 
-					<a href="" class="btn btn-success">Xem thông tin cá nhân</a>
-			</div>
-			<div class="col-6">
-				<img alt="" src="../../template/web/img/bill_animation.gif"
-					idth="100%" height="350px" class="w-100">
-					<a href="/user-bill-detail" class="btn btn-success">Xem thông tin hóa đơn</a>
-			</div>
+			<img alt="" src="../../template/web/img/bill_animation.gif"
+				width="100%" height="350px" class="w-100"> <a
+				href="/user-bill-detail/${ user.id }" class="btn btn-success">Thông
+				tin hóa đơn</a>
 		</div>
-		</br>
 	</div>
-
 	<!-- Start main body Area -->
 
 	<!-- start footer Area -->

@@ -99,48 +99,33 @@
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-purple">
 							<h3 class="text-white box-title">
-								Hóa đơn <span class="pull-right">15</span>
+								Số lượng hóa đơn <span class="pull-right">${order}</span>
 							</h3>
-							<div id="sparkline18">
-								<canvas
-									style="display: inline-block; width: 367px; height: 70px; vertical-align: top;"></canvas>
-							</div>
+							<i class="fa fa-facebook"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-danger">
 							<h3 class="text-white box-title">
-								Sản phẩm
-								<c:forEach var="item" items="${product}">
-									<span class="pull-right">132154</span>
-								</c:forEach>
+								Số lượng sản phẩm <span class="pull-right">${product}</span>
 							</h3>
-							<div id="sparkline12">
-								<canvas
-									style="display: inline-block; width: 367px; height: 70px; vertical-align: top;"></canvas>
-							</div>
+							<i class="fa fa-facebook"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-cyan">
 							<h3 class="text-white box-title">
-								Nhân viên<span class="pull-right">20</span>
+								Số lượng tài khoản<span class="pull-right">${accout}</span>
 							</h3>
-							<div id="sparkline9">
-								<canvas
-									style="display: inline-block; width: 267px; height: 70px; vertical-align: top;"></canvas>
-							</div>
+							<i class="fa fa-facebook"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-blue">
 							<h3 class="text-white box-title">
-								Khách hàng <span class="pull-right"> 40</span>
+								Số lượng bài viết <span class="pull-right">${post}</span>
 							</h3>
-							<div id="sparkline16" class="text-center">
-								<canvas
-									style="display: inline-block; width: 215px; height: 70px; vertical-align: top;"></canvas>
-							</div>
+							<i class="fa fa-facebook"></i>
 						</div>
 					</div>
 				</div>

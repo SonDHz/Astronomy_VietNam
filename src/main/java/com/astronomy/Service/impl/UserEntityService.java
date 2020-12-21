@@ -65,4 +65,9 @@ public class UserEntityService implements IUserService {
 		return userRepository.save(user);
 	}
 
+	@Override
+	public int countUser() {
+		return userRepository.countUser();
+	}
+
 }

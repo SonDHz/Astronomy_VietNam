@@ -63,9 +63,6 @@ public class ProductCategoryEntity {
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "code")
-	private String code;
-
 	@OneToMany(mappedBy = "productCategory")
 	@JsonBackReference(value = "productCategory")
 	private List<ProductEntity> products = new ArrayList<>();
