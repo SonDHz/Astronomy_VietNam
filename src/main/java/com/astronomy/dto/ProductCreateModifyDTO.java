@@ -28,6 +28,7 @@ public class ProductCreateModifyDTO {
 	private String productCategoryCode;
 	private Long manufacturer;
 	private Long orderDetail;
+	private String introduce;
 	private Date createdDate;
 	private Date modifiedDate;
 	private String createdBy;

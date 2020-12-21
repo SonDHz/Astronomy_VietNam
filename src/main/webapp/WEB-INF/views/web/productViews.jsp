@@ -228,16 +228,7 @@
 					<table class="table">
 						<tbody>
 							<tr>
-								<td class="decs">Celestron AstroMaster 130EQ là dòng kính
-									thiên văn chính hãng rất tiện lợi cho các bạn mang đi du lịch,
-									có thể được lắp ráp rất dễ dàng mà không cần thêm bất cứ dụng
-									cụ phụ trợ nào. Nó còn là một món quà giải trí, học tập tuyệt
-									vời của các ông bố bà mẹ dành tặng cho các bạn nhỏ muốn khám
-									phá bầu trời, là chiếc kính rất phù hợp dành cho những bạn mới
-									bắt đầu quan tâm đến thiên văn, vũ trụ muốn có một chiếc kính
-									cho riêng mình. Với kính thiên văn Celestron AstroMaster 130EQ,
-									bạn có thể quan sát được Mặt Trăng, sao Mộc, sao Thổ,…hay quan
-									sát địa văn như một chiếc ống nhòm.r</td>
+								<td class="decs">${model.introduce}</td>
 							</tr>
 						</tbody>
 					</table>

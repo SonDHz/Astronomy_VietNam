@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.astronomy.Service.IOrderDetailService;
 import com.astronomy.dto.CartDTO;
+import com.astronomy.dto.MyUser;
 import com.astronomy.dto.OrderDetailCreateModifyDTO;
 import com.astronomy.entity.OrderDetailEntity;
 import com.astronomy.mapper.OrderDetailMapper;
@@ -54,13 +56,15 @@ public class OrderDetailEntityService implements IOrderDetailService {
 	@Override
 	public void addOrderDetail(HashMap<Long, CartDTO> cart) {
 		long idOrder = orderRepo.getIDLastOrder();
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		for(Map.Entry<Long, CartDTO> item: cart.entrySet()) {
 			OrderDetailCreateModifyDTO dto = OrderDetailCreateModifyDTO.builder()
-					.order(idOrder)
-					.product(item.getValue().getProduct().getId())
-					.quantity(item.getValue().getQuanty())
-					.total(item.getValue().getTotalPrice())
-					.build();
+					.userID(((MyUser) principal).getId())//
+					.order(idOrder)//
+					.product(item.getValue().getProduct().getId())//
+					.quantity(item.getValue().getQuanty())//
+					.total(item.getValue().getTotalPrice())//
+					.build();//
 			OrderDetailEntity entity = orderDetailMapper.toOrderDetail(dto);
 			System.out.println("entity: " + entity);
 			orderDetailRepository.save(entity);

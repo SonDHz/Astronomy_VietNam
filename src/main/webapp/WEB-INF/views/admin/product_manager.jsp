@@ -133,7 +133,7 @@
 													<th>#ID</th>
 													<th>Loại sản phẩm</th>
 													<th>Tên sản phẩm</th>
-													<th>Nhà sản xuất</th> 
+													<th>Nhà sản xuất</th>
 													<th>Giá</th>
 													<th>Số lượng</th>
 													<th>Hình ảnh</th>
@@ -262,7 +262,7 @@
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Quản lý sản phẩm</h5>
+							<h2 class="modal-title">Quản lý sản phẩm</h2>
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
@@ -298,6 +298,10 @@
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Mô tả ngắn:</strong></label><br>
 							&nbsp;&nbsp;&nbsp;&nbsp;<input id="shortDecription"
+								style="border: none;"><br> <label
+								data-error="wrong" data-success="right"><i
+								class="fa fa-table"></i>&nbsp; <strong>Giới thiệu:</strong></label><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="introduce"
 								style="border: none;"><br> <label
 								data-error="wrong" data-success="right"><i
 								class="fa fa-table"></i>&nbsp; <strong>Trạng thái:</strong></label><br>
@@ -397,6 +401,10 @@
 																		'#exampleModal #shortDecription')
 																		.val(
 																				product.shortDecription);
+																$(
+																		'#exampleModal #introduce')
+																		.val(
+																				product.introduce);
 																$(
 																		'#exampleModal #productCategory')
 																		.val(

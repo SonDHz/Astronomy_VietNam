@@ -10,7 +10,6 @@ import com.astronomy.entity.ProductEntity;
 @Component
 public class ProductMapper {
 	public ProductEntity toProduct(ProductCreateModifyDTO dto) {//
-		ProductEntity entity = null;
 		
 		ProductCategoryEntity productCategory = ProductCategoryEntity.builder()//
 				.id(dto.getProductCategory())//
@@ -28,6 +27,7 @@ public class ProductMapper {
 				.image(dto.getImage())//
 				.price(dto.getPrice())//
 				.quantity(dto.getQuantity())//
+				.introduce(dto.getIntroduce())//
 				.createdDate(dto.getCreatedDate())//
 				.modifiedDate(dto.getModifiedDate())//
 				.createdBy(dto.getCreatedBy())//
@@ -46,6 +46,7 @@ public class ProductMapper {
 				.image(product.getImage())//
 				.price(product.getPrice())//
 				.quantity(product.getQuantity())//
+				.introduce(product.getIntroduce())//
 				.createdDate(product.getCreatedDate())//
 				.modifiedDate(product.getModifiedDate())//
 				.createdBy(product.getCreatedBy())//

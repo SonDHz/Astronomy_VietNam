@@ -40,7 +40,7 @@ public class ProductViewController {
 	@Autowired
 	private IPagingService pagingService ;
 	
-	@GetMapping("shoppingTools/{id}")
+	@GetMapping("/shoppingTools/{id}")
 	public String productViews(Model model, @PathVariable(value = "id") long id) {
 		List<ProductCategoryEntity> pro = productCategoryService.getAll();
 		model.addAttribute("productCategorySession", pro);
