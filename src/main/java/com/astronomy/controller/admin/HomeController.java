@@ -24,8 +24,6 @@ public class HomeController {
 	@RequestMapping("dashboard")
 	public String index(Model model, @RequestParam(value = "number", required = false) Long number) {
 		model.addAttribute("product", product.count());
-		List<PostEntity> list = service.getAllIdDescLimit();
-		model.addAttribute("entity", list);
 		return "admin/dashboard";
 	}
 	
@@ -33,5 +31,7 @@ public class HomeController {
 	public String e() {
 		return "admin/Post_Edit";
 	}
+	
+	
 	
 }

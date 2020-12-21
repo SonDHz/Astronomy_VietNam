@@ -26,9 +26,10 @@
 .fa fa-user-circle fa-2x {
 	padding: 10px;
 }
-h4{
-font-size:32px;
-font-family: 'Langar', cursive;}
+.hok{
+    font-size: 50px;
+    font-family: 'Langar', cursive;
+}
 </style>
 <%@include file="/common/web/style.jsp"%>
 
@@ -44,9 +45,9 @@ font-family: 'Langar', cursive;}
 		<div class="row" style="margin-top: 150px">
 			<form:form role="form" class="form-horizontal" modelAttribute="model"
 				method="GET">
-							<h4>${ model.title }</h4>	
+							<h4 class="hok">${ model.title }</h4>	
 								${ model.content } 
-								<Strong></Strong>
+								
 			</form:form>
 			<%-- <c:forEach var="item" items="${model}">
 								 ${ item.title }
