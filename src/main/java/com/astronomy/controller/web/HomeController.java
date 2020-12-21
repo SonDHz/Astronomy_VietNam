@@ -61,6 +61,36 @@ public class HomeController {
 		return "web/shopping_success";
 	}
 	
+	@RequestMapping(value = "404")
+	public String notfound() {
+		return "404";
+	}
+	
+	@RequestMapping(value = "405")
+	public String notallowed() {
+		return "405";
+	}
+	
+	@RequestMapping(value = "415")
+	public String un() {
+		return "415";
+	}
+	
+	@RequestMapping(value = "400")
+	public String bad() {
+		return "400";
+	}
+	
+	@RequestMapping(value = "500")
+	public String se() {
+		return "500";
+	}
+	
+	@RequestMapping(value = "about_us")
+	public String about() {
+		return "web/about_us";
+	}
+	
 	@RequestMapping(value = "shopping_cart")
 	public String cart(Model model) {
 		List<ProductCategoryEntity> list = productCategoryService.getAll();
