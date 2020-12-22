@@ -154,8 +154,8 @@
 								</div>
 								<h3 class="m-t-20 m-b-20">${postdashboard.title}</h3>
 								<p>${postdashboard.shortDescription}</p>
-								<button
-									class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
+							<button
+						class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
 									more</button>
 							</div>
 						</div>
