@@ -135,7 +135,7 @@
 				<!-- Chart end -->
 				<!-- start course list -->
 				
-				<div class="row">
+				<div>
 				<form:form id="formSubmit" role="form" class="row ">
 						<c:forEach var="postdashboard" items="${entity}">
 					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
@@ -144,7 +144,7 @@
 								<c:url var="display" value='/admin/getImageViewPostDashboard'>
 							<c:param name="img" value="${postdashboard.thumbnail}"/>
 									</c:url>
-							<img alt="" src="${display}" width="280px" height="200px">
+							<img alt="" src="${display}" width="260px" height="200px">
 							</div>
 							<div class="white-box">
 								<div class="text-muted">
@@ -154,9 +154,11 @@
 								</div>
 								<h3 class="m-t-20 m-b-20">${postdashboard.title}</h3>
 								<p>${postdashboard.shortDescription}</p>
-							<button
-						class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read
-									more</button>
+								<c:url var="view" value="/postViewDetail">
+												<c:param name="id" value="${postdashboard.id}"></c:param>
+											</c:url>
+							<a href="${view}" class="btn btn-success btn-rounded waves-effect waves-light m-t-20">
+							Xem thêm</a>
 							</div>
 						</div>
 					</div>
