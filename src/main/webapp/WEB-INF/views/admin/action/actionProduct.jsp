@@ -344,7 +344,7 @@
 			q = document.getElementById("productCategory").value;
 
 			if (q == "") {
-				texta = "Hãy nhập tên sản phẩm!";
+				texta = "Hãy nhập tên sản phẩm1!";
 			} else {
 			    texta = "Input OK";
 				chk++;
@@ -354,7 +354,7 @@
 			w = document.getElementById("manufacturer").value;
 
 			if (w == "") {
-				textb = "Hãy nhập tên sản phẩm!";
+				textb = "Hãy nhập tên sản phẩm2!";
 			} else {
 			    textb = "Input OK";
 				chk++;
@@ -428,7 +428,8 @@
 				chk++;
 			}
 			document.getElementById("demo6").innerHTML = text6; 
-			
+			/////////////////////////////////////////////////////////z7
+
 			z = document.getElementById("image").value;
 
 			if (z == "") {
