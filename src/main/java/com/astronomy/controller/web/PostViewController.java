@@ -56,7 +56,7 @@ public class PostViewController {
 		model.addAttribute("entityramdom", post);
 		LocalDate ht = LocalDate.now();
 		model.addAttribute("ht", ht);
-		Page<PostEntity> page = service.getPostPaging(pageNo, 6);
+		Page<PostEntity> page = service.getPostPaging(pageNo, 12);
 		List<PostEntity> list = page.getContent();
 		model.addAttribute("currentPage", pageNo);
 		model.addAttribute("totalPages", page.getTotalPages());
