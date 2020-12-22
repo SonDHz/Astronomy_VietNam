@@ -168,9 +168,13 @@
 												<label class="control-label col-md-3">Mô tả ngắn: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i> <input type="text" class="form-control"
+														<i class="fa"></i>
+														<%-- <input type="text" class="form-control"
 															name="shortDecription" id="shortDecription"
-															value="${model.shortDecription}" />
+															value="${model.shortDecription}" /> --%>
+
+														<textarea class="form-control" name="shortDecription"
+															id="shortDecription">${model.shortDecription}</textarea>
 														<p id="demo2" style="color: red"></p>
 													</div>
 												</div>
@@ -180,9 +184,13 @@
 													phẩm: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i> <input type="text" class="form-control"
-															name="shortDecription" id="shortDecription2"
-															value="${model.introduce}" />
+														<i class="fa"></i>
+														<%--  <input type="text" class="form-control"
+															name="shortDecription" id="shortDecription"
+															value="${model.introduce}" /> --%>
+
+														<textarea class="form-control" name="introduce"
+															id="introduce">${model.introduce}</textarea>
 														<p id="demo3" style="color: red"></p>
 													</div>
 												</div>
@@ -338,40 +346,41 @@
 			var b, text;
 			var c, text;
 			var d, text;
-			var q, text;	
+			var q, text;
 			var w, text;
 			var chk = 0;
 			q = document.getElementById("productCategory").value;
 
 			if (q == "") {
-				texta = "Hãy nhập tên sản phẩm1!";
+				texta = "Hãy chọn tên loại sản phẩm!";
 			} else {
-			    texta = "Input OK";
+				texta = "";
 				chk++;
 			}
-			document.getElementById("de1").innerHTML = texta; 
+			document.getElementById("de1").innerHTML = texta;
 
 			w = document.getElementById("manufacturer").value;
 
 			if (w == "") {
-				textb = "Hãy nhập tên sản phẩm2!";
+				textb = "Hãy chọn tên nhà sản xuất!";
 			} else {
-			    textb = "Input OK";
+				textb = "";
 				chk++;
 			}
-			document.getElementById("de2").innerHTML = textb; 
-			
+			document.getElementById("de2").innerHTML = textb;
+
 			/////////////////////////////////////////////////////////x1
 
 			x = document.getElementById("name").value;
 
 			if (x == "") {
 				text = "Hãy nhập tên sản phẩm!";
+
 			} else {
-			    text = "Input OK";
+				text = "";
 				chk++;
 			}
-			document.getElementById("demo").innerHTML = text; 
+			document.getElementById("demo").innerHTML = text;
 
 			/////////////////////////////////////////////////////////y2
 			y = document.getElementById("shortDecription").value;
@@ -379,18 +388,18 @@
 			if (y == "") {
 				text2 = "Hãy nhập mô tả!";
 			} else {
-			    text2 = "Input OK";
+				text2 = "";
 
 				chk++;
 			}
 			document.getElementById("demo2").innerHTML = text2;
 			/////////////////////////////////////////////////////////a3
-			a = document.getElementById("shortDecription2").value;
+			a = document.getElementById("introduce").value;
 
 			if (a == "") {
 				text3 = "Hãy nhập giới thiệu sản phẩm!";
 			} else {
-			    text3 = "Input OK";
+				text3 = "";
 
 				chk++;
 			}
@@ -401,33 +410,33 @@
 			if (b == "") {
 				text4 = "Hãy nhập trạng thái!";
 			} else {
-			    text4 = "Input OK";
+				text4 = "";
 
 				chk++;
 			}
 			document.getElementById("demo4").innerHTML = text4;
 			/////////////////////////////////////////////////////////c5
-		 	c = document.getElementById("price").value;
+			c = document.getElementById("price").value;
 
-			if (isNaN(c) || c > 1 || c < 90000000) {
+			if (c == "") {
 				text5 = "Hãy nhập giá!";
 			} else {
-			    text5 = "Input OK";
+				text5 = "";
 
 				chk++;
 			}
-			document.getElementById("demo5").innerHTML = text5; 
+			document.getElementById("demo5").innerHTML = text5;
 			/////////////////////////////////////////////////////////d6
-		 	d = document.getElementById("quantity").value;
+			d = document.getElementById("quantity").value;
 
-			if (isNaN(d) || d > 1 || d < 1000) {
+			if (d == "") {
 				text6 = "Hãy nhập số lượng!";
 			} else {
-			    text6 = "Input OK";
+				text6 = "";
 
 				chk++;
 			}
-			document.getElementById("demo6").innerHTML = text6; 
+			document.getElementById("demo6").innerHTML = text6;
 			/////////////////////////////////////////////////////////z7
 
 			z = document.getElementById("image").value;
@@ -435,19 +444,17 @@
 			if (z == "") {
 				text7 = "Hãy chọn hình ảnh!";
 			} else {
-			    text7 = "Input OK";
+				text7 = "";
 
 				chk++;
 			}
-			document.getElementById("demo7").innerHTML = text7; 
-			
-			if(chk>=9){
+			document.getElementById("demo7").innerHTML = text7;
+
+			if (chk >= 9) {
 				$('form').submit();
 
 			}
 		}
-		
-		
 	</script>
 
 	<!-- <script>

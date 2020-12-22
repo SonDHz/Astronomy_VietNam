@@ -129,16 +129,15 @@
 												<label class="control-label col-md-3">Thể loại bài
 													viết: </label>
 												<div class="col-md-8">
-													<select name="category" id="category" required=""
-														oninvalid="this.setCustomValidity('Hãy chọn thể loại')"
-														oninput="setCustomValidity('')">
-														<option value="" label="-- Chọn thể loại bài viết --"></option>
-														<c:forEach var="categoryName" items="${category}">
-															<option value="${categoryName.key}">${categoryName.value}</option>
-														</c:forEach>
-													</select>
-
-
+													<form:select path="category" name="category" id="category">														
+														<form:option value="" label="-- Chọn thể loại bài viết --"/>
+														<form:options items="${category}"/>
+														<%-- <c:forEach var="categoryName" items="${category}">
+															<options value="${categoryName.key}">${categoryName.value}</options>
+														</c:forEach> --%>
+													</form:select>
+													
+													<p id="demo1" style="color: red"></p>
 												</div>
 											</div>
 											<div class="form-group row">
@@ -146,10 +145,9 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i> <input type="text" class="form-control"
-															name="title" id="title" value="${model.title}"
-															required=""
-															oninvalid="this.setCustomValidity('Hãy nhập tiêu đề')"
-															oninput="setCustomValidity('')" />
+															name="title" id="title" value="${model.title}" />
+														
+														<p id="demo2" style="color: red"></p>
 													</div>
 												</div>
 											</div>
@@ -159,9 +157,9 @@
 													<div class="input-icon right">
 														<i class="fa"></i>
 														<textarea class="form-control" name="shortDescription"
-															id="shortDescription" required=""
-															oninvalid="this.setCustomValidity('Hãy nhập mô tả')"
-															oninput="setCustomValidity('')">${model.shortDescription}</textarea>
+															id="shortDescription"> ${model.shortDescription}</textarea>
+														
+														<p id="demo3" style="color: red"></p>
 													</div>
 												</div>
 											</div>
@@ -172,28 +170,21 @@
 														<i class="fa"></i>
 														<!-- <input  id="image" class="form-control" name="img" /> -->
 														<input type="file" id="thumbnail" class="form-control"
-															name="img" required=""
-															oninvalid="this.setCustomValidity('Hãy chọn ảnh')"
-															oninput="setCustomValidity('')" />
-														<%-- value="${model.thumbnail}" --%>
-														<!-- <input type="file" id="image" class="form-control" name="img" /> -->
+															name="img" />
+														
+														<p id="demo4" style="color: red"></p>
 													</div>
 												</div>
 											</div>
 											<div class="form-group row">
 												<label class="control-label col-md-3">Nội dung: </label>
 												<div class="col-md-4">
-													<div class="input-icon right">
-														<%-- <i class="fa"></i> <textarea rows="7" cols="85" 
-															class="form-control" name="content" id="content"
-															required=""
-															oninvalid="this.setCustomValidity('Hãy nhập mô tả')"
-															oninput="setCustomValidity('')">${model.content}</textarea> --%>
+													<div class="input-icon right">													
 														<i class="fa"></i>
-														<textarea class="form-control" name="shortDescription"
-															id="content" required=""
-															oninvalid="this.setCustomValidity('Hãy nhập nội dung')"
-															oninput="setCustomValidity('')">${model.content}</textarea>
+																												
+														<textarea class="form-control" name="content"
+															id="content">${model.content}</textarea>
+														<p id="demo5" style="color: red"></p>
 													</div>
 												</div>
 											</div>
@@ -207,7 +198,7 @@
 														id="btnAddOrUpdate">Cập nhật bài viết</button>
 												</c:if>
 												<c:if test="${empty model.id}">
-													<button type="submit" class="btn btn-info"
+													<button  onclick="myFunction()" type="button" class="btn btn-info"
 														id="btnAddOrUpdate">Thêm bài viết</button>
 												</c:if>
 											</div>
@@ -298,6 +289,83 @@
 	<!-- start js include path -->
 
 	<%@include file="share/js.jsp"%>
+
+<script>
+		function myFunction() {
+			
+			var z, text;
+			var a, text;
+			var b, text;
+			var c, text;
+			var d, text;
+		
+			var chk = 0;
+			
+
+			/////////////////////////////////////////////////////////a3
+			a = document.getElementById("category").value;
+
+			if (a == "") {
+				text3 = "Hãy chọn thể loại bài viết!";
+			} else {
+				text3 = "";
+
+				chk++;
+			}
+			document.getElementById("demo1").innerHTML = text3;
+			/////////////////////////////////////////////////////////b4
+			b = document.getElementById("title").value;
+
+			if (b == "") {
+				text4 = "Hãy nhập tên tiêu đề!";
+			} else {
+				text4 = "";
+
+				chk++;
+			}
+			document.getElementById("demo2").innerHTML = text4;
+			/////////////////////////////////////////////////////////c5
+			c = document.getElementById("shortDescription").value;
+
+			if (c == "") {
+				text5 = "Hãy nhập mô tả!";
+			} else {
+				text5 = "";
+
+				chk++;
+			}
+			document.getElementById("demo3").innerHTML = text5;
+			/////////////////////////////////////////////////////////d6
+			d = document.getElementById("thumbnail").value;
+
+			if (d == "") {
+				text6 = "Hãy chọn hình ảnh!";
+			} else {
+				text6 = "";
+
+				chk++;
+			}
+			document.getElementById("demo4").innerHTML = text6;
+			/////////////////////////////////////////////////////////z7
+
+			/* z = document.getElementById("content").value;
+
+			if (z == "") {
+				text7 = "Hãy nhập nội dung!";
+			} else {
+				text7 = "";
+
+				chk++;
+			}
+			document.getElementById("demo5").innerHTML = text7; */
+
+			if (chk >= 4) {
+				$('form').submit();
+
+			}
+		}
+	</script>
+
 
 	<script>
 		var editor = '';

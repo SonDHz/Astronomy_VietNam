@@ -242,7 +242,7 @@
 							var data = {};
 							var check = true;
 
-							var openEnderContent = '&lt;p&gt;&lt;span style="color: #ff0000;"&gt;Hãy tên thể lọai bài viết!&lt;/span&gt;&lt;/p&gt;';
+							var openEnderContent = '&lt;p&gt;&lt;span style="color: #ff0000;"&gt;Hãy nhập tên thể lọai bài viết!&lt;/span&gt;&lt;/p&gt;';
 
 							//Lấy gọi ra id (Lưu ý phải đặt name cho các field)
 							var formData = $('#formSubmit').serializeArray();

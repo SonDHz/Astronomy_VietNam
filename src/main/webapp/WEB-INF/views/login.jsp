@@ -45,9 +45,13 @@
 		<div class="form formLogin">
 			<h2>Đăng nhập</h2>
 			<form:form action="/j_spring_security_login" method='POST'>
-				<input type="text" id="username" name="j_username"
+				<input type="text" id="username" required=""
+					oninvalid="this.setCustomValidity('Hãy nhập tên tài khoản!')"
+					oninput="setCustomValidity('')" name="j_username"
 					placeholder="Tài khoản">
-				<input type="password" id="password" name="j_password"
+				<input type="password" id="password" required=""
+					oninvalid="this.setCustomValidity('Hãy nhập mật khẩu!')"
+					oninput="setCustomValidity('')" name="j_password"
 					placeholder="Mật khẩu">
 				<div class="remember text-left">
 					<!-- <div class="checkbox checkbox-primary">

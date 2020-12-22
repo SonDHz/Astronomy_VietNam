@@ -51,20 +51,38 @@
 			<form:form action="/registration" method="POST"
 				modelAttribute="userDTO">
 				<form:hidden path="id" name="id" value="${userDto.id}" />
-				<form:input path="username" name="username" type="text" value="${userDto.username}"
+				<input name="username" type="text" required=""
+					oninvalid="this.setCustomValidity('Hãy nhập tên tài khoản!')"
+					oninput="setCustomValidity('')" value="${userDto.username}"
 					placeholder="Tên tài khoản" />
-				<form:input path="password" name="password" type="password" value="${userDto.password}"
+					
+				<input name="password" type="password" required=""
+					oninvalid="this.setCustomValidity('Hãy nhập mật khẩu!')"
+					oninput="setCustomValidity('')" value="${userDto.password}"
 					placeholder="Password" />
-				<form:input path="fullName" name="fullName" type="text" value="${userDto.fullName}"
+					
+				<input name="fullName" type="text" required=""
+					oninvalid="this.setCustomValidity('Hãy nhập họ và tên!')"
+					oninput="setCustomValidity('')" value="${userDto.fullName}"
 					placeholder="Họ tên" />
-				<form:input path="email" name="email" type="email" value="${userDto.email}"
+					
+				<input name="email" type="email" required=""
+					oninvalid="this.setCustomValidity('Hãy nhập địa chỉ email!')"
+					oninput="setCustomValidity('')" value="${userDto.email}"
 					placeholder="Email" />
-				<form:input path="phoneNumber" name="phoneNumber" type="number" value="${userDto.phoneNumber}"
-					placeholder="Số điện thoại" />
-				<form:input path="address" name="address" type="text" value="${userDto.address}"
+					
+				<input name="phoneNumber" type="number"
+					value="${userDto.phoneNumber}" required=""
+					oninvalid="this.setCustomValidity('Hãy số điện thoại!')"
+					oninput="setCustomValidity('')" placeholder="Số điện thoại" />
+					
+				<input name="address" type="text" required=""
+					oninvalid="this.setCustomValidity('Hãy nhập địa chỉ!')"
+					oninput="setCustomValidity('')" value="${userDto.address}"
 					placeholder="Địa chỉ" />
+					
 				<form:hidden path="status" name="status" value="1" />
-			 <button type="submit" class="btn btn-light">Đăng kí</button>  	
+				<button type="submit" class="btn btn-light">Đăng kí</button>
 			</form:form>
 		</div>
 	</div>
@@ -72,5 +90,6 @@
 	<script src="../../template/admin/assets/plugins/jquery/jquery.min.js"></script>
 	<script src="../../template/admin/assets/js/pages/extra_pages/pages.js"></script>
 	<!-- end js include path -->
+
 </body>
 </html>
