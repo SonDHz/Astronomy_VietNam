@@ -1004,6 +1004,7 @@ body {
 .page-header.navbar .page-logo .logo-default {
     margin: 7px 0 0;
     height: 34px;
+    weight:34px;
 }
 .page-header.navbar .page-logo .logo-mini {
     display: none;
@@ -1639,7 +1640,7 @@ form.search-form-opened .btn.submit {
     top: 0
 }
 .page-header .top-menu .dropdown-quick-sidebar-toggler>.dropdown-toggle i:before {
-    content: ""
+    content: "î�¥"
 }
 .page-header.navbar .top-menu .navbar-nav>li.dropdown-extended .dropdown-menu>li.external h3 {
     text-transform: uppercase;
@@ -3577,7 +3578,7 @@ ul.chat.nice-chat {
 }
 .chat-sidebar-open .page-header .top-menu .dropdown-quick-sidebar-toggler>.dropdown-toggle i:before,
 .chat-sidebar-open .chat-sidebar-toggler>i:before {
-    content: ""
+    content: "î�¦"
 }
 .chat-sidebar-toggler {
     overflow: hidden;

@@ -64,7 +64,7 @@
 }
 
 .code1 {
-	font-size: 17px;
+	font-size: 25px;
 }
 
 .quantity {
@@ -107,6 +107,8 @@
 	border: solid 2px;
 	border-width: 5px borde;
 }
+.row{
+display:flex;}
 </style>
 <!-- Responsive Product Details - END -->
 <%@include file="/common/web/style.jsp"%>
@@ -133,43 +135,36 @@
 					</div>
 					<div class="col-md-8" id="overview">
 						<div class="row">
-							<div class="col-xs-6 col-md-6">
-								<ul class="pb-product-details-ul">
-									<li><span class="fa fa-archive fa-2x text-danger"><br>
+							<div class="col-xs-5 col-md-5 pb-product-details-fa">
+									<span class="fa fa-archive fa-2x text-muted "><br>
 											<div class="code1 text-muted">
 												<strong>Tên sản phẩm: ${model.name}</strong>
-											</div> </span></li>
-									<li><span class="fa fa-star fa-2x text-warning">
+											</div> </span>
+									<span class="fa fa-arrow-up fa-2x ">
 											<div class="code1 text-muted">
-												<strong>Trạng thái: ${model.status}</strong>
+												<strong>Mô tả ngắn: ${model.shortDecription}</strong>
 											</div>
-									</span></li>
-									<li><span class="fa fa-arrow-up fa-2x text-info">
-											<div class="code1 text-muted">
-												<strong>${model.shortDecription}</strong>
-											</div>
-									</span></li>
-								</ul>
+									</span>
 							</div>
 						</div>
 						<br>
 						<div class="row">
 							<div class="col-xs-3 col-md-3 pb-product-details-fa">
 								<h3>
-									<strong><i class="fa fa-shield fa-lg text-success"></i></strong>
+									<strong><i class="fa fa-shield fa-lg text-muted"></i></strong>
 								</h3>
 								<p>Hoàn tiền 100% nếu giả</p>
 							</div>
 							<div class="col-xs-3 col-md-3 pb-product-details-fa">
 								<h3>
 									<strong> <i
-										class="fa fa-check-square-o fa-lg text-primary"></i></strong>
+										class="fa fa-check-square-o fa-lg text-muted"></i></strong>
 								</h3>
 								<p>Mở hộp kiểm tra nhận hàng ngay</p>
 							</div>
 							<div class="col-xs-3 col-md-3 pb-product-details-fa">
 								<h3>
-									<strong> <i class="fa fa-refresh fa-lg text-dark"></i></strong>
+									<strong> <i class="fa fa-refresh fa-lg text-muted"></i></strong>
 								</h3>
 								<p>Đổi trả trong 30 ngày nếu sản phẩm lỗi</p>
 							</div>
@@ -216,7 +211,9 @@
 						<a href="${addToCart}" type="submit" class="btn btn-primary">Thêm
 							vào giỏ hàng</a>
 				</form>
+				
 			</div>
+			
 		</div>
 		<br>
 		<div class="row">
