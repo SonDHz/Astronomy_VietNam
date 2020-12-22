@@ -135,8 +135,8 @@
 				<!-- Chart end -->
 				<!-- start course list -->
 				
-				<div class="row">
-				<form:form id="formSubmit" role="form" class="row ">
+				<div >
+				<form:form id="formSubmit" role="form" class="row">
 						<c:forEach var="postdashboard" items="${entity}">
 					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
 						<div class="blogThumb">
