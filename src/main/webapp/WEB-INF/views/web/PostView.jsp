@@ -28,7 +28,7 @@
 }
 .hok{
     font-size: 50px;
-    font-family: 'Langar', cursive;
+    font-family: 'Roboto' ;
 }
 </style>
 <%@include file="/common/web/style.jsp"%>
@@ -46,6 +46,7 @@
 			<form:form role="form" class="form-horizontal" modelAttribute="model"
 				method="GET">
 							<h4 class="hok">${ model.title }</h4>	
+							<br>
 								${ model.content } 
 								
 			</form:form>

@@ -2667,6 +2667,9 @@ form.search-form-opened .btn.submit {
     margin-bottom: 15px;
     margin-top: 15px
 }
+.page-content{
+	min-height:700px;
+}
 .page-container-bg-solid .page-title small,
 .page-content-white .page-title small {
     color: #666

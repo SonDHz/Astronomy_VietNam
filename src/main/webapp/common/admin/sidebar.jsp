@@ -7,11 +7,7 @@
 			<ul class="sidemenu  page-header-fixed" data-keep-expanded="false"
 				data-auto-scroll="true" data-slide-speed="200"
 				style="padding-top: 20px">
-				<li class="sidebar-toggler-wrapper hide">
-					<div class="sidebar-toggler">
-						<span></span>
-					</div>
-				</li>
+				
 				
 				<li class="nav-item"><a href="/admin/dashboard" class="nav-link nav-toggle">
 						<i class="fa fa-home"></i> <span class="title">Trang
