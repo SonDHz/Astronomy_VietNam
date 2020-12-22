@@ -39,7 +39,7 @@ public class HomeController {
 		return "web/index";
 	}
 
-	@RequestMapping(value = "login")
+	@RequestMapping(value = "/login")
 	public String login(@RequestParam(required = false) String message, final Model model,
 			@ModelAttribute("userDTO") UserCreateModifyDTO dto) {
 		if (message != null && !message.isEmpty()) {
@@ -53,24 +53,56 @@ public class HomeController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "shoppingTools")
+	@RequestMapping(value = "/shoppingTools")
 	public String shopping() {
 		return "web/shopping_tools";
 	}
 	
-	@RequestMapping(value = "contact")
+	@RequestMapping(value = "/contact")
 	public String contact1(Model model) {
 		List<ProductCategoryEntity> list = productCategoryService.getAll();
 		model.addAttribute("productCategorySession", list);
 		return "web/contact";
 	}
 	
-	@RequestMapping(value = "shopping_success")
+	@RequestMapping(value = "/shopping_success")
 	public String shoppingsuccess1() {
 		return "web/shopping_success";
 	}
 	
-	@RequestMapping(value = "shopping_cart")
+	@RequestMapping(value = "/404")
+	public String notfound() {
+		return "404";
+	}
+	
+	@RequestMapping(value = "/405")
+	public String notallowed() {
+		return "405";
+	}
+	
+	@RequestMapping(value = "/415")
+	public String un() {
+		return "415";
+	}
+	
+	@RequestMapping(value = "/400")
+	public String bad() {
+		return "400";
+	}
+	
+	@RequestMapping(value = "/500")
+	public String se() {
+		return "500";
+	}
+	
+	@RequestMapping(value = "/about_us")
+	public String about(Model model) {
+		List<ProductCategoryEntity> pro = productCategoryService.getAll();
+		model.addAttribute("productCategorySession", pro);
+		return "web/about_us";
+	}
+	
+	@RequestMapping(value = "/shopping_cart")
 	public String cart(Model model) {
 		List<ProductCategoryEntity> list = productCategoryService.getAll();
 		model.addAttribute("productCategorySession", list);

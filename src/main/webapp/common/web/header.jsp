@@ -55,6 +55,14 @@
 								class="fa fa-home fa-lg,font-size:10px"></i>&nbsp;&nbsp;Trang
 								chủ</Strong></a></li>
 
+
+					<li><a href="/about_us"><strong> <i
+								class="fa fa-newspaper-o fa-lg,font-size:10px"></i>&nbsp;&nbsp;Giới thiệu
+								
+						</strong> </a></li>
+
+
+
 					<li><a href="#"><Strong><i
 								class="fa fa-gift fa-lg,font-size:10px"></i>&nbsp;&nbsp;Sản phẩm</Strong></a>
 						<ul>
@@ -65,7 +73,7 @@
 							</c:forEach>
 						</ul></li>
 
-					<li class="menu-has-children"><a href="#"><Strong><i
+					<!-- <li class="menu-has-children"><a href="#"><Strong><i
 								class="fa fa-table fa-lg,font-size:10px"></i>&nbsp;&nbsp;Tham
 								khảo</Strong></a>
 						<ul>
@@ -80,7 +88,7 @@
 						</ul></li>
 
 					<li><a href="#"><Strong><i
-								class="fa fa-info fa-lg,font-size:10px"></i>&nbsp;&nbsp;Tin tức</Strong></a></li>
+								class="fa fa-info fa-lg,font-size:10px"></i>&nbsp;&nbsp;Tin tức</Strong></a></li> -->
 					<li><a href="/contact"><Strong><i
 								class="fa fa-comment-o fa-lg,font-size:10px"></i>&nbsp;&nbsp;Liên
 								hệ </Strong></a></li>

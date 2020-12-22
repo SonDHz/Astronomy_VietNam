@@ -141,7 +141,7 @@
 					<div class="col-lg-3 col-md-6 col-12 col-sm-6">
 						<div class="blogThumb">
 							<div class="thumb-center">
-								<c:url var="display" value='/getImageViewPostDashboard'>
+								<c:url var="display" value='/admin/getImageViewPostDashboard'>
 							<c:param name="img" value="${postdashboard.thumbnail}"/>
 									</c:url>
 							<img alt="" src="${display}" width="280px" height="200px">
