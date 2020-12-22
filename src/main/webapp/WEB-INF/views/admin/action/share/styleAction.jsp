@@ -19,8 +19,6 @@
     <link href="<c:url value='../../template/admin/assets/css/style.css' />" rel="stylesheet"/>
     <link href="<c:url value='../../template/admin/assets/css/responsive.css' />" rel="stylesheet"/>
     <link href="<c:url value='../../template/admin/assets/css/theme-color.css' />" rel="stylesheet"/>
-	<!-- favicon -->
-    <link href="<c:url value='../../template/admin/assets/img/favicon.ico' />" rel="stylesheet"/> 
     <!-- Owl Carousel Assets -->
     <link href="<c:url value='../../template/admin/assets/plugins/owl-carousel/owl.carousel.css' />" rel="stylesheet"/>
     <link href="<c:url value='../../template/admin/assets/plugins/owl-carousel/owl.theme.css' />" rel="stylesheet"/>
