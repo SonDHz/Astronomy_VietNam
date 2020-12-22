@@ -64,7 +64,7 @@ public class ProductService implements IProductService {
 
 	@Override
 	public List<ProductEntity> getProductByCategory(long id) {
-		return productRepository.getProductByCategory(id);
+		return productRepository.getProductByCategory(id);			
 	}
 
 	@Override

@@ -35,13 +35,13 @@
 							<li><a href="blog-details.html"><h6>Ống nhòm</h6></a></li>
 							<li><a href="blog-details.html"><h6>Kính</h6></a></li>
 						</ul></li>
-					<li class="menu-has-children"><a href="#"><Strong>Tham
+					<!-- <li class="menu-has-children"><a href="#"><Strong>Tham
 								khảo</Strong></a>
 						<ul>
 							<li><a href="blog-details.html"><h6>Bài viết</h6></a></li>
 							<li><a href="blog-details.html"><h6>Giải trí</h6></a></li>
 						</ul></li>
-					<li><a href="#"><Strong>Tin tức</Strong></a></li>
+					<li><a href="#"><Strong>Tin tức</Strong></a></li> -->
 					<li><a href="#"><Strong>Liên hệ</Strong></a></li>
 					<li><a href="login"
 						class="genric-btn success circle arrow text-success"><Strong>Đăng

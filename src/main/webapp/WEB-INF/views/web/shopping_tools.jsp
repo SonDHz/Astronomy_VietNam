@@ -34,15 +34,17 @@
 	<!-- Start main body Area -->
 	<div class="main-body section-gap">
 		<div class="container box_1170">
-		<div class ="col-md-2">
-			<form:form action="/shoppingToolsSearch/{name}" method="get"> 
-				<input type="text" class="form-control" name="search" placeholder="Tìm kiếm...">
-			</form:form>
-		</div>
+			<div class="col-md-2">
+				<form:form action="/shoppingToolsSearch" method="POST"> 
+				Filter: <input type="text" name="keyword" id="keyword" size="50"
+						value="${keyword}" required />
+					<input type="submit" value="Search" />
+				</form:form>
+			</div>
 			<div class="row">
 				<div class="col-lg-12 post-list">
 					<!-- Start Post Area -->
-					
+
 					<section class="post-area">
 						<div>
 							<form:form id="formSubmit" role="form" class="row">
@@ -57,7 +59,7 @@
 											</div>
 											<div class="post-details">
 												<h4>
-													<c:url var="view" value="/productViewDetail/${item.id}"/>
+													<c:url var="view" value="/productViewDetail/${item.id}" />
 													<a href="${view}">${item.name}</a>
 												</h4>
 												<p>${item.shortDecription}</p>
@@ -76,12 +78,12 @@
 								<ul class="pagination">
 									<c:if test="${currentPage  > 1}">
 										<li class="page-item"><a
-											href="/shoppingTools/{id}/${currentPage - 1}" class="page-link"
-											aria-label="Previous"> <span aria-hidden="true"> <span
-													class="lnr lnr-arrow-left"></span>
+											href="/shoppingTools/{id}/${currentPage - 1}"
+											class="page-link" aria-label="Previous"> <span
+												aria-hidden="true"> <span class="lnr lnr-arrow-left"></span>
 											</span>
 										</a></li>
-									</c:if>						
+									</c:if>
 									<c:forEach var="i" begin="1" end="${totalPages}">
 										<c:choose>
 											<c:when test="${currentPage == i}">
@@ -89,17 +91,17 @@
 													href="/shoppingTools/{id}/${i}" class="page-link">${i}</a></li>
 											</c:when>
 											<c:otherwise>
-												<li class="page-item  "><a href="/shoppingTools/{id}/${i}"
-													class="page-link">${i}</a></li>
+												<li class="page-item  "><a
+													href="/shoppingTools/{id}/${i}" class="page-link">${i}</a></li>
 											</c:otherwise>
 										</c:choose>
 									</c:forEach>
-									
+
 									<c:if test="${currentPage < totalPages}">
 										<li class="page-item"><a
-											href="/shoppingTools/{id}/${currentPage + 1}" class="page-link"
-											aria-label="Next"> <span aria-hidden="true"> <span
-													class="lnr lnr-arrow-right"></span>
+											href="/shoppingTools/{id}/${currentPage + 1}"
+											class="page-link" aria-label="Next"> <span
+												aria-hidden="true"> <span class="lnr lnr-arrow-right"></span>
 											</span>
 										</a></li>
 
@@ -107,7 +109,7 @@
 								</ul>
 							</nav>
 						</div>
-				</section>
+					</section>
 				</div>
 				<!-- Start Post Area -->
 			</div>
