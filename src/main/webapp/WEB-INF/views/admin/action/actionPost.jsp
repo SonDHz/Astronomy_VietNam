@@ -157,8 +157,7 @@
 													<div class="input-icon right">
 														<i class="fa"></i>
 														<textarea class="form-control" name="shortDescription"
-															id="shortDescription"> ${model.shortDescription}</textarea>
-														
+															id="shortDescription">${model.shortDescription}</textarea>
 														<p id="demo3" style="color: red"></p>
 													</div>
 												</div>

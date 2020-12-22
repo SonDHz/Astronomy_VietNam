@@ -73,7 +73,7 @@
 					
 				<input name="phoneNumber" type="number"
 					value="${userDto.phoneNumber}" required=""
-					oninvalid="this.setCustomValidity('Hãy số điện thoại!')"
+					oninvalid="this.setCustomValidity('Hãy nhập số điện thoại!')"
 					oninput="setCustomValidity('')" placeholder="Số điện thoại" />
 					
 				<input name="address" type="text" required=""
