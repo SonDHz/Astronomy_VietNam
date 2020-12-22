@@ -60,12 +60,6 @@ public class CategoryEntity {
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "createby")
-	private String createBy;
-	
-	@Column(name = "modeifyby")
-	private String modifyBy;
-	
 	@OneToMany(mappedBy = "category")
 	private List<PostEntity> posts = new ArrayList<>();
 	
