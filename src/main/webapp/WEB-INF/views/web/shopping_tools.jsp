@@ -22,7 +22,19 @@
 <!-- Site Title -->
 <title>Sản phẩm</title>
 <!-- css -->
-
+<style>
+input[type=text] {
+	width: 50%;
+	margin-bottom: 20px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+.btn-info {
+    background-color: #3ac9d6 !important;
+    border: 1px solid #3ac9d6 !important;
+}
+</style>
 <%@include file="/common/web/style.jsp"%>
 </head>
 
@@ -34,17 +46,17 @@
 	<!-- Start main body Area -->
 	<div class="main-body section-gap">
 		<div class="container box_1170">
-			<div class="col-md-2">
+			<div class="d-flex flex-row bd-highlight mb-3">
 				<form:form action="/shoppingToolsSearch" method="POST"> 
-				Filter: <input type="text" name="keyword" id="keyword" size="50"
-						value="${keyword}" required />
-					<input type="submit" value="Search" />
+				 <input type="text" class="a" name="keyword" id="keyword" size="60" 
+						value="${keyword}" required placeholder="Tìm kiếm"/>
+					<button type="submit" class="btn btn-info"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
 				</form:form>
 			</div>
+			<br>
 			<div class="row">
 				<div class="col-lg-12 post-list">
 					<!-- Start Post Area -->
-
 					<section class="post-area">
 						<div>
 							<form:form id="formSubmit" role="form" class="row">
