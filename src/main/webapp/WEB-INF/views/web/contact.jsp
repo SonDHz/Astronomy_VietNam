@@ -61,7 +61,7 @@
 							<span class="lnr lnr-envelope"></span>
 						</div>
 						<div class="contact-details">
-							<h5>thienvanviet123@gmail.com</h5>
+							<h5>thienvanvietnam@gmail.com</h5>
 
 						</div>
 					</div>
