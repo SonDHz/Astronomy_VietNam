@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@include file="/common/taglib.jsp" %>
+
 <div class="sidebar-container">
 	<div class="sidemenu-container navbar-collapse collapse fixed-menu">
 		<div id="remove-scroll">
@@ -12,27 +12,11 @@
 						<span></span>
 					</div>
 				</li>
-				<li class="sidebar-user-panel">
-					<div class="user-panel">
-						<div class="pull-left image">
-							<img src="../../template/admin/assets/img/dp.jpg"
-								class="img-circle user-img-circle" alt="User Image">
-						</div>
-						<div class="pull-left info">
-							<p>Astronomy</p>
-							<a href="#"><i class="fa fa-circle user-online"></i><span
-								class="txtOnline">Đang hoạt động</span></a>
-						</div>
-					</div>
-				</li>
+				
 				<li class="nav-item"><a href="/admin/dashboard" class="nav-link nav-toggle">
 						<i class="fa fa-home"></i> <span class="title">Trang
 							chủ</span>
 				</a></li>
-				<!-- <li class="nav-item"><a href="/admin/userView"
-					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
-						<span class="title">Quản lý nhân viên</span>
-				</a></li> -->
 				<li class="nav-item"><a href="/admin/customerView"
 					class="nav-link nav-toggle"> <i class="fa fa-user"></i>
 						<span class="title">Quản lý tài khoản</span>
