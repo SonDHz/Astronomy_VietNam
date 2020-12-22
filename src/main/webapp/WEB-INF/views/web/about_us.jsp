@@ -16,7 +16,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>Về chúng tôi</title>
+<title>Giới thiệu</title>
 <style>
 .not {
 	height: 400px;

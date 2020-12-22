@@ -102,8 +102,7 @@
 								Số lượng hóa đơn
 								 <span class="pull-right">${order}</span>
 							</h3>
-							<img  alt=""
-				src="../../template/admin/assets/img/pay.png" width="40px" height="auto">
+							<i class="fa fa-credit-card text-white fa fa-2x"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -111,7 +110,7 @@
 							<h3 class="text-white box-title">
 								Số lượng sản phẩm <span class="pull-right">${product}</span>
 							</h3>
-							<i class="fa fa-facebook"></i>
+							<i class="fa fa-tasks text-white fa fa-2x"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -119,7 +118,7 @@
 							<h3 class="text-white box-title">
 								Số lượng tài khoản<span class="pull-right">${accout}</span>
 							</h3>
-							<i class="fa fa-facebook"></i>
+						<i class="fa fa-users text-white fa fa-2x"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -127,7 +126,7 @@
 							<h3 class="text-white box-title">
 								Số lượng bài viết <span class="pull-right">${post}</span>
 							</h3>
-							<i class="fa fa-facebook"></i>
+							<i class="fa fa-file text-white fa fa-2x"></i>
 						</div>
 					</div>
 				</div>

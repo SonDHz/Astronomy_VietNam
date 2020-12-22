@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-	
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +23,9 @@
 <title>Thiên Văn Việt</title>
 <!-- css -->
 <style>
-.fa fa-user-circle fa-2x{
-padding:10px;}
+.fa fa-user-circle fa-2x {
+	padding: 10px;
+}
 </style>
 <%@include file="/common/web/style.jsp"%>
 
@@ -40,33 +41,34 @@ padding:10px;}
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-12">
-				<form:form id="formSubmit" role="form" class="owl-carousel active-stories-carousel" >
+					<form:form id="formSubmit" role="form"
+						class="owl-carousel active-stories-carousel">
 						<c:forEach var="posts" items="${entity}">
-					<div >
-						<!-- single stories carousel -->
-						
-						<div class="single-stories-carousel d-flex align-items-center">
-						
-							<div class="stories-thumb">
-							<c:url var="display" value='/getImageViewPost'>
-													<c:param name="img" value="${posts.thumbnail}"/>
-												</c:url>
-												<img width="50px" height="100px" alt="" src="${display}" >
-							</div>
-							<div class="stories-details">
-								<h6>
-									<c:url var="view" value="/postViewDetail">
+							<div>
+								<!-- single stories carousel -->
+
+								<div class="single-stories-carousel d-flex align-items-center">
+
+									<div class="stories-thumb">
+										<c:url var="display" value='/getImageViewPost'>
+											<c:param name="img" value="${posts.thumbnail}" />
+										</c:url>
+										<img src="${display}" style="width: 100px" height="100px" alt="">
+									</div>
+									<div class="stories-details">
+										<h6>
+											<c:url var="view" value="/postViewDetail">
 												<c:param name="id" value="${posts.id}"></c:param>
 											</c:url>
 											<a href="${view}">${posts.title}</a>
-								</h6>
+										</h6>
+									</div>
+
+								</div>
+
 							</div>
-							
-						</div>
-						
-					</div>
-					</c:forEach>
-							</form:form>
+						</c:forEach>
+					</form:form>
 				</div>
 			</div>
 		</div>
@@ -78,33 +80,34 @@ padding:10px;}
 		<div class="container-fluid">
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
-				<form:form id="formSubmit" role="form" class="owl-carousel active-post-carusel" >
+					<form:form id="formSubmit" role="form"
+						class="owl-carousel active-post-carusel">
 						<c:forEach var="postsramdom" items="${entityramdom}">
-					<div >
-						<!-- single carousel item -->
-						<div class="single-post-carousel">
-							<div class="post-thumb">
-							<c:url var="display" value='/getImageViewPost'>
-													<c:param name="img" value="${postsramdom.thumbnail}"/>
-												</c:url>
-												<img alt="" src="${display}" height="500px" width="400px" >
-							</div>
-							<div class="post-details">
-								<h2>
-									<c:url var="view" value="/postViewDetail">
+							<div>
+								<!-- single carousel item -->
+								<div class="single-post-carousel">
+									<div class="post-thumb">
+										<c:url var="display" value='/getImageViewPost'>
+											<c:param name="img" value="${postsramdom.thumbnail}" />
+										</c:url>
+										<img alt="" src="${display}" height="500px" width="400px">
+									</div>
+									<div class="post-details">
+										<h2>
+											<c:url var="view" value="/postViewDetail">
 												<c:param name="id" value="${postsramdom.id}"></c:param>
 											</c:url>
 											<a href="${view}">${postsramdom.title}</a>
-								</h2>
-								<div class="post-content d-flex justify-content-between">
-									<div class="details">
-										<p>${postsramdom.shortDescription}</p>
+										</h2>
+										<div class="post-content d-flex justify-content-between">
+											<div class="details">
+												<p>${postsramdom.shortDescription}</p>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					</c:forEach>
+						</c:forEach>
 					</form:form>
 				</div>
 			</div>
@@ -120,81 +123,82 @@ padding:10px;}
 					<!-- Start Post Area -->
 					<section class="post-area">
 						<div class="row">
-						<form:form id="formSubmit" role="form" class="row ">
-						<c:forEach var="post" items="${postView}">
-							<div class="col-lg-5 col-md-7">
-								<div class="single-post-item"> 
-									<div class="post-thumb">
-										<c:url var="display" value='/getImageViewPost'>
-													<c:param name="img" value="${post.thumbnail}"/>
+							<form:form id="formSubmit" role="form" class="row ">
+								<c:forEach var="post" items="${postView}">
+									<div class="col-lg-5 col-md-7">
+										<div class="single-post-item">
+											<div class="post-thumb">
+												<c:url var="display" value='/getImageViewPost'>
+													<c:param name="img" value="${post.thumbnail}" />
 												</c:url>
-												<img alt="" src="${display}" width="700px" height="500px">
+												<img alt="" src="${display}" width="700px" height="390px">
+											</div>
+											<div class="post-details">
+												<h4>
+													<c:url var="view" value="/postViewDetail">
+														<c:param name="id" value="${post.id}"></c:param>
+													</c:url>
+													<a href="${view}">${post.title}</a>
+												</h4>
+												<p>${post.shortDescription  }</p>
+											</div>
+										</div>
+
 									</div>
-									<div class="post-details">
-										<h4>
-											<c:url var="view" value="/postViewDetail">
-												<c:param name="id" value="${post.id}"></c:param>
-											</c:url>
-											<a href="${view}">${post.title}</a>
-										</h4>
-										<p>${post.shortDescription  }</p>
-									</div>
-								</div>
-							
-							</div>
-						</c:forEach>
-								</form:form>
+								</c:forEach>
+							</form:form>
 							<div class="col-lg-12">
 								<nav class="blog-pagination justify-content-center d-flex">
 									<ul class="pagination">
 										<c:if test="${currentPage  > 1}">
-										<li class="page-item"><a
-											href="/${currentPage - 1}" class="page-link"
-											aria-label="Previous"> <span aria-hidden="true"> <span
-													class="lnr lnr-arrow-left"></span>
-											</span>
-										</a></li>
-									</c:if>						
-									<c:forEach var="i" begin="1" end="${totalPages}">
-										<c:choose>
-											<c:when test="${currentPage == i}">
-												<li class="page-item active "><a
-													href="/${i}" class="page-link">${i}</a></li>
-											</c:when>
-											<c:otherwise>
-												<li class="page-item  "><a href="/${i}"
-													class="page-link">${i}</a></li>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-									
-									<c:if test="${currentPage < totalPages}">
-										<li class="page-item"><a
-											href="/${currentPage + 1}" class="page-link"
-											aria-label="Next"> <span aria-hidden="true"> <span
-													class="lnr lnr-arrow-right"></span>
-											</span>
-										</a></li>
+											<li class="page-item"><a href="/${currentPage - 1}"
+												class="page-link" aria-label="Previous"> <span
+													aria-hidden="true"> <span class="lnr lnr-arrow-left"></span>
+												</span>
+											</a></li>
+										</c:if>
+										<c:forEach var="i" begin="1" end="${totalPages}">
+											<c:choose>
+												<c:when test="${currentPage == i}">
+													<li class="page-item active "><a href="/${i}"
+														class="page-link">${i}</a></li>
+												</c:when>
+												<c:otherwise>
+													<li class="page-item  "><a href="/${i}"
+														class="page-link">${i}</a></li>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
 
-									</c:if>
+										<c:if test="${currentPage < totalPages}">
+											<li class="page-item"><a href="/${currentPage + 1}"
+												class="page-link" aria-label="Next"> <span
+													aria-hidden="true"> <span
+														class="lnr lnr-arrow-right"></span>
+												</span>
+											</a></li>
+
+										</c:if>
 									</ul>
 								</nav>
 							</div>
 						</div>
 					</section>
-					
+
 				</div>
-<!-- Start Post Area -->
+				<!-- Start Post Area -->
 				<div class="col-lg-4 sidebar">
 					<div class="single-widget protfolio-widget">
-						<img class="img-fluid" src="../../template/web/img/blog/user2.png" alt="">
-						<a href="#">
-							<h4>Peter Anderson</h4>
+						<img class="img-fluid" src="../../template/web/img/blog/g.jpg"
+							alt=""> <a href="#">
+							<h4>Nhóm 4 - FPT Polytechnic</h4>
 						</a>
-						<p class="p-text">Boot camps have its supporters andit
-							sdetractors. Some people do not understand why you should have to
-							spend money on boot camp whenyou can get. Boot camps have
-							itssuppor ters andits detractors.</p>
+						<p class="p-text">Tại website này, độc giả yên thiên văn có
+							thể tìm hiểu kiến thức thiên văn chuẩn đầy đủ nhất bằng Tiếng
+							Việt và được dịch từ các website và tạp chí khoa học trên thế
+							giới.100% các bài viết tại mục Bài Viết do chính team Thiên Văn
+							Việt hoặc tác giả là các nhà nghiên cứu(chuyên nghiệp hoặc nghiệp
+							dư)thực hiện.</p>
 						<ul class="social-links">
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -210,7 +214,7 @@ padding:10px;}
 	<!-- Start main body Area -->
 
 	<!-- start footer Area -->
-	<%@include file="/common/web/footer.jsp"%> 
+	<%@include file="/common/web/footer.jsp"%>
 	<!-- End footer Area -->
 
 	<!-- Javascript -->
