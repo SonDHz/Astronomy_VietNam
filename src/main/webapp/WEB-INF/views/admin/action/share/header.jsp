@@ -5,9 +5,9 @@
 	<div class="page-header-inner ">
 		<!-- logo start -->
 		<div class="page-logo">
-			<a href="index.html"> <img alt=""
-				src="../../template/admin/assets/img/logo.png"> <span
-				class="logo-default">Astronomy</span>
+			<a href="/admin/dashboard"> <img class="text-center" alt=""
+				src="../../template/admin/assets/img/astronomy-logo.png" width="65px" height="auto"> <span
+				class="logo-default">Team 4</span>
 			</a>
 		</div>
 		<!-- logo end -->

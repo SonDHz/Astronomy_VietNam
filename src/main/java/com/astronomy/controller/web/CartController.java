@@ -106,7 +106,7 @@ public class CartController {
 		if(orderService.addOrders(dto) != null) {
 			HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>)session.getAttribute(SESSION_CART.name());
 			orderDetailService.addOrderDetail(cart);
-		}
+		} 
 		session.removeAttribute(SESSION_CART.name());
 		session.removeAttribute(SESSION_TOTAL_QUANTITY.name());
 		session.removeAttribute(SESSION_TOTAL_PRICES.name());

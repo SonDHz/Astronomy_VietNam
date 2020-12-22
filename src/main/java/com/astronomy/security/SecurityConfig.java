@@ -37,10 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		http.csrf().disable().authorizeRequests()//
+		http.cors().disable().authorizeRequests()//
 				.antMatchers("/", "/shoppingTools/**", "/template/**", "/login", "/logout"//
 						, "/page/**", "/getImageView", "/productViewDetail/**", "/registration", "/contact", "/getImageViewPost"
-						, "/postViewDetail/**","/getImageViewPostDashboard")
+						, "/postViewDetail/**","/getImageViewPostDashboard", "/about_us")
 				.permitAll()//
 				.antMatchers("/admin/**").hasAnyAuthority("ADMIN")//
 				.antMatchers("/user/**").hasAnyAuthority("USER")//
@@ -52,8 +52,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.passwordParameter("j_password")//
 				.successHandler(successHander)//
 				.failureUrl("/login?error")//
-				.and()//
-				.exceptionHandling()//
 				.and().exceptionHandling().accessDeniedPage("/login");//
 	}
 
