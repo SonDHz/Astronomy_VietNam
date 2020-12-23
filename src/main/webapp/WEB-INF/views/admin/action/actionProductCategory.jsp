@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="productcategoryURL" value="/admin/productCategoryView"/>
-<c:url var="productcategoryAPI" value="/api/ProductCategory"/> 
+<c:url var="productcategoryURL" value="/admin/productCategoryView" />
+<c:url var="productcategoryAPI" value="/api/ProductCategory" />
 <!DOCTYPE html>
 <html>
 <!-- BEGIN HEAD -->
@@ -87,8 +87,7 @@
 				<div class="page-content">
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
-							<div class=" pull-left">
-							</div>
+							<div class=" pull-left"></div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
 								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
 									href="#">Home</a>&nbsp;</li>
@@ -118,34 +117,39 @@
 									</ul>
 								</div>
 								<div class="card-body" id="bar-parent2">
-									<form:form  id="formSubmit" role="form" class="form-horizontal" onsubmit="return validateForm()" modelAttribute="model">
+									<form:form id="formSubmit" role="form" class="form-horizontal"
+										onsubmit="return validateForm()" modelAttribute="model">
 										<div class="form-body">
 											<div class="form-group row  margin-top-20">
-											<form:hidden path="id" class="form-control"
-															name="id" id="id" value="${model.id}" />
-												<label class="control-label col-md-3">Tên loại sản phẩm:
-												</label>
+												<form:hidden path="id" class="form-control" name="id"
+													id="id" value="${model.id}" />
+												<label class="control-label col-md-3">Tên loại sản
+													phẩm: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i> 
+														<i class="fa"></i>
 														<form:input path="name" type="text" class="form-control"
-															name="name" id="name" value="${model.name}" pattern="\S+" title="Three letter country code" placeholder="Enter name"/>
+															name="name" id="name" value="${model.name}"
+															placeholder="Tên loại sản phẩm" />
+														<div id='open_ender_output'></div>
 													</div>
 												</div>
 											</div>
 										</div>
-										<form:hidden path="id" id="idProductCategory"/>
+										<form:hidden path="id" id="idProductCategory" />
 										<div class="form-group">
 											<div class="offset-md-3 col-md-9">
-											<c:if test="${not empty model.id}">
-												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Cập nhật loại sản phẩm</button>
-											</c:if>
-											<c:if test="${empty model.id}">
-												<button type="button" class="btn btn-info" id="btnAddOrUpdate">Thêm loại sản phẩm</button>
-											</c:if>
+												<c:if test="${not empty model.id}">
+													<button type="button" class="btn btn-info"
+														id="btnAddOrUpdate">Cập nhật loại sản phẩm</button>
+												</c:if>
+												<c:if test="${empty model.id}">
+													<button type="button" class="btn btn-info"
+														id="btnAddOrUpdate">Thêm loại sản phẩm</button>
+												</c:if>
 											</div>
 										</div>
-									</form:form> 
+									</form:form>
 								</div>
 							</div>
 						</div>
@@ -232,51 +236,74 @@
 
 	<%@include file="share/js.jsp"%>
 	<script>
-		$('#btnAddOrUpdate').click(function (event){
-			event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
-			var data = {};
-			var formData = $('#formSubmit').serializeArray();
-			$.each(formData, function (i, v){
-				data["" + v.name + ""] = v.value;
-			});
-			var id = $('#idProductCategory').val();
-			if(id == ""){
-				add(data);
-			}else{
-				update(data);
-			}
-		});
-		
-		function add(data){
-			$.ajax({
-				url: '${productcategoryAPI}',
-				type: 'POST',
-				contentType: 'application/json',
-				data: JSON.stringify(data),
-				dataType: 'json',
-				success: function(result){
-					 window.location.href = "${productcategoryURL}?id="+result.id+"&message=insert_success";   
-				},
-				error: function(error){
-					 window.location.href = "${productcategoryURL}?message=error_system";  
-				}
- 			});
+		$('#btnAddOrUpdate')
+				.click(
+						function(event) {
+							event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
+							var data = {};
+							var check = true;
+
+							var openEnderContent = '&lt;p&gt;&lt;span style="color: #ff0000;"&gt;Hãy nhập tên loại sản phẩm!&lt;/span&gt;&lt;/p&gt;';
+
+							var formData = $('#formSubmit').serializeArray();
+							$.each(formData, function(i, v) {
+								if (v.name == "name") {
+									if (v.value == "") {
+										$('#open_ender_output').html(
+										// create an element where the html content as the string
+										$('<div/>', {
+											html : openEnderContent
+										// get text content from element for decoded text  
+										}).text())
+
+										check = false;
+									}
+								}
+								data["" + v.name + ""] = v.value;
+							});
+							var id = $('#idProductCategory').val();
+							if (check) {
+								if (id == "") {
+									add(data);
+								} else {
+									update(data);
+								}
+							}
+						});
+
+		function add(data) {
+			$
+					.ajax({
+						url : '${productcategoryAPI}',
+						type : 'POST',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						dataType : 'json',
+						success : function(result) {
+							window.location.href = "${productcategoryURL}?id="
+									+ result.id + "&message=insert_success";
+						},
+						error : function(error) {
+							window.location.href = "${productcategoryURL}?message=error_system";
+						}
+					});
 		}
-		
-		function update(data){
-			$.ajax({
-				url: '${productcategoryAPI}',
-				type: 'PUT',
-				contentType: 'application/json',
-				data: JSON.stringify(data),
-				dataType: 'json',
-				success: function(result){
-					window.location.href = "${productcategoryURL}?"; 
-				},
-				error: function(error){
-					window.location.href = "${productcategoryURL}?message=error_system"; 
-				}
- 			});
+
+		function update(data) {
+			$
+					.ajax({
+						url : '${productcategoryAPI}',
+						type : 'PUT',
+						contentType : 'application/json',
+						data : JSON.stringify(data),
+						dataType : 'json',
+						success : function(result) {
+							window.location.href = "${productcategoryURL}?";
+						},
+						error : function(error) {
+							window.location.href = "${productcategoryURL}?message=error_system";
+						}
+					});
 		}
 	</script>
 	<!-- end js include path -->

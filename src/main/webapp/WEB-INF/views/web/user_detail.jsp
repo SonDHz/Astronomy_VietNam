@@ -20,7 +20,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>Thiên Văn Việt</title>
+<title>Thông tin hóa đơn</title>
 <!-- css -->
 <style>
 .fa fa-user-circle fa-2x {

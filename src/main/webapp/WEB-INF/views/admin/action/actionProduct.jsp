@@ -118,8 +118,9 @@
 									</ul>
 								</div>
 								<div class="card-body" id="bar-parent2">
-									<form:form id="formSubmit" role="form" class="form-horizontal" action="/api/Product"
-										modelAttribute="model" method="post" enctype="multipart/form-data">
+									<form:form id="formSubmit" role="form" class="form-horizontal"
+										action="/api/Product" modelAttribute="model" method="post"
+										enctype="multipart/form-data">
 										<div class="form-body">
 											<div class="form-group row  margin-top-20">
 												<form:hidden path="id" class="form-control" name="id"
@@ -130,9 +131,11 @@
 												</label>
 												<div class="col-md-8">
 													<form:select path="productCategory" id="productCategory">
-														<form:option value="" label="-- Chọn loại sản phẩm --"/>
+														<option value="" label="-- Chọn loại sản phẩm --" />
 														<form:options items="${productCategories}" />
 													</form:select>
+													<p id="de1" style="color: red"></p>
+
 												</div>
 											</div>
 											<div class="form-group row">
@@ -140,9 +143,9 @@
 												</label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i>
-														<input type="text" class="form-control" required
+														<i class="fa"></i> <input type="text" class="form-control"
 															name="name" id="name" value="${model.name}" />
+														<p id="demo" style="color: red"></p>
 													</div>
 												</div>
 											</div>
@@ -150,10 +153,15 @@
 												<label class="control-label col-md-3">Nhà sản xuất:
 												</label>
 												<div class="col-md-8">
-													<form:select path="manufacturer" id="manufacturer">
-														<form:option value="" label="-- Chọn nhà cung cấp --"/>
+													<form:select path="manufacturer" id="manufacturer"
+														required=""
+														oninvalid="this.setCustomValidity('Hãy chọn nhà sản xuất!')"
+														oninput="setCustomValidity('')">
+														<option value="" label="-- Chọn nhà cung cấp --" />
 														<form:options items="${manufacturers}" />
 													</form:select>
+													<p id="de2" style="color: red"></p>
+
 												</div>
 											</div>
 											<div class="form-group row">
@@ -161,20 +169,29 @@
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<form:textarea path="shortDecription" type="text"
-															class="form-control" name="shortDecription"
-															id="shortDecription" value="${model.shortDecription}" />
+														<%-- <input type="text" class="form-control"
+															name="shortDecription" id="shortDecription"
+															value="${model.shortDecription}" /> --%>
+
+														<textarea class="form-control" name="shortDecription"
+															id="shortDecription">${model.shortDecription}</textarea>
+														<p id="demo2" style="color: red"></p>
 													</div>
 												</div>
 											</div>
 											<div class="form-group row">
-												<label class="control-label col-md-3">Giới thiệu sản phẩm: </label>
+												<label class="control-label col-md-3">Giới thiệu sản
+													phẩm: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
 														<i class="fa"></i>
-														<form:textarea path="introduce" type="text"
-															class="form-control" name="shortDecription"
-															id="shortDecription" value="${model.introduce}" />
+														<%--  <input type="text" class="form-control"
+															name="shortDecription" id="shortDecription"
+															value="${model.introduce}" /> --%>
+
+														<textarea class="form-control" name="introduce"
+															id="introduce">${model.introduce}</textarea>
+														<p id="demo3" style="color: red"></p>
 													</div>
 												</div>
 											</div>
@@ -182,9 +199,9 @@
 												<label class="control-label col-md-3">Trạng thái: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i>
-														<form:input path="status" type="text" class="form-control"
+														<i class="fa"></i> <input type="text" class="form-control"
 															name="status" id="status" value="${model.status}" />
+														<p id="demo4" style="color: red"></p>
 													</div>
 												</div>
 											</div>
@@ -192,8 +209,9 @@
 												<label class="control-label col-md-3">Hình ảnh: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i>
-														<input type="file" id="image" class="form-control" name="img" />
+														<i class="fa"></i> <input type="file" id="image"
+															class="form-control" name="img" />
+														<p id="demo7" style="color: red"></p>
 													</div>
 												</div>
 											</div>
@@ -201,10 +219,10 @@
 												<label class="control-label col-md-3">Giá: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i>
-														<form:input path="price" type="number"
+														<i class="fa"></i> <input type="number"
 															class="form-control" name="price" id="price"
 															value="${model.price}" />
+														<p id="demo5" style="color: red"></p>
 													</div>
 												</div>
 											</div>
@@ -212,10 +230,10 @@
 												<label class="control-label col-md-3">Số lượng: </label>
 												<div class="col-md-4">
 													<div class="input-icon right">
-														<i class="fa"></i>
-														<form:input path="quantity" type="number"
+														<i class="fa"></i> <input type="number"
 															class="form-control" name="quantity" id="quantity"
 															value="${model.quantity}" />
+														<p id="demo6" style="color: red"></p>
 													</div>
 												</div>
 											</div>
@@ -228,8 +246,9 @@
 														id="btnAddOrUpdate">Cập nhật sản phẩm</button>
 												</c:if>
 												<c:if test="${empty model.id}">
-													<button type="submit" class="btn btn-info"
-														id="btnAddOrUpdate">Thêm sản phẩm</button>
+													<button onclick="myFunction()" type="button"
+														class="btn btn-info" id="btnAddOrUpdate">Thêm sản
+														phẩm</button>
 												</c:if>
 											</div>
 										</div>
@@ -319,6 +338,126 @@
 	<!-- start js include path -->
 	<%@include file="share/js.jsp"%>
 	<script>
+		function myFunction() {
+			var x, text;
+			var y, text;
+			var z, text;
+			var a, text;
+			var b, text;
+			var c, text;
+			var d, text;
+			var q, text;
+			var w, text;
+			var chk = 0;
+			q = document.getElementById("productCategory").value;
+
+			if (q == "") {
+				texta = "Hãy chọn tên loại sản phẩm!";
+			} else {
+				texta = "";
+				chk++;
+			}
+			document.getElementById("de1").innerHTML = texta;
+
+			w = document.getElementById("manufacturer").value;
+
+			if (w == "") {
+				textb = "Hãy chọn tên nhà sản xuất!";
+			} else {
+				textb = "";
+				chk++;
+			}
+			document.getElementById("de2").innerHTML = textb;
+
+			/////////////////////////////////////////////////////////x1
+
+			x = document.getElementById("name").value;
+
+			if (x == "") {
+				text = "Hãy nhập tên sản phẩm!";
+
+			} else {
+				text = "";
+				chk++;
+			}
+			document.getElementById("demo").innerHTML = text;
+
+			/////////////////////////////////////////////////////////y2
+			y = document.getElementById("shortDecription").value;
+
+			if (y == "") {
+				text2 = "Hãy nhập mô tả!";
+			} else {
+				text2 = "";
+
+				chk++;
+			}
+			document.getElementById("demo2").innerHTML = text2;
+			/////////////////////////////////////////////////////////a3
+			a = document.getElementById("introduce").value;
+
+			if (a == "") {
+				text3 = "Hãy nhập giới thiệu sản phẩm!";
+			} else {
+				text3 = "";
+
+				chk++;
+			}
+			document.getElementById("demo3").innerHTML = text3;
+			/////////////////////////////////////////////////////////b4
+			b = document.getElementById("status").value;
+
+			if (b == "") {
+				text4 = "Hãy nhập trạng thái!";
+			} else {
+				text4 = "";
+
+				chk++;
+			}
+			document.getElementById("demo4").innerHTML = text4;
+			/////////////////////////////////////////////////////////c5
+			c = document.getElementById("price").value;
+
+			if (c == "") {
+				text5 = "Hãy nhập giá!";
+			} else {
+				text5 = "";
+
+				chk++;
+			}
+			document.getElementById("demo5").innerHTML = text5;
+			/////////////////////////////////////////////////////////d6
+			d = document.getElementById("quantity").value;
+
+			if (d == "") {
+				text6 = "Hãy nhập số lượng!";
+			} else {
+				text6 = "";
+
+				chk++;
+			}
+			document.getElementById("demo6").innerHTML = text6;
+			/////////////////////////////////////////////////////////z7
+
+			z = document.getElementById("image").value;
+
+			if (z == "") {
+				text7 = "Hãy chọn hình ảnh!";
+			} else {
+				text7 = "";
+
+				chk++;
+			}
+			document.getElementById("demo7").innerHTML = text7;
+
+			if (chk >= 9) {
+				$('form').submit();
+
+			}
+		}
+	</script>
+
+	<!-- <script>
 /* 		$('#btnAddOrUpdate').click(function(event) {
 			event.preventDefault(); //có nhiệm vụ nhận biết ta submit vào url của api nếu không có nó sẽ mặc định ta submit vào url đang đứng
 			var data = {};
@@ -402,7 +541,7 @@
 	            }
 			});
 		}   */
-	</script>
+	</script> -->
 	<!-- end js include path -->
 </body>
 </html>

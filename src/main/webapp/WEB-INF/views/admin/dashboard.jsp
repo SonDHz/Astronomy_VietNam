@@ -99,9 +99,11 @@
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-purple">
 							<h3 class="text-white box-title">
-								Số lượng hóa đơn <span class="pull-right">${order}</span>
+								Số lượng hóa đơn
+								 <span class="pull-right">${order}</span>
 							</h3>
-							<i class="fa fa-facebook"></i>
+							<img  alt=""
+				src="../../template/admin/assets/img/pay.png" width="40px" height="auto">
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">

@@ -285,7 +285,7 @@
 								class="fa fa-table"></i>&nbsp; <strong>Hình ảnh:</strong></label><br>
 							&nbsp;&nbsp;&nbsp;&nbsp; <input type="hidden" id="id" />
 							<c:url var="display" value='getImage'>
-								<c:param name="image" value="#id" />
+								<c:param name="image" id ="image" value="#id" />
 							</c:url>
 							<img alt="" id="image" src="${display}" width="170px"
 								height="90px"> <br> <label data-error="wrong"
