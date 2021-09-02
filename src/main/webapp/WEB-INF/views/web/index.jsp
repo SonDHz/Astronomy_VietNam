@@ -131,7 +131,7 @@
 												<c:url var="display" value='/getImageViewPost'>
 													<c:param name="img" value="${post.thumbnail}" />
 												</c:url>
-												<img alt="" src="${display}" width="700px" height="390px">
+												<img alt="" src="${display}" width="700px" height="490px">
 											</div>
 											<div class="post-details">
 												<h4>
@@ -143,7 +143,6 @@
 												<p>${post.shortDescription  }</p>
 											</div>
 										</div>
-
 									</div>
 								</c:forEach>
 							</form:form>

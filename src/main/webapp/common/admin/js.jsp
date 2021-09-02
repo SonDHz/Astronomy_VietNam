@@ -35,7 +35,10 @@
 <!-- end js include path -->
 <script src="<c:url value='../template/admin/sweetalert/sweetalert2.min.js' />" rel="stylesheet"></script>
 
-
+<!-- Chart js -->
+<script src="../template/admin/assets/plugins/chart-js/Chart.bundle.js"></script>
+<script src="../template/admin/assets/plugins/chart-js/utils.js"></script>
+<script src="../template/admin/assets/js/pages/chart/chartjs/home-data3.js"></script>
 
 
 

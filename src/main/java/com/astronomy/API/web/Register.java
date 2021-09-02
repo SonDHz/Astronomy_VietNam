@@ -1,5 +1,6 @@
 package com.astronomy.API.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,8 +14,9 @@ import com.astronomy.dto.UserCreateModifyDTO;
 @RequestMapping(value = "api")
 public class Register {
 	
-private IUserService service;
-	
+	@Autowired	
+	private IUserService service;
+
 	@PostMapping(value = "/registration")
 	public String registrationController(@RequestBody UserCreateModifyDTO dto, Model model) {
 		model.addAttribute("userDTO", dto);

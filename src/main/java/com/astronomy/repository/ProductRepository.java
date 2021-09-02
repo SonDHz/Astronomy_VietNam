@@ -25,5 +25,6 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 			nativeQuery = true)
 	public List<ProductEntity> getProductSearch(String keyword);
 	
-//	List<ProductEntity> findByNameIgnoreCase(String lastname);
+	@Query(value = "SELECT SUM(PRICE) FROM PRODUCT WHERE IS NOT NULL", nativeQuery = true)
+	public double getSumPriceProduct();
 }

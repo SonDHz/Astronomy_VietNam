@@ -64,14 +64,10 @@ public class RoleEntity {
 	@Column(name = "code")
 	private String code;
 	
-	
-	
 	public RoleEntity(String code) {
 		super();
 		this.code = code;
 	}
-
-
 
 	@ManyToMany(mappedBy = "roles")
     private List<UserEntity> users = new ArrayList<>();

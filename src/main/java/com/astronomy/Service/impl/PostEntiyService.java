@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.astronomy.Service.IPostService;
 import com.astronomy.dto.PostCreateModifyDTO;
 import com.astronomy.entity.PostEntity;
-import com.astronomy.entity.ProductEntity;
 import com.astronomy.mapper.PostMapper;
 import com.astronomy.repository.PostRepository;
 
@@ -69,7 +68,6 @@ public class PostEntiyService implements IPostService{
 	
 	public int countPost() {
 		return postRepository.countPost();
-
 	}
 	
 }

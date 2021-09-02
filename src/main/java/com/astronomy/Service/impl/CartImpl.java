@@ -26,6 +26,7 @@ public class CartImpl implements ICartService {
 		CartDTO itemCart = null;
 		ProductCreateModifyDTO product = mapper.toProductResponserDTO(productService.findByIdEntity(id));
 		
+		//containsKey will check id in the cart exist or not
 		boolean isExistProduct = product != null && cart.containsKey(id);
 		
 		if(isExistProduct) {

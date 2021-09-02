@@ -99,8 +99,7 @@
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 						<div class="analysis-box m-b-0 bg-b-purple">
 							<h3 class="text-white box-title">
-								Số lượng hóa đơn
-								 <span class="pull-right">${order}</span>
+								Số lượng hóa đơn <span class="pull-right">${order}</span>
 							</h3>
 							<i class="fa fa-credit-card text-white fa fa-2x"></i>
 						</div>
@@ -118,7 +117,7 @@
 							<h3 class="text-white box-title">
 								Số lượng tài khoản<span class="pull-right">${accout}</span>
 							</h3>
-						<i class="fa fa-users text-white fa fa-2x"></i>
+							<i class="fa fa-users text-white fa fa-2x"></i>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -132,11 +131,50 @@
 				</div>
 				<!-- end widget -->
 				<!-- chart start -->
-
+				<div class="row">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+						<div class="card card-box">
+							<div class="card-head">
+								<header>Income/Expense Report </header>
+								<div class="tools">
+									<a class="fa fa-repeat btn-color box-refresh"
+										href="javascript:;"></a> <a
+										class="t-collapse btn-color fa fa-chevron-down"
+										href="javascript:;"></a> <a
+										class="t-close btn-color fa fa-times" href="javascript:;"></a>
+								</div>
+							</div>
+							<div class="card-body no-padding height-9">
+								<div class="row">
+									<canvas id="bar-chart"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+						<div class="card card-box">
+							<div class="card-head">
+								<header>Income/Expense Report</header>
+								<div class="tools">
+									<a class="fa fa-repeat btn-color box-refresh"
+										href="javascript:;"></a> <a
+										class="t-collapse btn-color fa fa-chevron-down"
+										href="javascript:;"></a> <a
+										class="t-close btn-color fa fa-times" href="javascript:;"></a>
+								</div>
+							</div>
+							<div class="card-body no-padding height-9">
+								<div class="row">
+									<canvas id="myChart"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<!-- Chart end -->
 				<!-- start course list -->
 
-				<div>
+				<%-- <div>
 					<form:form id="formSubmit" role="form" class="row ">
 						<c:forEach var="postdashboard" items="${entity}">
 							<div class="col-lg-3 col-md-6 col-12 col-sm-6">
@@ -166,7 +204,7 @@
 							</div>
 						</c:forEach>
 					</form:form>
-				</div>
+				</div> --%>
 				<!-- end page content -->
 				<!-- start chat sidebar -->
 				<div class="chat-sidebar-container" data-close-on-body-click="false">

@@ -18,15 +18,15 @@ public class ProductCategoryService implements IProductCategoryService {
 
 	@Autowired
 	private ProductCategoryRepository productCategoryRepository;
-	
+
 	@Autowired
-	private ProductCategoryMapper 	productCategoryMapper;
-	
+	private ProductCategoryMapper productCategoryMapper;
+
 	@Override
 	public List<ProductCategoryEntity> getAll() {
 		return productCategoryRepository.findAll();
 	}
-	
+
 	/*
 	 * @Override public ProductCategoryCreateModifyDTO
 	 * createModify(ProductCategoryCreateModifyDTO productCategorydto) {
@@ -39,7 +39,7 @@ public class ProductCategoryService implements IProductCategoryService {
 
 	@Override
 	public void delete(long[] ids) {
-		for (long id: ids) {
+		for (long id : ids) {
 			productCategoryRepository.deleteById(id);
 		}
 	}
@@ -54,7 +54,7 @@ public class ProductCategoryService implements IProductCategoryService {
 	public Map<Long, String> findAll() {
 		Map<Long, String> result = new HashMap<>();
 		List<ProductCategoryEntity> entities = productCategoryRepository.findAll();
-		for (ProductCategoryEntity item: entities) {
+		for (ProductCategoryEntity item : entities) {
 			result.put(item.getId(), item.getName());
 		}
 		return result;
@@ -66,4 +66,3 @@ public class ProductCategoryService implements IProductCategoryService {
 	}
 
 }
-

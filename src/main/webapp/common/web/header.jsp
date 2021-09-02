@@ -13,7 +13,7 @@
 	<div class="container box_1170">
 		<div class="row align-items-center justify-content-between">
 			<div class="col-lg-6 col-md-6 col-sm-6">
-				<a href="#">
+				<a href="/">
 					<p class="logo">Astronomy</p>
 				</a>
 			</div>

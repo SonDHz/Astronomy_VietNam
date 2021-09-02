@@ -14,7 +14,6 @@ public class PostMapper {
 		CategoryEntity categoryEntity = CategoryEntity.builder()
 				.id(dto.getCategory())
 				.build();
-//		System.out.println("Message: " + dto + " category===========> " + categoryEntity);
 		return PostEntity.builder()
 				.id(dto.getId())
 				.title(dto.getTitle())
@@ -28,7 +27,6 @@ public class PostMapper {
 	}
 
 	public PostCreateModifyDTO toPostCreateModifyDTO(PostEntity post) {
-		System.out.println("post dto" + post);
 		return PostCreateModifyDTO.builder()
 				.id(post.getId())
 				.title(post.getTitle())

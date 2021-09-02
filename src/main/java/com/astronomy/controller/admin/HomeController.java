@@ -3,7 +3,10 @@ package com.astronomy.controller.admin;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -16,14 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.astronomy.Service.IPostService;
-import com.astronomy.Service.IProductService;
-import com.astronomy.entity.PostEntity;
-
 import com.astronomy.Service.IOrderService;
 import com.astronomy.Service.IPostService;
 import com.astronomy.Service.IProductService;
 import com.astronomy.Service.IUserService;
+import com.astronomy.entity.PostEntity;
 
 
 @Controller(value = "HomeControllerOfAdmin")
@@ -58,7 +58,13 @@ public class HomeController {
 	
 	@GetMapping("admin/dashboard")
 	public String postdashboard(Model model) {
-		
+		Map<String, Integer> surveymap = new LinkedHashMap<>();
+		surveymap.put("java", 50);
+		surveymap.put("Go Lang", 20);
+		surveymap.put("C#", 15);
+		surveymap.put("React JS", 10);
+		surveymap.put("C++", 5);
+		model.addAttribute("surveymap", surveymap);
 		return "admin/dashboard";
 	}
 	

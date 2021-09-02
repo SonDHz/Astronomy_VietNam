@@ -77,4 +77,11 @@ public class ProductService implements IProductService {
 		return productRepository.getProductSearch(name);
 	}
 
+	@Override
+	public Double labelForChart() {
+		Double label;
+		label = productRepository.getSumPriceProduct();		
+		return label;
+	}
+
 }

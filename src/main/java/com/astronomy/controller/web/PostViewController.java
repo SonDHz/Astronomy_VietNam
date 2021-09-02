@@ -56,7 +56,7 @@ public class PostViewController {
 		model.addAttribute("entityramdom", post);
 		LocalDate ht = LocalDate.now();
 		model.addAttribute("ht", ht);
-		Page<PostEntity> page = service.getPostPaging(pageNo, 12);
+		Page<PostEntity> page = service.getPostPaging(pageNo, 6);
 		List<PostEntity> list = page.getContent();
 		model.addAttribute("currentPage", pageNo);
 		model.addAttribute("totalPages", page.getTotalPages());
@@ -68,7 +68,6 @@ public class PostViewController {
 	@GetMapping("/postViewDetail")
 	public String action(Model model, @RequestParam(value = "id", required = false) Long id) {
 		PostCreateModifyDTO dto = new PostCreateModifyDTO();
-		
 		List<ProductCategoryEntity> pro = productCategoryService.getAll();
 		model.addAttribute("productCategorySession", pro);
 		if (id != null) {

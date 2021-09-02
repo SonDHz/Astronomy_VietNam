@@ -29,7 +29,7 @@ public class CategoryEntityService implements CategoryService{
 	public List<CategoryEntity> getAll() {
 		return categoryRepository.getAll();
 	}
-		
+	
 	@Override
 	public void delete(long[] ids) {
 		for(long item: ids) {
